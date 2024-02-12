@@ -20,6 +20,7 @@
 
 #include "vgui_TeamFortressViewport.h"
 
+#include "discord/CDiscord.h"
 
 extern bool g_iAlive;
 
@@ -917,6 +918,8 @@ void InitInput()
 	KB_Init();
 	// Initialize view system
 	V_Init();
+
+	g_Discord.RPCStartUp();
 }
 
 void ShutdownInput()
@@ -930,10 +933,11 @@ void CL_UnloadParticleMan();
 
 void DLLEXPORT HUD_Shutdown()
 {
+	g_Discord.RPCShutDown();
+
 	gHUD.Shutdown();
 
 	ShutdownInput();
-
 
 	g_Client.Shutdown();
 

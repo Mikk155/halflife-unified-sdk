@@ -40,6 +40,8 @@
 
 #include "particleman.h"
 
+#include "discord/CDiscord.h"
+
 extern bool g_ResetMousePosition;
 
 void CL_LoadParticleMan();
@@ -208,6 +210,8 @@ void DLLEXPORT HUD_Frame(double time)
 	GetClientVoiceMgr()->Frame(time);
 
 	g_Client.RunFrame();
+
+	g_Discord.RPCStateUpdate();
 }
 
 /**

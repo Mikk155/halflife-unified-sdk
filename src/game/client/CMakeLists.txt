@@ -58,11 +58,11 @@ target_include_directories(client PRIVATE
 	../../engine
 	../../../utils/vgui/include
 	${OPENGL_INCLUDE_DIR})
-	
+
 target_compile_definitions(client PRIVATE
 	CLIENT_DLL
 	HL_DLL)
-	
+
 target_link_libraries(client PRIVATE
 	vgui
 	$<$<PLATFORM_ID:Windows>:delayimp>
@@ -106,7 +106,12 @@ target_sources(client PRIVATE
 	player_info.h
 	view.cpp
 	view.h
-	
+
+	discord/CDiscord.cpp
+	discord/CDiscord.h
+	discord/discord_register.h
+	discord/discord_rpc.h
+
 	hl/hl_baseentity.cpp
 	hl/hl_events.cpp
 	hl/hl_objects.cpp
@@ -117,10 +122,10 @@ target_sources(client PRIVATE
 	input/inputw32.cpp
 	input/in_camera.cpp
 	input/kbutton.h
-	
+
 	networking/ClientUserMessages.cpp
 	networking/ClientUserMessages.h
-	
+
 	particleman/CBaseParticle.cpp
 	particleman/CBaseParticle.h
 	particleman/CFrustum.cpp
@@ -131,7 +136,7 @@ target_sources(client PRIVATE
 	particleman/IParticleMan_Active.h
 	particleman/particleman.h
 	particleman/particleman_internal.h
-	
+
 	prediction/ClientPredictionSystem.cpp
 	prediction/ClientPredictionSystem.h
 
@@ -141,7 +146,7 @@ target_sources(client PRIVATE
 	rendering/StudioModelRenderer.h
 	rendering/tri.cpp
 	rendering/tri.h
-	
+
 	sound/ClientSoundReplacementSystem.h
 	sound/DummySoundSystem.h
 	sound/GameSoundSystem.cpp
@@ -199,7 +204,7 @@ target_sources(client PRIVATE
 	ui/hud/status_icons.cpp
 	ui/hud/text_message.cpp
 	ui/hud/train.cpp
-	
+
 	ui/vgui/CampaignSelectSystem.cpp
 	ui/vgui/CampaignSelectSystem.h
 	ui/vgui/vgui_CampaignSelect.cpp
@@ -241,7 +246,7 @@ target_sources(client PRIVATE
 	../server/extdll.h
 	../server/entities/cbase.h
 	../server/entities/NPCs/basemonster.h
-	
+
 	../../common/beamdef.h
 	../../common/cl_entity.h
 	../../common/ClassData.h
