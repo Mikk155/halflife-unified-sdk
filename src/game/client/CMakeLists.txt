@@ -3,6 +3,7 @@ include(../shared/game_shared.cmake)
 if (UNIX)
 	# Copy libraries provided by the game to the build directory so we can point the compiler and linker to the files.
 	configure_file(../../../utils/vgui/lib/linux/vgui${CMAKE_SHARED_LIBRARY_SUFFIX} ${CMAKE_CURRENT_BINARY_DIR}/vgui${CMAKE_SHARED_LIBRARY_SUFFIX} COPYONLY)
+	configure_file(../../../external/discord/lib/discord-rpc${CMAKE_SHARED_LIBRARY_SUFFIX} ${CMAKE_CURRENT_BINARY_DIR}/discord-rpc${CMAKE_SHARED_LIBRARY_SUFFIX} COPYONLY)
 	configure_file(../../../external/SDL2/lib/libSDL2-2.0${CMAKE_SHARED_LIBRARY_SUFFIX}.0 ${CMAKE_CURRENT_BINARY_DIR}/libSDL2-2.0${CMAKE_SHARED_LIBRARY_SUFFIX}.0 COPYONLY)
 endif()
 
@@ -17,6 +18,14 @@ else()
 endif()
 
 target_include_directories(vgui INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/../../../utils/vgui/include)
+
+add_library(discord SHARED IMPORTED)
+
+if (WIN32)
+	set_target_properties(discord PROPERTIES IMPORTED_IMPLIB "${CMAKE_CURRENT_SOURCE_DIR}/../../../external/discord/lib/discord-rpc.lib")
+else()
+	set_target_properties(discord PROPERTIES IMPORTED_LOCATION "${CMAKE_CURRENT_BINARY_DIR}/discord-rpc${CMAKE_SHARED_LIBRARY_SUFFIX}")
+endif()
 
 add_library(SDL2 SHARED IMPORTED)
 
@@ -67,6 +76,7 @@ target_link_libraries(client PRIVATE
 	vgui
 	$<$<PLATFORM_ID:Windows>:delayimp>
 	$<$<PLATFORM_ID:Windows>:wsock32>
+	discord
 	SDL2
 	OpenAL::OpenAL
 	libnyquist)
@@ -78,6 +88,7 @@ endif()
 
 target_link_options(client PRIVATE
 	$<$<PLATFORM_ID:Windows>:/DELAYLOAD:openal-hlu.dll>
+	$<$<PLATFORM_ID:Windows>:/DELAYLOAD:discord-rpc.dll>
 	$<$<PLATFORM_ID:Darwin>:-framework Carbon>)
 
 target_sources(client PRIVATE

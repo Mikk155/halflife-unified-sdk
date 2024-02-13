@@ -51,6 +51,10 @@ FARPROC WINAPI DelayHook(
 		{
 			return DelayLoad_LoadGameLib("cl_dlls/openal-hlu.dll");
 		}
+		else if (strcmp(pdli->szDll, "discord-rpc.dll") == 0)
+		{
+			return DelayLoad_LoadGameLib("cl_dlls/discord-rpc.dll");
+		}
 	}
 
 	return nullptr;
