@@ -48,6 +48,10 @@ extern cvar_t sv_entityinfo_eager;
 
 extern cvar_t sv_schedule_debug;
 
+extern cvar_t cl_discord_rpc_image;
+extern cvar_t cl_discord_rpc_header;
+extern cvar_t cl_discord_rpc_description;
+
 // Engine Cvars
 inline cvar_t* g_psv_gravity;
 inline cvar_t* g_psv_aim;
