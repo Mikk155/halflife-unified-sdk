@@ -38,6 +38,8 @@
 
 #include "cbase.h"
 
+#include "..\..\discord\CDiscord.h"
+
 class BufferReader;
 
 #define DHN_DRAWZERO 1
@@ -842,6 +844,7 @@ public:
 	void MsgFunc_Concuss(const char* pszName, BufferReader& reader);
 	void MsgFunc_Weapons(const char* pszName, BufferReader& reader);
 	void MsgFunc_Fog(const char* pszName, BufferReader& reader);
+	void MsgFunc_DiscordRPC(const char* pszName, BufferReader& reader);
 
 	// Screen information
 	SCREENINFO m_scrinfo;

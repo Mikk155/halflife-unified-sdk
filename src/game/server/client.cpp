@@ -42,6 +42,8 @@
 
 #include "ctf/ctf_goals.h"
 
+#include "discord.h"
+
 unsigned int g_ulFrameCount;
 
 /**
@@ -1194,6 +1196,8 @@ void StartFrame()
 
 	if (g_pGameRules)
 		g_pGameRules->Think();
+
+	g_DiscordServer.SendPresence();
 
 	if (g_fGameOver)
 		return;
