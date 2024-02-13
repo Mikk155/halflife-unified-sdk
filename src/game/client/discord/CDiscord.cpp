@@ -66,8 +66,8 @@ void CDiscord :: RPCStateUpdate()
 		g_Discord.m_szDescription = "m_szDescription";
 	}
 
-	discordPresence.details = g_Discord.m_szDescription;
-	discordPresence.state = g_Discord.m_szHeader;
+	discordPresence.details = g_Discord.m_szHeader;
+	discordPresence.state = g_Discord.m_szDescription;
 	discordPresence.largeImageKey = g_Discord.m_szImage;
 	Discord_UpdatePresence(&discordPresence);
 }
