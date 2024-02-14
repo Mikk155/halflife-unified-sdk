@@ -15,14 +15,13 @@
 
 #pragma once
 
-#include "cbase.h"
-#include "game.h"
-#include "UserMessages.h"
-
 class CDiscordServer final
 {
 public:
     void SendPresence();
+    void ClearPresence();
+    void UpdatePresence();
+    float m_flNextThink;
 };
 
 inline CDiscordServer g_DiscordServer;
