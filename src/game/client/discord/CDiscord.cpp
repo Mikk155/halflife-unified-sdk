@@ -51,17 +51,17 @@ void CDiscord :: RPCStartUp()
 
 void CDiscord :: RPCStateUpdate()
 {
-	if( !g_Discord.m_szImage )
+	if( !g_Discord.m_szImage || g_Discord.m_szImage[0] == '\0' )
 	{
 		g_Discord.m_szImage = g_Discord.m_szDefaultLogo;
 	}
 
-	if( !g_Discord.m_szHeader || !gEngfuncs.GetEntityByIndex(0) )
+	if( !g_Discord.m_szHeader || !gEngfuncs.GetEntityByIndex(0) || g_Discord.m_szHeader[0] == '\0' )
 	{
 		g_Discord.m_szHeader = "In main menu";
 	}
 
-	if( !g_Discord.m_szDescription )
+	if( !g_Discord.m_szDescription || !gEngfuncs.GetEntityByIndex(0) || g_Discord.m_szDescription[0] == '\0' )
 	{
 		g_Discord.m_szDescription = "";
 	}
