@@ -22,40 +22,6 @@ Custom health to use. If set, overrides the health set by the skill configuratio
 
 Negative values and **0** may cause malfunctions.
 
-### model_replacement_filename
-
-Path to the model replacement file. Must be a relative path starting in the mod directory. All search paths are checked.
-#### See Also
-
-* [Replacement Map System](../features/replacement-map-system.md)
-
-### sound_replacement_filename
-
-Path to the sound replacement file. Must be a relative path starting in the mod directory. All search paths are checked.
-#### See Also
-
-* [Replacement Map System](../features/replacement-map-system.md)
-
-### sentence_replacement_filename
-
-Path to the sentence replacement file. Must be a relative path starting in the mod directory. All search paths are checked.
-
-#### See Also
-
-* [Replacement Map System](../features/replacement-map-system.md)
-
-### custom_hull_min
-
-Syntax: `custom_hull_min X Y Z`
-
-Custom minimum hull size. This overrides the size specified by models and entities.
-
-### custom_hull_max
-
-Syntax: `custom_hull_max X Y Z`
-
-Custom maximum hull size. This overrides the size specified by models and entities.
-
 ### classification
 
 Syntax: `classification <name>`
@@ -159,63 +125,6 @@ Sets the sentence to play when an NPC starts following the player. Some NPCs set
 Syntax: `UnUseSentence <sentence_name>`
 
 Sets the sentence to play when an NPC stops following the player by having the player +USE them to stop. Some NPCs set a default sentence, most don't play anything by default.
-
-## Shared between all items
-
-### respawn_delay
-
-Custom respawn delay. If set, overrides the delay configured by the skill configuration.
-
-A delay of **-1** disables respawn.
-
-This allows items to respawn in singleplayer.
-
-### stay_visible_during_respawn
-
-Default: `0`
-
-If enabled the item remains visible during the respawn time. Normally items are invisible until they respawn.
-
-### flash_on_respawn
-
-Default: `1`
-
-If enabled the item will flash when it respawns.
-
-### play_pickup_sound
-
-Default: `1`
-
-If enabled the item will play its pickup sound.
-
-### fall_mode
-
-Default: `0`
-
-| Name | Value | Description |
-| --- | --- | --- |
-| Fall | 0 | Item falls to ground when it spawns |
-| Float | 1 | Item floats in the air where it spawns |
-
-Controls whether the item falls to the ground or floats when it spawns.
-
-### trigger_on_spawn
-
-Target to trigger when the item (re)spawns.
-
-### trigger_on_despawn
-
-Target to trigger when the item despawns. This happens when the player picks up the item.
-
-## Shared between all ammo types
-
-### ammo_amount
-
-If set, the player will receive this much ammo instead of the default amount.
-
-If set to **-1** the player will receive the maximum amount of ammo for this type.
-
-Can be **0** to make a fake ammo entity.
 
 ## Shared between all weapons
 

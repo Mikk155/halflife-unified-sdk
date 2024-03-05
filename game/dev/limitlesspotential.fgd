@@ -25,8 +25,8 @@
 
 @BaseClass = hullsize 
 [
-	custom_hull_min(vector) : "Custom Hull Minimum" : "" : ""
-	custom_hull_max(vector) : "Custom Hull Maximum" : "" : ""
+	custom_hull_min(vector) : "Custom Min hullsize (X Y Z)" : "" : "Custom minimum hull size. This overrides the size specified by models and entities."
+	custom_hull_max(vector) : "Custom Max hullsize (X Y Z)" : "" : "Custom maximum hull size. This overrides the size specified by models and entities."
 ]
 
 @BaseClass = rendermode 
@@ -82,17 +82,17 @@
 
 @BaseClass = CCustomModels 
 [
-	model_replacement_filename(string) : "Model replacement file" : "" : ""
+	model_replacement_filename(string) : "Model replacement file" : "" : "Path to the model replacement file. Must be a relative path starting in the mod directory. All search paths are checked, See <a href="../features/replacement-map-system.md">Replacement Map System</a>"
 ]
 
 @BaseClass = CCustomSounds 
 [
-	sound_replacement_filename(string) : "Model replacement file" : "" : ""
+	sound_replacement_filename(string) : "Sound replacement file" : "" : "Path to the Sound replacement file. Must be a relative path starting in the mod directory. All search paths are checked, See <a href="../features/replacement-map-system.md">Replacement Map System</a>"
 ]
 
 @BaseClass = CCustomSentence 
 [
-	sentence_replacement_filename(string) : "Model replacement file" : "" : ""
+	sentence_replacement_filename(string) : "Sentence replacement file" : "" : "Path to the Sentence replacement file. Must be a relative path starting in the mod directory. All search paths are checked, See <a href="../features/replacement-map-system.md">Replacement Map System</a>"
 ]
 
 @BaseClass base( CCustomModels, CCustomSounds, CCustomSentence ) = CReplacemetFile 
@@ -120,41 +120,41 @@
 
 @BaseClass = appearflags 
 [
-	appearflag_singleplayer(choices) : "#AppearFlags SinglePlayer" : "0" : "" =
+	appearflag_singleplayer(choices) : "#AppearFlags SinglePlayer" : "0" : "Appearance flags for SinglePlayer, This control when this entity should or should not appear in this condition." =
 	[
-		"-1" : "Not in" : ""
-		"0" : "Default" : ""
-		"1" : "Only in" : ""
+		"-1" : "Not in" : "This entity won't exist if the game is SinglePlayer."
+		"0" : "Default" : "This entity is not affected by the game being SinglePlayer"
+		"1" : "Only in" : "This entity won't exist if the game is NOT SinglePlayer"
 	]
-	appearflag_multiplayer(choices) : "#AppearFlags MultiPlayer" : "0" : "" =
+	appearflag_multiplayer(choices) : "#AppearFlags MultiPlayer" : "0" : "Appearance flags for MultiPlayer, This control when this entity should or should not appear in this condition." =
 	[
-		"-1" : "Not in" : ""
-		"0" : "Default" : ""
-		"1" : "Only in" : ""
+		"-1" : "Not in" : "This entity won't exist if the game is MultiPlayer."
+		"0" : "Default" : "This entity is not affected by the game being MultiPlayer"
+		"1" : "Only in" : "This entity won't exist if the game is NOT MultiPlayer"
 	]
-	appearflag_cooperative(choices) : "#AppearFlags Cooperative" : "0" : "" =
+	appearflag_cooperative(choices) : "#AppearFlags Cooperative" : "0" : "Appearance flags for Cooperative, This control when this entity should or should not appear in this condition." =
 	[
-		"-1" : "Not in" : ""
-		"0" : "Default" : ""
-		"1" : "Only in" : ""
+		"-1" : "Not in" : "This entity won't exist if the game is Cooperative."
+		"0" : "Default" : "This entity is not affected by the game being Cooperative"
+		"1" : "Only in" : "This entity won't exist if the game is NOT Cooperative"
 	]
-	appearflag_skilleasy(choices) : "#AppearFlags Easy" : "0" : "" =
+	appearflag_skilleasy(choices) : "#AppearFlags Easy" : "0" : "Appearance flags for Skill level Easy, This control when this entity should or should not appear in this condition." =
 	[
-		"-1" : "Not in" : ""
-		"0" : "Default" : ""
-		"1" : "Only in" : ""
+		"-1" : "Not in" : "This entity won't exist if the game is Easy."
+		"0" : "Default" : "This entity is not affected by the game being Easy"
+		"1" : "Only in" : "This entity won't exist if the game is NOT Easy"
 	]
-	appearflag_skillmedium(choices) : "#AppearFlags Medium" : "0" : "" =
+	appearflag_skillmedium(choices) : "#AppearFlags Medium" : "0" : "Appearance flags for Skill level Medium, This control when this entity should or should not appear in this condition." =
 	[
-		"-1" : "Not in" : ""
-		"0" : "Default" : ""
-		"1" : "Only in" : ""
+		"-1" : "Not in" : "This entity won't exist if the game is Medium."
+		"0" : "Default" : "This entity is not affected by the game being Medium"
+		"1" : "Only in" : "This entity won't exist if the game is NOT Medium"
 	]
-	appearflag_skillhard(choices) : "#AppearFlags Hard" : "0" : "" =
+	appearflag_skillhard(choices) : "#AppearFlags Hard" : "0" : "Appearance flags for Skill level Hard, This control when this entity should or should not appear in this condition." =
 	[
-		"-1" : "Not in" : ""
-		"0" : "Default" : ""
-		"1" : "Only in" : ""
+		"-1" : "Not in" : "This entity won't exist if the game is Hard."
+		"0" : "Default" : "This entity is not affected by the game being Hard"
+		"1" : "Only in" : "This entity won't exist if the game is NOT Hard"
 	]
 ]
 
@@ -353,7 +353,7 @@
 @BaseClass = CAmmoGeneric 
 [
 	model(studio) : "Model" : "" : ""
-	ammo_name(string) : "Ammo Name (Required)" : "ammo_9mmclip" : ""
+	ammo_name(string) : "Ammo Name (Required)" : "ammo_9mmclip" : "Name of the ammo type to give."
 ]
 
 @BaseClass = CAmmorpg 
@@ -368,34 +368,34 @@
 
 @BaseClass color( 4 128 240 ) = CBaseAmmo 
 [
-	ammo_amount(integer) : "Ammo Amount To Give (-1 == Maximum)" : "" : ""
+	ammo_amount(integer) : "Ammo Amount To Give (-1 == Maximum)" : "" : "If set, the player will receive this much ammo instead of the default amount. If set to **-1** the player will receive the maximum amount of ammo for this type. Can be **0** to make a fake ammo entity."
 ]
 
 @BaseClass size( -16 -16 0, 16 16 32 ) color( 0 0 200 ) studio() = CBaseItem 
 [
-	respawn_delay(float) : "Respawn delay (-1 == Never)" : "-1" : ""
+	respawn_delay(float) : "Respawn delay (-1 == Never)" : "-1" : "Custom respawn delay. If set, overrides the delay configured by the skill configuration. A delay of **-1** disables respawn. This allows items to respawn in singleplayer."
 	stay_visible_during_respawn(choices) : "Stay Visible During Respawn" : "0" : "" =
 	[
-		"0" : "No" : ""
-		"1" : "Yes" : ""
+		"0" : "No" : "The items are invisible until respawn."
+		"1" : "Yes" : "The item remains visible during the respawn time."
 	]
 	flash_on_respawn(choices) : "Flash On Respawn" : "1" : "" =
 	[
 		"0" : "No" : ""
-		"1" : "Yes" : ""
+		"1" : "Yes" : "The item will flash when it respawns."
 	]
 	play_pickup_sound(choices) : "Play Pickup Sound" : "1" : "" =
 	[
-		"0" : "No" : ""
-		"1" : "Yes" : ""
+		"0" : "No" : "The item won't play its pickup sound."
+		"1" : "Yes" : "The item will play its pickup sound."
 	]
-	fall_mode(choices) : "Fall Mode" : "0" : "" =
+	fall_mode(choices) : "Fall Mode" : "0" : "Controls whether the item falls to the ground or floats when it spawns." =
 	[
-		"0" : "Fall" : ""
-		"1" : "Float" : ""
+		"0" : "Fall" : "Item falls to ground when it spawns"
+		"1" : "Float" : "Item floats in the air where it spawns"
 	]
-	trigger_on_spawn(target_destination) : "Trigger On Spawn" : "" : ""
-	trigger_on_despawn(target_destination) : "Trigger On Despawn" : "" : ""
+	trigger_on_spawn(target_destination) : "Trigger On Spawn" : "" : "Target to trigger when the item (re)spawns."
+	trigger_on_despawn(target_destination) : "Trigger On Despawn" : "" : "Target to trigger when the item despawns. This happens when the player picks up the item."
 ]
 
 @BaseClass = ZHLT 
@@ -459,19 +459,19 @@
 
 @PointClass base( Mandatory, Angles, CCineAI, CCineMonster, Target, FireTargets, CBaseDelay, appearflags ) = aiscripted_sequence  : "AI Scripted Sequence" : "" []
 @PointClass base( Mandatory, CAmbientGeneric, appearflags ) = ambient_generic  : "Universal Ambient" : "" []
-@PointClass base( Mandatory, CAmbientMusic, appearflags ) = ambient_music  : "Plays music" : "Add Description" []
+@PointClass base( Mandatory, CAmbientMusic, appearflags ) = ambient_music  : "Plays music" : "This entity allows level designers to control music playback. You can play and loop music, trigger it to fade out or stop it entirely." []
 @PointClass base( Mandatory, Angles, CAmmo357, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags ) = ammo_357  : "357 Ammo" : "" []
 @PointClass base( Mandatory, Angles, CAmmo556, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags ) = ammo_556  : "M249 Ammo" : "" []
 @PointClass base( Mandatory, Angles, CAmmo762, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags ) = ammo_762  : "Sniper Ammo" : "" []
 @PointClass base( Mandatory, Angles, CAmmo9mmar, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags ) = ammo_9mmar  : "9mm Assault Rifle Ammo" : "" []
 @PointClass base( Mandatory, Angles, CAmmo9mmbox, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags ) = ammo_9mmbox  : "box of 200 9mm shells" : "" []
 @PointClass base( Mandatory, Angles, CAmmo9mm, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags ) = ammo_9mmclip  : "9mm Pistol Ammo" : "" []
-@PointClass base( Mandatory, Angles, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags ) = ammo_all  : "Gives all ammo types" : "" []
+@PointClass base( Mandatory, Angles, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags ) = ammo_all  : "Gives all ammo types" : "Gives all ammo types to the player that picks it up." []
 @PointClass base( Mandatory, Angles, CAmmoargrenades, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags ) = ammo_argrenades  : "Assault Grenades" : "" []
 @PointClass base( Mandatory, Angles, CAmmoshowbox, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags ) = ammo_buckshot  : "Shotgun Ammo" : "" []
 @PointClass base( Mandatory, Angles, CAmmoshowbox, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags ) = ammo_crossbow  : "Crossbow Ammo" : "" []
 @PointClass base( Mandatory, Angles, CAmmogauss, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags ) = ammo_gaussclip  : "Gauss Gun Ammo" : "" []
-@PointClass base( Mandatory, Angles, CAmmoGeneric, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags ) = ammo_generic  : "Generic Ammo" : "" []
+@PointClass base( Mandatory, Angles, CAmmoGeneric, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags ) = ammo_generic  : "Generic Ammo" : "Gives the specified ammo type to the player that picks it up." []
 @PointClass base( Mandatory, Angles, CAmmorpg, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags ) = ammo_rpgclip  : "RPG Ammo" : "" []
 @PointClass base( Mandatory, Angles, CAmmospore, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags ) = ammo_spore  : "Spore Ammo" : "" []
 @SolidClass base( Mandatory, Angles, CButtonTarget, Target, FireTargets, Master, rendersettings, ZHLT, appearflags ) = button_target  : "Target Button" : "" []

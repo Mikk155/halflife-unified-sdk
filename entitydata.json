@@ -48,15 +48,13 @@
     "hullsize": {
         "custom_hull_min": {
             "type": "vector",
-            "title": "Custom Hull Minimum",
-            "default": "",
-            "description": ""
+            "title": "Custom Min hullsize (X Y Z)",
+            "description": "Custom minimum hull size. This overrides the size specified by models and entities."
         },
         "custom_hull_max": {
             "type": "vector",
-            "title": "Custom Hull Maximum",
-            "default": "",
-            "description": ""
+            "title": "Custom Max hullsize (X Y Z)",
+            "description": "Custom maximum hull size. This overrides the size specified by models and entities."
         }
     },
     "rendermode": {
@@ -195,23 +193,23 @@
             "type": "string",
             "title": "Model replacement file",
             "default": "",
-            "description": ""
+            "description": "Path to the model replacement file. Must be a relative path starting in the mod directory. All search paths are checked, See <a href=\"../features/replacement-map-system.md\">Replacement Map System</a>"
         }
     },
     "CCustomSounds": {
         "sound_replacement_filename": {
             "type": "string",
-            "title": "Model replacement file",
+            "title": "Sound replacement file",
             "default": "",
-            "description": ""
+            "description": "Path to the Sound replacement file. Must be a relative path starting in the mod directory. All search paths are checked, See <a href=\"../features/replacement-map-system.md\">Replacement Map System</a>"
         }
     },
     "CCustomSentence": {
         "sentence_replacement_filename": {
             "type": "string",
-            "title": "Model replacement file",
+            "title": "Sentence replacement file",
             "default": "",
-            "description": ""
+            "description": "Path to the Sentence replacement file. Must be a relative path starting in the mod directory. All search paths are checked, See <a href=\"../features/replacement-map-system.md\">Replacement Map System</a>"
         }
     },
     "CReplacemetFile": {
@@ -251,19 +249,19 @@
             "type": "choices",
             "title": "#AppearFlags SinglePlayer",
             "default": "0",
-            "description": "",
+            "description": "Appearance flags for SinglePlayer, This control when this entity should or should not appear in this condition.",
             "choices": {
                 "-1": {
                     "title": "Not in",
-                    "description": ""
+                    "description": "This entity won't exist if the game is SinglePlayer."
                 },
                 "0": {
                     "title": "Default",
-                    "description": ""
+                    "description": "This entity is not affected by the game being SinglePlayer"
                 },
                 "1": {
                     "title": "Only in",
-                    "description": ""
+                    "description": "This entity won't exist if the game is NOT SinglePlayer"
                 }
             }
         },
@@ -271,19 +269,19 @@
             "type": "choices",
             "title": "#AppearFlags MultiPlayer",
             "default": "0",
-            "description": "",
+            "description": "Appearance flags for MultiPlayer, This control when this entity should or should not appear in this condition.",
             "choices": {
                 "-1": {
                     "title": "Not in",
-                    "description": ""
+                    "description": "This entity won't exist if the game is MultiPlayer."
                 },
                 "0": {
                     "title": "Default",
-                    "description": ""
+                    "description": "This entity is not affected by the game being MultiPlayer"
                 },
                 "1": {
                     "title": "Only in",
-                    "description": ""
+                    "description": "This entity won't exist if the game is NOT MultiPlayer"
                 }
             }
         },
@@ -291,19 +289,19 @@
             "type": "choices",
             "title": "#AppearFlags Cooperative",
             "default": "0",
-            "description": "",
+            "description": "Appearance flags for Cooperative, This control when this entity should or should not appear in this condition.",
             "choices": {
                 "-1": {
                     "title": "Not in",
-                    "description": ""
+                    "description": "This entity won't exist if the game is Cooperative."
                 },
                 "0": {
                     "title": "Default",
-                    "description": ""
+                    "description": "This entity is not affected by the game being Cooperative"
                 },
                 "1": {
                     "title": "Only in",
-                    "description": ""
+                    "description": "This entity won't exist if the game is NOT Cooperative"
                 }
             }
         },
@@ -311,19 +309,19 @@
             "type": "choices",
             "title": "#AppearFlags Easy",
             "default": "0",
-            "description": "",
+            "description": "Appearance flags for Skill level Easy, This control when this entity should or should not appear in this condition.",
             "choices": {
                 "-1": {
                     "title": "Not in",
-                    "description": ""
+                    "description": "This entity won't exist if the game is Easy."
                 },
                 "0": {
                     "title": "Default",
-                    "description": ""
+                    "description": "This entity is not affected by the game being Easy"
                 },
                 "1": {
                     "title": "Only in",
-                    "description": ""
+                    "description": "This entity won't exist if the game is NOT Easy"
                 }
             }
         },
@@ -331,19 +329,19 @@
             "type": "choices",
             "title": "#AppearFlags Medium",
             "default": "0",
-            "description": "",
+            "description": "Appearance flags for Skill level Medium, This control when this entity should or should not appear in this condition.",
             "choices": {
                 "-1": {
                     "title": "Not in",
-                    "description": ""
+                    "description": "This entity won't exist if the game is Medium."
                 },
                 "0": {
                     "title": "Default",
-                    "description": ""
+                    "description": "This entity is not affected by the game being Medium"
                 },
                 "1": {
                     "title": "Only in",
-                    "description": ""
+                    "description": "This entity won't exist if the game is NOT Medium"
                 }
             }
         },
@@ -351,19 +349,19 @@
             "type": "choices",
             "title": "#AppearFlags Hard",
             "default": "0",
-            "description": "",
+            "description": "Appearance flags for Skill level Hard, This control when this entity should or should not appear in this condition.",
             "choices": {
                 "-1": {
                     "title": "Not in",
-                    "description": ""
+                    "description": "This entity won't exist if the game is Hard."
                 },
                 "0": {
                     "title": "Default",
-                    "description": ""
+                    "description": "This entity is not affected by the game being Hard"
                 },
                 "1": {
                     "title": "Only in",
-                    "description": ""
+                    "description": "This entity won't exist if the game is NOT Hard"
                 }
             }
         }
@@ -959,7 +957,8 @@
         "ammo_name": {
             "type": "string",
             "title": "Ammo Name (Required)",
-            "default": "ammo_9mmclip"
+            "default": "ammo_9mmclip",
+            "description": "Name of the ammo type to give."
         }
     },
     "CAmmorpg": {
@@ -990,7 +989,7 @@
             "type": "integer",
             "title": "Ammo Amount To Give (-1 == Maximum)",
             "default": "",
-            "description": ""
+            "description": "If set, the player will receive this much ammo instead of the default amount. If set to **-1** the player will receive the maximum amount of ammo for this type. Can be **0** to make a fake ammo entity."
         }
     },
     "CBaseItem": {
@@ -1001,7 +1000,7 @@
             "type": "float",
             "title": "Respawn delay (-1 == Never)",
             "default": "-1",
-            "description": ""
+            "description": "Custom respawn delay. If set, overrides the delay configured by the skill configuration. A delay of **-1** disables respawn. This allows items to respawn in singleplayer."
         },
         "stay_visible_during_respawn": {
             "type": "choices",
@@ -1010,11 +1009,11 @@
             "choices": {
                 "0": {
                     "title": "No",
-                    "description": ""
+                    "description": "The items are invisible until respawn."
                 },
                 "1": {
                     "title": "Yes",
-                    "description": ""
+                    "description": "The item remains visible during the respawn time."
                 }
             }
         },
@@ -1029,7 +1028,7 @@
                 },
                 "1": {
                     "title": "Yes",
-                    "description": ""
+                    "description": "The item will flash when it respawns."
                 }
             }
         },
@@ -1040,11 +1039,11 @@
             "choices": {
                 "0": {
                     "title": "No",
-                    "description": ""
+                    "description": "The item won't play its pickup sound."
                 },
                 "1": {
                     "title": "Yes",
-                    "description": ""
+                    "description": "The item will play its pickup sound."
                 }
             }
         },
@@ -1052,14 +1051,15 @@
             "type": "choices",
             "title": "Fall Mode",
             "default": "0",
+            "description": "Controls whether the item falls to the ground or floats when it spawns.",
             "choices": {
                 "0": {
                     "title": "Fall",
-                    "description": ""
+                    "description": "Item falls to ground when it spawns"
                 },
                 "1": {
                     "title": "Float",
-                    "description": ""
+                    "description": "Item floats in the air where it spawns"
                 }
             }
         },
@@ -1067,13 +1067,13 @@
             "type": "target_destination",
             "title": "Trigger On Spawn",
             "default": "",
-            "description": ""
+            "description": "Target to trigger when the item (re)spawns."
         },
         "trigger_on_despawn": {
             "type": "target_destination",
             "title": "Trigger On Despawn",
             "default": "",
-            "description": ""
+            "description": "Target to trigger when the item despawns. This happens when the player picks up the item."
         }
     },
     "ZHLT": {
@@ -1275,7 +1275,7 @@
         "base": "Mandatory, CAmbientMusic, appearflags",
         "Class": "Point",
         "name": "Plays music",
-        "description": "Add Description",
+        "description": "This entity allows level designers to control music playback. You can play and loop music, trigger it to fade out or stop it entirely.",
         "notes": {
             "1": "Part of the <a href=\"../../features/sound-system.md\">OpenAL sound system</a>"
         }
@@ -1320,7 +1320,7 @@
         "base": "Mandatory, Angles, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags",
         "Class": "Point",
         "name": "Gives all ammo types",
-        "description": ""
+        "description": "Gives all ammo types to the player that picks it up."
     },
     "ammo_argrenades": {
         "base": "Mandatory, Angles, CAmmoargrenades, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags",
@@ -1350,7 +1350,10 @@
         "base": "Mandatory, Angles, CAmmoGeneric, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags",
         "Class": "Point",
         "name": "Generic Ammo",
-        "description": ""
+        "description": "Gives the specified ammo type to the player that picks it up.",
+        "notes": {
+            "1": "Combine with <a href=\"trigger_changekeyvalue.md\">trigger_changekeyvalue</a> to dynamically change ammo type"
+        }
     },
     "ammo_rpgclip": {
         "base": "Mandatory, Angles, CAmmorpg, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags",

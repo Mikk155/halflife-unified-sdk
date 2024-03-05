@@ -20,10 +20,8 @@
 		<th class="centered">FGD</th>
 		<th class="centered">Description</th>
 	<tr>
-<tr><td>spawnflags</td><td></td><td></td><td></td><td></td></tr>
 <tr><td>targetname</td><td></td><td>target_source</td><td>Name</td><td>Name is a general attribute used to identify entities.</td></tr>
 <tr><td>angles</td><td>0 0 0</td><td>vector</td><td>Pitch Yaw Roll (Y Z X)</td><td></td></tr>
-<tr><td>spawnflags</td><td></td><td></td><td></td><td></td></tr>
 <tr><td>targetname</td><td></td><td>target_source</td><td>Name</td><td>Name is a general attribute used to identify entities.</td></tr>
 <tr><td>target</td><td></td><td>target_destination</td><td>Target</td><td></td></tr>
 <tr><td>m_UseType</td><td>-1</td><td>choices</td><td>Use Type</td><td></td></tr>
@@ -40,36 +38,35 @@
 <tr><td>m_UseType</td><td>9</td><td></td><td>USE_UNLOCK</td><td></td></tr>
 <tr><td>m_UseValue</td><td></td><td>float</td><td>Use Value</td><td></td></tr>
 <tr><td>master</td><td>0</td><td>target_destination</td><td>Master</td><td></td></tr>
-<tr><td>base</td><td></td><td></td><td></td><td></td></tr>
 <tr><td>zhlt_lightflags</td><td></td><td>choices</td><td>ZHLT Lightflags</td><td></td></tr>
 <tr><td>zhlt_lightflags</td><td>0</td><td></td><td>Default</td><td></td></tr>
 <tr><td>zhlt_lightflags</td><td>1</td><td></td><td>Embedded Fix</td><td></td></tr>
 <tr><td>zhlt_lightflags</td><td>2</td><td></td><td>Opaque (blocks light)</td><td></td></tr>
 <tr><td>zhlt_lightflags</td><td>3</td><td></td><td>Opaque + Embedded fix</td><td></td></tr>
 <tr><td>zhlt_lightflags</td><td>4</td><td></td><td>Opaque + Concave Fix</td><td></td></tr>
-<tr><td>appearflag_singleplayer</td><td>0</td><td>choices</td><td>#AppearFlags SinglePlayer</td><td></td></tr>
-<tr><td>appearflag_singleplayer</td><td>-1</td><td></td><td>Not in</td><td></td></tr>
-<tr><td>appearflag_singleplayer</td><td>0</td><td></td><td>Default</td><td></td></tr>
-<tr><td>appearflag_singleplayer</td><td>1</td><td></td><td>Only in</td><td></td></tr>
-<tr><td>appearflag_multiplayer</td><td>0</td><td>choices</td><td>#AppearFlags MultiPlayer</td><td></td></tr>
-<tr><td>appearflag_multiplayer</td><td>-1</td><td></td><td>Not in</td><td></td></tr>
-<tr><td>appearflag_multiplayer</td><td>0</td><td></td><td>Default</td><td></td></tr>
-<tr><td>appearflag_multiplayer</td><td>1</td><td></td><td>Only in</td><td></td></tr>
-<tr><td>appearflag_cooperative</td><td>0</td><td>choices</td><td>#AppearFlags Cooperative</td><td></td></tr>
-<tr><td>appearflag_cooperative</td><td>-1</td><td></td><td>Not in</td><td></td></tr>
-<tr><td>appearflag_cooperative</td><td>0</td><td></td><td>Default</td><td></td></tr>
-<tr><td>appearflag_cooperative</td><td>1</td><td></td><td>Only in</td><td></td></tr>
-<tr><td>appearflag_skilleasy</td><td>0</td><td>choices</td><td>#AppearFlags Easy</td><td></td></tr>
-<tr><td>appearflag_skilleasy</td><td>-1</td><td></td><td>Not in</td><td></td></tr>
-<tr><td>appearflag_skilleasy</td><td>0</td><td></td><td>Default</td><td></td></tr>
-<tr><td>appearflag_skilleasy</td><td>1</td><td></td><td>Only in</td><td></td></tr>
-<tr><td>appearflag_skillmedium</td><td>0</td><td>choices</td><td>#AppearFlags Medium</td><td></td></tr>
-<tr><td>appearflag_skillmedium</td><td>-1</td><td></td><td>Not in</td><td></td></tr>
-<tr><td>appearflag_skillmedium</td><td>0</td><td></td><td>Default</td><td></td></tr>
-<tr><td>appearflag_skillmedium</td><td>1</td><td></td><td>Only in</td><td></td></tr>
-<tr><td>appearflag_skillhard</td><td>0</td><td>choices</td><td>#AppearFlags Hard</td><td></td></tr>
-<tr><td>appearflag_skillhard</td><td>-1</td><td></td><td>Not in</td><td></td></tr>
-<tr><td>appearflag_skillhard</td><td>0</td><td></td><td>Default</td><td></td></tr>
-<tr><td>appearflag_skillhard</td><td>1</td><td></td><td>Only in</td><td></td></tr>
+<tr><td>appearflag_singleplayer</td><td>0</td><td>choices</td><td>#AppearFlags SinglePlayer</td><td>Appearance flags for SinglePlayer, This control when this entity should or should not appear in this condition.</td></tr>
+<tr><td>appearflag_singleplayer</td><td>-1</td><td></td><td>Not in</td><td>This entity won't exist if the game is SinglePlayer.</td></tr>
+<tr><td>appearflag_singleplayer</td><td>0</td><td></td><td>Default</td><td>This entity is not affected by the game being SinglePlayer</td></tr>
+<tr><td>appearflag_singleplayer</td><td>1</td><td></td><td>Only in</td><td>This entity won't exist if the game is NOT SinglePlayer</td></tr>
+<tr><td>appearflag_multiplayer</td><td>0</td><td>choices</td><td>#AppearFlags MultiPlayer</td><td>Appearance flags for MultiPlayer, This control when this entity should or should not appear in this condition.</td></tr>
+<tr><td>appearflag_multiplayer</td><td>-1</td><td></td><td>Not in</td><td>This entity won't exist if the game is MultiPlayer.</td></tr>
+<tr><td>appearflag_multiplayer</td><td>0</td><td></td><td>Default</td><td>This entity is not affected by the game being MultiPlayer</td></tr>
+<tr><td>appearflag_multiplayer</td><td>1</td><td></td><td>Only in</td><td>This entity won't exist if the game is NOT MultiPlayer</td></tr>
+<tr><td>appearflag_cooperative</td><td>0</td><td>choices</td><td>#AppearFlags Cooperative</td><td>Appearance flags for Cooperative, This control when this entity should or should not appear in this condition.</td></tr>
+<tr><td>appearflag_cooperative</td><td>-1</td><td></td><td>Not in</td><td>This entity won't exist if the game is Cooperative.</td></tr>
+<tr><td>appearflag_cooperative</td><td>0</td><td></td><td>Default</td><td>This entity is not affected by the game being Cooperative</td></tr>
+<tr><td>appearflag_cooperative</td><td>1</td><td></td><td>Only in</td><td>This entity won't exist if the game is NOT Cooperative</td></tr>
+<tr><td>appearflag_skilleasy</td><td>0</td><td>choices</td><td>#AppearFlags Easy</td><td>Appearance flags for Skill level Easy, This control when this entity should or should not appear in this condition.</td></tr>
+<tr><td>appearflag_skilleasy</td><td>-1</td><td></td><td>Not in</td><td>This entity won't exist if the game is Easy.</td></tr>
+<tr><td>appearflag_skilleasy</td><td>0</td><td></td><td>Default</td><td>This entity is not affected by the game being Easy</td></tr>
+<tr><td>appearflag_skilleasy</td><td>1</td><td></td><td>Only in</td><td>This entity won't exist if the game is NOT Easy</td></tr>
+<tr><td>appearflag_skillmedium</td><td>0</td><td>choices</td><td>#AppearFlags Medium</td><td>Appearance flags for Skill level Medium, This control when this entity should or should not appear in this condition.</td></tr>
+<tr><td>appearflag_skillmedium</td><td>-1</td><td></td><td>Not in</td><td>This entity won't exist if the game is Medium.</td></tr>
+<tr><td>appearflag_skillmedium</td><td>0</td><td></td><td>Default</td><td>This entity is not affected by the game being Medium</td></tr>
+<tr><td>appearflag_skillmedium</td><td>1</td><td></td><td>Only in</td><td>This entity won't exist if the game is NOT Medium</td></tr>
+<tr><td>appearflag_skillhard</td><td>0</td><td>choices</td><td>#AppearFlags Hard</td><td>Appearance flags for Skill level Hard, This control when this entity should or should not appear in this condition.</td></tr>
+<tr><td>appearflag_skillhard</td><td>-1</td><td></td><td>Not in</td><td>This entity won't exist if the game is Hard.</td></tr>
+<tr><td>appearflag_skillhard</td><td>0</td><td></td><td>Default</td><td>This entity is not affected by the game being Hard</td></tr>
+<tr><td>appearflag_skillhard</td><td>1</td><td></td><td>Only in</td><td>This entity won't exist if the game is NOT Hard</td></tr>
 </table>
 </body></html>

@@ -3,7 +3,7 @@ import json
 #import os
 
 def ParseKeyValueData(f, key, atributes, data):
-    if key in ["size", "color", "studio", "iconsprite"]:
+    if key in ["size", "color", "studio", "iconsprite", "base", "spawnflags" ]:
         return
 
     f.write(f'<tr><td>{key}</td>')

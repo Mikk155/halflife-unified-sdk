@@ -31,7 +31,7 @@ The files in this directory and subdirectories contain documentation for the Uni
 
 ## Entity guide
 
-* [Entity guide](entityguide/README.md)
+* [Entity guide](entities.html)
 
 ## Core Features
 
