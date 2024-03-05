@@ -1,10 +1,23 @@
-body {
-    background: #f154ff;
-}
-
-.centered {
+body
+{
+    background-color: #000000;
+    color: #b12bda;
+    font-weight: bold;
+    font-size:larger;
     text-align: center;
 }
-.left {
+
+.table_description
+{
     text-align: left;
+}
+
+a
+{
+    color: #b12bda;
+}
+
+a:hover
+{
+    color: #ff12bc;
 }

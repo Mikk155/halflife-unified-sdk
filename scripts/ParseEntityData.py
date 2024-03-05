@@ -28,7 +28,8 @@ def ParseKeyValueData(f, key, atributes, data):
     description = ""
     if "description" in atributes:
         description = atributes.get("description", "")
-    f.write(f'<td>{description}</td></tr>\n')
+#    f.write(f'<td>{description}</td></tr>\n')
+    f.write(f'<td class="table_description">{description}</td></tr>\n')
 
     if "base" in atributes:
         GetBaseClass(f, atributes, data)
@@ -41,7 +42,7 @@ def ParseKeyValueData(f, key, atributes, data):
                 f.write(f'<td>{choice}</td>')
                 f.write(f'<td></td>')
                 f.write(f'<td>{args.get("title", "")}</td>')
-                f.write(f'<td>{args.get("description", "")}</td></tr>\n')
+                f.write(f'<td class="table_description">{args.get("description", "")}</td></tr>\n')
 
 def GetBaseClass(f, entity_data, data):
     if "base" in entity_data:
@@ -97,11 +98,11 @@ def GenerateWikiFile():
                 f.write('\t<h2>KeyValues</h2>\n')
                 f.write(f'\t<table id="{entity_name}" border="1">\n')
                 f.write(f'\t<tr>\n')
-                f.write(f'\t\t<th class="centered">Key</th>\n')
-                f.write(f'\t\t<th class="centered">Value</th>\n')
-                f.write(f'\t\t<th class="centered">Type</th>\n')
-                f.write(f'\t\t<th class="centered">FGD</th>\n')
-                f.write(f'\t\t<th class="centered">Description</th>\n')
+                f.write(f'\t\t<th>Key</th>\n')
+                f.write(f'\t\t<th>Value</th>\n')
+                f.write(f'\t\t<th>Type</th>\n')
+                f.write(f'\t\t<th>FGD</th>\n')
+                f.write(f'\t\t<th>Description</th>\n')
                 f.write(f'\t<tr>\n')
 
                 for key, args in entity_data.items():
