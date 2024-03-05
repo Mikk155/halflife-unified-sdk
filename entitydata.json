@@ -1,0 +1,1373 @@
+{
+    "Mandatory": {
+        "spawnflags": {
+            "2048":
+            {
+                "title": "Only in Singleplayer",
+                "default": "0",
+                "description": "This entity won't spawn at all in multi-player"
+            }
+        },
+        "targetname": {
+            "type": "target_source",
+            "title": "Name",
+            "default": "",
+            "description": "Name is a general attribute used to identify entities."
+        }
+    },
+    "Target": {
+        "target": {
+            "type": "target_destination",
+            "title": "Target",
+            "default": "",
+            "description": ""
+        }
+    },
+    "Global": {
+        "globalname": {
+            "type": "string",
+            "title": "Global Entity Name",
+            "default": "",
+            "description": ""
+        }
+    },
+    "CBaseDelay": {
+        "killtarget": {
+            "type": "target_destination",
+            "title": "KillTarget",
+            "default": "",
+            "description": ""
+        },
+        "delay": {
+            "type": "float",
+            "title": "Delay before trigger",
+            "default": "0",
+            "description": ""
+        }
+    },
+    "hullsize": {
+        "custom_hull_min": {
+            "type": "vector",
+            "title": "Custom Hull Minimum",
+            "default": "",
+            "description": ""
+        },
+        "custom_hull_max": {
+            "type": "vector",
+            "title": "Custom Hull Maximum",
+            "default": "",
+            "description": ""
+        }
+    },
+    "rendermode": {
+        "rendermode": {
+            "type": "choices",
+            "title": "FX Mode",
+            "default": "",
+            "description": "",
+            "choices": {
+                "0": {
+                    "title": "Normal",
+                    "description": ""
+                },
+                "1": {
+                    "title": "Color",
+                    "description": ""
+                },
+                "2": {
+                    "title": "Texture",
+                    "description": ""
+                },
+                "3": {
+                    "title": "Glow",
+                    "description": ""
+                },
+                "4": {
+                    "title": "Solid",
+                    "description": ""
+                },
+                "5": {
+                    "title": "Additive",
+                    "description": ""
+                }
+            }
+        }
+    },
+    "renderamt": {
+        "renderamt": {
+            "type": "integer",
+            "title": "FX Amount (1 - 255)",
+            "default": "255",
+            "description": ""
+        }
+    },
+    "rendercolor": {
+        "rendercolor": {
+            "type": "color255",
+            "title": "FX Color (R G B)",
+            "default": "",
+            "description": ""
+        }
+    },
+    "renderfx": {
+        "renderfx": {
+            "type": "choices",
+            "title": "FX Effect",
+            "default": "",
+            "description": "",
+            "choices": {
+                "0": {
+                    "title": "Normal",
+                    "description": ""
+                },
+                "1": {
+                    "title": "Slow Pulse",
+                    "description": ""
+                },
+                "2": {
+                    "title": "Fast Pulse",
+                    "description": ""
+                },
+                "3": {
+                    "title": "Slow Wide Pulse",
+                    "description": ""
+                },
+                "4": {
+                    "title": "Fast Wide Pulse",
+                    "description": ""
+                },
+                "9": {
+                    "title": "Slow Strobe",
+                    "description": ""
+                },
+                "10": {
+                    "title": "Fast Strobe",
+                    "description": ""
+                },
+                "11": {
+                    "title": "Faster Strobe",
+                    "description": ""
+                },
+                "12": {
+                    "title": "Slow Flicker",
+                    "description": ""
+                },
+                "13": {
+                    "title": "Fast Flicker",
+                    "description": ""
+                },
+                "5": {
+                    "title": "Slow Fade Away",
+                    "description": ""
+                },
+                "6": {
+                    "title": "Fast Fade Away",
+                    "description": ""
+                },
+                "7": {
+                    "title": "Slow Become Solid",
+                    "description": ""
+                },
+                "8": {
+                    "title": "Fast Become Solid",
+                    "description": ""
+                },
+                "14": {
+                    "title": "Constant Glow",
+                    "description": ""
+                },
+                "15": {
+                    "title": "Distort",
+                    "description": ""
+                },
+                "16": {
+                    "title": "Hologram (Distort + fade)",
+                    "description": ""
+                }
+            }
+        }
+    },
+    "rendersettings": {
+        "base": "rendermode, renderamt, rendercolor, renderfx"
+    },
+    "CCustomModels": {
+        "model_replacement_filename": {
+            "type": "string",
+            "title": "Model replacement file",
+            "default": "",
+            "description": ""
+        }
+    },
+    "CCustomSounds": {
+        "sound_replacement_filename": {
+            "type": "string",
+            "title": "Model replacement file",
+            "default": "",
+            "description": ""
+        }
+    },
+    "CCustomSentence": {
+        "sentence_replacement_filename": {
+            "type": "string",
+            "title": "Model replacement file",
+            "default": "",
+            "description": ""
+        }
+    },
+    "CReplacemetFile": {
+        "base": "CCustomModels, CCustomSounds, CCustomSentence"
+    },
+    "Master": {
+        "master": {
+            "type": "target_destination",
+            "title": "Master",
+            "default": "0",
+            "description": ""
+        }
+    },
+    "Sequence": {
+        "sequence": {
+            "type": "integer",
+            "title": "Animation Sequence (editor)",
+            "default": "",
+            "description": "Sequence to display in Jackhammer. This does not affect gameplay."
+        }
+    },
+    "Angles": {
+        "angles": {
+            "type": "vector",
+            "title": "Pitch Yaw Roll (Y Z X)",
+            "default": "0 0 0",
+            "description": ""
+        }
+    },
+    "CCineAI": {
+        "color": "164 0 255",
+        "size": "-16 -16 0, 16 16 72",
+        "flags": "Angle"
+    },
+    "appearflags": {
+        "appearflag_singleplayer": {
+            "type": "choices",
+            "title": "#AppearFlags SinglePlayer",
+            "default": "0",
+            "description": "",
+            "choices": {
+                "-1": {
+                    "title": "Not in",
+                    "description": ""
+                },
+                "0": {
+                    "title": "Default",
+                    "description": ""
+                },
+                "1": {
+                    "title": "Only in",
+                    "description": ""
+                }
+            }
+        },
+        "appearflag_multiplayer": {
+            "type": "choices",
+            "title": "#AppearFlags MultiPlayer",
+            "default": "0",
+            "description": "",
+            "choices": {
+                "-1": {
+                    "title": "Not in",
+                    "description": ""
+                },
+                "0": {
+                    "title": "Default",
+                    "description": ""
+                },
+                "1": {
+                    "title": "Only in",
+                    "description": ""
+                }
+            }
+        },
+        "appearflag_cooperative": {
+            "type": "choices",
+            "title": "#AppearFlags Cooperative",
+            "default": "0",
+            "description": "",
+            "choices": {
+                "-1": {
+                    "title": "Not in",
+                    "description": ""
+                },
+                "0": {
+                    "title": "Default",
+                    "description": ""
+                },
+                "1": {
+                    "title": "Only in",
+                    "description": ""
+                }
+            }
+        },
+        "appearflag_skilleasy": {
+            "type": "choices",
+            "title": "#AppearFlags Easy",
+            "default": "0",
+            "description": "",
+            "choices": {
+                "-1": {
+                    "title": "Not in",
+                    "description": ""
+                },
+                "0": {
+                    "title": "Default",
+                    "description": ""
+                },
+                "1": {
+                    "title": "Only in",
+                    "description": ""
+                }
+            }
+        },
+        "appearflag_skillmedium": {
+            "type": "choices",
+            "title": "#AppearFlags Medium",
+            "default": "0",
+            "description": "",
+            "choices": {
+                "-1": {
+                    "title": "Not in",
+                    "description": ""
+                },
+                "0": {
+                    "title": "Default",
+                    "description": ""
+                },
+                "1": {
+                    "title": "Only in",
+                    "description": ""
+                }
+            }
+        },
+        "appearflag_skillhard": {
+            "type": "choices",
+            "title": "#AppearFlags Hard",
+            "default": "0",
+            "description": "",
+            "choices": {
+                "-1": {
+                    "title": "Not in",
+                    "description": ""
+                },
+                "0": {
+                    "title": "Default",
+                    "description": ""
+                },
+                "1": {
+                    "title": "Only in",
+                    "description": ""
+                }
+            }
+        }
+    },
+    "CCineMonster": {
+        "color": "164 128 255",
+        "size": "-16 -16 0, 16 16 72",
+        "flags": "Angle",
+        "spawnflags":
+        {
+            "4": {
+                "title": "Repeatable",
+                "default": "0",
+                "description": ""
+            },
+            "8": {
+                "title": "Leave Corpse",
+                "default": "0",
+                "description": ""
+            }
+        },
+        "m_iszEntity": {
+            "type": "target_generic",
+            "title": "Target Monster",
+            "default": "",
+            "description": ""
+        },
+        "m_iszPlay": {
+            "type": "string",
+            "title": "Action Animation",
+            "default": "",
+            "description": ""
+        },
+        "m_flRadius": {
+            "type": "integer",
+            "title": "Search Radius",
+            "default": "512",
+            "description": ""
+        },
+        "m_flRepeat": {
+            "type": "float",
+            "title": "Repeat Rate ms",
+            "default": "0",
+            "description": ""
+        },
+        "m_fMoveTo": {
+            "type": "choices",
+            "title": "Move to Position",
+            "default": "0",
+            "description": "",
+            "choices": {
+                "0": {
+                    "title": "No",
+                    "description": ""
+                },
+                "1": {
+                    "title": "Walk",
+                    "description": ""
+                },
+                "2": {
+                    "title": "Run",
+                    "description": ""
+                },
+                "4": {
+                    "title": "Instantaneous",
+                    "description": ""
+                },
+                "5": {
+                    "title": "No - Turn to Face",
+                    "description": ""
+                }
+            }
+        },
+        "m_iFinishSchedule": {
+            "type": "choices",
+            "title": "AI Schedule when done",
+            "default": "0",
+            "description": "",
+            "choices": {
+                "0": {
+                    "title": "Default AI",
+                    "description": ""
+                },
+                "1": {
+                    "title": "Ambush",
+                    "description": ""
+                }
+            }
+        }
+    },
+    "FireTargets": {
+        "m_UseType": {
+            "type": "choices",
+            "title": "Use Type",
+            "default": "-1",
+            "description": "",
+            "choices": {
+                "-1": {
+                    "title": "USE_UNSET (default)",
+                    "description": ""
+                },
+                "0": {
+                    "title": "USE_OFF",
+                    "description": ""
+                },
+                "1": {
+                    "title": "USE_ON",
+                    "description": ""
+                },
+                "2": {
+                    "title": "USE_SET",
+                    "description": ""
+                },
+                "3": {
+                    "title": "USE_TOGGLE",
+                    "description": ""
+                },
+                "4": {
+                    "title": "USE_KILL",
+                    "description": ""
+                },
+                "5": {
+                    "title": "USE_SAME",
+                    "description": ""
+                },
+                "6": {
+                    "title": "USE_OPPOSITE",
+                    "description": ""
+                },
+                "7": {
+                    "title": "USE_TOUCH",
+                    "description": ""
+                },
+                "8": {
+                    "title": "USE_LOCK",
+                    "description": ""
+                },
+                "9": {
+                    "title": "USE_UNLOCK",
+                    "description": ""
+                }
+            }
+        },
+        "m_UseValue": {
+            "type": "float",
+            "title": "Use Value",
+            "default": "",
+            "description": ""
+        }
+    },
+    "VolumeHealth10": {
+        "health": {
+            "type": "cap",
+            "title": "Volume (10 = loudest)",
+            "default": "0",
+            "description": " Sets the volume of the sound. Scales from 0 (completely silent) to 10 (maximum, default). (If using dynamics attributes below, this is the maximum volume the sound will reach.)",
+            "min": "0",
+            "max": "10"
+        }
+    },
+    "CAmbientGeneric": {
+        "base": "VolumeHealth10",
+        "iconsprite": "dev/hammer/ambient_generic.spr",
+        "color": "220 220 220",
+        "message": {
+            "type": "sound",
+            "title": "Path/filename.wav of WAV",
+            "default": "",
+            "description": "This defines which sound file will be played by the entity. This accepts an input of the form path/filename.wav (starting from the 'sound' folder). (Example: ambience/drips.wav). The name of a sentence defined in sentences.txt will also be accepted with the form '!SENTENCENAME'. (Example: !HG_ALERT1)"
+        },
+        "volstart": {
+            "type": "integer",
+            "title": "Start Volume",
+            "default": "0",
+            "description": " Sets the volume that the sound should start at when fading in, and that it should stop at when fading out. Scales from 0 (completely silent) to 10 (maximum). (Should be lower than Volume.)"
+        },
+        "fadein": {
+            "type": "cap",
+            "title": "Fade in time (0-100)",
+            "default": "0",
+            "description": "Sets how long the sound should take to fade in from Start Volume to Volume. Scales from 0 (instant) to 100 (very long).",
+            "min": "0",
+            "max": "100"
+        },
+        "fadeout": {
+            "type": "cap",
+            "title": "Fade out time (0-100)",
+            "default": "0",
+            "description": "Sets how long the sound should take to fade out from Volume to Start Volume. Scales from 0 (instant) to 100 (very long).",
+            "min": "0",
+            "max": "100"
+        },
+        "pitch": {
+            "type": "integer",
+            "title": "Pitch (> 100 = higher)",
+            "default": "100",
+            "description": "Sets the pitch of the sound. Scales from 100 (default), with lower values meaning lower pitch and higher values meaning higher pitch."
+        },
+        "pitchstart": {
+            "type": "integer",
+            "title": "Start Pitch",
+            "default": "100",
+            "description": "Sets the pitch that the sound should start at when spinning up, and that it should stop at when spinning down. Scales from 100 (default), with lower values meaning lower pitch and higher values meaning higher pitch. (Should be lower than Pitch.)"
+        },
+        "spinup": {
+            "type": "cap",
+            "title": "Spin up time (0-100)",
+            "default": "0",
+            "description": "Sets how long the sound should take to spin up from Start Pitch to Pitch. Scales from 0 (instant) to 100 (very long).",
+            "min": "0",
+            "max": "100"
+        },
+        "spindown": {
+            "type": "cap",
+            "title": "Spin down time (0-100)",
+            "default": "0",
+            "description": "Sets how long the sound should take to spin down from Pitch to Start Pitch. Scales from 0 (instant) to 100 (very long).",
+            "min": "0",
+            "max": "100"
+        },
+        "lfotype": {
+            "type": "choices",
+            "title": "LFO type",
+            "default": "0",
+            "description": "Allows the sound to have certain oscillating effects applied to its pitch.",
+            "choices": {
+                "0": {
+                    "title": "off",
+                    "description": "Disables the LFO effects."
+                },
+                "1": {
+                    "title": "sqr",
+                    "description": "Switches between a low and high pitch."
+                },
+                "2": {
+                    "title": "tri",
+                    "description": "Oscillates between a low and high pitch."
+                },
+                "3": {
+                    "title": "rnd",
+                    "description": "Randomly switches pitches."
+                }
+            }
+        },
+        "lforate": {
+            "type": "cap",
+            "title": "LFO rate (0-1000)",
+            "default": "0",
+            "description": "Sets how quickly the pitch changes with the LFO effects. Scales between 0 (does not change) and 1000 (changes extremely quickly).",
+            "min": "0",
+            "max": "1000"
+        },
+        "lfomodpitch": {
+            "type": "cap",
+            "title": "LFO mod pitch (0-100)",
+            "default": "0",
+            "description": "Sets how much the pitch should change with the LFO effects. Scales between 0 (does not change) and 100 (very large changes).",
+            "min": "0",
+            "max": "100"
+        },
+        "lfomodvol": {
+            "type": "cap",
+            "title": "LFO mod vol (0-100)",
+            "default": "0",
+            "description": "Sets how much the volume should change with the LFO effects. Seems to coincide with lower pitches. Scales between 0 (does not change) and 100 (silent).",
+            "min": "0",
+            "max": "100"
+        },
+        "cspinup": {
+            "type": "integer",
+            "title": "Incremental spinup count",
+            "default": "0",
+            "description": "Sets how many times the ambient_generic can be triggered to have the pitch spin up on top of the pitch it was already playing at. Setting this to a value other than 0 will disable toggling the sound, and will prevent the sound from being turned off even it has been triggered that many times."
+        },
+        "spawnflags": {
+            "1":
+            {
+                "title": "Play Everywhere",
+                "default": "0",
+                "description": "If enabled, the sound will be heard throughout the entire map."
+            },
+            "2":
+            {
+                "title": "Small Radius",
+                "default": "0",
+                "description": "If enabled, the sound will be at maximum volume within a roughly 256 unit radius, fading out completely at around 512 units away."
+            },
+            "4":
+            {
+                "title": "Medium Radius",
+                "default": "1",
+                "description": "If enabled, the sound will be at maximum volume within a roughly 512 unit radius, fading out completely at around 768 units away."
+            },
+            "8":
+            {
+                "title": "Large Radius",
+                "default": "0",
+                "description": "If enabled, the sound will be at maximum volume within a roughly 768 unit radius, fading out completely at around 1280 units away."
+            },
+            "16":
+            {
+                "title": "Start Silent",
+                "default": "0",
+                "description": "If enabled, the sound will not play at the start of the map, and will need to be triggered to play. Otherwise, the sound will play at the start of the map whether it is a looping sound or not."
+            },
+            "32":
+            {
+                "title": "Is NOT Looped",
+                "default": "0",
+                "description": "Tells the entity whether or not it is dealing with a looping sound. If enabled, the sound will play whenever the entity is triggered (intended for non-looping sounds). (Looping sounds will still play, but will not turn off when triggered.) If not enabled, the sound will toggle on or off when triggered (intended for looping sounds). (Non-looping sounds will still play, but every second trigger will turn the sound off regardless of whether the sound is actually playing anything.) See notes for more information about looping sounds."
+            }
+        },
+        "preset": {
+            "type": "choices",
+            "title": "Dynamic Presets",
+            "default": "0",
+            "description": "Sets the ambient_generic to use a predefined set of dynamics. If set to anything other than 'None', this will override every other attribute apart from Name and WAV Name.",
+            "choices": {
+                "0": {
+                    "title": "None",
+                    "description": "Does not use a preset, and will not override any other entity attributes."
+                },
+                "1": {
+                    "title": "Huge Machine",
+                    "description": "Very long spin up, starting slow and getting fast. Very long spin down."
+                },
+                "2": {
+                    "title": "Big Machine",
+                    "description": "Medium spin up, starting normal and getting fast. Long spin down."
+                },
+                "3": {
+                    "title": "Machine",
+                    "description": "Quick spin up, starting normal and getting fast. Quick spin down."
+                },
+                "4": {
+                    "title": "Slow Fade in",
+                    "description": "Slow fade in/out."
+                },
+                "5": {
+                    "title": "Fade in",
+                    "description": "Medium fade in/out."
+                },
+                "6": {
+                    "title": "Quick Fade in",
+                    "description": "Quick fade in/out."
+                },
+                "7": {
+                    "title": "Slow Pulse",
+                    "description": "Slow pulsing speed. Quick fade out."
+                },
+                "8": {
+                    "title": "Pulse",
+                    "description": "Pulsing speed. Quick fade out."
+                },
+                "9": {
+                    "title": "Quick pulse",
+                    "description": "Quick pulsing speed. Quick fade out."
+                },
+                "10": {
+                    "title": "Slow Oscillator",
+                    "description": "Slow oscillation between normal and slow speed. Quick fade out."
+                },
+                "11": {
+                    "title": "Oscillator",
+                    "description": "Medium oscillation between normal and slow speed. Quick fade out."
+                },
+                "12": {
+                    "title": "Quick Oscillator",
+                    "description": "Fast oscillation between normal and slow speed. Quick fade out."
+                },
+                "13": {
+                    "title": "Grunge pitch",
+                    "description": "Extremely slow. Quick fade out."
+                },
+                "14": {
+                    "title": "Very low pitch",
+                    "description": "Very slow. Quick fade out."
+                },
+                "15": {
+                    "title": "Low pitch",
+                    "description": "Slow. Quick fade out."
+                },
+                "16": {
+                    "title": "High pitch",
+                    "description": "Fast. Quick fade out."
+                },
+                "17": {
+                    "title": "Very high pitch",
+                    "description": "Very fast. Quick fade out."
+                },
+                "18": {
+                    "title": "Screaming pitch",
+                    "description": "Extremely fast. Quick fade out."
+                },
+                "19": {
+                    "title": "Oscillate spinup/down",
+                    "description": "Medium oscillation, with long spin up from slow to fast. Long spin down."
+                },
+                "20": {
+                    "title": "Pulse spinup/down",
+                    "description": "Slow pulse, with long spin up from slow to fast. Long spin down."
+                },
+                "21": {
+                    "title": "Random pitch",
+                    "description": "Occasionally switches speed, tending towards slower speeds. Quick fade out."
+                },
+                "22": {
+                    "title": "Random pitch fast",
+                    "description": "Rapidly switches speed, tending towards faster speeds. Quick fade out."
+                },
+                "23": {
+                    "title": "Incremental Spinup",
+                    "description": "Quick spin up. Subsequent triggers will not toggle, but will spin up from existing speed, up to five times. Cannot be turned off."
+                },
+                "24": {
+                    "title": "Alien",
+                    "description": "Unusual pulsing and switching speed. Quick fade out."
+                },
+                "25": {
+                    "title": "Bizzare",
+                    "description": "Fast oscillation between fast and slow/silent. Quick fade out."
+                },
+                "26": {
+                    "title": "Planet X",
+                    "description": "Medium switching between slower speeds, similar to 'Random pitch'. Quick fade out."
+                },
+                "27": {
+                    "title": "Haunted",
+                    "description": "Slow switch between normal and slow speed. Quick fade out."
+                }
+            }
+        }
+    },
+    "CAmbientMusic": {
+        "iconsprite": "dev/hammer/ambient_generic.spr",
+        "color": "200 150 255",
+        "filename": {
+            "type": "string",
+            "title": "Filename of music file",
+            "default": "",
+            "description": "Relative name of the file to play, starting in the root directory. For example: media/Half-Life01.mp3. Only applies to the Play and Loop commands"
+        },
+        "command": {
+            "type": "choices",
+            "title": "Command",
+            "default": "0",
+            "description": "The command to issue",
+            "choices": {
+                "0": {
+                    "title": "Play",
+                    "description": ""
+                },
+                "1": {
+                    "title": "Play looping",
+                    "description": ""
+                },
+                "2": {
+                    "title": "Fadeout",
+                    "description": ""
+                },
+                "3": {
+                    "title": "Stop",
+                    "description": ""
+                }
+            }
+        },
+        "target_selector": {
+            "type": "choices",
+            "title": "Target selector",
+            "default": "0",
+            "description": "How to select players to affect.",
+            "choices": {
+                "0": {
+                    "title": "All Players",
+                    "description": ""
+                },
+                "1": {
+                    "title": "Activator",
+                    "description": ""
+                },
+                "2": {
+                    "title": "Radius",
+                    "description": ""
+                }
+            }
+        },
+        "radius": {
+            "type": "integer",
+            "title": "Player radius (for Radius target selector)",
+            "default": "",
+            "description": "If target_selector is Radius, this is how close the player has to be to be affected by this entity"
+        },
+        "remove_on_fire": {
+            "type": "choices",
+            "title": "Remove on fire",
+            "default": "0",
+            "description": "Whether to remove the entity after it has been triggered or after it has affected at least one player (Radius only)",
+            "choices": {
+                "0": {
+                    "title": "No",
+                    "description": ""
+                },
+                "1": {
+                    "title": "Yes",
+                    "description": ""
+                }
+            }
+        }
+    },
+    "CAmmo357": {
+        "model": {
+            "type": "studio",
+            "title": "Model",
+            "default": "models/w_357ammobox.mdl"
+        }
+    },
+    "CAmmo556": {
+        "model": {
+            "type": "studio",
+            "title": "Model",
+            "default": "models/W_saw_clip.mdl"
+        }
+    },
+    "CAmmo762": {
+        "model": {
+            "type": "studio",
+            "title": "Model",
+            "default": "models/w_m40a1clip.mdl"
+        }
+    },
+    "CAmmo9mmar": {
+        "model": {
+            "type": "studio",
+            "title": "Model",
+            "default": "models/w_9mmarclip.mdl"
+        }
+    },
+    "CAmmo9mmbox": {
+        "model": {
+            "type": "studio",
+            "title": "Model",
+            "default": "models/w_chainammo.mdl"
+        }
+    },
+    "CAmmo9mm": {
+        "model": {
+            "type": "studio",
+            "title": "Model",
+            "default": "models/w_9mmclip.mdl"
+        }
+    },
+    "CAmmoargrenades": {
+        "model": {
+            "type": "studio",
+            "title": "Model",
+            "default": "models/w_argrenade.mdl"
+        }
+    },
+    "CAmmoshowbox": {
+        "model": {
+            "type": "studio",
+            "title": "Model",
+            "default": "models/w_shotbox.mdl"
+        }
+    },
+    "CAmmogauss": {
+        "model": {
+            "type": "studio",
+            "title": "Model",
+            "default": "models/w_gaussammo.mdl"
+        }
+    },
+    "CAmmoxbow": {
+        "model": {
+            "type": "studio",
+            "title": "Model",
+            "default": "models/w_crossbow_clip.mdl"
+        }
+    },
+    "CAmmospore": {
+        "model": {
+            "type": "studio",
+            "title": "Model",
+            "default": "models/spore_ammo.mdl"
+        }
+    },
+    "CAmmoGeneric": {
+        "model": {
+            "type": "studio",
+            "title": "Model",
+            "default": ""
+        },
+        "ammo_name": {
+            "type": "string",
+            "title": "Ammo Name (Required)",
+            "default": "ammo_9mmclip"
+        }
+    },
+    "CAmmorpg": {
+        "model": {
+            "type": "studio",
+            "title": "Model",
+            "default": "models/w_rpgammo.mdl"
+        },
+        "sequence": {
+            "type": "choices",
+            "title": "Placement",
+            "default": "0",
+            "choices": {
+                "0": {
+                    "title": "Normal (flat)",
+                    "description": ""
+                },
+                "1": {
+                    "title": "Capped",
+                    "description": ""
+                }
+            }
+        }
+    },
+    "CBaseAmmo": {
+        "color": "4 128 240",
+        "ammo_amount": {
+            "type": "integer",
+            "title": "Ammo Amount To Give (-1 == Maximum)",
+            "default": "",
+            "description": ""
+        }
+    },
+    "CBaseItem": {
+        "size": "-16 -16 0, 16 16 32",
+        "color": "0 0 200",
+        "studio": true,
+        "respawn_delay": {
+            "type": "float",
+            "title": "Respawn delay (-1 == Never)",
+            "default": "-1",
+            "description": ""
+        },
+        "stay_visible_during_respawn": {
+            "type": "choices",
+            "title": "Stay Visible During Respawn",
+            "default": "0",
+            "choices": {
+                "0": {
+                    "title": "No",
+                    "description": ""
+                },
+                "1": {
+                    "title": "Yes",
+                    "description": ""
+                }
+            }
+        },
+        "flash_on_respawn": {
+            "type": "choices",
+            "title": "Flash On Respawn",
+            "default": "1",
+            "choices": {
+                "0": {
+                    "title": "No",
+                    "description": ""
+                },
+                "1": {
+                    "title": "Yes",
+                    "description": ""
+                }
+            }
+        },
+        "play_pickup_sound": {
+            "type": "choices",
+            "title": "Play Pickup Sound",
+            "default": "1",
+            "choices": {
+                "0": {
+                    "title": "No",
+                    "description": ""
+                },
+                "1": {
+                    "title": "Yes",
+                    "description": ""
+                }
+            }
+        },
+        "fall_mode": {
+            "type": "choices",
+            "title": "Fall Mode",
+            "default": "0",
+            "choices": {
+                "0": {
+                    "title": "Fall",
+                    "description": ""
+                },
+                "1": {
+                    "title": "Float",
+                    "description": ""
+                }
+            }
+        },
+        "trigger_on_spawn": {
+            "type": "target_destination",
+            "title": "Trigger On Spawn",
+            "default": "",
+            "description": ""
+        },
+        "trigger_on_despawn": {
+            "type": "target_destination",
+            "title": "Trigger On Despawn",
+            "default": "",
+            "description": ""
+        }
+    },
+    "ZHLT": {
+        "zhlt_lightflags": {
+            "type": "choices",
+            "title": "ZHLT Lightflags",
+            "default": "",
+            "description": "",
+            "choices": {
+                "0": {
+                    "title": "Default",
+                    "description": ""
+                },
+                "1": {
+                    "title": "Embedded Fix",
+                    "description": ""
+                },
+                "2": {
+                    "title": "Opaque (blocks light)",
+                    "description": ""
+                },
+                "3": {
+                    "title": "Opaque + Embedded fix",
+                    "description": ""
+                },
+                "4": {
+                    "title": "Opaque + Concave Fix",
+                    "description": ""
+                }
+            },
+        "light_origin": {
+            "type": "target_destination",
+            "title": "Light Origin Target",
+            "default": "",
+            "description": ""
+            }
+        }
+    },
+    "ZHLT_point": {
+        "_falloff": {
+            "type": "choices",
+            "title": "ZHLT Falloff",
+            "default": "",
+            "description": "",
+            "choices": {
+                "0": {
+                    "title": "Default",
+                    "description": ""
+                },
+                "1": {
+                    "title": "Inverse Linear",
+                    "description": ""
+                },
+                "2": {
+                    "title": "Inverse Square",
+                    "description": ""
+                }
+            },
+        "_fade": {
+            "type": "string",
+            "title": "ZHLT Fade",
+            "default": "1.0",
+            "description": ""
+            }
+        }
+    },
+    "CButtonTarget": {
+        "spawnflags": {
+            "1":
+            {
+                "title": "Use Activates",
+                "default": "1",
+                "description": ""
+            },
+            "2":
+            {
+                "title": "Start On",
+                "default": "0",
+                "description": ""
+            }
+        },
+        "targetname": {
+            "type": "target_source",
+            "title": "Name",
+            "default": "",
+            "description": "Name is a general attribute used to identify entities."
+        }
+    },
+    "worldspawn": {
+        "Class": "Solid",
+        "name": "World entity",
+        "message": {
+            "type": "string",
+            "title": "Map Description / Title",
+            "description": ""
+        },
+        "skyname": {
+            "type": "sky",
+            "title": "environment map (cl_skyname)",
+            "description": ""
+        },
+        "light": {
+            "type": "integer",
+            "title": "Default light level",
+            "description": ""
+        },
+        "WaveHeight": {
+            "type": "string",
+            "title": "Default Wave Height",
+            "default": "",
+            "description": ""
+        },
+        "MaxRange": {
+            "type": "string",
+            "title": "Max viewable distance",
+            "default": "4096",
+            "description": ""
+        },
+        "chaptertitle": {
+            "type": "string",
+            "title": "Chapter Title Message",
+            "default": "",
+            "description": ""
+        },
+        "startdark": {
+            "type": "choices",
+            "title": "Level Fade In",
+            "default": "0",
+            "description": "",
+            "choices": {
+                "0": {
+                    "title": "No",
+                    "description": ""
+                },
+                "1": {
+                    "title": "Yes",
+                    "description": ""
+                }
+            }
+        },
+        "gametitle": {
+            "type": "string",
+            "title": "Game whose title to display",
+            "default": "",
+            "description": ""
+        },
+        "newunit": {
+            "type": "choices",
+            "title": "New Level Unit",
+            "default": "0",
+            "description": "",
+            "choices": {
+                "0": {
+                    "title": "No, keep current",
+                    "description": ""
+                },
+                "1": {
+                    "title": "Yes, clear previous levels",
+                    "description": ""
+                }
+            }
+        },
+        "mapteams": {
+            "type": "string",
+            "title": "Map Team List",
+            "default": "grunt;scientist",
+            "description": ""
+        },
+        "defaultteam": {
+            "type": "choices",
+            "title": "Default Team",
+            "default": "0",
+            "description": "",
+            "choices": {
+                "0": {
+                    "title": "Fewest Players",
+                    "description": ""
+                },
+                "1": {
+                    "title": "First Team",
+                    "description": ""
+                }
+            }
+        }
+    },
+    "aiscripted_sequence": {
+        "base": "Mandatory, Angles, CCineAI, CCineMonster, Target, FireTargets, CBaseDelay, appearflags",
+        "Class": "Point",
+        "name": "AI Scripted Sequence",
+        "description": ""
+    },
+    "ambient_generic": {
+        "base": "Mandatory, CAmbientGeneric, appearflags",
+        "Class": "Point",
+        "name": "Universal Ambient",
+        "description": ""
+    },
+    "ambient_music": {
+        "base": "Mandatory, CAmbientMusic, appearflags",
+        "Class": "Point",
+        "name": "Plays music",
+        "description": "Add Description",
+        "notes": {
+            "1": "Part of the <a href=\"../../features/sound-system.md\">OpenAL sound system</a>"
+        }
+    },
+    "ammo_357": {
+        "base": "Mandatory, Angles, CAmmo357, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags",
+        "Class": "Point",
+        "name": "357 Ammo",
+        "description": ""
+    },
+    "ammo_556": {
+        "base": "Mandatory, Angles, CAmmo556, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags",
+        "Class": "Point",
+        "name": "M249 Ammo",
+        "description": ""
+    },
+    "ammo_762": {
+        "base": "Mandatory, Angles, CAmmo762, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags",
+        "Class": "Point",
+        "name": "Sniper Ammo",
+        "description": ""
+    },
+    "ammo_9mmar": {
+        "base": "Mandatory, Angles, CAmmo9mmar, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags",
+        "Class": "Point",
+        "name": "9mm Assault Rifle Ammo",
+        "description": ""
+    },
+    "ammo_9mmbox": {
+        "base": "Mandatory, Angles, CAmmo9mmbox, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags",
+        "Class": "Point",
+        "name": "box of 200 9mm shells",
+        "description": ""
+    },
+    "ammo_9mmclip": {
+        "base": "Mandatory, Angles, CAmmo9mm, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags",
+        "Class": "Point",
+        "name": "9mm Pistol Ammo",
+        "description": ""
+    },
+    "ammo_all": {
+        "base": "Mandatory, Angles, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags",
+        "Class": "Point",
+        "name": "Gives all ammo types",
+        "description": ""
+    },
+    "ammo_argrenades": {
+        "base": "Mandatory, Angles, CAmmoargrenades, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags",
+        "Class": "Point",
+        "name": "Assault Grenades",
+        "description": ""
+    },
+    "ammo_buckshot": {
+        "base": "Mandatory, Angles, CAmmoshowbox, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags",
+        "Class": "Point",
+        "name": "Shotgun Ammo",
+        "description": ""
+    },
+    "ammo_crossbow": {
+        "base": "Mandatory, Angles, CAmmoshowbox, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags",
+        "Class": "Point",
+        "name": "Crossbow Ammo",
+        "description": ""
+    },
+    "ammo_gaussclip": {
+        "base": "Mandatory, Angles, CAmmogauss, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags",
+        "Class": "Point",
+        "name": "Gauss Gun Ammo",
+        "description": ""
+    },
+    "ammo_generic": {
+        "base": "Mandatory, Angles, CAmmoGeneric, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags",
+        "Class": "Point",
+        "name": "Generic Ammo",
+        "description": ""
+    },
+    "ammo_rpgclip": {
+        "base": "Mandatory, Angles, CAmmorpg, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags",
+        "Class": "Point",
+        "name": "RPG Ammo",
+        "description": ""
+    },
+    "ammo_spore": {
+        "base": "Mandatory, Angles, CAmmospore, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags",
+        "Class": "Point",
+        "name": "Spore Ammo",
+        "description": ""
+    },
+    "button_target": {
+        "base": "Mandatory, Angles, CButtonTarget, Target, FireTargets, Master, rendersettings, ZHLT, appearflags",
+        "Class": "Solid",
+        "name": "Target Button",
+        "description": ""
+    }
+}
