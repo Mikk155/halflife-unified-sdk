@@ -1,0 +1,477 @@
+@BaseClass = Mandatory 
+[
+	spawnflags(flags)
+	[
+		2048 : "Only in Singleplayer" : 0 : "This entity won't spawn at all in multi-player"
+	]
+	targetname(target_source) : "Name" : "" : "Name is a general attribute used to identify entities."
+]
+
+@BaseClass = Target 
+[
+	target(target_destination) : "Target" : "" : ""
+]
+
+@BaseClass = Global 
+[
+	globalname(string) : "Global Entity Name" : "" : ""
+]
+
+@BaseClass = CBaseDelay 
+[
+	killtarget(target_destination) : "KillTarget" : "" : ""
+	delay(float) : "Delay before trigger" : "0" : ""
+]
+
+@BaseClass = hullsize 
+[
+	custom_hull_min(vector) : "Custom Hull Minimum" : "" : ""
+	custom_hull_max(vector) : "Custom Hull Maximum" : "" : ""
+]
+
+@BaseClass = rendermode 
+[
+	rendermode(choices) : "FX Mode" : "" : "" =
+	[
+		"0" : "Normal" : ""
+		"1" : "Color" : ""
+		"2" : "Texture" : ""
+		"3" : "Glow" : ""
+		"4" : "Solid" : ""
+		"5" : "Additive" : ""
+	]
+]
+
+@BaseClass = renderamt 
+[
+	renderamt(integer) : "FX Amount (1 - 255)" : "255" : ""
+]
+
+@BaseClass = rendercolor 
+[
+	rendercolor(color255) : "FX Color (R G B)" : "" : ""
+]
+
+@BaseClass = renderfx 
+[
+	renderfx(choices) : "FX Effect" : "" : "" =
+	[
+		"0" : "Normal" : ""
+		"1" : "Slow Pulse" : ""
+		"2" : "Fast Pulse" : ""
+		"3" : "Slow Wide Pulse" : ""
+		"4" : "Fast Wide Pulse" : ""
+		"9" : "Slow Strobe" : ""
+		"10" : "Fast Strobe" : ""
+		"11" : "Faster Strobe" : ""
+		"12" : "Slow Flicker" : ""
+		"13" : "Fast Flicker" : ""
+		"5" : "Slow Fade Away" : ""
+		"6" : "Fast Fade Away" : ""
+		"7" : "Slow Become Solid" : ""
+		"8" : "Fast Become Solid" : ""
+		"14" : "Constant Glow" : ""
+		"15" : "Distort" : ""
+		"16" : "Hologram (Distort + fade)" : ""
+	]
+]
+
+@BaseClass base( rendermode, renderamt, rendercolor, renderfx ) = rendersettings 
+[
+]
+
+@BaseClass = CCustomModels 
+[
+	model_replacement_filename(string) : "Model replacement file" : "" : ""
+]
+
+@BaseClass = CCustomSounds 
+[
+	sound_replacement_filename(string) : "Model replacement file" : "" : ""
+]
+
+@BaseClass = CCustomSentence 
+[
+	sentence_replacement_filename(string) : "Model replacement file" : "" : ""
+]
+
+@BaseClass base( CCustomModels, CCustomSounds, CCustomSentence ) = CReplacemetFile 
+[
+]
+
+@BaseClass = Master 
+[
+	master(target_destination) : "Master" : "0" : ""
+]
+
+@BaseClass = Sequence 
+[
+	sequence(integer) : "Animation Sequence (editor)" : "" : "Sequence to display in Jackhammer. This does not affect gameplay."
+]
+
+@BaseClass = Angles 
+[
+	angles(vector) : "Pitch Yaw Roll (Y Z X)" : "0 0 0" : ""
+]
+
+@BaseClass size( -16 -16 0, 16 16 72 ) flags( Angle ) color( 164 0 255 ) = CCineAI 
+[
+]
+
+@BaseClass = appearflags 
+[
+	appearflag_singleplayer(choices) : "#AppearFlags SinglePlayer" : "0" : "" =
+	[
+		"-1" : "Not in" : ""
+		"0" : "Default" : ""
+		"1" : "Only in" : ""
+	]
+	appearflag_multiplayer(choices) : "#AppearFlags MultiPlayer" : "0" : "" =
+	[
+		"-1" : "Not in" : ""
+		"0" : "Default" : ""
+		"1" : "Only in" : ""
+	]
+	appearflag_cooperative(choices) : "#AppearFlags Cooperative" : "0" : "" =
+	[
+		"-1" : "Not in" : ""
+		"0" : "Default" : ""
+		"1" : "Only in" : ""
+	]
+	appearflag_skilleasy(choices) : "#AppearFlags Easy" : "0" : "" =
+	[
+		"-1" : "Not in" : ""
+		"0" : "Default" : ""
+		"1" : "Only in" : ""
+	]
+	appearflag_skillmedium(choices) : "#AppearFlags Medium" : "0" : "" =
+	[
+		"-1" : "Not in" : ""
+		"0" : "Default" : ""
+		"1" : "Only in" : ""
+	]
+	appearflag_skillhard(choices) : "#AppearFlags Hard" : "0" : "" =
+	[
+		"-1" : "Not in" : ""
+		"0" : "Default" : ""
+		"1" : "Only in" : ""
+	]
+]
+
+@BaseClass size( -16 -16 0, 16 16 72 ) flags( Angle ) color( 164 128 255 ) = CCineMonster 
+[
+	spawnflags(flags)
+	[
+		4 : "Repeatable" : 0 : ""
+		8 : "Leave Corpse" : 0 : ""
+	]
+	m_iszEntity(target_generic) : "Target Monster" : "" : ""
+	m_iszPlay(string) : "Action Animation" : "" : ""
+	m_flRadius(integer) : "Search Radius" : "512" : ""
+	m_flRepeat(float) : "Repeat Rate ms" : "0" : ""
+	m_fMoveTo(choices) : "Move to Position" : "0" : "" =
+	[
+		"0" : "No" : ""
+		"1" : "Walk" : ""
+		"2" : "Run" : ""
+		"4" : "Instantaneous" : ""
+		"5" : "No - Turn to Face" : ""
+	]
+	m_iFinishSchedule(choices) : "AI Schedule when done" : "0" : "" =
+	[
+		"0" : "Default AI" : ""
+		"1" : "Ambush" : ""
+	]
+]
+
+@BaseClass = FireTargets 
+[
+	m_UseType(choices) : "Use Type" : "-1" : "" =
+	[
+		"-1" : "USE_UNSET (default)" : ""
+		"0" : "USE_OFF" : ""
+		"1" : "USE_ON" : ""
+		"2" : "USE_SET" : ""
+		"3" : "USE_TOGGLE" : ""
+		"4" : "USE_KILL" : ""
+		"5" : "USE_SAME" : ""
+		"6" : "USE_OPPOSITE" : ""
+		"7" : "USE_TOUCH" : ""
+		"8" : "USE_LOCK" : ""
+		"9" : "USE_UNLOCK" : ""
+	]
+	m_UseValue(float) : "Use Value" : "" : ""
+]
+
+@BaseClass = VolumeHealth10 
+[
+	health(integer) : "Volume (10 = loudest)" : "0" : " Sets the volume of the sound. Scales from 0 (completely silent) to 10 (maximum, default). (If using dynamics attributes below, this is the maximum volume the sound will reach.)"
+]
+
+@BaseClass base( VolumeHealth10 ) iconsprite( dev/hammer/ambient_generic.spr ) color( 220 220 220 ) = CAmbientGeneric 
+[
+	message(sound) : "Path/filename.wav of WAV" : "" : "This defines which sound file will be played by the entity. This accepts an input of the form path/filename.wav (starting from the 'sound' folder). (Example: ambience/drips.wav). The name of a sentence defined in sentences.txt will also be accepted with the form '!SENTENCENAME'. (Example: !HG_ALERT1)"
+	volstart(integer) : "Start Volume" : "0" : " Sets the volume that the sound should start at when fading in, and that it should stop at when fading out. Scales from 0 (completely silent) to 10 (maximum). (Should be lower than Volume.)"
+	fadein(integer) : "Fade in time (0-100)" : "0" : "Sets how long the sound should take to fade in from Start Volume to Volume. Scales from 0 (instant) to 100 (very long)."
+	fadeout(integer) : "Fade out time (0-100)" : "0" : "Sets how long the sound should take to fade out from Volume to Start Volume. Scales from 0 (instant) to 100 (very long)."
+	pitch(integer) : "Pitch (> 100 = higher)" : "100" : "Sets the pitch of the sound. Scales from 100 (default), with lower values meaning lower pitch and higher values meaning higher pitch."
+	pitchstart(integer) : "Start Pitch" : "100" : "Sets the pitch that the sound should start at when spinning up, and that it should stop at when spinning down. Scales from 100 (default), with lower values meaning lower pitch and higher values meaning higher pitch. (Should be lower than Pitch.)"
+	spinup(integer) : "Spin up time (0-100)" : "0" : "Sets how long the sound should take to spin up from Start Pitch to Pitch. Scales from 0 (instant) to 100 (very long)."
+	spindown(integer) : "Spin down time (0-100)" : "0" : "Sets how long the sound should take to spin down from Pitch to Start Pitch. Scales from 0 (instant) to 100 (very long)."
+	lfotype(choices) : "LFO type" : "0" : "Allows the sound to have certain oscillating effects applied to its pitch." =
+	[
+		"0" : "off" : "Disables the LFO effects."
+		"1" : "sqr" : "Switches between a low and high pitch."
+		"2" : "tri" : "Oscillates between a low and high pitch."
+		"3" : "rnd" : "Randomly switches pitches."
+	]
+	lforate(integer) : "LFO rate (0-1000)" : "0" : "Sets how quickly the pitch changes with the LFO effects. Scales between 0 (does not change) and 1000 (changes extremely quickly)."
+	lfomodpitch(integer) : "LFO mod pitch (0-100)" : "0" : "Sets how much the pitch should change with the LFO effects. Scales between 0 (does not change) and 100 (very large changes)."
+	lfomodvol(integer) : "LFO mod vol (0-100)" : "0" : "Sets how much the volume should change with the LFO effects. Seems to coincide with lower pitches. Scales between 0 (does not change) and 100 (silent)."
+	cspinup(integer) : "Incremental spinup count" : "0" : "Sets how many times the ambient_generic can be triggered to have the pitch spin up on top of the pitch it was already playing at. Setting this to a value other than 0 will disable toggling the sound, and will prevent the sound from being turned off even it has been triggered that many times."
+	spawnflags(flags)
+	[
+		1 : "Play Everywhere" : 0 : "If enabled, the sound will be heard throughout the entire map."
+		2 : "Small Radius" : 0 : "If enabled, the sound will be at maximum volume within a roughly 256 unit radius, fading out completely at around 512 units away."
+		4 : "Medium Radius" : 1 : "If enabled, the sound will be at maximum volume within a roughly 512 unit radius, fading out completely at around 768 units away."
+		8 : "Large Radius" : 0 : "If enabled, the sound will be at maximum volume within a roughly 768 unit radius, fading out completely at around 1280 units away."
+		16 : "Start Silent" : 0 : "If enabled, the sound will not play at the start of the map, and will need to be triggered to play. Otherwise, the sound will play at the start of the map whether it is a looping sound or not."
+		32 : "Is NOT Looped" : 0 : "Tells the entity whether or not it is dealing with a looping sound. If enabled, the sound will play whenever the entity is triggered (intended for non-looping sounds). (Looping sounds will still play, but will not turn off when triggered.) If not enabled, the sound will toggle on or off when triggered (intended for looping sounds). (Non-looping sounds will still play, but every second trigger will turn the sound off regardless of whether the sound is actually playing anything.) See notes for more information about looping sounds."
+	]
+	preset(choices) : "Dynamic Presets" : "0" : "Sets the ambient_generic to use a predefined set of dynamics. If set to anything other than 'None', this will override every other attribute apart from Name and WAV Name." =
+	[
+		"0" : "None" : "Does not use a preset, and will not override any other entity attributes."
+		"1" : "Huge Machine" : "Very long spin up, starting slow and getting fast. Very long spin down."
+		"2" : "Big Machine" : "Medium spin up, starting normal and getting fast. Long spin down."
+		"3" : "Machine" : "Quick spin up, starting normal and getting fast. Quick spin down."
+		"4" : "Slow Fade in" : "Slow fade in/out."
+		"5" : "Fade in" : "Medium fade in/out."
+		"6" : "Quick Fade in" : "Quick fade in/out."
+		"7" : "Slow Pulse" : "Slow pulsing speed. Quick fade out."
+		"8" : "Pulse" : "Pulsing speed. Quick fade out."
+		"9" : "Quick pulse" : "Quick pulsing speed. Quick fade out."
+		"10" : "Slow Oscillator" : "Slow oscillation between normal and slow speed. Quick fade out."
+		"11" : "Oscillator" : "Medium oscillation between normal and slow speed. Quick fade out."
+		"12" : "Quick Oscillator" : "Fast oscillation between normal and slow speed. Quick fade out."
+		"13" : "Grunge pitch" : "Extremely slow. Quick fade out."
+		"14" : "Very low pitch" : "Very slow. Quick fade out."
+		"15" : "Low pitch" : "Slow. Quick fade out."
+		"16" : "High pitch" : "Fast. Quick fade out."
+		"17" : "Very high pitch" : "Very fast. Quick fade out."
+		"18" : "Screaming pitch" : "Extremely fast. Quick fade out."
+		"19" : "Oscillate spinup/down" : "Medium oscillation, with long spin up from slow to fast. Long spin down."
+		"20" : "Pulse spinup/down" : "Slow pulse, with long spin up from slow to fast. Long spin down."
+		"21" : "Random pitch" : "Occasionally switches speed, tending towards slower speeds. Quick fade out."
+		"22" : "Random pitch fast" : "Rapidly switches speed, tending towards faster speeds. Quick fade out."
+		"23" : "Incremental Spinup" : "Quick spin up. Subsequent triggers will not toggle, but will spin up from existing speed, up to five times. Cannot be turned off."
+		"24" : "Alien" : "Unusual pulsing and switching speed. Quick fade out."
+		"25" : "Bizzare" : "Fast oscillation between fast and slow/silent. Quick fade out."
+		"26" : "Planet X" : "Medium switching between slower speeds, similar to 'Random pitch'. Quick fade out."
+		"27" : "Haunted" : "Slow switch between normal and slow speed. Quick fade out."
+	]
+]
+
+@BaseClass iconsprite( dev/hammer/ambient_generic.spr ) color( 200 150 255 ) = CAmbientMusic 
+[
+	filename(string) : "Filename of music file" : "" : "Relative name of the file to play, starting in the root directory. For example: media/Half-Life01.mp3. Only applies to the Play and Loop commands"
+	command(choices) : "Command" : "0" : "The command to issue" =
+	[
+		"0" : "Play" : ""
+		"1" : "Play looping" : ""
+		"2" : "Fadeout" : ""
+		"3" : "Stop" : ""
+	]
+	target_selector(choices) : "Target selector" : "0" : "How to select players to affect." =
+	[
+		"0" : "All Players" : ""
+		"1" : "Activator" : ""
+		"2" : "Radius" : ""
+	]
+	radius(integer) : "Player radius (for Radius target selector)" : "" : "If target_selector is Radius, this is how close the player has to be to be affected by this entity"
+	remove_on_fire(choices) : "Remove on fire" : "0" : "Whether to remove the entity after it has been triggered or after it has affected at least one player (Radius only)" =
+	[
+		"0" : "No" : ""
+		"1" : "Yes" : ""
+	]
+]
+
+@BaseClass = CAmmo357 
+[
+	model(studio) : "Model" : "models/w_357ammobox.mdl" : ""
+]
+
+@BaseClass = CAmmo556 
+[
+	model(studio) : "Model" : "models/W_saw_clip.mdl" : ""
+]
+
+@BaseClass = CAmmo762 
+[
+	model(studio) : "Model" : "models/w_m40a1clip.mdl" : ""
+]
+
+@BaseClass = CAmmo9mmar 
+[
+	model(studio) : "Model" : "models/w_9mmarclip.mdl" : ""
+]
+
+@BaseClass = CAmmo9mmbox 
+[
+	model(studio) : "Model" : "models/w_chainammo.mdl" : ""
+]
+
+@BaseClass = CAmmo9mm 
+[
+	model(studio) : "Model" : "models/w_9mmclip.mdl" : ""
+]
+
+@BaseClass = CAmmoargrenades 
+[
+	model(studio) : "Model" : "models/w_argrenade.mdl" : ""
+]
+
+@BaseClass = CAmmoshowbox 
+[
+	model(studio) : "Model" : "models/w_shotbox.mdl" : ""
+]
+
+@BaseClass = CAmmogauss 
+[
+	model(studio) : "Model" : "models/w_gaussammo.mdl" : ""
+]
+
+@BaseClass = CAmmoxbow 
+[
+	model(studio) : "Model" : "models/w_crossbow_clip.mdl" : ""
+]
+
+@BaseClass = CAmmospore 
+[
+	model(studio) : "Model" : "models/spore_ammo.mdl" : ""
+]
+
+@BaseClass = CAmmoGeneric 
+[
+	model(studio) : "Model" : "" : ""
+	ammo_name(string) : "Ammo Name (Required)" : "ammo_9mmclip" : ""
+]
+
+@BaseClass = CAmmorpg 
+[
+	model(studio) : "Model" : "models/w_rpgammo.mdl" : ""
+	sequence(choices) : "Placement" : "0" : "" =
+	[
+		"0" : "Normal (flat)" : ""
+		"1" : "Capped" : ""
+	]
+]
+
+@BaseClass color( 4 128 240 ) = CBaseAmmo 
+[
+	ammo_amount(integer) : "Ammo Amount To Give (-1 == Maximum)" : "" : ""
+]
+
+@BaseClass size( -16 -16 0, 16 16 32 ) color( 0 0 200 ) studio() = CBaseItem 
+[
+	respawn_delay(float) : "Respawn delay (-1 == Never)" : "-1" : ""
+	stay_visible_during_respawn(choices) : "Stay Visible During Respawn" : "0" : "" =
+	[
+		"0" : "No" : ""
+		"1" : "Yes" : ""
+	]
+	flash_on_respawn(choices) : "Flash On Respawn" : "1" : "" =
+	[
+		"0" : "No" : ""
+		"1" : "Yes" : ""
+	]
+	play_pickup_sound(choices) : "Play Pickup Sound" : "1" : "" =
+	[
+		"0" : "No" : ""
+		"1" : "Yes" : ""
+	]
+	fall_mode(choices) : "Fall Mode" : "0" : "" =
+	[
+		"0" : "Fall" : ""
+		"1" : "Float" : ""
+	]
+	trigger_on_spawn(target_destination) : "Trigger On Spawn" : "" : ""
+	trigger_on_despawn(target_destination) : "Trigger On Despawn" : "" : ""
+]
+
+@BaseClass = ZHLT 
+[
+	zhlt_lightflags(choices) : "ZHLT Lightflags" : "" : "" =
+	[
+		"0" : "Default" : ""
+		"1" : "Embedded Fix" : ""
+		"2" : "Opaque (blocks light)" : ""
+		"3" : "Opaque + Embedded fix" : ""
+		"4" : "Opaque + Concave Fix" : ""
+	]
+]
+
+@BaseClass = ZHLT_point 
+[
+	_falloff(choices) : "ZHLT Falloff" : "" : "" =
+	[
+		"0" : "Default" : ""
+		"1" : "Inverse Linear" : ""
+		"2" : "Inverse Square" : ""
+	]
+]
+
+@BaseClass = CButtonTarget 
+[
+	spawnflags(flags)
+	[
+		1 : "Use Activates" : 1 : ""
+		2 : "Start On" : 0 : ""
+	]
+	targetname(target_source) : "Name" : "" : "Name is a general attribute used to identify entities."
+]
+
+@SolidClass = worldspawn : "World entity" : ""
+[
+	message(string) : "Map Description / Title" : "" : ""
+	skyname(sky) : "environment map (cl_skyname)" : "" : ""
+	light(integer) : "Default light level" : "" : ""
+	WaveHeight(string) : "Default Wave Height" : "" : ""
+	MaxRange(string) : "Max viewable distance" : "4096" : ""
+	chaptertitle(string) : "Chapter Title Message" : "" : ""
+	startdark(choices) : "Level Fade In" : "0" : "" =
+	[
+		"0" : "No" : ""
+		"1" : "Yes" : ""
+	]
+	gametitle(string) : "Game whose title to display" : "" : ""
+	newunit(choices) : "New Level Unit" : "0" : "" =
+	[
+		"0" : "No, keep current" : ""
+		"1" : "Yes, clear previous levels" : ""
+	]
+	mapteams(string) : "Map Team List" : "grunt;scientist" : ""
+	defaultteam(choices) : "Default Team" : "0" : "" =
+	[
+		"0" : "Fewest Players" : ""
+		"1" : "First Team" : ""
+	]
+]
+
+@PointClass base( Mandatory, Angles, CCineAI, CCineMonster, Target, FireTargets, CBaseDelay, appearflags ) = aiscripted_sequence  : "AI Scripted Sequence" : "" []
+@PointClass base( Mandatory, CAmbientGeneric, appearflags ) = ambient_generic  : "Universal Ambient" : "" []
+@PointClass base( Mandatory, CAmbientMusic, appearflags ) = ambient_music  : "Plays music" : "Add Description" []
+@PointClass base( Mandatory, Angles, CAmmo357, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags ) = ammo_357  : "357 Ammo" : "" []
+@PointClass base( Mandatory, Angles, CAmmo556, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags ) = ammo_556  : "M249 Ammo" : "" []
+@PointClass base( Mandatory, Angles, CAmmo762, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags ) = ammo_762  : "Sniper Ammo" : "" []
+@PointClass base( Mandatory, Angles, CAmmo9mmar, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags ) = ammo_9mmar  : "9mm Assault Rifle Ammo" : "" []
+@PointClass base( Mandatory, Angles, CAmmo9mmbox, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags ) = ammo_9mmbox  : "box of 200 9mm shells" : "" []
+@PointClass base( Mandatory, Angles, CAmmo9mm, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags ) = ammo_9mmclip  : "9mm Pistol Ammo" : "" []
+@PointClass base( Mandatory, Angles, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags ) = ammo_all  : "Gives all ammo types" : "" []
+@PointClass base( Mandatory, Angles, CAmmoargrenades, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags ) = ammo_argrenades  : "Assault Grenades" : "" []
+@PointClass base( Mandatory, Angles, CAmmoshowbox, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags ) = ammo_buckshot  : "Shotgun Ammo" : "" []
+@PointClass base( Mandatory, Angles, CAmmoshowbox, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags ) = ammo_crossbow  : "Crossbow Ammo" : "" []
+@PointClass base( Mandatory, Angles, CAmmogauss, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags ) = ammo_gaussclip  : "Gauss Gun Ammo" : "" []
+@PointClass base( Mandatory, Angles, CAmmoGeneric, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags ) = ammo_generic  : "Generic Ammo" : "" []
+@PointClass base( Mandatory, Angles, CAmmorpg, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags ) = ammo_rpgclip  : "RPG Ammo" : "" []
+@PointClass base( Mandatory, Angles, CAmmospore, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags ) = ammo_spore  : "Spore Ammo" : "" []
+@SolidClass base( Mandatory, Angles, CButtonTarget, Target, FireTargets, Master, rendersettings, ZHLT, appearflags ) = button_target  : "Target Button" : "" []
