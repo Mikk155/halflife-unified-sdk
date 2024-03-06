@@ -1,9 +1,11 @@
-#import platform
+# Crear entities.html al final cuando todo este completo
+    # Ordenar alfabeticamente
+# Separar por Class en carpeta point/ y solid/
+
 import json
-#import os
 
 def ParseKeyValueData(f, key, atributes, data):
-    if key in ["size", "color", "studio", "iconsprite", "base", "spawnflags" ]:
+    if key in ["size", "color", "studio", "iconsprite", "base", "spawnflags", "sprite" ]:
         return
 
     f.write(f'<tr><td>{key}</td>')
@@ -159,6 +161,8 @@ def GenerateFGDFile():
 
             if entity_data.get( "studio", False ):
                 f.write(f'studio() ')
+            elif entity_data.get( "sprite", False ):
+                f.write(f'sprite() ')
 
             f.write(f'= {entity_name} ')
 
@@ -172,7 +176,7 @@ def GenerateFGDFile():
             f.write(f'\n[\n')
 
             for prop_name, prop_data in entity_data.items():
-                if prop_name in [ "notes", "size", "color", "Class", "flags", "base", "iconsprite", "studio" ]:
+                if prop_name in [ "notes", "size", "color", "Class", "flags", "base", "iconsprite", "studio", "sprite" ]:
                     continue
 
                 if prop_name == "name" and entity_name == "worldspawn":

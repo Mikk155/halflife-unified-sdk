@@ -1,7 +1,7 @@
 body
 {
-    background-color: #000000;
-    color: #b12bda;
+    background-color: rgb(26, 0, 31);
+    color: rgb(180, 40, 220);
     font-weight: bold;
     font-size:larger;
     text-align: center;
@@ -20,4 +20,14 @@ a
 a:hover
 {
     color: #ff12bc;
+}
+
+table
+{
+    margin: 0 auto;
+}
+
+table th, table td
+{
+    padding: 5px 10px;
 }

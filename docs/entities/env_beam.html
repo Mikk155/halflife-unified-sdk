@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>env_beam</title>
+	<link rel="stylesheet" href="../styles.css">
+</head>
+</body>
+	<h1>env_beam</h1>
+	<h2>Energy Beam Effect</h2>
+	<p></p>
+	<p></p>
+	<h2>KeyValues</h2>
+	<table id="env_beam" border="1">
+	<tr>
+		<th>Key</th>
+		<th>Value</th>
+		<th>Type</th>
+		<th>FGD</th>
+		<th>Description</th>
+	<tr>
+<tr><td>targetname</td><td></td><td>target_source</td><td>Name</td><td class="table_description">Name is a general attribute used to identify entities.</td></tr>
+<tr><td>texture</td><td>sprites/laserbeam.spr</td><td>sprite</td><td>Sprite Name</td><td class="table_description">This defines which sprite file the entity will use to form the beam. This accepts an input of the form "path/filename.spr" (starting from the root folder). (Example: "sprites/laserbeam.spr").</td></tr>
+<tr><td>LightningStart</td><td></td><td>target_generic</td><td>Start Entity</td><td class="table_description">The name of an entity to be used as the starting point for the beam. If undefined, the beam will choose a surface within the Radius to use as the starting point. (Note that if the Start Entity is undefined, the Ending Entity must also be undefined.)</td></tr>
+<tr><td>LightningEnd</td><td></td><td>target_generic</td><td>Ending Entity</td><td class="table_description">The name of an entity to be used as the end point for the beam. If undefined, the beam will choose a surface within the Radius to use as the end point.</td></tr>
+<tr><td>Radius</td><td></td><td>integer</td><td>Radius</td><td class="table_description">If the beam has undefined start/end points, this attribute defines how far away the beam can choose to use as its start/end points.</td></tr>
+<tr><td>life</td><td>1.0</td><td>float</td><td>Life (seconds 0 = infinite)</td><td class="table_description">Sets how many seconds the beam will stay on before deactivating. It will reactivate through Strike again time. Setting this to 0 will make the beam never deactivate automatically.</td></tr>
+<tr><td>BoltWidth</td><td>20</td><td>integer</td><td>Width of beam (pixels*0.1 0-255)</td><td class="table_description">Sets the width of the beam. Measured in tenths of a unit. This attribute works like a radius; the beam will actually be twice as wide as the defined value.</td></tr>
+<tr><td>NoiseAmplitude</td><td>0</td><td>integer</td><td>Amount of noise (0-255)</td><td class="table_description">Sets how erratic the beam will be. The beam will always start and end at the usual points, but the path of the beam will move randomly to a degree defined by this attribute. Scales from 0 (perfectly straight beam) to 255 (wildly moving beam).</td></tr>
+<tr><td>TextureScroll</td><td>35</td><td>integer</td><td>Texture Scroll Rate (0-100)</td><td class="table_description">Sets how fast the sprites move along the beam. Scales from 0 (no movement) to 100 (extremely fast).</td></tr>
+<tr><td>framerate</td><td>0</td><td>integer</td><td>Frames per 10 seconds</td><td class="table_description">Seemingly unused.</td></tr>
+<tr><td>framestart</td><td>0</td><td>integer</td><td>Starting Frame</td><td class="table_description"> Sets which frame of animation that the sprite should use.</td></tr>
+<tr><td>StrikeTime</td><td>0</td><td>integer</td><td>Strike again time (secs)</td><td class="table_description">Sets how long many seconds before the beam reactivates (after the beam deactivates after being on for the time defined in Life). If the beam has undefined start/end points, the beam will choose new points for the reactivation.</td></tr>
+<tr><td>damage</td><td>0</td><td>float</td><td>Damage / second</td><td class="table_description">Sets how much damage the beam should do when you walk through it. Note that the damage is only dealt in a straight line between start and end point, regardless of any fluctuation in the beam from the Amount of Noise attribute.</td></tr>
+<tr><td>renderamt</td><td>255</td><td>integer</td><td>FX Amount (1 - 255)</td><td class="table_description"></td></tr>
+<tr><td>rendercolor</td><td></td><td>color255</td><td>FX Color (R G B)</td><td class="table_description"></td></tr>
+<tr><td>renderfx</td><td></td><td>choices</td><td>FX Effect</td><td class="table_description"></td></tr>
+<tr><td>renderfx</td><td>0</td><td></td><td>Normal</td><td class="table_description"></td></tr>
+<tr><td>renderfx</td><td>1</td><td></td><td>Slow Pulse</td><td class="table_description"></td></tr>
+<tr><td>renderfx</td><td>2</td><td></td><td>Fast Pulse</td><td class="table_description"></td></tr>
+<tr><td>renderfx</td><td>3</td><td></td><td>Slow Wide Pulse</td><td class="table_description"></td></tr>
+<tr><td>renderfx</td><td>4</td><td></td><td>Fast Wide Pulse</td><td class="table_description"></td></tr>
+<tr><td>renderfx</td><td>9</td><td></td><td>Slow Strobe</td><td class="table_description"></td></tr>
+<tr><td>renderfx</td><td>10</td><td></td><td>Fast Strobe</td><td class="table_description"></td></tr>
+<tr><td>renderfx</td><td>11</td><td></td><td>Faster Strobe</td><td class="table_description"></td></tr>
+<tr><td>renderfx</td><td>12</td><td></td><td>Slow Flicker</td><td class="table_description"></td></tr>
+<tr><td>renderfx</td><td>13</td><td></td><td>Fast Flicker</td><td class="table_description"></td></tr>
+<tr><td>renderfx</td><td>5</td><td></td><td>Slow Fade Away</td><td class="table_description"></td></tr>
+<tr><td>renderfx</td><td>6</td><td></td><td>Fast Fade Away</td><td class="table_description"></td></tr>
+<tr><td>renderfx</td><td>7</td><td></td><td>Slow Become Solid</td><td class="table_description"></td></tr>
+<tr><td>renderfx</td><td>8</td><td></td><td>Fast Become Solid</td><td class="table_description"></td></tr>
+<tr><td>renderfx</td><td>14</td><td></td><td>Constant Glow</td><td class="table_description"></td></tr>
+<tr><td>renderfx</td><td>15</td><td></td><td>Distort</td><td class="table_description"></td></tr>
+<tr><td>renderfx</td><td>16</td><td></td><td>Hologram (Distort + fade)</td><td class="table_description"></td></tr>
+<tr><td>appearflag_singleplayer</td><td>0</td><td>choices</td><td>#AppearFlags SinglePlayer</td><td class="table_description">Appearance flags for SinglePlayer, This control when this entity should or should not appear in this condition.</td></tr>
+<tr><td>appearflag_singleplayer</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is SinglePlayer.</td></tr>
+<tr><td>appearflag_singleplayer</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being SinglePlayer</td></tr>
+<tr><td>appearflag_singleplayer</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT SinglePlayer</td></tr>
+<tr><td>appearflag_multiplayer</td><td>0</td><td>choices</td><td>#AppearFlags MultiPlayer</td><td class="table_description">Appearance flags for MultiPlayer, This control when this entity should or should not appear in this condition.</td></tr>
+<tr><td>appearflag_multiplayer</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is MultiPlayer.</td></tr>
+<tr><td>appearflag_multiplayer</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being MultiPlayer</td></tr>
+<tr><td>appearflag_multiplayer</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT MultiPlayer</td></tr>
+<tr><td>appearflag_cooperative</td><td>0</td><td>choices</td><td>#AppearFlags Cooperative</td><td class="table_description">Appearance flags for Cooperative, This control when this entity should or should not appear in this condition.</td></tr>
+<tr><td>appearflag_cooperative</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is Cooperative.</td></tr>
+<tr><td>appearflag_cooperative</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being Cooperative</td></tr>
+<tr><td>appearflag_cooperative</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT Cooperative</td></tr>
+<tr><td>appearflag_skilleasy</td><td>0</td><td>choices</td><td>#AppearFlags Easy</td><td class="table_description">Appearance flags for Skill level Easy, This control when this entity should or should not appear in this condition.</td></tr>
+<tr><td>appearflag_skilleasy</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is Easy.</td></tr>
+<tr><td>appearflag_skilleasy</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being Easy</td></tr>
+<tr><td>appearflag_skilleasy</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT Easy</td></tr>
+<tr><td>appearflag_skillmedium</td><td>0</td><td>choices</td><td>#AppearFlags Medium</td><td class="table_description">Appearance flags for Skill level Medium, This control when this entity should or should not appear in this condition.</td></tr>
+<tr><td>appearflag_skillmedium</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is Medium.</td></tr>
+<tr><td>appearflag_skillmedium</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being Medium</td></tr>
+<tr><td>appearflag_skillmedium</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT Medium</td></tr>
+<tr><td>appearflag_skillhard</td><td>0</td><td>choices</td><td>#AppearFlags Hard</td><td class="table_description">Appearance flags for Skill level Hard, This control when this entity should or should not appear in this condition.</td></tr>
+<tr><td>appearflag_skillhard</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is Hard.</td></tr>
+<tr><td>appearflag_skillhard</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being Hard</td></tr>
+<tr><td>appearflag_skillhard</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT Hard</td></tr>
+</table>
+<h2>Notes</h2>
+<p><a href="info_targets.html">info_targets</a> are often used for stationary start/end points. To make moving beams, use <a href="func_train.html">func_train</a>.</p>
+<p>The fluctuation of a beam (via the Amount of noise attribute) seems to be affected by the length of the beam; longer beams will be more affected by the same noise value.</p>
+<p>The sprite used in the beam does not seem to animate, though if the sprite has multiple frames, you can choose which frame it uses.</p>
+<p>Setting Life to less than 0.1 (but greater than 0) seems to make the beam not deactivate, but will still create new beams after Strike Again Time. This can cause the beams stack up. There seems to be a limit to how many beams will generate in this way, and after a while the beams will stop spawning. Possibly could be used to create unique visual effects.</p>
+<p>The "Ring" flag seems to not accept all entities as start/end points, including info_targets. It will accept func_trains though.</p>
+<p>If multiple entities have the same name as the Start Entity / Ending Entity, the beam will randomly choose a target from those entities. This can be used to create a random function by placing buttons triggered by damage in the path of the beams.</p>
+<p>It is possible to have the beam target random points. If you leave the end entity undefined, the beam will fire from the start entity to a random direction until it hits a wall. This is very useful for example on teleporters because you don't have to define loads of target points. If you leave both the start and end entity undefined, it will trace a line in a random direction from the actual env_beam entity for a start point and an another one from this point to get the end point. The beam will project between the points. This is totally random but could be used to create some kind of energy storm effect or something.</p>
+</body></html>

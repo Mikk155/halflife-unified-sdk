@@ -3,16 +3,16 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>ambient_music</title>
+	<title>env_beverage</title>
 	<link rel="stylesheet" href="../styles.css">
 </head>
 </body>
-	<h1>ambient_music</h1>
-	<h2>Plays music</h2>
-	<p>This entity allows level designers to control music playback. You can play and loop music, trigger it to fade out or stop it entirely.</p>
+	<h1>env_beverage</h1>
+	<h2>Beverage Dispenser</h2>
+	<p></p>
 	<p></p>
 	<h2>KeyValues</h2>
-	<table id="ambient_music" border="1">
+	<table id="env_beverage" border="1">
 	<tr>
 		<th>Key</th>
 		<th>Value</th>
@@ -21,20 +21,15 @@
 		<th>Description</th>
 	<tr>
 <tr><td>targetname</td><td></td><td>target_source</td><td>Name</td><td class="table_description">Name is a general attribute used to identify entities.</td></tr>
-<tr><td>filename</td><td></td><td>string</td><td>Filename of music file</td><td class="table_description">Relative name of the file to play, starting in the root directory. For example: media/Half-Life01.mp3. Only applies to the Play and Loop commands</td></tr>
-<tr><td>command</td><td>0</td><td>choices</td><td>Command</td><td class="table_description">The command to issue</td></tr>
-<tr><td>command</td><td>0</td><td></td><td>Play</td><td class="table_description"></td></tr>
-<tr><td>command</td><td>1</td><td></td><td>Play looping</td><td class="table_description"></td></tr>
-<tr><td>command</td><td>2</td><td></td><td>Fadeout</td><td class="table_description"></td></tr>
-<tr><td>command</td><td>3</td><td></td><td>Stop</td><td class="table_description"></td></tr>
-<tr><td>target_selector</td><td>0</td><td>choices</td><td>Target selector</td><td class="table_description">How to select players to affect.</td></tr>
-<tr><td>target_selector</td><td>0</td><td></td><td>All Players</td><td class="table_description"></td></tr>
-<tr><td>target_selector</td><td>1</td><td></td><td>Activator</td><td class="table_description"></td></tr>
-<tr><td>target_selector</td><td>2</td><td></td><td>Radius</td><td class="table_description"></td></tr>
-<tr><td>radius</td><td></td><td>integer</td><td>Player radius (for Radius target selector)</td><td class="table_description">If target_selector is Radius, this is how close the player has to be to be affected by this entity</td></tr>
-<tr><td>remove_on_fire</td><td>0</td><td>choices</td><td>Remove on fire</td><td class="table_description">Whether to remove the entity after it has been triggered or after it has affected at least one player (Radius only)</td></tr>
-<tr><td>remove_on_fire</td><td>0</td><td></td><td>No</td><td class="table_description"></td></tr>
-<tr><td>remove_on_fire</td><td>1</td><td></td><td>Yes</td><td class="table_description"></td></tr>
+<tr><td>health</td><td>10</td><td>integer</td><td>Capacity</td><td class="table_description"></td></tr>
+<tr><td>skin</td><td>0</td><td>choices</td><td>Beverage Type</td><td class="table_description">Sets the texture of the cans. You can set other than these to use if you're using a custom model, these are the skin index.</td></tr>
+<tr><td>skin</td><td>0</td><td></td><td>Coca-Cola</td><td class="table_description"></td></tr>
+<tr><td>skin</td><td>1</td><td></td><td>Sprite</td><td class="table_description"></td></tr>
+<tr><td>skin</td><td>2</td><td></td><td>Diet Coke</td><td class="table_description"></td></tr>
+<tr><td>skin</td><td>3</td><td></td><td>Orange</td><td class="table_description"></td></tr>
+<tr><td>skin</td><td>4</td><td></td><td>Surge</td><td class="table_description"></td></tr>
+<tr><td>skin</td><td>5</td><td></td><td>Moxie</td><td class="table_description"></td></tr>
+<tr><td>skin</td><td>6</td><td></td><td>Random</td><td class="table_description"></td></tr>
 <tr><td>appearflag_singleplayer</td><td>0</td><td>choices</td><td>#AppearFlags SinglePlayer</td><td class="table_description">Appearance flags for SinglePlayer, This control when this entity should or should not appear in this condition.</td></tr>
 <tr><td>appearflag_singleplayer</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is SinglePlayer.</td></tr>
 <tr><td>appearflag_singleplayer</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being SinglePlayer</td></tr>
@@ -60,6 +55,4 @@
 <tr><td>appearflag_skillhard</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being Hard</td></tr>
 <tr><td>appearflag_skillhard</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT Hard</td></tr>
 </table>
-<h2>Notes</h2>
-<p>Part of the <a href="../../features/sound-system.md">OpenAL sound system</a></p>
 </body></html>

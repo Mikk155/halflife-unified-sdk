@@ -9,7 +9,7 @@
 </body>
 	<h1>aiscripted_sequence</h1>
 	<h2>AI Scripted Sequence</h2>
-	<p></p>
+	<p>Using the <a href="scripted_sequence.html">scripted_sequence</a> entity as base, the aiscripted_sequence point entity inherit the same responsibility of making a monster entity move to a specific location and/or perform a given animation. The primary difference being that it completely overrides the targeted monster's AI. Regardless of what you do to the monster, it will follow this sequence.</p>
 	<p></p>
 	<h2>KeyValues</h2>
 	<table id="aiscripted_sequence" border="1">
@@ -18,25 +18,25 @@
 		<th>Value</th>
 		<th>Type</th>
 		<th>FGD</th>
-		<th class="centered">Description</th>
+		<th>Description</th>
 	<tr>
 <tr><td>targetname</td><td></td><td>target_source</td><td>Name</td><td class="table_description">Name is a general attribute used to identify entities.</td></tr>
 <tr><td>angles</td><td>0 0 0</td><td>vector</td><td>Pitch Yaw Roll (Y Z X)</td><td class="table_description"></td></tr>
 <tr><td>flags</td><td></td><td></td><td></td><td class="table_description"></td></tr>
 <tr><td>flags</td><td></td><td></td><td></td><td class="table_description"></td></tr>
-<tr><td>m_iszEntity</td><td></td><td>target_generic</td><td>Target Monster</td><td class="table_description"></td></tr>
-<tr><td>m_iszPlay</td><td></td><td>string</td><td>Action Animation</td><td class="table_description"></td></tr>
-<tr><td>m_flRadius</td><td>512</td><td>integer</td><td>Search Radius</td><td class="table_description"></td></tr>
-<tr><td>m_flRepeat</td><td>0</td><td>float</td><td>Repeat Rate ms</td><td class="table_description"></td></tr>
-<tr><td>m_fMoveTo</td><td>0</td><td>choices</td><td>Move to Position</td><td class="table_description"></td></tr>
-<tr><td>m_fMoveTo</td><td>0</td><td></td><td>No</td><td class="table_description"></td></tr>
-<tr><td>m_fMoveTo</td><td>1</td><td></td><td>Walk</td><td class="table_description"></td></tr>
-<tr><td>m_fMoveTo</td><td>2</td><td></td><td>Run</td><td class="table_description"></td></tr>
-<tr><td>m_fMoveTo</td><td>4</td><td></td><td>Instantaneous</td><td class="table_description"></td></tr>
-<tr><td>m_fMoveTo</td><td>5</td><td></td><td>No - Turn to Face</td><td class="table_description"></td></tr>
-<tr><td>m_iFinishSchedule</td><td>0</td><td>choices</td><td>AI Schedule when done</td><td class="table_description"></td></tr>
-<tr><td>m_iFinishSchedule</td><td>0</td><td></td><td>Default AI</td><td class="table_description"></td></tr>
-<tr><td>m_iFinishSchedule</td><td>1</td><td></td><td>Ambush</td><td class="table_description"></td></tr>
+<tr><td>m_iszEntity</td><td></td><td>target_generic</td><td>Target Monster</td><td class="table_description">The name of the monster entity that this sequence affects. You can also input a monster classname (monster_scientist, for example). (Only one monster will be chosen to follow the sequence.)</td></tr>
+<tr><td>m_iszPlay</td><td></td><td>string</td><td>Action Animation</td><td class="table_description">The name of the animation that will be performed by "Target Monster".</td></tr>
+<tr><td>m_flRadius</td><td>512</td><td>integer</td><td>Search Radius</td><td class="table_description">If you input a monster classname into "Target Monster", the entity will pick a monster within this radius of the entity to follow the sequence. If none are within the radius, the first monster to enter the radius will follow the sequence.</td></tr>
+<tr><td>m_flRepeat</td><td>0</td><td>float</td><td>Repeat Rate ms</td><td class="table_description">How often to check if a monster is within the search radius. A check will be made even if search radius is zero, so set this to a large value if it's not used.</td></tr>
+<tr><td>m_fMoveTo</td><td>0</td><td>choices</td><td>Move to Position</td><td class="table_description">Sets how (or if) the monster moves before performing the animation</td></tr>
+<tr><td>m_fMoveTo</td><td>0</td><td></td><td>No</td><td class="table_description">The monster will not move or turn. It will perform the animation wherever it is.</td></tr>
+<tr><td>m_fMoveTo</td><td>1</td><td></td><td>Walk</td><td class="table_description">The monster will walk to the aiscripted_sequence, then perform the animation.</td></tr>
+<tr><td>m_fMoveTo</td><td>2</td><td></td><td>Run</td><td class="table_description">The monster will run to the aiscripted_sequence, then perform the animation.</td></tr>
+<tr><td>m_fMoveTo</td><td>4</td><td></td><td>Instantaneous</td><td class="table_description">The monster will instantly warp to the location of the aiscripted_sequence and perform the animation.</td></tr>
+<tr><td>m_fMoveTo</td><td>5</td><td></td><td>No - Turn to Face</td><td class="table_description">The monster will not move, but will turn to the aiscripted_sequence's angle before performing the animation.</td></tr>
+<tr><td>m_iFinishSchedule</td><td>0</td><td>choices</td><td>AI Schedule when done</td><td class="table_description">Defines what happens to the monster's AI when the sequence is completed/canceled.</td></tr>
+<tr><td>m_iFinishSchedule</td><td>0</td><td></td><td>Default AI</td><td class="table_description">The AI will order the monster to clear it's schedule (kinda like a "reset"). It will resume normal behavior afterwards.</td></tr>
+<tr><td>m_iFinishSchedule</td><td>1</td><td></td><td>Ambush</td><td class="table_description">The AI will order the monster to go into an "ambush" schedule. That is to wait for an infinite period of time unless it see an enemy or take damage.</td></tr>
 <tr><td>target</td><td></td><td>target_destination</td><td>Target</td><td class="table_description"></td></tr>
 <tr><td>m_UseType</td><td>-1</td><td>choices</td><td>Use Type</td><td class="table_description"></td></tr>
 <tr><td>m_UseType</td><td>-1</td><td></td><td>USE_UNSET (default)</td><td class="table_description"></td></tr>
