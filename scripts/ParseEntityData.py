@@ -1,6 +1,7 @@
 # Crear entities.html al final cuando todo este completo
     # Ordenar alfabeticamente
 # Separar por Class en carpeta point/ y solid/
+# mb replace \n -> <br>
 
 import json
 
