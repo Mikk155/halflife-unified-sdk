@@ -1,35 +1,35 @@
-@BaseClass = Mandatory 
+@BaseClass = Mandatory
 [
-	spawnflags(flags)
+	spawnflags(flags) =
 	[
 		2048 : "Only in Singleplayer" : 0 : "This entity won't spawn at all in multi-player"
 	]
 	targetname(target_source) : "Name" : "" : "Name is a general attribute used to identify entities."
 ]
 
-@BaseClass = Target 
+@BaseClass = Target
 [
 	target(target_destination) : "Target" : "" : ""
 ]
 
-@BaseClass = Global 
+@BaseClass = Global
 [
 	globalname(string) : "Global Entity Name" : "" : ""
 ]
 
-@BaseClass = CBaseDelay 
+@BaseClass = CBaseDelay
 [
 	killtarget(target_destination) : "KillTarget" : "" : ""
 	delay(float) : "Delay before trigger" : "0" : ""
 ]
 
-@BaseClass = hullsize 
+@BaseClass = hullsize
 [
 	custom_hull_min(vector) : "Custom Min hullsize (X Y Z)" : "" : "Custom minimum hull size. This overrides the size specified by models and entities."
 	custom_hull_max(vector) : "Custom Max hullsize (X Y Z)" : "" : "Custom maximum hull size. This overrides the size specified by models and entities."
 ]
 
-@BaseClass = rendermode 
+@BaseClass = rendermode
 [
 	rendermode(choices) : "FX Mode" : "" : "" =
 	[
@@ -42,17 +42,17 @@
 	]
 ]
 
-@BaseClass = renderamt 
+@BaseClass = renderamt
 [
 	renderamt(integer) : "FX Amount (1 - 255)" : "255" : ""
 ]
 
-@BaseClass = rendercolor 
+@BaseClass = rendercolor
 [
 	rendercolor(color255) : "FX Color (R G B)" : "" : ""
 ]
 
-@BaseClass = renderfx 
+@BaseClass = renderfx
 [
 	renderfx(choices) : "FX Effect" : "" : "" =
 	[
@@ -76,49 +76,49 @@
 	]
 ]
 
-@BaseClass base( rendermode, renderamt, rendercolor, renderfx ) = rendersettings 
+@BaseClass base( rendermode, renderamt, rendercolor, renderfx ) = rendersettings
 [
 ]
 
-@BaseClass = CCustomModels 
+@BaseClass = CCustomModels
 [
-	model_replacement_filename(string) : "Model replacement file" : "" : "Path to the model replacement file. Must be a relative path starting in the mod directory. All search paths are checked, See <a href="../features/replacement-map-system.md">Replacement Map System</a>"
+	model_replacement_filename(string) : "Model replacement file" : "" : "Path to the model replacement file. Must be a relative path starting in the mod directory. All search paths are checked, See Replacement Map System"
 ]
 
-@BaseClass = CCustomSounds 
+@BaseClass = CCustomSounds
 [
-	sound_replacement_filename(string) : "Sound replacement file" : "" : "Path to the Sound replacement file. Must be a relative path starting in the mod directory. All search paths are checked, See <a href="../features/replacement-map-system.md">Replacement Map System</a>"
+	sound_replacement_filename(string) : "Sound replacement file" : "" : "Path to the Sound replacement file. Must be a relative path starting in the mod directory. All search paths are checked, See Replacement Map System"
 ]
 
-@BaseClass = CCustomSentence 
+@BaseClass = CCustomSentence
 [
-	sentence_replacement_filename(string) : "Sentence replacement file" : "" : "Path to the Sentence replacement file. Must be a relative path starting in the mod directory. All search paths are checked, See <a href="../features/replacement-map-system.md">Replacement Map System</a>"
+	sentence_replacement_filename(string) : "Sentence replacement file" : "" : "Path to the Sentence replacement file. Must be a relative path starting in the mod directory. All search paths are checked, See Replacement Map System"
 ]
 
-@BaseClass base( CCustomModels, CCustomSounds, CCustomSentence ) = CReplacemetFile 
+@BaseClass base( CCustomModels, CCustomSounds, CCustomSentence ) = CReplacemetFile
 [
 ]
 
-@BaseClass = Master 
+@BaseClass = Master
 [
 	master(target_destination) : "Master" : "0" : ""
 ]
 
-@BaseClass = Sequence 
+@BaseClass = Sequence
 [
 	sequence(integer) : "Animation Sequence (editor)" : "" : "Sequence to display in Jackhammer. This does not affect gameplay."
 ]
 
-@BaseClass = Angles 
+@BaseClass = Angles
 [
 	angles(vector) : "Pitch Yaw Roll (Y Z X)" : "0 0 0" : ""
 ]
 
-@BaseClass size( -16 -16 0, 16 16 72 ) flags( Angle ) color( 164 0 255 ) = CCineAI 
+@BaseClass size( -16 -16 0, 16 16 72 ) flags( Angle ) color( 164 0 255 ) = CCineAI
 [
 ]
 
-@BaseClass = appearflags 
+@BaseClass = appearflags
 [
 	appearflag_singleplayer(choices) : "#AppearFlags SinglePlayer" : "0" : "Appearance flags for SinglePlayer, This control when this entity should or should not appear in this condition." =
 	[
@@ -158,9 +158,9 @@
 	]
 ]
 
-@BaseClass size( -16 -16 0, 16 16 72 ) flags( Angle ) color( 164 128 255 ) = CCineMonster 
+@BaseClass size( -16 -16 0, 16 16 72 ) flags( Angle ) color( 164 128 255 ) = CCineMonster
 [
-	spawnflags(flags)
+	spawnflags(flags) =
 	[
 		4 : "Repeatable" : 0 : "If enabled, the sequence can be repeated more than once. Otherwise the entity will be removed once the sequence is complete."
 		8 : "Leave Corpse" : 0 : "If enabled, the monster leave it's corpse instead of fading out. This is only noticeable in-between two aiscripted_sequence when the monster is on a dying state."
@@ -184,31 +184,31 @@
 	]
 ]
 
-@BaseClass = FireTargets 
+@BaseClass = FireTargets
 [
-	m_UseType(choices) : "Use Type" : "-1" : "" =
+	m_UseType(choices) : "Use Type" : "-1" : "Anything else will be count as USE_UNKNOWN and in fact, work the same as USE_UNSET" =
 	[
-		"-1" : "USE_UNSET (default)" : ""
+		"-1" : "USE_UNSET (default)" : "This is the value by default and will have no effect at all in how entities normaly behave."
 		"0" : "USE_OFF" : ""
 		"1" : "USE_ON" : ""
-		"2" : "USE_SET" : ""
+		"2" : "USE_SET" : "Does use of m_UseValue, See how it affects each entity."
 		"3" : "USE_TOGGLE" : ""
-		"4" : "USE_KILL" : ""
-		"5" : "USE_SAME" : ""
-		"6" : "USE_OPPOSITE" : ""
-		"7" : "USE_TOUCH" : ""
-		"8" : "USE_LOCK" : ""
-		"9" : "USE_UNLOCK" : ""
+		"4" : "USE_KILL" : "Remove the entity from the world."
+		"5" : "USE_SAME" : "Sends the same USE_TYPE that this entity receive."
+		"6" : "USE_OPPOSITE" : "Sends the opposite USE_TYPE that this entity receive, Swaps USE_ON <-> USE_OFF, If anything else then USE_TOGGLE is sent"
+		"7" : "USE_TOUCH" : "Calls the Touch function, the activator will be passed as the toucher."
+		"8" : "USE_LOCK" : "Locks the entity. Does use of m_UseValue"
+		"9" : "USE_UNLOCK" : "Un-Locks the entity. Does use of m_UseValue"
 	]
 	m_UseValue(float) : "Use Value" : "" : ""
 ]
 
-@BaseClass = VolumeHealth10 
+@BaseClass = VolumeHealth10
 [
 	health(integer) : "Volume (10 = loudest)" : "0" : " Sets the volume of the sound. Scales from 0 (completely silent) to 10 (maximum, default). (If using dynamics attributes below, this is the maximum volume the sound will reach.)"
 ]
 
-@BaseClass base( VolumeHealth10 ) iconsprite( dev/hammer/ambient_generic.spr ) color( 220 220 220 ) = CAmbientGeneric 
+@BaseClass base( VolumeHealth10 ) iconsprite( dev/hammer/ambient_generic.spr ) color( 220 220 220 ) = CAmbientGeneric
 [
 	message(sound) : "Path/filename.wav of WAV" : "" : "This defines which sound file will be played by the entity. This accepts an input of the form path/filename.wav (starting from the 'sound' folder). (Example: ambience/drips.wav). The name of a sentence defined in sentences.txt will also be accepted with the form '!SENTENCENAME'. (Example: !HG_ALERT1)"
 	volstart(integer) : "Start Volume" : "0" : " Sets the volume that the sound should start at when fading in, and that it should stop at when fading out. Scales from 0 (completely silent) to 10 (maximum). (Should be lower than Volume.)"
@@ -229,7 +229,7 @@
 	lfomodpitch(integer) : "LFO mod pitch (0-100)" : "0" : "Sets how much the pitch should change with the LFO effects. Scales between 0 (does not change) and 100 (very large changes)."
 	lfomodvol(integer) : "LFO mod vol (0-100)" : "0" : "Sets how much the volume should change with the LFO effects. Seems to coincide with lower pitches. Scales between 0 (does not change) and 100 (silent)."
 	cspinup(integer) : "Incremental spinup count" : "0" : "Sets how many times the ambient_generic can be triggered to have the pitch spin up on top of the pitch it was already playing at. Setting this to a value other than 0 will disable toggling the sound, and will prevent the sound from being turned off even it has been triggered that many times."
-	spawnflags(flags)
+	spawnflags(flags) =
 	[
 		1 : "Play Everywhere" : 0 : "If enabled, the sound will be heard throughout the entire map."
 		2 : "Small Radius" : 0 : "If enabled, the sound will be at maximum volume within a roughly 256 unit radius, fading out completely at around 512 units away."
@@ -271,7 +271,7 @@
 	]
 ]
 
-@BaseClass iconsprite( dev/hammer/ambient_generic.spr ) color( 200 150 255 ) = CAmbientMusic 
+@BaseClass iconsprite( dev/hammer/ambient_generic.spr ) color( 200 150 255 ) = CAmbientMusic
 [
 	filename(string) : "Filename of music file" : "" : "Relative name of the file to play, starting in the root directory. For example: media/Half-Life01.mp3. Only applies to the Play and Loop commands"
 	command(choices) : "Command" : "0" : "The command to issue" =
@@ -295,68 +295,68 @@
 	]
 ]
 
-@BaseClass = CAmmo357 
+@BaseClass = CAmmo357
 [
 	model(studio) : "Model" : "models/w_357ammobox.mdl" : ""
 ]
 
-@BaseClass = CAmmo556 
+@BaseClass = CAmmo556
 [
 	model(studio) : "Model" : "models/W_saw_clip.mdl" : ""
 ]
 
-@BaseClass = CAmmo762 
+@BaseClass = CAmmo762
 [
 	model(studio) : "Model" : "models/w_m40a1clip.mdl" : ""
 ]
 
-@BaseClass = CAmmo9mmar 
+@BaseClass = CAmmo9mmar
 [
 	model(studio) : "Model" : "models/w_9mmarclip.mdl" : ""
 ]
 
-@BaseClass = CAmmo9mmbox 
+@BaseClass = CAmmo9mmbox
 [
 	model(studio) : "Model" : "models/w_chainammo.mdl" : ""
 ]
 
-@BaseClass = CAmmo9mm 
+@BaseClass = CAmmo9mm
 [
 	model(studio) : "Model" : "models/w_9mmclip.mdl" : ""
 ]
 
-@BaseClass = CAmmoargrenades 
+@BaseClass = CAmmoargrenades
 [
 	model(studio) : "Model" : "models/w_argrenade.mdl" : ""
 ]
 
-@BaseClass = CAmmoshowbox 
+@BaseClass = CAmmoshowbox
 [
 	model(studio) : "Model" : "models/w_shotbox.mdl" : ""
 ]
 
-@BaseClass = CAmmogauss 
+@BaseClass = CAmmogauss
 [
 	model(studio) : "Model" : "models/w_gaussammo.mdl" : ""
 ]
 
-@BaseClass = CAmmoxbow 
+@BaseClass = CAmmoxbow
 [
 	model(studio) : "Model" : "models/w_crossbow_clip.mdl" : ""
 ]
 
-@BaseClass = CAmmospore 
+@BaseClass = CAmmospore
 [
 	model(studio) : "Model" : "models/spore_ammo.mdl" : ""
 ]
 
-@BaseClass = CAmmoGeneric 
+@BaseClass = CAmmoGeneric
 [
 	model(studio) : "Model" : "" : ""
 	ammo_name(string) : "Ammo Name (Required)" : "ammo_9mmclip" : "Name of the ammo type to give."
 ]
 
-@BaseClass = CAmmorpg 
+@BaseClass = CAmmorpg
 [
 	model(studio) : "Model" : "models/w_rpgammo.mdl" : ""
 	sequence(choices) : "Placement" : "0" : "" =
@@ -366,12 +366,12 @@
 	]
 ]
 
-@BaseClass color( 4 128 240 ) = CBaseAmmo 
+@BaseClass color( 4 128 240 ) = CBaseAmmo
 [
 	ammo_amount(integer) : "Ammo Amount To Give (-1 == Maximum)" : "" : "If set, the player will receive this much ammo instead of the default amount. If set to **-1** the player will receive the maximum amount of ammo for this type. Can be **0** to make a fake ammo entity."
 ]
 
-@BaseClass size( -16 -16 0, 16 16 32 ) color( 0 0 200 ) studio() = CBaseItem 
+@BaseClass size( -16 -16 0, 16 16 32 ) color( 0 0 200 ) studio() = CBaseItem
 [
 	respawn_delay(float) : "Respawn delay (-1 == Never)" : "-1" : "Custom respawn delay. If set, overrides the delay configured by the skill configuration. A delay of **-1** disables respawn. This allows items to respawn in singleplayer."
 	stay_visible_during_respawn(choices) : "Stay Visible During Respawn" : "0" : "" =
@@ -398,7 +398,7 @@
 	trigger_on_despawn(target_destination) : "Trigger On Despawn" : "" : "Target to trigger when the item despawns. This happens when the player picks up the item."
 ]
 
-@BaseClass = ZHLT 
+@BaseClass = ZHLT
 [
 	zhlt_lightflags(choices) : "ZHLT Lightflags" : "" : "" =
 	[
@@ -410,7 +410,7 @@
 	]
 ]
 
-@BaseClass = ZHLT_point 
+@BaseClass = ZHLT_point
 [
 	_falloff(choices) : "ZHLT Falloff" : "" : "" =
 	[
@@ -420,28 +420,28 @@
 	]
 ]
 
-@BaseClass = CButtonTarget 
+@BaseClass = CButtonTarget
 [
-	spawnflags(flags)
+	spawnflags(flags) =
 	[
 		1 : "Use Activates" : 1 : ""
 		2 : "Start On" : 0 : ""
 	]
 ]
 
-@BaseClass size( -16 -16 0, 16 16 72 ) studio() = CCycler 
+@BaseClass size( -16 -16 0, 16 16 72 ) studio() = CCycler
 [
 	model(studio) : "Model" : "" : ""
 	bodygroup(integer) : "Body Group" : "0" : ""
 ]
 
-@BaseClass size( -16 -16 0, 16 16 72 ) sprite() = CCyclerSprite 
+@BaseClass size( -16 -16 0, 16 16 72 ) sprite() = CCyclerSprite
 [
 	model(sprite) : "Model OR Sprite" : "" : ""
 	framerate(integer) : "Frames per second" : "10" : ""
 ]
 
-@BaseClass size( -12 -12 -12, 12 12 12 ) color( 255 250 230 ) = CEnvBeam 
+@BaseClass size( -12 -12 -12, 12 12 12 ) color( 255 250 230 ) = CEnvBeam
 [
 	texture(sprite) : "Sprite Name" : "sprites/laserbeam.spr" : "This defines which sprite file the entity will use to form the beam. This accepts an input of the form "path/filename.spr" (starting from the root folder). (Example: "sprites/laserbeam.spr")."
 	LightningStart(target_generic) : "Start Entity" : "" : "The name of an entity to be used as the starting point for the beam. If undefined, the beam will choose a surface within the Radius to use as the starting point. (Note that if the Start Entity is undefined, the Ending Entity must also be undefined.)"
@@ -455,7 +455,7 @@
 	framestart(integer) : "Starting Frame" : "0" : " Sets which frame of animation that the sprite should use."
 	StrikeTime(integer) : "Strike again time (secs)" : "0" : "Sets how long many seconds before the beam reactivates (after the beam deactivates after being on for the time defined in Life). If the beam has undefined start/end points, the beam will choose new points for the reactivation."
 	damage(float) : "Damage / second" : "0" : "Sets how much damage the beam should do when you walk through it. Note that the damage is only dealt in a straight line between start and end point, regardless of any fluctuation in the beam from the Amount of Noise attribute."
-	spawnflags(flags)
+	spawnflags(flags) =
 	[
 		1 : "Start On" : 0 : "If enabled, the beam will be turned on upon map start. Otherwise you will need to trigger the env_beam to turn it on."
 		2 : "Toggle" : 0 : "If enabled, the beam can be retriggered to stop the beam from reactivating automatically. Otherwise, the beam seems to loop indefinitely regardless of further triggerings."
@@ -469,7 +469,7 @@
 	]
 ]
 
-@BaseClass size( -4 -4 -4, 4 4 4 ) color( 128 64 2 ) = CEnvBeverage 
+@BaseClass size( -4 -4 -4, 4 4 4 ) color( 128 64 2 ) = CEnvBeverage
 [
 	health(integer) : "Capacity" : "10" : ""
 	skin(choices) : "Beverage Type" : "0" : "Sets the texture of the cans. You can set other than these to use if you're using a custom model, these are the skin index." =

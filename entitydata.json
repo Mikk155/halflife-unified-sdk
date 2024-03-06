@@ -457,11 +457,11 @@
             "type": "choices",
             "title": "Use Type",
             "default": "-1",
-            "description": "",
+            "description": "Anything else will be count as USE_UNKNOWN and in fact, work the same as USE_UNSET",
             "choices": {
                 "-1": {
                     "title": "USE_UNSET (default)",
-                    "description": ""
+                    "description": "This is the value by default and will have no effect at all in how entities normaly behave."
                 },
                 "0": {
                     "title": "USE_OFF",
@@ -473,7 +473,7 @@
                 },
                 "2": {
                     "title": "USE_SET",
-                    "description": ""
+                    "description": "Does use of m_UseValue, See how it affects each entity."
                 },
                 "3": {
                     "title": "USE_TOGGLE",
@@ -481,27 +481,27 @@
                 },
                 "4": {
                     "title": "USE_KILL",
-                    "description": ""
+                    "description": "Remove the entity from the world."
                 },
                 "5": {
                     "title": "USE_SAME",
-                    "description": ""
+                    "description": "Sends the same USE_TYPE that this entity receive."
                 },
                 "6": {
                     "title": "USE_OPPOSITE",
-                    "description": ""
+                    "description": "Sends the opposite USE_TYPE that this entity receive, Swaps USE_ON <-> USE_OFF, If anything else then USE_TOGGLE is sent"
                 },
                 "7": {
                     "title": "USE_TOUCH",
-                    "description": ""
+                    "description": "Calls the Touch function, the activator will be passed as the toucher."
                 },
                 "8": {
                     "title": "USE_LOCK",
-                    "description": ""
+                    "description": "Locks the entity. Does use of m_UseValue"
                 },
                 "9": {
                     "title": "USE_UNLOCK",
-                    "description": ""
+                    "description": "Un-Locks the entity. Does use of m_UseValue"
                 }
             }
         },

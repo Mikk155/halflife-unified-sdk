@@ -184,7 +184,7 @@ def GenerateFGDFile():
                     continue
 
                 if prop_name == "spawnflags":
-                    f.write(f'\tspawnflags(flags)\n')
+                    f.write(f'\tspawnflags(flags) =\n')
                     f.write(f'\t[\n')
 
                     flag = entity_data.get( "spawnflags", {} )
@@ -219,6 +219,15 @@ def GenerateFGDFile():
                 prop_description = ""
                 if "description" in prop_data:
                     prop_description = prop_data.get("description", "")
+                    if prop_description:
+                        index = prop_description.find( "<", 0 )
+                        while index != -1:
+                            indexend = prop_description.find( ">", index + 1 )
+                            if indexend != -1:
+                                prop_description = prop_description[:index] + prop_description[indexend + 1:]
+                            else:
+                                break
+                            index = prop_description.find( "<", index)
 
                 if prop_type == "cap":
                     if CapIntegers:
