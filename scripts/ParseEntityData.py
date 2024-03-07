@@ -6,7 +6,7 @@
 import json
 
 def ParseKeyValueData(f, key, atributes, data):
-    if key in ["size", "color", "studio", "iconsprite", "base", "spawnflags", "sprite" ]:
+    if key in ["entsize", "entcolor", "studio", "iconsprite", "base", "spawnflags", "sprite" ]:
         return
 
     f.write(f'<tr><td>{key}</td>')
@@ -177,7 +177,7 @@ def GenerateFGDFile():
             f.write(f'\n[\n')
 
             for prop_name, prop_data in entity_data.items():
-                if prop_name in [ "notes", "size", "color", "Class", "flags", "base", "iconsprite", "studio", "sprite" ]:
+                if prop_name in [ "notes", "entsize", "entcolor", "Class", "flags", "base", "iconsprite", "studio", "sprite" ]:
                     continue
 
                 if prop_name == "name" and entity_name == "worldspawn":

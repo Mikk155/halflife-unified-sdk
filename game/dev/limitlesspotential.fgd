@@ -1,4 +1,4 @@
-@BaseClass = Mandatory
+@BaseClass = Mandatory 
 [
 	spawnflags(flags) =
 	[
@@ -7,34 +7,34 @@
 	targetname(target_source) : "Name" : "" : "Name is a general attribute used to identify entities."
 ]
 
-@BaseClass = Target
+@BaseClass = Target 
 [
 	target(target_destination) : "Target" : "" : ""
 ]
 
-@BaseClass = Global
+@BaseClass = Global 
 [
 	globalname(string) : "Global Entity Name" : "" : ""
 ]
 
-@BaseClass = CBaseDelay
+@BaseClass = CBaseDelay 
 [
 	killtarget(target_destination) : "KillTarget" : "" : ""
 	delay(float) : "Delay before trigger" : "0" : ""
 ]
 
-@BaseClass = hullsize
+@BaseClass = hullsize 
 [
 	custom_hull_min(vector) : "Custom Min hullsize (X Y Z)" : "" : "Custom minimum hull size. This overrides the size specified by models and entities."
 	custom_hull_max(vector) : "Custom Max hullsize (X Y Z)" : "" : "Custom maximum hull size. This overrides the size specified by models and entities."
 ]
 
-@BaseClass = rendermode
+@BaseClass = rendermode 
 [
 	rendermode(choices) : "FX Mode" : "" : "" =
 	[
 		"0" : "Normal" : ""
-		"1" : "Color" : ""
+		"1" : "entcolor" : ""
 		"2" : "Texture" : ""
 		"3" : "Glow" : ""
 		"4" : "Solid" : ""
@@ -42,17 +42,17 @@
 	]
 ]
 
-@BaseClass = renderamt
+@BaseClass = renderamt 
 [
 	renderamt(integer) : "FX Amount (1 - 255)" : "255" : ""
 ]
 
-@BaseClass = rendercolor
+@BaseClass = rendercolor 
 [
 	rendercolor(color255) : "FX Color (R G B)" : "" : ""
 ]
 
-@BaseClass = renderfx
+@BaseClass = renderfx 
 [
 	renderfx(choices) : "FX Effect" : "" : "" =
 	[
@@ -76,49 +76,49 @@
 	]
 ]
 
-@BaseClass base( rendermode, renderamt, rendercolor, renderfx ) = rendersettings
+@BaseClass base( rendermode, renderamt, rendercolor, renderfx ) = rendersettings 
 [
 ]
 
-@BaseClass = CCustomModels
+@BaseClass = CCustomModels 
 [
 	model_replacement_filename(string) : "Model replacement file" : "" : "Path to the model replacement file. Must be a relative path starting in the mod directory. All search paths are checked, See Replacement Map System"
 ]
 
-@BaseClass = CCustomSounds
+@BaseClass = CCustomSounds 
 [
 	sound_replacement_filename(string) : "Sound replacement file" : "" : "Path to the Sound replacement file. Must be a relative path starting in the mod directory. All search paths are checked, See Replacement Map System"
 ]
 
-@BaseClass = CCustomSentence
+@BaseClass = CCustomSentence 
 [
 	sentence_replacement_filename(string) : "Sentence replacement file" : "" : "Path to the Sentence replacement file. Must be a relative path starting in the mod directory. All search paths are checked, See Replacement Map System"
 ]
 
-@BaseClass base( CCustomModels, CCustomSounds, CCustomSentence ) = CReplacemetFile
+@BaseClass base( CCustomModels, CCustomSounds, CCustomSentence ) = CReplacemetFile 
 [
 ]
 
-@BaseClass = Master
+@BaseClass = Master 
 [
 	master(target_destination) : "Master" : "0" : ""
 ]
 
-@BaseClass = Sequence
+@BaseClass = Sequence 
 [
 	sequence(integer) : "Animation Sequence (editor)" : "" : "Sequence to display in Jackhammer. This does not affect gameplay."
 ]
 
-@BaseClass = Angles
+@BaseClass = Angles 
 [
 	angles(vector) : "Pitch Yaw Roll (Y Z X)" : "0 0 0" : ""
 ]
 
-@BaseClass size( -16 -16 0, 16 16 72 ) flags( Angle ) color( 164 0 255 ) = CCineAI
+@BaseClass flags( Angle ) = CCineAI 
 [
 ]
 
-@BaseClass = appearflags
+@BaseClass = appearflags 
 [
 	appearflag_singleplayer(choices) : "#AppearFlags SinglePlayer" : "0" : "Appearance flags for SinglePlayer, This control when this entity should or should not appear in this condition." =
 	[
@@ -158,7 +158,7 @@
 	]
 ]
 
-@BaseClass size( -16 -16 0, 16 16 72 ) flags( Angle ) color( 164 128 255 ) = CCineMonster
+@BaseClass flags( Angle ) = CCineMonster 
 [
 	spawnflags(flags) =
 	[
@@ -184,7 +184,7 @@
 	]
 ]
 
-@BaseClass = FireTargets
+@BaseClass = FireTargets 
 [
 	m_UseType(choices) : "Use Type" : "-1" : "Anything else will be count as USE_UNKNOWN and in fact, work the same as USE_UNSET" =
 	[
@@ -203,12 +203,12 @@
 	m_UseValue(float) : "Use Value" : "" : ""
 ]
 
-@BaseClass = VolumeHealth10
+@BaseClass = VolumeHealth10 
 [
 	health(integer) : "Volume (10 = loudest)" : "0" : " Sets the volume of the sound. Scales from 0 (completely silent) to 10 (maximum, default). (If using dynamics attributes below, this is the maximum volume the sound will reach.)"
 ]
 
-@BaseClass base( VolumeHealth10 ) iconsprite( dev/hammer/ambient_generic.spr ) color( 220 220 220 ) = CAmbientGeneric
+@BaseClass base( VolumeHealth10 ) iconsprite( dev/hammer/ambient_generic.spr ) = CAmbientGeneric 
 [
 	message(sound) : "Path/filename.wav of WAV" : "" : "This defines which sound file will be played by the entity. This accepts an input of the form path/filename.wav (starting from the 'sound' folder). (Example: ambience/drips.wav). The name of a sentence defined in sentences.txt will also be accepted with the form '!SENTENCENAME'. (Example: !HG_ALERT1)"
 	volstart(integer) : "Start Volume" : "0" : " Sets the volume that the sound should start at when fading in, and that it should stop at when fading out. Scales from 0 (completely silent) to 10 (maximum). (Should be lower than Volume.)"
@@ -271,7 +271,7 @@
 	]
 ]
 
-@BaseClass iconsprite( dev/hammer/ambient_generic.spr ) color( 200 150 255 ) = CAmbientMusic
+@BaseClass iconsprite( dev/hammer/ambient_generic.spr ) = CAmbientMusic 
 [
 	filename(string) : "Filename of music file" : "" : "Relative name of the file to play, starting in the root directory. For example: media/Half-Life01.mp3. Only applies to the Play and Loop commands"
 	command(choices) : "Command" : "0" : "The command to issue" =
@@ -295,68 +295,68 @@
 	]
 ]
 
-@BaseClass = CAmmo357
+@BaseClass = CAmmo357 
 [
 	model(studio) : "Model" : "models/w_357ammobox.mdl" : ""
 ]
 
-@BaseClass = CAmmo556
+@BaseClass = CAmmo556 
 [
 	model(studio) : "Model" : "models/W_saw_clip.mdl" : ""
 ]
 
-@BaseClass = CAmmo762
+@BaseClass = CAmmo762 
 [
 	model(studio) : "Model" : "models/w_m40a1clip.mdl" : ""
 ]
 
-@BaseClass = CAmmo9mmar
+@BaseClass = CAmmo9mmar 
 [
 	model(studio) : "Model" : "models/w_9mmarclip.mdl" : ""
 ]
 
-@BaseClass = CAmmo9mmbox
+@BaseClass = CAmmo9mmbox 
 [
 	model(studio) : "Model" : "models/w_chainammo.mdl" : ""
 ]
 
-@BaseClass = CAmmo9mm
+@BaseClass = CAmmo9mm 
 [
 	model(studio) : "Model" : "models/w_9mmclip.mdl" : ""
 ]
 
-@BaseClass = CAmmoargrenades
+@BaseClass = CAmmoargrenades 
 [
 	model(studio) : "Model" : "models/w_argrenade.mdl" : ""
 ]
 
-@BaseClass = CAmmoshowbox
+@BaseClass = CAmmoshowbox 
 [
 	model(studio) : "Model" : "models/w_shotbox.mdl" : ""
 ]
 
-@BaseClass = CAmmogauss
+@BaseClass = CAmmogauss 
 [
 	model(studio) : "Model" : "models/w_gaussammo.mdl" : ""
 ]
 
-@BaseClass = CAmmoxbow
+@BaseClass = CAmmoxbow 
 [
 	model(studio) : "Model" : "models/w_crossbow_clip.mdl" : ""
 ]
 
-@BaseClass = CAmmospore
+@BaseClass = CAmmospore 
 [
 	model(studio) : "Model" : "models/spore_ammo.mdl" : ""
 ]
 
-@BaseClass = CAmmoGeneric
+@BaseClass = CAmmoGeneric 
 [
 	model(studio) : "Model" : "" : ""
 	ammo_name(string) : "Ammo Name (Required)" : "ammo_9mmclip" : "Name of the ammo type to give."
 ]
 
-@BaseClass = CAmmorpg
+@BaseClass = CAmmorpg 
 [
 	model(studio) : "Model" : "models/w_rpgammo.mdl" : ""
 	sequence(choices) : "Placement" : "0" : "" =
@@ -366,12 +366,12 @@
 	]
 ]
 
-@BaseClass color( 4 128 240 ) = CBaseAmmo
+@BaseClass = CBaseAmmo 
 [
 	ammo_amount(integer) : "Ammo Amount To Give (-1 == Maximum)" : "" : "If set, the player will receive this much ammo instead of the default amount. If set to **-1** the player will receive the maximum amount of ammo for this type. Can be **0** to make a fake ammo entity."
 ]
 
-@BaseClass size( -16 -16 0, 16 16 32 ) color( 0 0 200 ) studio() = CBaseItem
+@BaseClass studio() = CBaseItem 
 [
 	respawn_delay(float) : "Respawn delay (-1 == Never)" : "-1" : "Custom respawn delay. If set, overrides the delay configured by the skill configuration. A delay of **-1** disables respawn. This allows items to respawn in singleplayer."
 	stay_visible_during_respawn(choices) : "Stay Visible During Respawn" : "0" : "" =
@@ -398,7 +398,7 @@
 	trigger_on_despawn(target_destination) : "Trigger On Despawn" : "" : "Target to trigger when the item despawns. This happens when the player picks up the item."
 ]
 
-@BaseClass = ZHLT
+@BaseClass = ZHLT 
 [
 	zhlt_lightflags(choices) : "ZHLT Lightflags" : "" : "" =
 	[
@@ -410,7 +410,7 @@
 	]
 ]
 
-@BaseClass = ZHLT_point
+@BaseClass = ZHLT_point 
 [
 	_falloff(choices) : "ZHLT Falloff" : "" : "" =
 	[
@@ -420,7 +420,7 @@
 	]
 ]
 
-@BaseClass = CButtonTarget
+@BaseClass = CButtonTarget 
 [
 	spawnflags(flags) =
 	[
@@ -429,19 +429,19 @@
 	]
 ]
 
-@BaseClass size( -16 -16 0, 16 16 72 ) studio() = CCycler
+@BaseClass studio() = CCycler 
 [
 	model(studio) : "Model" : "" : ""
 	bodygroup(integer) : "Body Group" : "0" : ""
 ]
 
-@BaseClass size( -16 -16 0, 16 16 72 ) sprite() = CCyclerSprite
+@BaseClass sprite() = CCyclerSprite 
 [
 	model(sprite) : "Model OR Sprite" : "" : ""
 	framerate(integer) : "Frames per second" : "10" : ""
 ]
 
-@BaseClass size( -12 -12 -12, 12 12 12 ) color( 255 250 230 ) = CEnvBeam
+@BaseClass = CEnvBeam 
 [
 	texture(sprite) : "Sprite Name" : "sprites/laserbeam.spr" : "This defines which sprite file the entity will use to form the beam. This accepts an input of the form "path/filename.spr" (starting from the root folder). (Example: "sprites/laserbeam.spr")."
 	LightningStart(target_generic) : "Start Entity" : "" : "The name of an entity to be used as the starting point for the beam. If undefined, the beam will choose a surface within the Radius to use as the starting point. (Note that if the Start Entity is undefined, the Ending Entity must also be undefined.)"
@@ -469,7 +469,7 @@
 	]
 ]
 
-@BaseClass size( -4 -4 -4, 4 4 4 ) color( 128 64 2 ) = CEnvBeverage
+@BaseClass = CEnvBeverage 
 [
 	health(integer) : "Capacity" : "10" : ""
 	skin(choices) : "Beverage Type" : "0" : "Sets the texture of the cans. You can set other than these to use if you're using a custom model, these are the skin index." =
@@ -482,6 +482,180 @@
 		"5" : "Moxie" : ""
 		"6" : "Random" : ""
 	]
+]
+
+@BaseClass color( {'type': 'choices', 'title': 'Blood Color', 'default': '0', 'description': '', 'choices': {'0': {'title': 'Red (Human)', 'description': ''}, '1': {'title': 'Yellow (Alien)', 'description': ''}}} ) = CEnvBlood 
+[
+	color(choices) : "Blood Color" : "0" : "" =
+	[
+		"0" : "Red (Human)" : ""
+		"1" : "Yellow (Alien)" : ""
+	]
+	amount(integer) : "Amount of blood (damage to simulate)" : "100" : ""
+	spawnflags(flags) =
+	[
+		1 : "Random Direction" : 0 : ""
+		2 : "Blood Stream" : 0 : ""
+		4 : "On Player" : 0 : ""
+		8 : "Spray decals" : 0 : ""
+	]
+]
+
+@BaseClass = SF1StartOff 
+[
+	spawnflags(flags) =
+	[
+		1 : "Start Off" : 0 : ""
+	]
+]
+
+@BaseClass = SF1StartOn 
+[
+	spawnflags(flags) =
+	[
+		1 : "Start On" : 0 : ""
+	]
+]
+
+@BaseClass = SF2Repeatable 
+[
+	spawnflags(flags) =
+	[
+		2 : "Repeatable" : 0 : ""
+	]
+]
+
+@BaseClass base( SF1StartOff ) = CEnvBubbles 
+[
+	density(integer) : "Bubble density" : "2" : ""
+	frequency(integer) : "Bubble frequency" : "2" : ""
+	current(integer) : "Speed of Current" : "2" : ""
+]
+
+@BaseClass base( SF2Repeatable ) = CEnvExplosion 
+[
+	iMagnitude(integer) : "Magnitude" : "100" : ""
+	spawnflags(flags) =
+	[
+		1 : "No Damage" : 0 : ""
+		4 : "No Fireball" : 0 : ""
+		8 : "No Smoke" : 0 : ""
+		16 : "No Decal" : 0 : ""
+		32 : "No Sparks" : 0 : ""
+	]
+]
+
+@BaseClass = CEnvGlobal 
+[
+	globalstate(string) : "Global State to Set" : "" : ""
+	spawnflags(flags) =
+	[
+		1 : "Set Initial State" : 0 : ""
+	]
+	triggermode(choices) : "Trigger Mode" : "0" : "" =
+	[
+		"0" : "Off" : ""
+		"1" : "On" : ""
+		"2" : "Dead" : ""
+		"3" : "Toggle" : ""
+	]
+]
+
+@BaseClass sprite() = CEnvGlow 
+[
+	model(sprite) : "Sprite Name" : "sprites/glow01.spr" : ""
+	scale(integer) : "Scale" : "1" : ""
+]
+
+@BaseClass = CEnvFade 
+[
+	duration(float) : "Duration (seconds)" : "2" : ""
+	holdtime(float) : "Hold Fade (seconds)" : "0" : ""
+	spawnflags(flags) =
+	[
+		1 : "Fade From" : 0 : ""
+		2 : "Modulate" : 0 : ""
+		4 : "Activator Only" : 0 : ""
+	]
+]
+
+@BaseClass = CEnvFog 
+[
+	density(float) : "Density (0.0-1.0)" : "0.5" : ""
+	fogStartDistance(integer) : "Start Distance" : "1500" : ""
+	fogStopDistance(integer) : "Stop Distance" : "2000" : ""
+	spawnflags(flags) =
+	[
+		1 : "Fog Affects Skybox" : 0 : ""
+	]
+]
+
+@BaseClass = CEnvFunnel 
+[
+	spawnflags(flags) =
+	[
+		1 : "Reverse" : 0 : ""
+	]
+]
+
+@BaseClass base( SF1StartOn ) = CEnvLaser 
+[
+	spawnflags(flags) =
+	[
+		16 : "StartSparks" : 0 : ""
+		32 : "EndSparks" : 0 : ""
+		64 : "Decal End" : 0 : ""
+	]
+	LaserTarget(target_destination) : "Target of Laser" : "" : ""
+	width(integer) : "Width of beam (pixels*0.1 0-255)" : "0" : ""
+	NoiseAmplitude(integer) : "Amount of noise (0-255)" : "0" : ""
+	texture(sprite) : "Sprite Name" : "sprites/laserbeam.spr" : ""
+	EndSprite(sprite) : "End Sprite" : "" : ""
+	TextureScroll(integer) : "Texture Scroll Rate (0-100)" : "35" : "0"
+	framestart(integer) : "Starting Frame" : "0" : ""
+	damage(float) : "Damage / second" : "100" : ""
+]
+
+@BaseClass = CEnvMessage 
+[
+	spawnflags(flags) =
+	[
+		1 : "Play Once" : 0 : ""
+		2 : "All Clients" : 0 : ""
+	]
+	message(string) : "Message Name" : "" : ""
+	messagesound(sound) : "path/filename.wav of WAV" : "" : ""
+	messagevolume(integer) : "Volume (10 = loudest)" : "0" : ""
+	messageattenuation(choices) : "Sound Radius" : "0" : "" =
+	[
+		"0" : "Small Radius" : ""
+		"1" : "Medium Radius" : ""
+		"2" : "Large  Radius" : ""
+		"3" : "Play Everywhere" : ""
+	]
+]
+
+@BaseClass = CEnvRender 
+[
+	spawnflags(flags) =
+	[
+		1 : "No Renderfx" : 0 : ""
+		2 : "No Renderamt" : 0 : ""
+		4 : "No Rendermode" : 0 : ""
+		8 : "No Rendercolor" : 0 : ""
+	]
+]
+
+@BaseClass iconsprite( dev/hammer/env_shake.spr ) = CEnvShake 
+[
+	spawnflags(flags) =
+	[
+		1 : "GlobalShake" : 0 : ""
+	]
+	amplitude(integer) : "Amplitude 0-16" : "0" : ""
+	radius(float) : "Effect radius" : "500" : ""
+	duration(float) : "Duration (seconds)" : "1" : ""
+	frequency(float) : "0.1 = jerk, 255.0 = rumble" : "2.5" : ""
 ]
 
 @SolidClass = worldspawn : "World entity" : ""
@@ -533,3 +707,24 @@
 @PointClass base( Mandatory, Angles, CCyclerSprite, rendersettings, appearflags ) = cycler_sprite  : "Sprite Cycler" : "" []
 @PointClass base( Mandatory, CEnvBeam, renderamt, rendercolor, renderfx, appearflags ) = env_beam  : "Energy Beam Effect" : "" []
 @PointClass base( Mandatory, CEnvBeverage, appearflags ) = env_beverage  : "Beverage Dispenser" : "" []
+@PointClass base( Mandatory, CEnvBlood, appearflags ) = env_blood  : "Blood Effects" : "" []
+@PointClass base( Mandatory, CEnvBlowerCannon, Target, rendersettings, appearflags ) = env_blowercannon  : "Blower Cannon" : "" []
+@SolidClass base( Mandatory, CEnvBubbles, appearflags ) = env_bubbles  : "Bubble Volume" : "" []
+@PointClass base( Mandatory, CEnvElectrifiedWire, appearflags ) = env_electrified_wire  : "Electrified Wire" : "" []
+@PointClass base( Mandatory, CEnvExplosion, appearflags ) = env_explosion  : "Explosion" : "" []
+@PointClass base( Mandatory, CEnvFade, renderamt, rendercolor, appearflags ) = env_fade  : "Screen Fade" : "" []
+@PointClass base( Mandatory, CEnvFog, rendercolor, appearflags ) = env_fog  : "Global Fog Controller" : "" []
+@PointClass base( Mandatory, CEnvFunnel, appearflags ) = env_funnel  : "Large Portal Funnel" : "" []
+@PointClass base( Mandatory, CEnvGlobal, appearflags ) = env_global  : "Global State" : "" []
+@PointClass base( Mandatory, CEnvGlow, rendersettings, appearflags ) = env_glow  : "Light Glow/Haze" : "" []
+@PointClass base( Mandatory, Angles, CEnvLaser, renderamt, rendercolor, appearflags ) = env_laser  : "Laser Beam Effect" : "" []
+@PointClass base( Mandatory, CEnvMessage, Target, FireTargets, appearflags ) = env_message  : "HUD Text Message" : "" []
+@PointClass base( Mandatory, CEnvShake, appearflags ) = env_shake  : "Screen Shake" : "" []
+@PointClass base( Mandatory, Angles, CEnvShooter, CGibShooter, rendersettings, appearflags ) = env_shooter  : "Model Shooter" : "" []
+@PointClass base( Mandatory, CEnvSound, appearflags ) = env_sound  : "DSP Sound" : "" []
+@PointClass base( Mandatory, Angles, CEnvSparks, appearflags ) = env_spark  : "Sparks" : "" []
+@PointClass base( Mandatory, Angles, CEnvSprite, rendersettings, appearflags ) = env_sprite  : "Sprite Effect" : "" []
+@PointClass base( Mandatory, CEnvSpriteTrain, Target, PlatSounds, CCustomSounds, appearflags ) = env_spritetrain  : "Sprite Train" : "" []
+@PointClass base( Mandatory, CEnvRender, Target, rendersettings, appearflags ) = env_render  : "Render Controls" : "" []
+@PointClass base( Mandatory, CEnvRope, appearflags ) = env_rope  : "Rope" : "" []
+@PointClass base( Mandatory, CEnvWarpBall, Target, appearflags ) = env_warpball  : "Warp In Ball" : "" []

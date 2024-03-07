@@ -69,7 +69,7 @@
                     "description": ""
                 },
                 "1": {
-                    "title": "Color",
+                    "title": "entcolor",
                     "description": ""
                 },
                 "2": {
@@ -240,8 +240,8 @@
         }
     },
     "CCineAI": {
-        "color": "164 0 255",
-        "size": "-16 -16 0, 16 16 72",
+        "entcolor": "164 0 255",
+        "entsize": "-16 -16 0, 16 16 72",
         "flags": "Angle"
     },
     "appearflags": {
@@ -367,8 +367,8 @@
         }
     },
     "CCineMonster": {
-        "color": "164 128 255",
-        "size": "-16 -16 0, 16 16 72",
+        "entcolor": "164 128 255",
+        "entsize": "-16 -16 0, 16 16 72",
         "flags": "Angle",
         "spawnflags":
         {
@@ -525,7 +525,7 @@
     "CAmbientGeneric": {
         "base": "VolumeHealth10",
         "iconsprite": "dev/hammer/ambient_generic.spr",
-        "color": "220 220 220",
+        "entcolor": "220 220 220",
         "message": {
             "type": "sound",
             "title": "Path/filename.wav of WAV",
@@ -797,7 +797,7 @@
     },
     "CAmbientMusic": {
         "iconsprite": "dev/hammer/ambient_generic.spr",
-        "color": "200 150 255",
+        "entcolor": "200 150 255",
         "filename": {
             "type": "string",
             "title": "Filename of music file",
@@ -984,7 +984,7 @@
         }
     },
     "CBaseAmmo": {
-        "color": "4 128 240",
+        "entcolor": "4 128 240",
         "ammo_amount": {
             "type": "integer",
             "title": "Ammo Amount To Give (-1 == Maximum)",
@@ -993,8 +993,8 @@
         }
     },
     "CBaseItem": {
-        "size": "-16 -16 0, 16 16 32",
-        "color": "0 0 200",
+        "entsize": "-16 -16 0, 16 16 32",
+        "entcolor": "0 0 200",
         "studio": true,
         "respawn_delay": {
             "type": "float",
@@ -1157,7 +1157,7 @@
         }
     },
     "CCycler": {
-        "size": "-16 -16 0, 16 16 72",
+        "entsize": "-16 -16 0, 16 16 72",
         "studio": true,
         "model": {
             "type": "studio",
@@ -1173,7 +1173,7 @@
         }
     },
     "CCyclerSprite": {
-        "size": "-16 -16 0, 16 16 72",
+        "entsize": "-16 -16 0, 16 16 72",
         "sprite": true,
         "model": {
             "type": "sprite",
@@ -1189,8 +1189,8 @@
         }
     },
     "CEnvBeam": {
-        "size": "-12 -12 -12, 12 12 12",
-        "color": "255 250 230",
+        "entsize": "-12 -12 -12, 12 12 12",
+        "entcolor": "255 250 230",
         "texture": {
             "type": "sprite",
             "title": "Sprite Name",
@@ -1328,8 +1328,8 @@
     },
     "CEnvBeverage":
     {
-        "size": "-4 -4 -4, 4 4 4",
-        "color": "128 64 2",
+        "entsize": "-4 -4 -4, 4 4 4",
+        "entcolor": "128 64 2",
         "health" : {
             "type": "integer",
             "title": "Capacity",
@@ -1371,6 +1371,513 @@
                     "description": ""
                 }
             }
+        }
+    },
+    "CEnvBlood":
+    {
+        "entsize": "-16 -16 -16, 16 16 16",
+        "entcolor": "255 0 0",
+        "color": {
+            "type": "choices",
+            "title": "Blood Color",
+            "default": "0",
+            "description": "",
+            "choices": {
+                "0": {
+                    "title": "Red (Human)",
+                    "description": ""
+                },
+                "1": {
+                    "title": "Yellow (Alien)",
+                    "description": ""
+                }
+            }
+        },
+        "amount" : {
+            "type": "integer",
+            "title": "Amount of blood (damage to simulate)",
+            "default": "100",
+            "description": ""
+        },
+        "spawnflags": {
+            "1":
+            {
+                "title": "Random Direction",
+                "default": "0",
+                "description": ""
+            },
+            "2":
+            {
+                "title": "Blood Stream",
+                "default": "0",
+                "description": ""
+            },
+            "4":
+            {
+                "title": "On Player",
+                "default": "0",
+                "description": ""
+            },
+            "8":
+            {
+                "title": "Spray decals",
+                "default": "0",
+                "description": ""
+            }
+        }
+    },
+    "SF1StartOff":
+    {
+        "spawnflags": {
+            "1":
+            {
+                "title": "Start Off",
+                "default": "0",
+                "description": ""
+            }
+        }
+    },
+    "SF1StartOn":
+    {
+        "spawnflags": {
+            "1":
+            {
+                "title": "Start On",
+                "default": "0",
+                "description": ""
+            }
+        }
+    },
+    "SF2Repeatable":
+    {
+        "spawnflags": {
+            "2":
+            {
+                "title": "Repeatable",
+                "default": "0",
+                "description": ""
+            }
+        }
+    },
+    "CEnvBubbles":
+    {
+        "base": "SF1StartOff",
+        "density": {
+            "type": "integer",
+            "title": "Bubble density",
+            "default": "2",
+            "description": ""
+        },
+        "frequency": {
+            "type": "integer",
+            "title": "Bubble frequency",
+            "default": "2",
+            "description": ""
+        },
+        "current": {
+            "type": "integer",
+            "title": "Speed of Current",
+            "default": "2",
+            "description": ""
+        }
+    },
+    "CEnvExplosion":
+    {
+        "base": "SF2Repeatable",
+        "entsize": "-12 -12 -12, 12 12 12",
+        "entcolor": "255 220 15",
+        "iMagnitude": {
+            "type": "integer",
+            "title": "Magnitude",
+            "default": "100",
+            "description": ""
+        },
+        "spawnflags": {
+            "1":
+            {
+                "title": "No Damage",
+                "default": "0",
+                "description": ""
+            },
+            "4":
+            {
+                "title": "No Fireball",
+                "default": "0",
+                "description": ""
+            },
+            "8":
+            {
+                "title": "No Smoke",
+                "default": "0",
+                "description": ""
+            },
+            "16":
+            {
+                "title": "No Decal",
+                "default": "0",
+                "description": ""
+            },
+            "32":
+            {
+                "title": "No Sparks",
+                "default": "0",
+                "description": ""
+            }
+        }
+    },
+    "CEnvGlobal":
+    {
+        "entcolor": "4 32 250",
+        "globalstate": {
+            "type": "string",
+            "title": "Global State to Set",
+            "default": "",
+            "description": ""
+        },
+        "spawnflags": {
+            "1":
+            {
+                "title": "Set Initial State",
+                "default": "0",
+                "description": ""
+            }
+        },
+        "triggermode": {
+            "type": "choices",
+            "title": "Trigger Mode",
+            "default": "0",
+            "description": "",
+            "choices": {
+                "0": {
+                    "title": "Off",
+                    "description": ""
+                },
+                "1": {
+                    "title": "On",
+                    "description": ""
+                },
+                "2": {
+                    "title": "Dead",
+                    "description": ""
+                },
+                "3": {
+                    "title": "Toggle",
+                    "description": ""
+                }
+            },
+            "initialstate": {
+                "type": "choices",
+                "title": "Initial State",
+                "default": "0",
+                "description": "",
+                "choices": {
+                    "0": {
+                        "title": "Off",
+                        "description": ""
+                    },
+                    "1": {
+                        "title": "On",
+                        "description": ""
+                    },
+                    "2": {
+                        "title": "Dead",
+                        "description": ""
+                    }
+                }
+            }
+        }
+    },
+    "CEnvGlow":
+    {
+        "entcolor": "60 200 5",
+        "sprite": true,
+        "entsize": "-4 -4 -4, 4 4 4",
+        "model": {
+            "type": "sprite",
+            "title": "Sprite Name",
+            "default": "sprites/glow01.spr",
+            "description": ""
+        },
+        "scale": {
+            "type": "integer",
+            "title": "Scale",
+            "default": "1",
+            "description": ""
+        }
+    },
+    "CEnvFade":
+    {
+        "entcolor": "100 150 100",
+        "duration": {
+            "type": "float",
+            "title": "Duration (seconds)",
+            "default": "2",
+            "description": ""
+        },
+        "holdtime": {
+            "type": "float",
+            "title": "Hold Fade (seconds)",
+            "default": "0",
+            "description": ""
+        },
+        "spawnflags": {
+            "1": {
+                "title": "Fade From",
+                "default": "0",
+                "description": ""
+            },
+            "2": {
+                "title": "Modulate",
+                "default": "0",
+                "description": ""
+            },
+            "4": {
+                "title": "Activator Only",
+                "default": "0",
+                "description": ""
+            }
+        }
+    },
+    "CEnvFog":
+    {
+        "entcolor": "196 195 192",
+        "density": {
+            "type": "float",
+            "title": "Density (0.0-1.0)",
+            "default": "0.5",
+            "description": ""
+        },
+        "fogStartDistance": {
+            "type": "integer",
+            "title": "Start Distance",
+            "default": "1500",
+            "description": ""
+        },
+        "fogStopDistance": {
+            "type": "integer",
+            "title": "Stop Distance",
+            "default": "2000",
+            "description": ""
+        },
+        "spawnflags": {
+            "1": {
+                "title": "Fog Affects Skybox",
+                "default": "0",
+                "description": ""
+            }
+        }
+    },
+    "CEnvFunnel":
+    {
+        "entcolor": "128 255 32",
+        "entsize": "-16 -16 -16, 16 16 16",
+        "spawnflags": {
+            "1": {
+                "title": "Reverse",
+                "default": "0",
+                "description": ""
+            }
+        }
+    },
+    "CEnvLaser":
+    {
+        "base": "SF1StartOn",
+        "entcolor": "128 255 32",
+        "entsize": "-16 -16 -16, 16 16 16",
+        "spawnflags": {
+            "16": {
+                "title": "StartSparks",
+                "default": "0",
+                "description": ""
+            },
+            "32": {
+                "title": "EndSparks",
+                "default": "0",
+                "description": ""
+            },
+            "64": {
+                "title": "Decal End",
+                "default": "0",
+                "description": ""
+            }
+        },
+        "LaserTarget": {
+            "type": "target_destination",
+            "title": "Target of Laser",
+            "default": "",
+            "description": ""
+        },
+        "width": {
+            "type": "cap",
+            "title": "Width of beam (pixels*0.1 0-255)",
+            "default": "0",
+            "description": "",
+            "min": "0",
+            "max": "255"
+        },
+        "NoiseAmplitude": {
+            "type": "cap",
+            "title": "Amount of noise (0-255)",
+            "default": "0",
+            "description": "",
+            "min": "0",
+            "max": "255"
+        },
+        "texture": {
+            "type": "sprite",
+            "title": "Sprite Name",
+            "default": "sprites/laserbeam.spr",
+            "description": ""
+        },
+        "EndSprite": {
+            "type": "sprite",
+            "title": "End Sprite",
+            "default": "",
+            "description": ""
+        },
+        "TextureScroll": {
+            "type": "cap",
+            "title": "Texture Scroll Rate (0-100)",
+            "default": "35",
+            "description": "0",
+            "min": "0",
+            "max": "100"
+        },
+        "framestart": {
+            "type": "integer",
+            "title": "Starting Frame",
+            "default": "0",
+            "description": ""
+        },
+        "damage": {
+            "type": "float",
+            "title": "Damage / second",
+            "default": "100",
+            "description": ""
+        }
+    },
+    "CEnvMessage":
+    {
+        "entcolor": "255 0 255",
+        "spawnflags": {
+            "1": {
+                "title": "Play Once",
+                "default": "0",
+                "description": ""
+            },
+            "2": {
+                "title": "All Clients",
+                "default": "0",
+                "description": ""
+            }
+        },
+        "message": {
+            "type": "string",
+            "title": "Message Name",
+            "default": "",
+            "description": ""
+        },
+        "messagesound": {
+            "type": "sound",
+            "title": "path/filename.wav of WAV",
+            "default": "",
+            "description": ""
+        },
+        "messagevolume": {
+            "type": "cap",
+            "title": "Volume (10 = loudest)",
+            "default": "0",
+            "description": "",
+            "min": "0",
+            "max": "10"
+        },
+        "messageattenuation": {
+            "type": "choices",
+            "title": "Sound Radius",
+            "default": "0",
+            "description": "",
+            "choices": {
+                "0": {
+                    "title": "Small Radius",
+                    "description": ""
+                },
+                "1": {
+                    "title": "Medium Radius",
+                    "description": ""
+                },
+                "2": {
+                    "title": "Large  Radius",
+                    "description": ""
+                },
+                "3": {
+                    "title": "Play Everywhere",
+                    "description": ""
+                }
+            }
+        }
+    },
+    "CEnvRender":
+    {
+        "entcolor": "255 0 255",
+        "spawnflags": {
+            "1": {
+                "title": "No Renderfx",
+                "default": "0",
+                "description": ""
+            },
+            "2": {
+                "title": "No Renderamt",
+                "default": "0",
+                "description": ""
+            },
+            "4": {
+                "title": "No Rendermode",
+                "default": "0",
+                "description": ""
+            },
+            "8": {
+                "title": "No Rendercolor",
+                "default": "0",
+                "description": ""
+            }
+        }
+    },
+    "CEnvShake":
+    {
+        "entcolor": "188 180 172",
+        "iconsprite": "dev/hammer/env_shake.spr",
+        "spawnflags": {
+            "1": {
+                "title": "GlobalShake",
+                "default": "0",
+                "description": ""
+            }
+        },
+        "amplitude": {
+            "type": "cap",
+            "title": "Amplitude 0-16",
+            "default": "0",
+            "description": "",
+            "min": "0",
+            "max": "16"
+        },
+        "radius": {
+            "type": "float",
+            "title": "Effect radius",
+            "default": "500",
+            "description": ""
+        },
+        "duration": {
+            "type": "float",
+            "title": "Duration (seconds)",
+            "default": "1",
+            "description": ""
+        },
+        "frequency": {
+            "type": "float",
+            "title": "0.1 = jerk, 255.0 = rumble",
+            "default": "2.5",
+            "description": ""
         }
     },
     "worldspawn": {
@@ -1616,6 +2123,132 @@
         "base": "Mandatory, CEnvBeverage, appearflags",
         "Class": "Point",
         "name": "Beverage Dispenser",
+        "description": ""
+    },
+    "env_blood": {
+        "base": "Mandatory, CEnvBlood, appearflags",
+        "Class": "Point",
+        "name": "Blood Effects",
+        "description": ""
+    },
+    "env_blowercannon": {
+        "base": "Mandatory, CEnvBlowerCannon, Target, rendersettings, appearflags",
+        "Class": "Point",
+        "name": "Blower Cannon",
+        "description": ""
+    },
+    "env_bubbles": {
+        "base": "Mandatory, CEnvBubbles, appearflags",
+        "Class": "Solid",
+        "name": "Bubble Volume",
+        "description": ""
+    },
+    "env_electrified_wire": {
+        "base": "Mandatory, CEnvElectrifiedWire, appearflags",
+        "Class": "Point",
+        "name": "Electrified Wire",
+        "description": ""
+    },
+    "env_explosion": {
+        "base": "Mandatory, CEnvExplosion, appearflags",
+        "Class": "Point",
+        "name": "Explosion",
+        "description": ""
+    },
+    "env_fade": {
+        "base": "Mandatory, CEnvFade, renderamt, rendercolor, appearflags",
+        "Class": "Point",
+        "name": "Screen Fade",
+        "description": ""
+    },
+    "env_fog": {
+        "base": "Mandatory, CEnvFog, rendercolor, appearflags",
+        "Class": "Point",
+        "name": "Global Fog Controller",
+        "description": ""
+    },
+    "env_funnel": {
+        "base": "Mandatory, CEnvFunnel, appearflags",
+        "Class": "Point",
+        "name": "Large Portal Funnel",
+        "description": ""
+    },
+    "env_global": {
+        "base": "Mandatory, CEnvGlobal, appearflags",
+        "Class": "Point",
+        "name": "Global State",
+        "description": ""
+    },
+    "env_glow": {
+        "base": "Mandatory, CEnvGlow, rendersettings, appearflags",
+        "Class": "Point",
+        "name": "Light Glow/Haze",
+        "description": ""
+    },
+    "env_laser": {
+        "base": "Mandatory, Angles, CEnvLaser, renderamt, rendercolor, appearflags",
+        "Class": "Point",
+        "name": "Laser Beam Effect",
+        "description": ""
+    },
+    "env_message": {
+        "base": "Mandatory, CEnvMessage, Target, FireTargets, appearflags",
+        "Class": "Point",
+        "name": "HUD Text Message",
+        "description": ""
+    },
+    "env_shake": {
+        "base": "Mandatory, CEnvShake, appearflags",
+        "Class": "Point",
+        "name": "Screen Shake",
+        "description": ""
+    },
+    "env_shooter": {
+        "base": "Mandatory, Angles, CEnvShooter, CGibShooter, rendersettings, appearflags",
+        "Class": "Point",
+        "name": "Model Shooter",
+        "description": ""
+    },
+    "env_sound": {
+        "base": "Mandatory, CEnvSound, appearflags",
+        "Class": "Point",
+        "name": "DSP Sound",
+        "description": ""
+    },
+    "env_spark": {
+        "base": "Mandatory, Angles, CEnvSparks, appearflags",
+        "Class": "Point",
+        "name": "Sparks",
+        "description": ""
+    },
+    "env_sprite": {
+        "base": "Mandatory, Angles, CEnvSprite, rendersettings, appearflags",
+        "Class": "Point",
+        "name": "Sprite Effect",
+        "description": ""
+    },
+    "env_spritetrain": {
+        "base": "Mandatory, CEnvSpriteTrain, Target, PlatSounds, CCustomSounds, appearflags",
+        "Class": "Point",
+        "name": "Sprite Train",
+        "description": ""
+    },
+    "env_render": {
+        "base": "Mandatory, CEnvRender, Target, rendersettings, appearflags",
+        "Class": "Point",
+        "name": "Render Controls",
+        "description": ""
+    },
+    "env_rope": {
+        "base": "Mandatory, CEnvRope, appearflags",
+        "Class": "Point",
+        "name": "Rope",
+        "description": ""
+    },
+    "env_warpball": {
+        "base": "Mandatory, CEnvWarpBall, Target, appearflags",
+        "Class": "Point",
+        "name": "Warp In Ball",
         "description": ""
     }
 }

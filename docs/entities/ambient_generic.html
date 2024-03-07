@@ -20,6 +20,7 @@
 		<th>FGD</th>
 		<th>Description</th>
 	<tr>
+<tr><td>spawnflags</td><td></td><td></td><td></td><td class="table_description"></td></tr>
 <tr><td>targetname</td><td></td><td>target_source</td><td>Name</td><td class="table_description">Name is a general attribute used to identify entities.</td></tr>
 <tr><td>message</td><td></td><td>sound</td><td>Path/filename.wav of WAV</td><td class="table_description">This defines which sound file will be played by the entity. This accepts an input of the form path/filename.wav (starting from the 'sound' folder). (Example: ambience/drips.wav). The name of a sentence defined in sentences.txt will also be accepted with the form '!SENTENCENAME'. (Example: !HG_ALERT1)</td></tr>
 <tr><td>volstart</td><td>0</td><td>integer</td><td>Start Volume</td><td class="table_description"> Sets the volume that the sound should start at when fading in, and that it should stop at when fading out. Scales from 0 (completely silent) to 10 (maximum). (Should be lower than Volume.)</td></tr>
@@ -38,6 +39,7 @@
 <tr><td>lfomodpitch</td><td>0</td><td>integer</td><td>LFO mod pitch (0-100)</td><td class="table_description">Sets how much the pitch should change with the LFO effects. Scales between 0 (does not change) and 100 (very large changes).</td></tr>
 <tr><td>lfomodvol</td><td>0</td><td>integer</td><td>LFO mod vol (0-100)</td><td class="table_description">Sets how much the volume should change with the LFO effects. Seems to coincide with lower pitches. Scales between 0 (does not change) and 100 (silent).</td></tr>
 <tr><td>cspinup</td><td>0</td><td>integer</td><td>Incremental spinup count</td><td class="table_description">Sets how many times the ambient_generic can be triggered to have the pitch spin up on top of the pitch it was already playing at. Setting this to a value other than 0 will disable toggling the sound, and will prevent the sound from being turned off even it has been triggered that many times.</td></tr>
+<tr><td>spawnflags</td><td></td><td></td><td></td><td class="table_description"></td></tr>
 <tr><td>preset</td><td>0</td><td>choices</td><td>Dynamic Presets</td><td class="table_description">Sets the ambient_generic to use a predefined set of dynamics. If set to anything other than 'None', this will override every other attribute apart from Name and WAV Name.</td></tr>
 <tr><td>preset</td><td>0</td><td></td><td>None</td><td class="table_description">Does not use a preset, and will not override any other entity attributes.</td></tr>
 <tr><td>preset</td><td>1</td><td></td><td>Huge Machine</td><td class="table_description">Very long spin up, starting slow and getting fast. Very long spin down.</td></tr>

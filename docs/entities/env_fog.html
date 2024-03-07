@@ -3,16 +3,16 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>cycler_sprite</title>
+	<title>env_fog</title>
 	<link rel="stylesheet" href="../styles.css">
 </head>
 </body>
-	<h1>cycler_sprite</h1>
-	<h2>Sprite Cycler</h2>
+	<h1>env_fog</h1>
+	<h2>Global Fog Controller</h2>
 	<p></p>
 	<p></p>
 	<h2>KeyValues</h2>
-	<table id="cycler_sprite" border="1">
+	<table id="env_fog" border="1">
 	<tr>
 		<th>Key</th>
 		<th>Value</th>
@@ -22,9 +22,11 @@
 	<tr>
 <tr><td>spawnflags</td><td></td><td></td><td></td><td class="table_description"></td></tr>
 <tr><td>targetname</td><td></td><td>target_source</td><td>Name</td><td class="table_description">Name is a general attribute used to identify entities.</td></tr>
-<tr><td>angles</td><td>0 0 0</td><td>vector</td><td>Pitch Yaw Roll (Y Z X)</td><td class="table_description"></td></tr>
-<tr><td>model</td><td></td><td>sprite</td><td>Model OR Sprite</td><td class="table_description"></td></tr>
-<tr><td>framerate</td><td>10</td><td>integer</td><td>Frames per second</td><td class="table_description"></td></tr>
+<tr><td>density</td><td>0.5</td><td>float</td><td>Density (0.0-1.0)</td><td class="table_description"></td></tr>
+<tr><td>fogStartDistance</td><td>1500</td><td>integer</td><td>Start Distance</td><td class="table_description"></td></tr>
+<tr><td>fogStopDistance</td><td>2000</td><td>integer</td><td>Stop Distance</td><td class="table_description"></td></tr>
+<tr><td>spawnflags</td><td></td><td></td><td></td><td class="table_description"></td></tr>
+<tr><td>rendercolor</td><td></td><td>color255</td><td>FX Color (R G B)</td><td class="table_description"></td></tr>
 <tr><td>appearflag_singleplayer</td><td>0</td><td>choices</td><td>#AppearFlags SinglePlayer</td><td class="table_description">Appearance flags for SinglePlayer, This control when this entity should or should not appear in this condition.</td></tr>
 <tr><td>appearflag_singleplayer</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is SinglePlayer.</td></tr>
 <tr><td>appearflag_singleplayer</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being SinglePlayer</td></tr>

@@ -20,6 +20,7 @@
 		<th>FGD</th>
 		<th>Description</th>
 	<tr>
+<tr><td>spawnflags</td><td></td><td></td><td></td><td class="table_description"></td></tr>
 <tr><td>targetname</td><td></td><td>target_source</td><td>Name</td><td class="table_description">Name is a general attribute used to identify entities.</td></tr>
 <tr><td>texture</td><td>sprites/laserbeam.spr</td><td>sprite</td><td>Sprite Name</td><td class="table_description">This defines which sprite file the entity will use to form the beam. This accepts an input of the form "path/filename.spr" (starting from the root folder). (Example: "sprites/laserbeam.spr").</td></tr>
 <tr><td>LightningStart</td><td></td><td>target_generic</td><td>Start Entity</td><td class="table_description">The name of an entity to be used as the starting point for the beam. If undefined, the beam will choose a surface within the Radius to use as the starting point. (Note that if the Start Entity is undefined, the Ending Entity must also be undefined.)</td></tr>
@@ -33,6 +34,7 @@
 <tr><td>framestart</td><td>0</td><td>integer</td><td>Starting Frame</td><td class="table_description"> Sets which frame of animation that the sprite should use.</td></tr>
 <tr><td>StrikeTime</td><td>0</td><td>integer</td><td>Strike again time (secs)</td><td class="table_description">Sets how long many seconds before the beam reactivates (after the beam deactivates after being on for the time defined in Life). If the beam has undefined start/end points, the beam will choose new points for the reactivation.</td></tr>
 <tr><td>damage</td><td>0</td><td>float</td><td>Damage / second</td><td class="table_description">Sets how much damage the beam should do when you walk through it. Note that the damage is only dealt in a straight line between start and end point, regardless of any fluctuation in the beam from the Amount of Noise attribute.</td></tr>
+<tr><td>spawnflags</td><td></td><td></td><td></td><td class="table_description"></td></tr>
 <tr><td>renderamt</td><td>255</td><td>integer</td><td>FX Amount (1 - 255)</td><td class="table_description"></td></tr>
 <tr><td>rendercolor</td><td></td><td>color255</td><td>FX Color (R G B)</td><td class="table_description"></td></tr>
 <tr><td>renderfx</td><td></td><td>choices</td><td>FX Effect</td><td class="table_description"></td></tr>
