@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ammo_556</title>
+	<link rel="stylesheet" href="../../styles.css">
+</head>
+</body>
+	<h1>ammo_556</h1>
+	<h2></h2>
+	<p></p>
+	<p></p>
+	<h2>KeyValues</h2>
+	<table id="ammo_556" border="1">
+	<tr>
+		<th>Key</th>
+		<th>Value</th>
+		<th>Type</th>
+		<th>FGD</th>
+		<th>Description</th>
+	<tr>
+<tr><td>title</td><td></td><td></td><td></td><td class="table_description"></td></tr>
+<tr><td>targetname</td><td></td><td>target_source</td><td>Name</td><td class="table_description">Name is a general attribute used to identify entities</td></tr>
+<tr><td>angles</td><td>0 0 0</td><td>vector</td><td>Pitch Yaw Roll (Y Z X)</td><td class="table_description"></td></tr>
+<tr><td>model</td><td>models/W_saw_clip.mdl</td><td>studio</td><td>Model</td><td class="table_description"></td></tr>
+<tr><td>ammo_amount</td><td></td><td>integer</td><td>Ammo Amount To Give (-1 == Maximum)</td><td class="table_description">If set, the player will receive this much ammo instead of the default amount. If set to **-1** the player will receive the maximum amount of ammo for this type. Can be **0** to make a fake ammo entity.</td></tr>
+<tr><td>respawn_delay</td><td>-1</td><td>float</td><td>Respawn delay (-1 == Never)</td><td class="table_description">Custom respawn delay. If set, overrides the delay configured by the skill configuration. A delay of **-1** disables respawn. This allows items to respawn in singleplayer.</td></tr>
+<tr><td>stay_visible_during_respawn</td><td>0</td><td>choices</td><td>Stay Visible During Respawn</td><td class="table_description"></td></tr>
+<tr><td>stay_visible_during_respawn</td><td>0</td><td></td><td>No</td><td class="table_description">The items are invisible until respawn.</td></tr>
+<tr><td>stay_visible_during_respawn</td><td>1</td><td></td><td>Yes</td><td class="table_description">The item remains visible during the respawn time.</td></tr>
+<tr><td>flash_on_respawn</td><td>1</td><td>choices</td><td>Flash On Respawn</td><td class="table_description"></td></tr>
+<tr><td>flash_on_respawn</td><td>0</td><td></td><td>No</td><td class="table_description"></td></tr>
+<tr><td>flash_on_respawn</td><td>1</td><td></td><td>Yes</td><td class="table_description">The item will flash when it respawns.</td></tr>
+<tr><td>play_pickup_sound</td><td>1</td><td>choices</td><td>Play Pickup Sound</td><td class="table_description"></td></tr>
+<tr><td>play_pickup_sound</td><td>0</td><td></td><td>No</td><td class="table_description">The item won't play its pickup sound.</td></tr>
+<tr><td>play_pickup_sound</td><td>1</td><td></td><td>Yes</td><td class="table_description">The item will play its pickup sound.</td></tr>
+<tr><td>fall_mode</td><td>0</td><td>choices</td><td>Fall Mode</td><td class="table_description">Controls whether the item falls to the ground or floats when it spawns.</td></tr>
+<tr><td>fall_mode</td><td>0</td><td></td><td>Fall</td><td class="table_description">Item falls to ground when it spawns</td></tr>
+<tr><td>fall_mode</td><td>1</td><td></td><td>Float</td><td class="table_description">Item floats in the air where it spawns</td></tr>
+<tr><td>trigger_on_spawn</td><td></td><td>target_destination</td><td>Trigger On Spawn</td><td class="table_description">Target to trigger when the item (re)spawns.</td></tr>
+<tr><td>trigger_on_despawn</td><td></td><td>target_destination</td><td>Trigger On Despawn</td><td class="table_description">Target to trigger when the item despawns. This happens when the player picks up the item.</td></tr>
+<tr><td>target</td><td></td><td>target_destination</td><td>Target</td><td class="table_description"></td></tr>
+<tr><td>m_UseType</td><td>-1</td><td>choices</td><td>Use Type</td><td class="table_description">Anything else will be count as USE_UNKNOWN and in fact, work the same as USE_UNSET</td></tr>
+<tr><td>m_UseType</td><td>-1</td><td></td><td>USE_UNSET (default)</td><td class="table_description">This is the value by default and will have no effect at all in how entities normaly behave.</td></tr>
+<tr><td>m_UseType</td><td>0</td><td></td><td>USE_OFF</td><td class="table_description"></td></tr>
+<tr><td>m_UseType</td><td>1</td><td></td><td>USE_ON</td><td class="table_description"></td></tr>
+<tr><td>m_UseType</td><td>2</td><td></td><td>USE_SET</td><td class="table_description">Does use of m_UseValue, See how it affects each entity.</td></tr>
+<tr><td>m_UseType</td><td>3</td><td></td><td>USE_TOGGLE</td><td class="table_description"></td></tr>
+<tr><td>m_UseType</td><td>4</td><td></td><td>USE_KILL</td><td class="table_description">Remove the entity from the world.</td></tr>
+<tr><td>m_UseType</td><td>5</td><td></td><td>USE_SAME</td><td class="table_description">Sends the same USE_TYPE that this entity receive.</td></tr>
+<tr><td>m_UseType</td><td>6</td><td></td><td>USE_OPPOSITE</td><td class="table_description">Sends the opposite USE_TYPE that this entity receive, Swaps USE_ON <-> USE_OFF, If anything else then USE_TOGGLE is sent</td></tr>
+<tr><td>m_UseType</td><td>7</td><td></td><td>USE_TOUCH</td><td class="table_description">Calls the Touch function, the activator will be passed as the toucher.</td></tr>
+<tr><td>m_UseType</td><td>8</td><td></td><td>USE_LOCK</td><td class="table_description">Locks the entity. Does use of m_UseValue</td></tr>
+<tr><td>m_UseType</td><td>9</td><td></td><td>USE_UNLOCK</td><td class="table_description">Un-Locks the entity. Does use of m_UseValue</td></tr>
+<tr><td>m_UseValue</td><td></td><td>float</td><td>Use Value</td><td class="table_description"></td></tr>
+<tr><td>killtarget</td><td></td><td>target_destination</td><td>KillTarget</td><td class="table_description"></td></tr>
+<tr><td>delay</td><td>0</td><td>float</td><td>Delay before trigger</td><td class="table_description"></td></tr>
+<tr><td>custom_hull_min</td><td></td><td>vector</td><td>Custom Min hullsize (X Y Z)</td><td class="table_description">Custom minimum hull size. This overrides the size specified by models and entities.</td></tr>
+<tr><td>custom_hull_max</td><td></td><td>vector</td><td>Custom Max hullsize (X Y Z)</td><td class="table_description">Custom maximum hull size. This overrides the size specified by models and entities.</td></tr>
+<tr><td>base</td><td></td><td></td><td></td><td class="table_description"></td></tr>
+<tr><td>appearflag_singleplayer</td><td>0</td><td>choices</td><td>#AppearFlags SinglePlayer</td><td class="table_description">Appearance flags for SinglePlayer, This control when this entity should or should not appear in this condition.</td></tr>
+<tr><td>appearflag_singleplayer</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is SinglePlayer.</td></tr>
+<tr><td>appearflag_singleplayer</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being SinglePlayer</td></tr>
+<tr><td>appearflag_singleplayer</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT SinglePlayer</td></tr>
+<tr><td>appearflag_multiplayer</td><td>0</td><td>choices</td><td>#AppearFlags MultiPlayer</td><td class="table_description">Appearance flags for MultiPlayer, This control when this entity should or should not appear in this condition.</td></tr>
+<tr><td>appearflag_multiplayer</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is MultiPlayer.</td></tr>
+<tr><td>appearflag_multiplayer</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being MultiPlayer</td></tr>
+<tr><td>appearflag_multiplayer</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT MultiPlayer</td></tr>
+<tr><td>appearflag_cooperative</td><td>0</td><td>choices</td><td>#AppearFlags Cooperative</td><td class="table_description">Appearance flags for Cooperative, This control when this entity should or should not appear in this condition.</td></tr>
+<tr><td>appearflag_cooperative</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is Cooperative.</td></tr>
+<tr><td>appearflag_cooperative</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being Cooperative</td></tr>
+<tr><td>appearflag_cooperative</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT Cooperative</td></tr>
+<tr><td>appearflag_skilleasy</td><td>0</td><td>choices</td><td>#AppearFlags Easy</td><td class="table_description">Appearance flags for Skill level Easy, This control when this entity should or should not appear in this condition.</td></tr>
+<tr><td>appearflag_skilleasy</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is Easy.</td></tr>
+<tr><td>appearflag_skilleasy</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being Easy</td></tr>
+<tr><td>appearflag_skilleasy</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT Easy</td></tr>
+<tr><td>appearflag_skillmedium</td><td>0</td><td>choices</td><td>#AppearFlags Medium</td><td class="table_description">Appearance flags for Skill level Medium, This control when this entity should or should not appear in this condition.</td></tr>
+<tr><td>appearflag_skillmedium</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is Medium.</td></tr>
+<tr><td>appearflag_skillmedium</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being Medium</td></tr>
+<tr><td>appearflag_skillmedium</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT Medium</td></tr>
+<tr><td>appearflag_skillhard</td><td>0</td><td>choices</td><td>#AppearFlags Hard</td><td class="table_description">Appearance flags for Skill level Hard, This control when this entity should or should not appear in this condition.</td></tr>
+<tr><td>appearflag_skillhard</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is Hard.</td></tr>
+<tr><td>appearflag_skillhard</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being Hard</td></tr>
+<tr><td>appearflag_skillhard</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT Hard</td></tr>
+</table>
+</body></html>

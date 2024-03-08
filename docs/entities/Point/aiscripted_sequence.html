@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>aiscripted_sequence</title>
+	<link rel="stylesheet" href="../../styles.css">
+</head>
+</body>
+	<h1>aiscripted_sequence</h1>
+	<h2></h2>
+	<p>Using the <a href="scripted_sequence.html">scripted_sequence</a> entity as base, the aiscripted_sequence point entity inherit the same responsibility of making a monster entity move to a specific location and/or perform a given animation. The primary difference being that it completely overrides the targeted monster's AI. Regardless of what you do to the monster, it will follow this sequence.</p>
+	<p></p>
+	<h2>KeyValues</h2>
+	<table id="aiscripted_sequence" border="1">
+	<tr>
+		<th>Key</th>
+		<th>Value</th>
+		<th>Type</th>
+		<th>FGD</th>
+		<th>Description</th>
+	<tr>
+<tr><td>title</td><td></td><td></td><td></td><td class="table_description"></td></tr>
+<tr><td>targetname</td><td></td><td>target_source</td><td>Name</td><td class="table_description">Name is a general attribute used to identify entities</td></tr>
+<tr><td>angles</td><td>0 0 0</td><td>vector</td><td>Pitch Yaw Roll (Y Z X)</td><td class="table_description"></td></tr>
+<tr><td>flags</td><td></td><td></td><td></td><td class="table_description"></td></tr>
+<tr><td>flags</td><td></td><td></td><td></td><td class="table_description"></td></tr>
+<tr><td>m_iszEntity</td><td></td><td>target_generic</td><td>Target Monster</td><td class="table_description">The name of the monster entity that this sequence affects. You can also input a monster classname (monster_scientist, for example). (Only one monster will be chosen to follow the sequence.)</td></tr>
+<tr><td>m_iszPlay</td><td></td><td>string</td><td>Action Animation</td><td class="table_description">The name of the animation that will be performed by "Target Monster".</td></tr>
+<tr><td>m_flRadius</td><td>512</td><td>integer</td><td>Search Radius</td><td class="table_description">If you input a monster classname into "Target Monster", the entity will pick a monster within this radius of the entity to follow the sequence. If none are within the radius, the first monster to enter the radius will follow the sequence.</td></tr>
+<tr><td>m_flRepeat</td><td>0</td><td>float</td><td>Repeat Rate ms</td><td class="table_description">How often to check if a monster is within the search radius. A check will be made even if search radius is zero, so set this to a large value if it's not used.</td></tr>
+<tr><td>m_fMoveTo</td><td>0</td><td>choices</td><td>Move to Position</td><td class="table_description">Sets how (or if) the monster moves before performing the animation</td></tr>
+<tr><td>m_fMoveTo</td><td>0</td><td></td><td>No</td><td class="table_description">The monster will not move or turn. It will perform the animation wherever it is.</td></tr>
+<tr><td>m_fMoveTo</td><td>1</td><td></td><td>Walk</td><td class="table_description">The monster will walk to the aiscripted_sequence, then perform the animation.</td></tr>
+<tr><td>m_fMoveTo</td><td>2</td><td></td><td>Run</td><td class="table_description">The monster will run to the aiscripted_sequence, then perform the animation.</td></tr>
+<tr><td>m_fMoveTo</td><td>4</td><td></td><td>Instantaneous</td><td class="table_description">The monster will instantly warp to the location of the aiscripted_sequence and perform the animation.</td></tr>
+<tr><td>m_fMoveTo</td><td>5</td><td></td><td>No - Turn to Face</td><td class="table_description">The monster will not move, but will turn to the aiscripted_sequence's angle before performing the animation.</td></tr>
+<tr><td>m_iFinishSchedule</td><td>0</td><td>choices</td><td>AI Schedule when done</td><td class="table_description">Defines what happens to the monster's AI when the sequence is completed/canceled.</td></tr>
+<tr><td>m_iFinishSchedule</td><td>0</td><td></td><td>Default AI</td><td class="table_description">The AI will order the monster to clear it's schedule (kinda like a "reset"). It will resume normal behavior afterwards.</td></tr>
+<tr><td>m_iFinishSchedule</td><td>1</td><td></td><td>Ambush</td><td class="table_description">The AI will order the monster to go into an "ambush" schedule. That is to wait for an infinite period of time unless it see an enemy or take damage.</td></tr>
+<tr><td>target</td><td></td><td>target_destination</td><td>Target</td><td class="table_description"></td></tr>
+<tr><td>m_UseType</td><td>-1</td><td>choices</td><td>Use Type</td><td class="table_description">Anything else will be count as USE_UNKNOWN and in fact, work the same as USE_UNSET</td></tr>
+<tr><td>m_UseType</td><td>-1</td><td></td><td>USE_UNSET (default)</td><td class="table_description">This is the value by default and will have no effect at all in how entities normaly behave.</td></tr>
+<tr><td>m_UseType</td><td>0</td><td></td><td>USE_OFF</td><td class="table_description"></td></tr>
+<tr><td>m_UseType</td><td>1</td><td></td><td>USE_ON</td><td class="table_description"></td></tr>
+<tr><td>m_UseType</td><td>2</td><td></td><td>USE_SET</td><td class="table_description">Does use of m_UseValue, See how it affects each entity.</td></tr>
+<tr><td>m_UseType</td><td>3</td><td></td><td>USE_TOGGLE</td><td class="table_description"></td></tr>
+<tr><td>m_UseType</td><td>4</td><td></td><td>USE_KILL</td><td class="table_description">Remove the entity from the world.</td></tr>
+<tr><td>m_UseType</td><td>5</td><td></td><td>USE_SAME</td><td class="table_description">Sends the same USE_TYPE that this entity receive.</td></tr>
+<tr><td>m_UseType</td><td>6</td><td></td><td>USE_OPPOSITE</td><td class="table_description">Sends the opposite USE_TYPE that this entity receive, Swaps USE_ON <-> USE_OFF, If anything else then USE_TOGGLE is sent</td></tr>
+<tr><td>m_UseType</td><td>7</td><td></td><td>USE_TOUCH</td><td class="table_description">Calls the Touch function, the activator will be passed as the toucher.</td></tr>
+<tr><td>m_UseType</td><td>8</td><td></td><td>USE_LOCK</td><td class="table_description">Locks the entity. Does use of m_UseValue</td></tr>
+<tr><td>m_UseType</td><td>9</td><td></td><td>USE_UNLOCK</td><td class="table_description">Un-Locks the entity. Does use of m_UseValue</td></tr>
+<tr><td>m_UseValue</td><td></td><td>float</td><td>Use Value</td><td class="table_description"></td></tr>
+<tr><td>killtarget</td><td></td><td>target_destination</td><td>KillTarget</td><td class="table_description"></td></tr>
+<tr><td>delay</td><td>0</td><td>float</td><td>Delay before trigger</td><td class="table_description"></td></tr>
+<tr><td>appearflag_singleplayer</td><td>0</td><td>choices</td><td>#AppearFlags SinglePlayer</td><td class="table_description">Appearance flags for SinglePlayer, This control when this entity should or should not appear in this condition.</td></tr>
+<tr><td>appearflag_singleplayer</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is SinglePlayer.</td></tr>
+<tr><td>appearflag_singleplayer</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being SinglePlayer</td></tr>
+<tr><td>appearflag_singleplayer</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT SinglePlayer</td></tr>
+<tr><td>appearflag_multiplayer</td><td>0</td><td>choices</td><td>#AppearFlags MultiPlayer</td><td class="table_description">Appearance flags for MultiPlayer, This control when this entity should or should not appear in this condition.</td></tr>
+<tr><td>appearflag_multiplayer</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is MultiPlayer.</td></tr>
+<tr><td>appearflag_multiplayer</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being MultiPlayer</td></tr>
+<tr><td>appearflag_multiplayer</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT MultiPlayer</td></tr>
+<tr><td>appearflag_cooperative</td><td>0</td><td>choices</td><td>#AppearFlags Cooperative</td><td class="table_description">Appearance flags for Cooperative, This control when this entity should or should not appear in this condition.</td></tr>
+<tr><td>appearflag_cooperative</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is Cooperative.</td></tr>
+<tr><td>appearflag_cooperative</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being Cooperative</td></tr>
+<tr><td>appearflag_cooperative</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT Cooperative</td></tr>
+<tr><td>appearflag_skilleasy</td><td>0</td><td>choices</td><td>#AppearFlags Easy</td><td class="table_description">Appearance flags for Skill level Easy, This control when this entity should or should not appear in this condition.</td></tr>
+<tr><td>appearflag_skilleasy</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is Easy.</td></tr>
+<tr><td>appearflag_skilleasy</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being Easy</td></tr>
+<tr><td>appearflag_skilleasy</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT Easy</td></tr>
+<tr><td>appearflag_skillmedium</td><td>0</td><td>choices</td><td>#AppearFlags Medium</td><td class="table_description">Appearance flags for Skill level Medium, This control when this entity should or should not appear in this condition.</td></tr>
+<tr><td>appearflag_skillmedium</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is Medium.</td></tr>
+<tr><td>appearflag_skillmedium</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being Medium</td></tr>
+<tr><td>appearflag_skillmedium</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT Medium</td></tr>
+<tr><td>appearflag_skillhard</td><td>0</td><td>choices</td><td>#AppearFlags Hard</td><td class="table_description">Appearance flags for Skill level Hard, This control when this entity should or should not appear in this condition.</td></tr>
+<tr><td>appearflag_skillhard</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is Hard.</td></tr>
+<tr><td>appearflag_skillhard</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being Hard</td></tr>
+<tr><td>appearflag_skillhard</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT Hard</td></tr>
+</table>
+</body></html>
