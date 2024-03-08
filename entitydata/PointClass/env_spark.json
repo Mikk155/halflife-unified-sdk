@@ -1,0 +1,8 @@
+{
+    "env_spark":
+    {
+        "BaseClass": "Mandatory, Angles, CEnvSparks, appearflags",
+        "title": "Sparks",
+        "description": ""
+    }
+}

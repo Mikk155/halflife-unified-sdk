@@ -1,0 +1,12 @@
+{
+    "ammo_generic":
+    {
+        "BaseClass": "Mandatory, Angles, CAmmoGeneric, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags",
+        "title": "Generic Ammo",
+        "description": "Gives the specified ammo type to the player that picks it up.",
+        "notes":
+        {
+            "1": "Combine with <a href=\"trigger_changekeyvalue.md\">trigger_changekeyvalue</a> to dynamically change ammo type"
+        }
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "button_target":
+    {
+        "BaseClass": "Mandatory, Angles, CButtonTarget, Target, FireTargets, Master, rendersettings, ZHLT, appearflags",
+        "title": "Target Button",
+        "description": ""
+    }
+}

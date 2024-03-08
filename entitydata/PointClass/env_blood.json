@@ -1,0 +1,8 @@
+{
+    "env_blood":
+    {
+        "BaseClass": "Mandatory, CEnvBlood, appearflags",
+        "title": "Blood Effects",
+        "description": ""
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "func_conveyor":
+    {
+        "BaseClass": "Mandatory, Angles, Global, CFuncConveyor, rendersettings, _minlight, ZHLT, appearflags",
+        "title": "Conveyor Belt"
+    }
+}

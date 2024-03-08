@@ -1,0 +1,7 @@
+{
+    "func_guntarget":
+    {
+        "BaseClass": "Mandatory, Angles, Global, CFuncGunTarget, rendersettings, _minlight, ZHLT, appearflags",
+        "title": ""
+    }
+}

@@ -266,3 +266,22 @@ if (NOT ${HalfLife_HLDS_DIRECTORY} STREQUAL "")
 	install(SCRIPT ${hldsInstallScriptFile})
 endif()
 
+# Build FGD and Documents
+find_package(PythonInterp REQUIRED)
+execute_process(
+    COMMAND ${PYTHON_EXECUTABLE} -c "import json"
+    RESULT_VARIABLE JSON_RESULT
+)
+if(JSON_RESULT EQUAL "0")
+    set(PYTHON_SCRIPT "scripts/format_forge_game_data.py")
+    add_custom_target( BUILD_FGD_DOCS
+        COMMAND ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/${PYTHON_SCRIPT}
+        COMMENT "Building documents and FGD file..."
+    )
+else()
+    message(WARNING "Python needs json dependancy.")
+endif()
+
+install(DIRECTORY ${CMAKE_SOURCE_DIR}/game/
+	DESTINATION .
+)

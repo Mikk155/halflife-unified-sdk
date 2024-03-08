@@ -1,0 +1,8 @@
+{
+    "cycler_sprite":
+    {
+        "BaseClass": "Mandatory, Angles, CCyclerSprite, rendersettings, appearflags",
+        "title": "Sprite Cycler",
+        "description": ""
+    }
+}

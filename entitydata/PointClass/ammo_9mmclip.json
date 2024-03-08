@@ -1,0 +1,8 @@
+{
+    "ammo_9mmclip":
+    {
+        "BaseClass": "Mandatory, Angles, CAmmo9mm, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags",
+        "title": "9mm Pistol Ammo",
+        "description": ""
+    }
+}

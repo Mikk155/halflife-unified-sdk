@@ -1,0 +1,19 @@
+{
+    "env_beam":
+    {
+        "BaseClass": "Mandatory, CEnvBeam, renderamt, rendercolor, renderfx, appearflags",
+        "title": "Energy Beam Effect",
+        "description": "",
+        "notes":
+
+        {
+            "1" : "<a href=\"info_targets.html\">info_targets</a> are often used for stationary start/end points. To make moving beams, use <a href=\"func_train.html\">func_train</a>.",
+            "2": "The fluctuation of a beam (via the Amount of noise attribute) seems to be affected by the length of the beam; longer beams will be more affected by the same noise value.",
+            "3": "The sprite used in the beam does not seem to animate, though if the sprite has multiple frames, you can choose which frame it uses.",
+            "4": "Setting Life to less than 0.1 (but greater than 0) seems to make the beam not deactivate, but will still create new beams after Strike Again Time. This can cause the beams stack up. There seems to be a limit to how many beams will generate in this way, and after a while the beams will stop spawning. Possibly could be used to create unique visual effects.",
+            "5": "The \"Ring\" flag seems to not accept all entities as start/end points, including info_targets. It will accept func_trains though.",
+            "6": "If multiple entities have the same name as the Start Entity / Ending Entity, the beam will randomly choose a target from those entities. This can be used to create a random function by placing buttons triggered by damage in the path of the beams.",
+            "7": "It is possible to have the beam target random points. If you leave the end entity undefined, the beam will fire from the start entity to a random direction until it hits a wall. This is very useful for example on teleporters because you don't have to define loads of target points. If you leave both the start and end entity undefined, it will trace a line in a random direction from the actual env_beam entity for a start point and an another one from this point to get the end point. The beam will project between the points. This is totally random but could be used to create some kind of energy storm effect or something."
+        }
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "env_laser":
+    {
+        "BaseClass": "Mandatory, Angles, CEnvLaser, renderamt, rendercolor, appearflags",
+        "title": "Laser Beam Effect",
+        "description": ""
+    }
+}

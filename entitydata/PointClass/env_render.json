@@ -1,0 +1,8 @@
+{
+    "env_render":
+    {
+        "BaseClass": "Mandatory, CEnvRender, Target, rendersettings, appearflags",
+        "title": "Render Controls",
+        "description": ""
+    }
+}

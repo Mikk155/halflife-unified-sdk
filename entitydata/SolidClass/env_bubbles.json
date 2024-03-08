@@ -1,0 +1,8 @@
+{
+    "env_bubbles":
+    {
+        "BaseClass": "Mandatory, CEnvBubbles, appearflags",
+        "title": "Bubble Volume",
+        "description": ""
+    }
+}

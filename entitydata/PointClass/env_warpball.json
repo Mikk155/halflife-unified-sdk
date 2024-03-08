@@ -1,0 +1,8 @@
+{
+    "env_warpball":
+    {
+        "BaseClass": "Mandatory, CEnvWarpBall, Target, appearflags",
+        "title": "Warp In Ball",
+        "description": ""
+    }
+}

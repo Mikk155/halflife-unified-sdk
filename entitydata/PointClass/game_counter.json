@@ -1,0 +1,7 @@
+{
+    "game_counter":
+    {
+        "BaseClass": "Mandatory, CGameCounter, Master, Target, FireTargets, CBaseDelay, appearflags",
+        "title": "Fires when it hits limit"
+    }
+}

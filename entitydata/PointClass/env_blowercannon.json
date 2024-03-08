@@ -1,0 +1,8 @@
+{
+    "env_blowercannon":
+    {
+        "BaseClass": "Mandatory, CEnvBlowerCannon, Target, rendersettings, appearflags",
+        "title": "Blower Cannon",
+        "description": ""
+    }
+}

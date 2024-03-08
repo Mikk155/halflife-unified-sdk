@@ -1,0 +1,8 @@
+{
+    "env_fade":
+    {
+        "BaseClass": "Mandatory, CEnvFade, renderamt, rendercolor, appearflags",
+        "title": "Screen Fade",
+        "description": ""
+    }
+}

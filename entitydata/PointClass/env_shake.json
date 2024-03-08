@@ -1,0 +1,8 @@
+{
+    "env_shake":
+    {
+        "BaseClass": "Mandatory, CEnvShake, appearflags",
+        "title": "Screen Shake",
+        "description": ""
+    }
+}

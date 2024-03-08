@@ -1,0 +1,7 @@
+{
+    "func_door_rotating":
+    {
+        "BaseClass": "Mandatory, Angles, Global, CDoorRotating, CDoor, CUnLockedSounds, Master, Target, FireTargets, CBaseDelay, rendersettings, CReplacemetFile, _minlight, ZHLT, appearflags",
+        "title": "Rotating Door"
+    }
+}

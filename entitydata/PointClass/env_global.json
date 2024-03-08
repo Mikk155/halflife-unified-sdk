@@ -1,0 +1,8 @@
+{
+    "env_global":
+    {
+        "BaseClass": "Mandatory, CEnvGlobal, appearflags",
+        "title": "Global State",
+        "description": ""
+    }
+}

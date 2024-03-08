@@ -1,0 +1,8 @@
+{
+    "ammo_9mmbox":
+    {
+        "BaseClass": "Mandatory, Angles, CAmmo9mmbox, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags",
+        "title": "box of 200 9mm shells",
+        "description": ""
+    }
+}

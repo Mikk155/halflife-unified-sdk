@@ -1,0 +1,12 @@
+{
+    "ambient_music":
+    {
+        "BaseClass": "Mandatory, CAmbientMusic, appearflags",
+        "title": "Plays music",
+        "description": "This entity allows level designers to control music playback. You can play and loop music, trigger it to fade out or stop it entirely.",
+        "notes":
+        {
+            "1": "Part of the <a href=\"../../features/sound-system.md\">OpenAL sound system</a>"
+        }
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "cycler":
+    {
+        "BaseClass": "Mandatory, Angles, CCycler, rendersettings, appearflags",
+        "title": "Monster Cycler",
+        "description": ""
+    }
+}

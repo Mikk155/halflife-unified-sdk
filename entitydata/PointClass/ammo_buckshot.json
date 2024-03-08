@@ -1,0 +1,8 @@
+{
+    "ammo_buckshot":
+    {
+        "BaseClass": "Mandatory, Angles, CAmmoshowbox, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags",
+        "title": "Shotgun Ammo",
+        "description": ""
+    }
+}

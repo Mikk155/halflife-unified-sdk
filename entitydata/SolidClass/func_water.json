@@ -1,0 +1,7 @@
+{
+    "func_water":
+    {
+        "BaseClass": "Mandatory, Angles, Global, CFuncWater, CDoor, CUnLockedSounds, Master, Target, FireTargets, CBaseDelay, rendersettings, CReplacemetFile, _minlight, ZHLT, appearflags",
+        "title": "Liquid"
+    }
+}

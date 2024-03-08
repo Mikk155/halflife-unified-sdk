@@ -1,0 +1,7 @@
+{
+    "func_door":
+    {
+        "BaseClass": "Mandatory, Angles, Global, CDoor, CUnLockedSounds, Master, Target, FireTargets, CBaseDelay, rendersettings, CReplacemetFile, _minlight, ZHLT, appearflags",
+        "title": "Basic Door"
+    }
+}

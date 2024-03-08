@@ -1,0 +1,8 @@
+{
+    "ammo_556":
+    {
+        "BaseClass": "Mandatory, Angles, CAmmo556, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags",
+        "title": "M249 Ammo",
+        "description": ""
+    }
+}

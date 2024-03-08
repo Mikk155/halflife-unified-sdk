@@ -1,0 +1,8 @@
+{
+    "env_shooter":
+    {
+        "BaseClass": "Mandatory, Angles, CEnvShooter, CGibShooter, Scale, rendersettings, appearflags",
+        "title": "Model Shooter",
+        "description": ""
+    }
+}

@@ -1,0 +1,119 @@
+{
+    "worldspawn":
+    {
+        "title": "World entity",
+        "message":
+        {
+            "type": "string",
+            "title": "Map Description / Title",
+            "description": ""
+        },
+        "skyname":
+        {
+            "type": "sky",
+            "title": "environment map (cl_skyname)",
+            "description": ""
+        },
+        "light":
+        {
+            "type": "integer",
+            "title": "Default light level",
+            "description": ""
+        },
+        "WaveHeight":
+        {
+            "type": "string",
+            "title": "Default Wave Height",
+            "default": "",
+            "description": ""
+        },
+        "MaxRange":
+        {
+            "type": "string",
+            "title": "Max viewable distance",
+            "default": "4096",
+            "description": ""
+        },
+        "chaptertitle":
+        {
+            "type": "string",
+            "title": "Chapter Title Message",
+            "default": "",
+            "description": ""
+        },
+        "startdark":
+        {
+            "type": "choices",
+            "title": "Level Fade In",
+            "default": "0",
+            "description": "",
+            "choices":
+            {
+                "0":
+                {
+                    "title": "No",
+                    "description": ""
+                },
+                "1":
+                {
+                    "title": "Yes",
+                    "description": ""
+                }
+            }
+        },
+        "gametitle":
+        {
+            "type": "string",
+            "title": "Game whose title to display",
+            "default": "",
+            "description": ""
+        },
+        "newunit":
+        {
+            "type": "choices",
+            "title": "New Level Unit",
+            "default": "0",
+            "description": "",
+            "choices":
+            {
+                "0":
+                {
+                    "title": "No, keep current",
+                    "description": ""
+                },
+                "1":
+                {
+                    "title": "Yes, clear previous levels",
+                    "description": ""
+                }
+            }
+        },
+        "mapteams":
+        {
+            "type": "string",
+            "title": "Map Team List",
+            "default": "grunt;scientist",
+            "description": ""
+        },
+        "defaultteam":
+        {
+            "type": "choices",
+            "title": "Default Team",
+            "default": "0",
+            "description": "",
+            "choices":
+            {
+                "0":
+                {
+                    "title": "Fewest Players",
+                    "description": ""
+                },
+                "1":
+                {
+                    "title": "First Team",
+                    "description": ""
+                }
+            }
+        }
+    }
+}

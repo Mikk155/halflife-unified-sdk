@@ -1,0 +1,8 @@
+{
+    "env_rope":
+    {
+        "BaseClass": "Mandatory, CEnvRope, appearflags",
+        "title": "Rope",
+        "description": ""
+    }
+}

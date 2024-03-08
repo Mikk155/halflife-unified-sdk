@@ -1,0 +1,8 @@
+{
+    "env_glow":
+    {
+        "BaseClass": "Mandatory, CEnvGlow, Scale, rendersettings, appearflags",
+        "title": "Light Glow/Haze",
+        "description": ""
+    }
+}

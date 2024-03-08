@@ -1,0 +1,8 @@
+{
+    "env_message":
+    {
+        "BaseClass": "Mandatory, CEnvMessage, Target, FireTargets, appearflags",
+        "title": "HUD Text Message",
+        "description": ""
+    }
+}

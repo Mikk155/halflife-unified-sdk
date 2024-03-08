@@ -1,0 +1,8 @@
+{
+    "env_spritetrain":
+    {
+        "BaseClass": "Mandatory, CEnvSpriteTrain, Scale, PlatSounds, CCustomSounds, appearflags",
+        "title": "Sprite Train",
+        "description": ""
+    }
+}

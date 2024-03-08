@@ -1,0 +1,8 @@
+{
+    "env_beverage":
+    {
+        "BaseClass": "Mandatory, CEnvBeverage, appearflags",
+        "title": "Beverage Dispenser",
+        "description": ""
+    }
+}

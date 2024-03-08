@@ -1,0 +1,8 @@
+{
+    "env_fog":
+    {
+        "BaseClass": "Mandatory, CEnvFog, rendercolor, appearflags",
+        "title": "Global Fog Controller",
+        "description": ""
+    }
+}

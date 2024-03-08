@@ -1,0 +1,8 @@
+{
+    "ammo_gaussclip":
+    {
+        "BaseClass": "Mandatory, Angles, CAmmogauss, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags",
+        "title": "Gauss Gun Ammo",
+        "description": ""
+    }
+}

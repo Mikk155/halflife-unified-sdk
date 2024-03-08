@@ -1,0 +1,8 @@
+{
+    "ammo_9mmar":
+    {
+        "BaseClass": "Mandatory, Angles, CAmmo9mmar, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags",
+        "title": "9mm Assault Rifle Ammo",
+        "description": ""
+    }
+}

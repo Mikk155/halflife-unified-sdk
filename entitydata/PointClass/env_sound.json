@@ -1,0 +1,8 @@
+{
+    "env_sound":
+    {
+        "BaseClass": "Mandatory, CEnvSound, appearflags",
+        "title": "DSP Sound",
+        "description": ""
+    }
+}

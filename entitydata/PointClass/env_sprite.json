@@ -1,0 +1,8 @@
+{
+    "env_sprite":
+    {
+        "BaseClass": "Mandatory, Angles, CEnvSprite, Scale, rendersettings, appearflags",
+        "title": "Sprite Effect",
+        "description": ""
+    }
+}

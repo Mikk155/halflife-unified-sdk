@@ -1,0 +1,8 @@
+{
+    "env_funnel":
+    {
+        "BaseClass": "Mandatory, CEnvFunnel, appearflags",
+        "title": "Large Portal Funnel",
+        "description": ""
+    }
+}

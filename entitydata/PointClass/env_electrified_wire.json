@@ -1,0 +1,8 @@
+{
+    "env_electrified_wire":
+    {
+        "BaseClass": "Mandatory, CEnvElectrifiedWire, appearflags",
+        "title": "Electrified Wire",
+        "description": ""
+    }
+}

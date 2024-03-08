@@ -1,0 +1,8 @@
+{
+    "env_explosion":
+    {
+        "BaseClass": "Mandatory, CEnvExplosion, appearflags",
+        "title": "Explosion",
+        "description": ""
+    }
+}

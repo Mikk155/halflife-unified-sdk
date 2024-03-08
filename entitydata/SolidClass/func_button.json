@@ -1,0 +1,7 @@
+{
+    "func_button":
+    {
+        "BaseClass": "Mandatory, Angles, Global, CFuncButton, CUnLockedSounds, Master, Target, FireTargets, CBaseDelay, rendersettings, CReplacemetFile, _minlight, ZHLT, appearflags",
+        "title": "Button"
+    }
+}
