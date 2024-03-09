@@ -240,9 +240,12 @@ install(FILES
 #	RUNTIME DESTINATION cl_dlls)
 install(FILES $<TARGET_FILE:OpenAL::OpenAL> DESTINATION cl_dlls)
 
-install(DIRECTORY ${CMAKE_SOURCE_DIR}/game/
-	DESTINATION .
-)
+if(NOT INSTALL_GAME_DIR)
+    install(DIRECTORY ${CMAKE_SOURCE_DIR}/game/
+        DESTINATION .
+    )
+    set(INSTALL_GAME_DIR TRUE CACHE BOOL "We've already copied these files?")
+endif()
 
 if (UNIX)
 	# Create a symbolic link to the OpenAL library so the dependency can be located at runtime.
