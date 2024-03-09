@@ -1,0 +1,7 @@
+{
+    "func_monsterclip":
+    {
+        "BaseClass": "Mandatory",
+        "title": "Monster clip brush"
+    }
+}

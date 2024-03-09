@@ -65,7 +65,7 @@
 	]
 ]
 
-@BaseClass color(220 220 220) iconsprite(dev/hammer/ambient_generic.spr) = CAmbientGeneric
+@BaseClass base(VolumeHealth10) color(220 220 220) iconsprite(dev/hammer/ambient_generic.spr) = CAmbientGeneric
 [
 	message(sound) : "Path/filename.wav of WAV" : "" : "This defines which sound file will be played by the entity. This accepts an input of the form path/filename.wav (starting from the 'sound' folder). (Example: ambience/drips.wav). The name of a sentence defined in sentences.txt will also be accepted with the form '!SENTENCENAME'. (Example: !HG_ALERT1)"
 	volstart(integer) : "Start Volume" : "0" : " Sets the volume that the sound should start at when fading in, and that it should stop at when fading out. Scales from 0 (completely silent) to 10 (maximum). (Should be lower than Volume.)"
@@ -349,6 +349,19 @@
 	]
 ]
 
+@BaseClass = CGamePlayerEquip
+[
+	spawnflags(flags) =
+	[
+		1 : "Use Only" : 0 : ""
+	]
+]
+
+@BaseClass base(SF1Remove) = CGamePlayerHurt
+[
+	dmg(float) : "Damage To Apply" : "999" : ""
+]
+
 @BaseClass = CDoorRotating
 [
 	distance(integer) : "Distance (deg)" : "90" : ""
@@ -439,7 +452,12 @@
 	]
 ]
 
-@BaseClass = CEnvBubbles
+@BaseClass base(SF1Remove) = CGameCounterSet
+[
+	frags(integer) : "New Value" : "10" : ""
+]
+
+@BaseClass base(SF1StartOff) = CEnvBubbles
 [
 	density(integer) : "Bubble density" : "2" : ""
 	frequency(integer) : "Bubble frequency" : "2" : ""
@@ -464,7 +482,7 @@
 	bodymodel(studio) : "Body Mode" : "models/wire_black16.mdl" : ""
 ]
 
-@BaseClass color(255 220 15) size(-12 -12 -12, 12 12 12) = CEnvExplosion
+@BaseClass base(SF2Repeatable) color(255 220 15) size(-12 -12 -12, 12 12 12) = CEnvExplosion
 [
 	iMagnitude(integer) : "Magnitude" : "100" : ""
 	spawnflags(flags) =
@@ -529,7 +547,7 @@
 	model(sprite) : "Sprite Name" : "sprites/glow01.spr" : ""
 ]
 
-@BaseClass color(128 255 32) size(-16 -16 -16, 16 16 16) = CEnvLaser
+@BaseClass base(SF1StartOn) color(128 255 32) size(-16 -16 -16, 16 16 16) = CEnvLaser
 [
 	spawnflags(flags) =
 	[
@@ -674,11 +692,10 @@
 	]
 ]
 
-@BaseClass color(0 255 0) size(-32 -32 -32, 32 32 32) = CEnvWarpBall
+@BaseClass base(SF1Remove) color(0 255 0) size(-32 -32 -32, 32 32 32) = CEnvWarpBall
 [
 	spawnflags(flags) =
 	[
-		1 : "Remove On fire" : 0 : ""
 		2 : "Kill Center" : 0 : ""
 	]
 	radius(integer) : "Beam Radius" : "256" : ""
@@ -748,7 +765,7 @@
 	m_flGibLife(float) : "Gib Life" : "4" : ""
 ]
 
-@BaseClass = CReplacemetFile
+@BaseClass base(CCustomModels, CCustomSounds, CCustomSentence) = CReplacemetFile
 [
 ]
 
@@ -880,6 +897,14 @@
 	]
 ]
 
+@BaseClass = SF1Remove
+[
+	spawnflags(flags) =
+	[
+		1 : "Remove On fire" : 0 : ""
+	]
+]
+
 @BaseClass = SF1StartOff
 [
 	spawnflags(flags) =
@@ -958,11 +983,10 @@
 	health(integer) : "Damage to Take" : "" : ""
 ]
 
-@BaseClass = CGameCounter
+@BaseClass base(SF1Remove) = CGameCounter
 [
 	spawnflags(flags) =
 	[
-		1 : "Remove On fire" : 0 : ""
 		2 : "Reset On fire" : 0 : ""
 	]
 	frags(integer) : "Initial Value" : "0" : ""
@@ -1137,6 +1161,55 @@
 [
 ]
 
+@PointClass base(Mandatory, CGameCounterSet, CGameCounter, Master, Target, appearflags) = game_counter_set : "Sets a game_counter" : ""
+[
+]
+
+@PointClass base(Mandatory, Master) = game_end : "End this multiplayer game" : ""
+[
+]
+
+@PointClass base(Mandatory, CGamePlayerEquip, Master) = game_player_equip : "Initial player equipment" : ""
+[
+]
+
+@PointClass base(Mandatory, CGamePlayerHurt, Master) = game_player_hurt : "Hurts player who fires" : ""
+[
+]
+
+@PointClass base(Mandatory, Angles, CGibShooter, appearflags) = gibshooter : "Gib Shooter" : ""
+[
+]
+
+@PointClass base(Mandatory, Target, Angles, appearflags) color(0 255 0) size(-4 -4 -4, 4 4 4) = info_intermission : "Intermission Spot" : ""
+[
+]
+
+@PointClass base(Mandatory, appearflags) = info_landmark : "Transition Landmark" : ""
+[
+]
+
+@PointClass color(255 255 0) size(-24 -24 -4, 24 24 4) = info_node : "ai node" : ""
+[
+]
+
+@PointClass color(255 255 0) size(-32 -32 0, 32 32 64) = info_node_air : "ai air node" : ""
+[
+]
+
+@PointClass base(Mandatory) = info_null : "info_null (spotlight target)" : ""
+[
+]
+
+@PointClass base(Mandatory, CDecal, Appearflags) decal() = infodecal : "Decal" : ""
+[
+	texture(decal) : "" : "" : ""
+]
+
+@PointClass base(Mandatory, Angles, CGibShooter, appearflags) = pitworm_gibshooter : "Pitworm Gib Shooter" : ""
+[
+]
+
 @SolidClass base(Mandatory, Angles, CButtonTarget, Target, FireTargets, Master, rendersettings, ZHLT, appearflags) = button_target : "Target Button" : ""
 [
 ]
@@ -1166,6 +1239,22 @@
 ]
 
 @SolidClass base(Mandatory, Angles, Global, CFuncGunTarget, rendersettings, _minlight, ZHLT, appearflags) = func_guntarget : "" : ""
+[
+]
+
+@SolidClass base(Mandatory) = func_ladder : "Ladder" : ""
+[
+]
+
+@SolidClass base(Mandatory) = func_monsterclip : "Monster clip brush" : ""
+[
+]
+
+@SolidClass base(Mandatory, Target, appearflags) = func_tankcontrols : "Tank controls" : ""
+[
+]
+
+@SolidClass base(Mandatory, Target, appearflags) = func_traincontrols : "Train Controls" : ""
 [
 ]
 

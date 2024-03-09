@@ -1,0 +1,7 @@
+{
+    "game_end":
+    {
+        "BaseClass": "Mandatory, Master",
+        "title": "End this multiplayer game"
+    }
+}

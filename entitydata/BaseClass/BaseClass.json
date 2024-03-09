@@ -1227,6 +1227,26 @@
             }
         }
     },
+    "CGamePlayerEquip":
+    {
+        "spawnflags":
+        {
+            "1":
+            {
+                "title": "Use Only"
+            }
+        }
+    },
+    "CGamePlayerHurt":
+    {
+        "BaseClass": "SF1Remove",
+        "dmg":
+        {
+            "type": "float",
+            "title": "Damage To Apply",
+            "default": "999"
+        }
+    },
     "CDoorRotating":
     {
         "distance":
@@ -1415,7 +1435,6 @@
         }
     },
     "CEnvBeverage":
-
     {
         "entsize": "-4 -4 -4, 4 4 4",
         "entcolor": "128 64 2",
@@ -1601,6 +1620,16 @@
                     "description": ""
                 }
             }
+        }
+    },
+    "CGameCounterSet":
+    {
+        "BaseClass": "SF1Remove",
+        "frags":
+        {
+            "type": "integer",
+            "title": "New Value",
+            "default": "10"
         }
     },
     "CEnvBubbles":
@@ -2443,14 +2472,11 @@
     },
     "CEnvWarpBall":
     {
+        "BaseClass": "SF1Remove",
         "entsize": "-32 -32 -32, 32 32 32",
         "entcolor": "0 255 0",
         "spawnflags":
         {
-            "1":
-            {
-                "title": "Remove On fire"
-            },
             "2":
             {
                 "title": "Kill Center"
@@ -3007,6 +3033,17 @@
             }
         }
     },
+    "SF1Remove":
+    {
+        "spawnflags":
+        {
+            "1":
+            {
+                "title": "Remove On fire",
+                "description": ""
+            }
+        }
+    },
     "SF1StartOff":
     {
         "spawnflags":
@@ -3191,12 +3228,9 @@
     },
     "CGameCounter":
     {
+        "BaseClass": "SF1Remove",
         "spawnflags":
         {
-            "1":
-            {
-                "title": "Remove On fire"
-            },
             "2":
             {
                 "title": "Reset On fire"

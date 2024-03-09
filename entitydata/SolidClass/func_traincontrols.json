@@ -1,0 +1,7 @@
+{
+    "func_traincontrols":
+    {
+        "BaseClass": "Mandatory, Target, appearflags",
+        "title": "Train Controls"
+    }
+}

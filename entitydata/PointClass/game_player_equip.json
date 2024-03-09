@@ -1,0 +1,7 @@
+{
+    "game_player_equip":
+    {
+        "BaseClass": "Mandatory, CGamePlayerEquip, Master",
+        "title": "Initial player equipment"
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "info_intermission":
+    {
+        "BaseClass": "Mandatory, Target, Angles, appearflags",
+        "title": "Intermission Spot",
+        "entsize": "-4 -4 -4, 4 4 4",
+        "entcolor": "0 255 0"
+    }
+}

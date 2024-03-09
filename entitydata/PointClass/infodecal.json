@@ -1,0 +1,11 @@
+{
+    "infodecal":
+    {
+        "BaseClass": "Mandatory, CDecal, Appearflags) decal(",
+        "title": "Decal",
+        "texture":
+        {
+            "type": "decal"
+        }
+    }
+}

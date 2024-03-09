@@ -1,0 +1,7 @@
+{
+    "game_counter_set":
+    {
+        "BaseClass": "Mandatory, CGameCounterSet, CGameCounter, Master, Target, appearflags",
+        "title": "Sets a game_counter"
+    }
+}
