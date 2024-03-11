@@ -1,0 +1,8 @@
+{
+    "trigger_auto":
+    {
+        "entcolor": "250 10 165",
+        "BaseClass": "Mandatory, CTriggerAuto, CTriggerState, SF1Remove, Target, FireTargets, CBaseDelay, appearflags",
+        "title": "AutoTrigger"
+    }
+}

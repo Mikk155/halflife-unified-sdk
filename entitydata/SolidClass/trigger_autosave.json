@@ -1,0 +1,7 @@
+{
+    "trigger_autosave":
+    {
+        "BaseClass": "Mandatory, Master",
+        "title": "AutoSave Trigger"
+    }
+}

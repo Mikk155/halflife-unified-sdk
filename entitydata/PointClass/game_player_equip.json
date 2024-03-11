@@ -1,7 +1,7 @@
 {
     "game_player_equip":
     {
-        "BaseClass": "Mandatory, CGamePlayerEquip, Master",
+        "BaseClass": "Mandatory, CGamePlayerEquip, Master, appearflags",
         "title": "Initial player equipment"
     }
 }

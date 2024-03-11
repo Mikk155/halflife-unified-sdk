@@ -1,0 +1,14 @@
+{
+    "func_wall_toggle":
+    {
+        "BaseClass": "Mandatory, Global, rendersettings, _minlight, ZHLT, appearflags",
+        "title": "Toggleable geometry",
+        "spawnflags":
+        {
+            "1":
+            {
+                "title": "Starts Invisible"
+            }
+        }
+    }
+}

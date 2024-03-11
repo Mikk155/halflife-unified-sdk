@@ -3,16 +3,16 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>aiscripted_sequence</title>
+	<title>scripted_sequence</title>
 	<link rel="stylesheet" href="../../styles.css">
 </head>
 </body>
-	<h1>aiscripted_sequence</h1>
+	<h1>scripted_sequence</h1>
 	<h2></h2>
-	<p>Using the <a href="scripted_sequence.html">scripted_sequence</a> entity as base, the aiscripted_sequence point entity inherit the same responsibility of making a monster entity move to a specific location and/or perform a given animation. The primary difference being that it completely overrides the targeted monster's AI. Regardless of what you do to the monster, it will follow this sequence.</p>
+	<p></p>
 	<p></p>
 	<h2>KeyValues</h2>
-	<table id="aiscripted_sequence" border="1">
+	<table id="scripted_sequence" border="1">
 	<tr>
 		<th>Key</th>
 		<th>Value</th>
@@ -23,7 +23,7 @@
 <tr><td>title</td><td></td><td></td><td></td><td class="table_description"></td></tr>
 <tr><td>targetname</td><td></td><td>target_source</td><td>Name</td><td class="table_description">Name is a general attribute used to identify entities</td></tr>
 <tr><td>angles</td><td>0 0 0</td><td>vector</td><td>Pitch Yaw Roll (Y Z X)</td><td class="table_description"></td></tr>
-<tr><td>flags</td><td></td><td></td><td></td><td class="table_description"></td></tr>
+<tr><td>m_iszIdle</td><td></td><td>string</td><td>Idle Animation</td><td class="table_description"></td></tr>
 <tr><td>flags</td><td></td><td></td><td></td><td class="table_description"></td></tr>
 <tr><td>m_iszEntity</td><td></td><td>target_generic</td><td>Target Monster</td><td class="table_description">The name of the monster entity that this sequence affects. You can also input a monster classname (monster_scientist, for example). (Only one monster will be chosen to follow the sequence.)</td></tr>
 <tr><td>m_iszPlay</td><td></td><td>string</td><td>Action Animation</td><td class="table_description">The name of the animation that will be performed by "Target Monster".</td></tr>

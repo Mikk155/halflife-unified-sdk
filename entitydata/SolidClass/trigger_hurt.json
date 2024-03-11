@@ -1,0 +1,7 @@
+{
+    "trigger_hurt":
+    {
+        "BaseClass": "Mandatory, CTriggerHurt, Target, Master, appearflags",
+        "title": "Trigger player hurt"
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "scripted_sequence":
+    {
+        "BaseClass": "Mandatory, Angles, CScriptedSequence, CCineMonster, Target, FireTargets, CBaseDelay, appearflags",
+        "title": "Scripted Sequence"
+    }
+}

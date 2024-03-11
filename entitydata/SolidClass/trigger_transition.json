@@ -1,0 +1,7 @@
+{
+    "trigger_transition":
+    {
+        "BaseClass": "Mandatory, appearflags",
+        "title": "Select Transition Area"
+    }
+}

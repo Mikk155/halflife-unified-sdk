@@ -1,0 +1,7 @@
+{
+    "func_wall":
+    {
+        "BaseClass": "Mandatory, Global, rendersettings, _minlight, ZHLT, appearflags",
+        "title": "Wall"
+    }
+}

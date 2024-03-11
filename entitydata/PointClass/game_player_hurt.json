@@ -1,7 +1,7 @@
 {
     "game_player_hurt":
     {
-        "BaseClass": "Mandatory, CGamePlayerHurt, Master",
+        "BaseClass": "Mandatory, CGamePlayerHurt, Master, appearflags",
         "title": "Hurts player who fires"
     }
 }

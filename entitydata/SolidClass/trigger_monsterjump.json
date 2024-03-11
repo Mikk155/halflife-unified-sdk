@@ -1,0 +1,7 @@
+{
+    "trigger_monsterjump":
+    {
+        "BaseClass": "Mandatory, Angle, CMonsterJump, Target, CBaseDelay, Master, appearflags",
+        "title": "Trigger monster jump"
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "func_pushable":
+    {
+        "BaseClass": "Mandatory, Angles, Global, CFuncPushable, Breakable, Target, FireTargets, CBaseDelay, CReplacemetFile, rendersettings, _minlight, ZHLT, appearflags",
+        "title": "Pushable object"
+    }
+}

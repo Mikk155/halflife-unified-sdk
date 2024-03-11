@@ -279,7 +279,7 @@
 	spawnflags(flags) =
 	[
 		4 : "Repeatable" : 0 : "If enabled, the sequence can be repeated more than once. Otherwise the entity will be removed once the sequence is complete."
-		8 : "Leave Corpse" : 0 : "If enabled, the monster leave it's corpse instead of fading out. This is only noticeable in-between two aiscripted_sequence when the monster is on a dying state."
+		8 : "Leave Corpse" : 0 : "If enabled, the monster leave it's corpse instead of fading out. This is only noticeable in-between two scripted_sequence when the monster is on a dying state."
 	]
 	m_iszEntity(target_generic) : "Target Monster" : "" : "The name of the monster entity that this sequence affects. You can also input a monster classname (monster_scientist, for example). (Only one monster will be chosen to follow the sequence.)"
 	m_iszPlay(string) : "Action Animation" : "" : "The name of the animation that will be performed by 'Target Monster'."
@@ -288,16 +288,33 @@
 	m_fMoveTo(choices) : "Move to Position" : "0" : "Sets how (or if) the monster moves before performing the animation" =
 	[
 		"0" : "No" : "The monster will not move or turn. It will perform the animation wherever it is."
-		"1" : "Walk" : "The monster will walk to the aiscripted_sequence, then perform the animation."
-		"2" : "Run" : "The monster will run to the aiscripted_sequence, then perform the animation."
-		"4" : "Instantaneous" : "The monster will instantly warp to the location of the aiscripted_sequence and perform the animation."
-		"5" : "No - Turn to Face" : "The monster will not move, but will turn to the aiscripted_sequence's angle before performing the animation."
+		"1" : "Walk" : "The monster will walk to the scripted_sequence, then perform the animation."
+		"2" : "Run" : "The monster will run to the scripted_sequence, then perform the animation."
+		"4" : "Instantaneous" : "The monster will instantly warp to the location of the scripted_sequence and perform the animation."
+		"5" : "No - Turn to Face" : "The monster will not move, but will turn to the scripted_sequence's angle before performing the animation."
 	]
 	m_iFinishSchedule(choices) : "AI Schedule when done" : "0" : "Defines what happens to the monster's AI when the sequence is completed/canceled." =
 	[
 		"0" : "Default AI" : "The AI will order the monster to clear it's schedule (kinda like a 'reset'). It will resume normal behavior afterwards."
 		"1" : "Ambush" : "The AI will order the monster to go into an 'ambush' schedule. That is to wait for an infinite period of time unless it see an enemy or take damage."
 	]
+]
+
+@BaseClass = CScriptedSequence
+[
+	m_iszIdle(string) : "Idle Animation" : "" : ""
+	spawnflags(flags) =
+	[
+		32 : "No Interruptions" : 0 : ""
+		64 : "Override AI" : 0 : ""
+		128 : "No Script Movement" : 0 : ""
+		256 : "No Reset Entity" : 0 : ""
+	]
+]
+
+@BaseClass = CTriggerChangeTarget
+[
+	m_iszNewTarget(target_generic) : "New Target" : "" : ""
 ]
 
 @BaseClass = CCustomModels
@@ -756,6 +773,116 @@
 	WaveHeight(float) : "Wave Height" : "3.2" : ""
 ]
 
+@BaseClass = CMonsterJump
+[
+	speed(integer) : "Jump Speed" : "40" : ""
+	height(integer) : "Jump Height" : "128" : ""
+]
+
+@BaseClass = CTriggerHurt
+[
+	spawnflags(flags) =
+	[
+		1 : "Target Once" : 0 : ""
+		2 : "Start Off" : 0 : ""
+		8 : "No clients" : 0 : ""
+		16 : "Fire Clients Only" : 0 : ""
+		32 : "TouchClientOnly" : 0 : ""
+	]
+	dmg(integer) : "Damage" : "10" : ""
+	damagetype(choices) : "Damage" : "0" : "" =
+	[
+		"0" : "GENERIC" : ""
+		"1" : "CRUSH" : ""
+		"2" : "BULLET" : ""
+		"4" : "SLASH" : ""
+		"8" : "BURN" : ""
+		"16" : "FREEZE" : ""
+		"32" : "FALL" : ""
+		"64" : "BLAST" : ""
+		"128" : "CLUB" : ""
+		"256" : "SHOCK" : ""
+		"512" : "SONIC" : ""
+		"1024" : "ENERGYBEAM" : ""
+		"16384" : "DROWN" : ""
+		"32768" : "PARALYSE" : ""
+		"65536" : "NERVEGAS" : ""
+		"131072" : "POISON" : ""
+		"262144" : "RADIATION" : ""
+		"524288" : "DROWNRECOVER" : ""
+		"1048576" : "CHEMICAL" : ""
+		"2097152" : "SLOWBURN" : ""
+		"4194304" : "SLOWFREEZE" : ""
+	]
+]
+
+@BaseClass = CTrigger
+[
+	netname(target_destination) : "Target Path" : "" : ""
+	message(string) : "Message" : "" : ""
+	spawnflags(flags) =
+	[
+		1 : "Monsters" : 0 : ""
+		2 : "No Clients" : 0 : ""
+		4 : "Pushables" : 0 : ""
+	]
+]
+
+@BaseClass = CTriggerGravity
+[
+	gravity(float) : "Gravity (0-1)" : "1.0" : ""
+]
+
+@BaseClass = CTriggerAuto
+[
+	globalstate(target_destination) : "Global State to Read" : "" : ""
+]
+
+@BaseClass = CTriggerRelay
+[
+]
+
+@BaseClass = CTriggerState
+[
+	triggerstate(choices) : "Trigger State" : "0" : "" =
+	[
+		"0" : "Off" : ""
+		"1" : "On" : ""
+		"2" : "Toggle" : ""
+	]
+]
+
+@BaseClass = CFuncChargers
+[
+	fire_on_recharge(target_destination) : "Target To Fire On Recharge" : "" : ""
+	fire_on_empty(target_destination) : "Target To Fire On Empty" : "" : ""
+	fire_on_spawn(choices) : "Fire Targets On Map Spawn" : "1" : "" =
+	[
+		"0" : "No" : ""
+		"1" : "Yes" : ""
+	]
+	total_juice(integer) : "Total Juice In Charger (-1 == Unlimited)" : "" : ""
+	recharge_delay(integer) : "Recharge Delay" : "" : ""
+	charge_per_use(integer) : "Charge Per Use" : "" : ""
+]
+
+@BaseClass = CFuncPushable
+[
+	size(choices) : "Hull Size" : "0" : "" =
+	[
+		"0" : "Point size" : ""
+		"1" : "Player size" : ""
+		"2" : "Big Size" : ""
+		"3" : "Player duck" : ""
+	]
+	spawnflags(flags) =
+	[
+		128 : "Breakable" : 0 : ""
+	]
+	friction(integer) : "Friction (0-400)" : "50" : ""
+	buoyancy(integer) : "Buoyancy)" : "20" : ""
+]
+
 @BaseClass base(SF1Repeatable) size(-16 -16 -16, 16 16 16) flags(Angle) = CGibShooter
 [
 	m_iGibs(integer) : "Number of Gibs" : "3" : ""
@@ -1165,15 +1292,15 @@
 [
 ]
 
-@PointClass base(Mandatory, Master) = game_end : "End this multiplayer game" : ""
+@PointClass base(Mandatory, Master, appearflags) = game_end : "End this multiplayer game" : ""
 [
 ]
 
-@PointClass base(Mandatory, CGamePlayerEquip, Master) = game_player_equip : "Initial player equipment" : ""
+@PointClass base(Mandatory, CGamePlayerEquip, Master, appearflags) = game_player_equip : "Initial player equipment" : ""
 [
 ]
 
-@PointClass base(Mandatory, CGamePlayerHurt, Master) = game_player_hurt : "Hurts player who fires" : ""
+@PointClass base(Mandatory, CGamePlayerHurt, Master, appearflags) = game_player_hurt : "Hurts player who fires" : ""
 [
 ]
 
@@ -1210,6 +1337,22 @@
 [
 ]
 
+@PointClass base(Mandatory, Angles, CScriptedSequence, CCineMonster, Target, FireTargets, CBaseDelay, appearflags) = scripted_sequence : "Scripted Sequence" : ""
+[
+]
+
+@PointClass base(Mandatory, CTriggerAuto, CTriggerState, SF1Remove, Target, FireTargets, CBaseDelay, appearflags) color(250 10 165) = trigger_auto : "AutoTrigger" : ""
+[
+]
+
+@PointClass base(Mandatory, CTriggerChangeTarget, Target, CBaseDelay, appearflags) color(60 155 30) = trigger_changetarget : "Trigger Change Target" : ""
+[
+]
+
+@PointClass base(Mandatory, CTriggerRelay, CTriggerState, SF1Remove, Master, Target, FireTargets, CBaseDelay, appearflags) color(165 30 165) = trigger_relay : "Trigger Relay" : ""
+[
+]
+
 @SolidClass base(Mandatory, Angles, CButtonTarget, Target, FireTargets, Master, rendersettings, ZHLT, appearflags) = button_target : "Target Button" : ""
 [
 ]
@@ -1242,11 +1385,23 @@
 [
 ]
 
+@SolidClass base(Mandatory, Global, CFuncChargers, CReplacemetFile, rendersettings, _minlight, ZHLT, appearflags) = func_healthcharger : "Wall health recharger" : ""
+[
+]
+
 @SolidClass base(Mandatory) = func_ladder : "Ladder" : ""
 [
 ]
 
 @SolidClass base(Mandatory) = func_monsterclip : "Monster clip brush" : ""
+[
+]
+
+@SolidClass base(Mandatory, Angles, Global, CFuncPushable, Breakable, Target, FireTargets, CBaseDelay, CReplacemetFile, rendersettings, _minlight, ZHLT, appearflags) = func_pushable : "Pushable object" : ""
+[
+]
+
+@SolidClass base(Mandatory, Global, CFuncChargers, CReplacemetFile, rendersettings, _minlight, ZHLT, appearflags) = func_recharge : "Battery recharger" : ""
 [
 ]
 
@@ -1258,11 +1413,47 @@
 [
 ]
 
+@SolidClass base(Mandatory, Global, rendersettings, _minlight, ZHLT, appearflags) = func_wall : "Wall" : ""
+[
+]
+
+@SolidClass base(Mandatory, Global, rendersettings, _minlight, ZHLT, appearflags) = func_wall_toggle : "Toggleable geometry" : ""
+[
+	spawnflags(flags) =
+	[
+		1 : "Starts Invisible" : 0 : ""
+	]
+]
+
 @SolidClass base(Mandatory, Angles, Global, CFuncWater, CDoor, CUnLockedSounds, Master, Target, FireTargets, CBaseDelay, rendersettings, CReplacemetFile, _minlight, ZHLT, appearflags) = func_water : "Liquid" : ""
 [
 ]
 
 @SolidClass base(Mandatory, Angles, Global, CDoor, CUnLockedSounds, Master, Target, FireTargets, CBaseDelay, rendersettings, CReplacemetFile, _minlight, ZHLT, appearflags) = momentary_door : "Momentary/Continuous door" : ""
+[
+]
+
+@SolidClass base(Mandatory, Master) = trigger_autosave : "AutoSave Trigger" : ""
+[
+]
+
+@SolidClass base(Mandatory, CTriggerGravity, CTrigger, Target, FireTargets, CBaseDelay, Master, appearflags) = trigger_gravity : "Trigger Gravity" : ""
+[
+]
+
+@SolidClass base(Mandatory, CTriggerHurt, Target, Master, appearflags) = trigger_hurt : "Trigger player hurt" : ""
+[
+]
+
+@SolidClass base(Mandatory, Angle, CMonsterJump, Target, CBaseDelay, Master, appearflags) = trigger_monsterjump : "Trigger monster jump" : ""
+[
+]
+
+@SolidClass base(Mandatory, CTrigger, Target, FireTargets, CBaseDelay, Master, appearflags) = trigger_once : "Activate once" : ""
+[
+]
+
+@SolidClass base(Mandatory, appearflags) = trigger_transition : "Select Transition Area" : ""
 [
 ]
 

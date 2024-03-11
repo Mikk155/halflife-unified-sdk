@@ -1,0 +1,7 @@
+{
+    "func_recharge":
+    {
+        "BaseClass": "Mandatory, Global, CFuncChargers, CReplacemetFile, rendersettings, _minlight, ZHLT, appearflags",
+        "title": "Battery recharger"
+    }
+}

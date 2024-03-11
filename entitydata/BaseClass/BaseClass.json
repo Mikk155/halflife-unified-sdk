@@ -987,7 +987,6 @@
         "entsize": "-16 -16 0, 16 16 72",
         "flags": "Angle",
         "spawnflags":
-
         {
             "4":
             {
@@ -999,7 +998,7 @@
             {
                 "title": "Leave Corpse",
                 "default": "0",
-                "description": "If enabled, the monster leave it's corpse instead of fading out. This is only noticeable in-between two aiscripted_sequence when the monster is on a dying state."
+                "description": "If enabled, the monster leave it's corpse instead of fading out. This is only noticeable in-between two scripted_sequence when the monster is on a dying state."
             }
         },
         "m_iszEntity":
@@ -1046,22 +1045,22 @@
                 "1":
                 {
                     "title": "Walk",
-                    "description": "The monster will walk to the aiscripted_sequence, then perform the animation."
+                    "description": "The monster will walk to the scripted_sequence, then perform the animation."
                 },
                 "2":
                 {
                     "title": "Run",
-                    "description": "The monster will run to the aiscripted_sequence, then perform the animation."
+                    "description": "The monster will run to the scripted_sequence, then perform the animation."
                 },
                 "4":
                 {
                     "title": "Instantaneous",
-                    "description": "The monster will instantly warp to the location of the aiscripted_sequence and perform the animation."
+                    "description": "The monster will instantly warp to the location of the scripted_sequence and perform the animation."
                 },
                 "5":
                 {
                     "title": "No - Turn to Face",
-                    "description": "The monster will not move, but will turn to the aiscripted_sequence's angle before performing the animation."
+                    "description": "The monster will not move, but will turn to the scripted_sequence's angle before performing the animation."
                 }
             }
         },
@@ -1084,6 +1083,37 @@
                     "description": "The AI will order the monster to go into an \"ambush\" schedule. That is to wait for an infinite period of time unless it see an enemy or take damage."
                 }
             }
+        }
+    },
+    "CScriptedSequence":
+    {
+        "m_iszIdle":
+        {
+            "type": "string",
+            "title": "Idle Animation"
+        },
+        "spawnflags":
+        {
+            "32": {
+                "title": "No Interruptions"
+            },
+            "64": {
+                "title": "Override AI"
+            },
+            "128": {
+                "title": "No Script Movement"
+            },
+            "256": {
+                "title": "No Reset Entity"
+            }
+        }
+    },
+    "CTriggerChangeTarget":
+    {
+        "m_iszNewTarget":
+        {
+            "type": "target_generic",
+            "title": "New Target"
         }
     },
     "CCustomModels":
@@ -2631,6 +2661,278 @@
             "type": "float",
             "title": "Wave Height",
             "default": "3.2"
+        }
+    },
+    "CMonsterJump":
+    {
+        "speed":
+        {
+            "type": "integer",
+            "title": "Jump Speed",
+            "default": "40"
+        },
+        "height":
+        {
+            "type": "integer",
+            "title": "Jump Height",
+            "default": "128"
+        }
+    },
+    "CTriggerHurt":
+    {
+        "spawnflags":
+        {
+            "1":
+            {
+                "title": "Target Once"
+            },
+            "2":
+            {
+                "title": "Start Off"
+            },
+            "8":
+            {
+                "title": "No clients"
+            },
+            "16":
+            {
+                "title": "Fire Clients Only"
+            },
+            "32":
+            {
+                "title": "TouchClientOnly"
+            }
+        },
+        "dmg":
+        {
+            "type": "integer",
+            "title": "Damage",
+            "default": "10"
+        },
+        "damagetype":
+        {
+            "type": "choices",
+            "title": "Damage",
+            "default": "0",
+            "choices":
+            {
+                "0":{
+                    "title": "GENERIC"
+                },
+                "1":{
+                    "title": "CRUSH"
+                },
+                "2":{
+                    "title": "BULLET"
+                },
+                "4":{
+                    "title": "SLASH"
+                },
+                "8":{
+                    "title": "BURN"
+                },
+                "16":{
+                    "title": "FREEZE"
+                },
+                "32":{
+                    "title": "FALL"
+                },
+                "64":{
+                    "title": "BLAST"
+                },
+                "128":{
+                    "title": "CLUB"
+                },
+                "256":{
+                    "title": "SHOCK"
+                },
+                "512":{
+                    "title": "SONIC"
+                },
+                "1024":{
+                    "title": "ENERGYBEAM"
+                },
+                "16384":{
+                    "title": "DROWN"
+                },
+                "32768":{
+                    "title": "PARALYSE"
+                },
+                "65536":{
+                    "title": "NERVEGAS"
+                },
+                "131072":{
+                    "title": "POISON"
+                },
+                "262144":{
+                    "title": "RADIATION"
+                },
+                "524288":{
+                    "title": "DROWNRECOVER"
+                },
+                "1048576":{
+                    "title": "CHEMICAL"
+                },
+                "2097152":{
+                    "title": "SLOWBURN"
+                },
+                "4194304":{
+                    "title": "SLOWFREEZE"
+                }
+            }
+        }
+    },
+    "CTrigger":
+    {
+        "netname":
+        {
+            "type": "target_destination",
+            "title": "Target Path"
+        },
+        "message":
+        {
+            "type": "string",
+            "title": "Message"
+        },
+        "spawnflags":
+        {
+            "1":{
+                "title": "Monsters"
+            },
+            "2":{
+                "title": "No Clients"
+            },
+            "4":{
+                "title": "Pushables"
+            }
+        }
+    },
+    "CTriggerGravity":
+    {
+        "gravity":
+        {
+            "type": "float",
+            "title": "Gravity (0-1)",
+            "default": "1.0"
+        }
+    },
+    "CTriggerAuto":
+    {
+        "globalstate":
+        {
+            "type": "target_destination",
+            "title": "Global State to Read"
+        }
+    },
+    "CTriggerRelay":
+    {
+
+    },
+    "CTriggerState":
+    {
+        "triggerstate":
+        {
+            "type": "choices",
+            "title": "Trigger State",
+            "default": "0",
+            "choices":
+            {
+                "0":{
+                    "title": "Off"
+                },
+                "1":{
+                    "title": "On"
+                },
+                "2":{
+                    "title": "Toggle"
+                }
+            }
+        }
+    },
+    "CFuncChargers":
+    {
+        "fire_on_recharge":
+        {
+            "type": "target_destination",
+            "title": "Target To Fire On Recharge"
+        },
+        "fire_on_empty":
+        {
+            "type": "target_destination",
+            "title": "Target To Fire On Empty"
+        },
+        "fire_on_spawn":
+        {
+            "type": "choices",
+            "title": "Fire Targets On Map Spawn",
+            "default": "1",
+            "choices":
+            {
+                "0":{
+                    "title": "No"
+                },
+                "1":{
+                    "title": "Yes"
+                }
+            }
+        },
+        "total_juice":
+        {
+            "type": "integer",
+            "title": "Total Juice In Charger (-1 == Unlimited)"
+        },
+        "recharge_delay":
+        {
+            "type": "integer",
+            "title": "Recharge Delay"
+        },
+        "charge_per_use":
+        {
+            "type": "integer",
+            "title": "Charge Per Use"
+        }
+    },
+    "CFuncPushable":
+    {
+        "size":
+        {
+            "type": "choices",
+            "title": "Hull Size",
+            "default": "0",
+            "choices":
+            {
+                "0": {
+                    "title": "Point size"
+                },
+                "1": {
+                    "title": "Player size"
+                },
+                "2": {
+                    "title": "Big Size"
+                },
+                "3": {
+                    "title": "Player duck"
+                }
+            }
+        },
+        "spawnflags":{
+            "128":{
+                "title": "Breakable"
+            }
+        },
+        "friction":
+        {
+            "type": "cap",
+            "title": "Friction (0-400)",
+            "default": "50",
+            "min": "0",
+            "max": "400"
+        },
+        "buoyancy":
+        {
+            "type": "integer",
+            "title": "Buoyancy)",
+            "default": "20"
         }
     },
     "CGibShooter":
