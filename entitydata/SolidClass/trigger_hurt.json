@@ -1,7 +1,111 @@
 {
     "trigger_hurt":
     {
-        "BaseClass": "Mandatory, CTriggerHurt, Target, Master, appearflags",
-        "title": "Trigger player hurt"
+        "atributes":
+        {
+            "base": "Target, Master",
+            "title": "Trigger player hurt"
+        },
+        "spawnflags":
+        {
+            "1":
+            {
+                "title": "Target Once"
+            },
+            "2":
+            {
+                "title": "Start Off"
+            },
+            "8":
+            {
+                "title": "No clients"
+            },
+            "16":
+            {
+                "title": "Fire Clients Only"
+            },
+            "32":
+            {
+                "title": "TouchClientOnly"
+            }
+        },
+        "dmg":
+        {
+            "type": "integer",
+            "title": "Damage",
+            "default": "10"
+        },
+        "damagetype":
+        {
+            "type": "choices",
+            "title": "Damage",
+            "default": "0",
+            "choices":
+            {
+                "0":{
+                    "title": "GENERIC"
+                },
+                "1":{
+                    "title": "CRUSH"
+                },
+                "2":{
+                    "title": "BULLET"
+                },
+                "4":{
+                    "title": "SLASH"
+                },
+                "8":{
+                    "title": "BURN"
+                },
+                "16":{
+                    "title": "FREEZE"
+                },
+                "32":{
+                    "title": "FALL"
+                },
+                "64":{
+                    "title": "BLAST"
+                },
+                "128":{
+                    "title": "CLUB"
+                },
+                "256":{
+                    "title": "SHOCK"
+                },
+                "512":{
+                    "title": "SONIC"
+                },
+                "1024":{
+                    "title": "ENERGYBEAM"
+                },
+                "16384":{
+                    "title": "DROWN"
+                },
+                "32768":{
+                    "title": "PARALYSE"
+                },
+                "65536":{
+                    "title": "NERVEGAS"
+                },
+                "131072":{
+                    "title": "POISON"
+                },
+                "262144":{
+                    "title": "RADIATION"
+                },
+                "524288":{
+                    "title": "DROWNRECOVER"
+                },
+                "1048576":{
+                    "title": "CHEMICAL"
+                },
+                "2097152":{
+                    "title": "SLOWBURN"
+                },
+                "4194304":{
+                    "title": "SLOWFREEZE"
+                }
+            }
+        }
     }
 }

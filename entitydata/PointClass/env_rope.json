@@ -1,8 +1,12 @@
 {
     "env_rope":
     {
-        "BaseClass": "Mandatory, CEnvRope, appearflags",
-        "title": "Rope",
-        "description": ""
+        "atributes":
+        {
+            "size": "-16 -16 -16, 16 16 16",
+            "title": "Rope",
+            "base": "CRopes",
+            "description": ""
+        }
     }
 }

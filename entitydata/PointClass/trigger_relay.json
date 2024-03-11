@@ -1,8 +1,8 @@
 {
     "trigger_relay":
     {
-        "entcolor": "165 30 165",
-        "BaseClass": "Mandatory, CTriggerRelay, CTriggerState, SF1Remove, Master, Target, FireTargets, CBaseDelay, appearflags",
-        "title": "Trigger Relay"
+        "color": "165 30 165",
+        "base": "CTriggerState, SF1Remove, Master, Target, FireTargets, CBaseDelay",
+        "title": "Trigger Change Target"
     }
 }

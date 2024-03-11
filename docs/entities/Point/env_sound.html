@@ -8,7 +8,7 @@
 </head>
 </body>
 	<h1>env_sound</h1>
-	<h2></h2>
+	<h2>DSP Sound</h2>
 	<p></p>
 	<p></p>
 	<h2>KeyValues</h2>
@@ -19,63 +19,76 @@
 		<th>Type</th>
 		<th>FGD</th>
 		<th>Description</th>
+		<tr>
+			<tr><td>targetname</td><td></td><td>target_source</td><td>Name</td><td class="table_description">Name is a general attribute used to identify entities</td></tr>
+			<tr><td>radius</td><td>128</td><td>integer</td><td>Radius</td><td class="table_description"></td></tr>
+			<tr><td>roomtype</td><td>0</td><td>choices</td><td>Room Type</td><td class="table_description"></td></tr>
+			<tr><td>roomtype</td><td>0</td><td></td><td>Normal (off)</td><td class="table_description"></td></tr>
+			<tr><td>roomtype</td><td>1</td><td></td><td>Generic</td><td class="table_description"></td></tr>
+			<tr><td>roomtype</td><td>2</td><td></td><td>Metal Small</td><td class="table_description"></td></tr>
+			<tr><td>roomtype</td><td>3</td><td></td><td>Metal Medium</td><td class="table_description"></td></tr>
+			<tr><td>roomtype</td><td>4</td><td></td><td>Metal Large</td><td class="table_description"></td></tr>
+			<tr><td>roomtype</td><td>5</td><td></td><td>Tunnel Small</td><td class="table_description"></td></tr>
+			<tr><td>roomtype</td><td>6</td><td></td><td>Tunnel Medium</td><td class="table_description"></td></tr>
+			<tr><td>roomtype</td><td>7</td><td></td><td>Tunnel Large</td><td class="table_description"></td></tr>
+			<tr><td>roomtype</td><td>8</td><td></td><td>Chamber Small</td><td class="table_description"></td></tr>
+			<tr><td>roomtype</td><td>9</td><td></td><td>Chamber Medium</td><td class="table_description"></td></tr>
+			<tr><td>roomtype</td><td>10</td><td></td><td>Chamber Large</td><td class="table_description"></td></tr>
+			<tr><td>roomtype</td><td>11</td><td></td><td>Bright Small</td><td class="table_description"></td></tr>
+			<tr><td>roomtype</td><td>12</td><td></td><td>Bright Medium</td><td class="table_description"></td></tr>
+			<tr><td>roomtype</td><td>13</td><td></td><td>Bright Large</td><td class="table_description"></td></tr>
+			<tr><td>roomtype</td><td>14</td><td></td><td>Water 1</td><td class="table_description"></td></tr>
+			<tr><td>roomtype</td><td>15</td><td></td><td>Water 2</td><td class="table_description"></td></tr>
+			<tr><td>roomtype</td><td>16</td><td></td><td>Water 3</td><td class="table_description"></td></tr>
+			<tr><td>roomtype</td><td>17</td><td></td><td>Concrete Small</td><td class="table_description"></td></tr>
+			<tr><td>roomtype</td><td>18</td><td></td><td>Concrete Medium</td><td class="table_description"></td></tr>
+			<tr><td>roomtype</td><td>19</td><td></td><td>Concrete Large</td><td class="table_description"></td></tr>
+			<tr><td>roomtype</td><td>20</td><td></td><td>Big 1</td><td class="table_description"></td></tr>
+			<tr><td>roomtype</td><td>21</td><td></td><td>Big 2</td><td class="table_description"></td></tr>
+			<tr><td>roomtype</td><td>22</td><td></td><td>Big 3</td><td class="table_description"></td></tr>
+			<tr><td>roomtype</td><td>23</td><td></td><td>Cavern Small</td><td class="table_description"></td></tr>
+			<tr><td>roomtype</td><td>24</td><td></td><td>Cavern Medium</td><td class="table_description"></td></tr>
+			<tr><td>roomtype</td><td>25</td><td></td><td>Cavern Large</td><td class="table_description"></td></tr>
+			<tr><td>roomtype</td><td>26</td><td></td><td>Weirdo 1</td><td class="table_description"></td></tr>
+			<tr><td>roomtype</td><td>27</td><td></td><td>Weirdo 2</td><td class="table_description"></td></tr>
+			<tr><td>roomtype</td><td>28</td><td></td><td>Weirdo 3</td><td class="table_description"></td></tr>
+			<tr><td>appearflag_singleplayer</td><td>0</td><td>choices</td><td>#AppearFlags SinglePlayer</td><td class="table_description">Appearance flags for SinglePlayer, This control when this entity should or should not appear in this condition.</td></tr>
+			<tr><td>appearflag_singleplayer</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is SinglePlayer.</td></tr>
+			<tr><td>appearflag_singleplayer</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being SinglePlayer</td></tr>
+			<tr><td>appearflag_singleplayer</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT SinglePlayer</td></tr>
+			<tr><td>appearflag_multiplayer</td><td>0</td><td>choices</td><td>#AppearFlags MultiPlayer</td><td class="table_description">Appearance flags for MultiPlayer, This control when this entity should or should not appear in this condition.</td></tr>
+			<tr><td>appearflag_multiplayer</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is MultiPlayer.</td></tr>
+			<tr><td>appearflag_multiplayer</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being MultiPlayer</td></tr>
+			<tr><td>appearflag_multiplayer</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT MultiPlayer</td></tr>
+			<tr><td>appearflag_cooperative</td><td>0</td><td>choices</td><td>#AppearFlags Cooperative</td><td class="table_description">Appearance flags for Cooperative, This control when this entity should or should not appear in this condition.</td></tr>
+			<tr><td>appearflag_cooperative</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is Cooperative.</td></tr>
+			<tr><td>appearflag_cooperative</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being Cooperative</td></tr>
+			<tr><td>appearflag_cooperative</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT Cooperative</td></tr>
+			<tr><td>appearflag_skilleasy</td><td>0</td><td>choices</td><td>#AppearFlags Easy</td><td class="table_description">Appearance flags for Skill level Easy, This control when this entity should or should not appear in this condition.</td></tr>
+			<tr><td>appearflag_skilleasy</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is Easy.</td></tr>
+			<tr><td>appearflag_skilleasy</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being Easy</td></tr>
+			<tr><td>appearflag_skilleasy</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT Easy</td></tr>
+			<tr><td>appearflag_skillmedium</td><td>0</td><td>choices</td><td>#AppearFlags Medium</td><td class="table_description">Appearance flags for Skill level Medium, This control when this entity should or should not appear in this condition.</td></tr>
+			<tr><td>appearflag_skillmedium</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is Medium.</td></tr>
+			<tr><td>appearflag_skillmedium</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being Medium</td></tr>
+			<tr><td>appearflag_skillmedium</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT Medium</td></tr>
+			<tr><td>appearflag_skillhard</td><td>0</td><td>choices</td><td>#AppearFlags Hard</td><td class="table_description">Appearance flags for Skill level Hard, This control when this entity should or should not appear in this condition.</td></tr>
+			<tr><td>appearflag_skillhard</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is Hard.</td></tr>
+			<tr><td>appearflag_skillhard</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being Hard</td></tr>
+			<tr><td>appearflag_skillhard</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT Hard</td></tr>
+		</tr>
+	</tr>
+	</table>
+	<h2>Spawnflags</h2>
+	<table id="env_sound flags" border="1">
 	<tr>
-<tr><td>title</td><td></td><td></td><td></td><td class="table_description"></td></tr>
-<tr><td>targetname</td><td></td><td>target_source</td><td>Name</td><td class="table_description">Name is a general attribute used to identify entities</td></tr>
-<tr><td>radius</td><td>128</td><td>integer</td><td>Radius</td><td class="table_description"></td></tr>
-<tr><td>roomtype</td><td>0</td><td>choices</td><td>Room Type</td><td class="table_description"></td></tr>
-<tr><td>roomtype</td><td>0</td><td></td><td>Normal (off)</td><td class="table_description"></td></tr>
-<tr><td>roomtype</td><td>1</td><td></td><td>Generic</td><td class="table_description"></td></tr>
-<tr><td>roomtype</td><td>2</td><td></td><td>Metal Small</td><td class="table_description"></td></tr>
-<tr><td>roomtype</td><td>3</td><td></td><td>Metal Medium</td><td class="table_description"></td></tr>
-<tr><td>roomtype</td><td>4</td><td></td><td>Metal Large</td><td class="table_description"></td></tr>
-<tr><td>roomtype</td><td>5</td><td></td><td>Tunnel Small</td><td class="table_description"></td></tr>
-<tr><td>roomtype</td><td>6</td><td></td><td>Tunnel Medium</td><td class="table_description"></td></tr>
-<tr><td>roomtype</td><td>7</td><td></td><td>Tunnel Large</td><td class="table_description"></td></tr>
-<tr><td>roomtype</td><td>8</td><td></td><td>Chamber Small</td><td class="table_description"></td></tr>
-<tr><td>roomtype</td><td>9</td><td></td><td>Chamber Medium</td><td class="table_description"></td></tr>
-<tr><td>roomtype</td><td>10</td><td></td><td>Chamber Large</td><td class="table_description"></td></tr>
-<tr><td>roomtype</td><td>11</td><td></td><td>Bright Small</td><td class="table_description"></td></tr>
-<tr><td>roomtype</td><td>12</td><td></td><td>Bright Medium</td><td class="table_description"></td></tr>
-<tr><td>roomtype</td><td>13</td><td></td><td>Bright Large</td><td class="table_description"></td></tr>
-<tr><td>roomtype</td><td>14</td><td></td><td>Water 1</td><td class="table_description"></td></tr>
-<tr><td>roomtype</td><td>15</td><td></td><td>Water 2</td><td class="table_description"></td></tr>
-<tr><td>roomtype</td><td>16</td><td></td><td>Water 3</td><td class="table_description"></td></tr>
-<tr><td>roomtype</td><td>17</td><td></td><td>Concrete Small</td><td class="table_description"></td></tr>
-<tr><td>roomtype</td><td>18</td><td></td><td>Concrete Medium</td><td class="table_description"></td></tr>
-<tr><td>roomtype</td><td>19</td><td></td><td>Concrete Large</td><td class="table_description"></td></tr>
-<tr><td>roomtype</td><td>20</td><td></td><td>Big 1</td><td class="table_description"></td></tr>
-<tr><td>roomtype</td><td>21</td><td></td><td>Big 2</td><td class="table_description"></td></tr>
-<tr><td>roomtype</td><td>22</td><td></td><td>Big 3</td><td class="table_description"></td></tr>
-<tr><td>roomtype</td><td>23</td><td></td><td>Cavern Small</td><td class="table_description"></td></tr>
-<tr><td>roomtype</td><td>24</td><td></td><td>Cavern Medium</td><td class="table_description"></td></tr>
-<tr><td>roomtype</td><td>25</td><td></td><td>Cavern Large</td><td class="table_description"></td></tr>
-<tr><td>roomtype</td><td>26</td><td></td><td>Weirdo 1</td><td class="table_description"></td></tr>
-<tr><td>roomtype</td><td>27</td><td></td><td>Weirdo 2</td><td class="table_description"></td></tr>
-<tr><td>roomtype</td><td>28</td><td></td><td>Weirdo 3</td><td class="table_description"></td></tr>
-<tr><td>appearflag_singleplayer</td><td>0</td><td>choices</td><td>#AppearFlags SinglePlayer</td><td class="table_description">Appearance flags for SinglePlayer, This control when this entity should or should not appear in this condition.</td></tr>
-<tr><td>appearflag_singleplayer</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is SinglePlayer.</td></tr>
-<tr><td>appearflag_singleplayer</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being SinglePlayer</td></tr>
-<tr><td>appearflag_singleplayer</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT SinglePlayer</td></tr>
-<tr><td>appearflag_multiplayer</td><td>0</td><td>choices</td><td>#AppearFlags MultiPlayer</td><td class="table_description">Appearance flags for MultiPlayer, This control when this entity should or should not appear in this condition.</td></tr>
-<tr><td>appearflag_multiplayer</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is MultiPlayer.</td></tr>
-<tr><td>appearflag_multiplayer</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being MultiPlayer</td></tr>
-<tr><td>appearflag_multiplayer</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT MultiPlayer</td></tr>
-<tr><td>appearflag_cooperative</td><td>0</td><td>choices</td><td>#AppearFlags Cooperative</td><td class="table_description">Appearance flags for Cooperative, This control when this entity should or should not appear in this condition.</td></tr>
-<tr><td>appearflag_cooperative</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is Cooperative.</td></tr>
-<tr><td>appearflag_cooperative</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being Cooperative</td></tr>
-<tr><td>appearflag_cooperative</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT Cooperative</td></tr>
-<tr><td>appearflag_skilleasy</td><td>0</td><td>choices</td><td>#AppearFlags Easy</td><td class="table_description">Appearance flags for Skill level Easy, This control when this entity should or should not appear in this condition.</td></tr>
-<tr><td>appearflag_skilleasy</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is Easy.</td></tr>
-<tr><td>appearflag_skilleasy</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being Easy</td></tr>
-<tr><td>appearflag_skilleasy</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT Easy</td></tr>
-<tr><td>appearflag_skillmedium</td><td>0</td><td>choices</td><td>#AppearFlags Medium</td><td class="table_description">Appearance flags for Skill level Medium, This control when this entity should or should not appear in this condition.</td></tr>
-<tr><td>appearflag_skillmedium</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is Medium.</td></tr>
-<tr><td>appearflag_skillmedium</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being Medium</td></tr>
-<tr><td>appearflag_skillmedium</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT Medium</td></tr>
-<tr><td>appearflag_skillhard</td><td>0</td><td>choices</td><td>#AppearFlags Hard</td><td class="table_description">Appearance flags for Skill level Hard, This control when this entity should or should not appear in this condition.</td></tr>
-<tr><td>appearflag_skillhard</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is Hard.</td></tr>
-<tr><td>appearflag_skillhard</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being Hard</td></tr>
-<tr><td>appearflag_skillhard</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT Hard</td></tr>
-</table>
+		<th>Bit</th>
+		<th>FGD</th>
+		<th>Description</th>
+	<tr>
+		<tr>
+			<td>2048</td><td>Only in Singleplayer</td><td class="table_description">This entity won't spawn at all in multi-player</td></tr>
+		</tr>
+	</tr>
+	</table>
 </body></html>

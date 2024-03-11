@@ -1,8 +1,336 @@
 {
     "ambient_generic":
     {
-        "BaseClass": "Mandatory, CAmbientGeneric, appearflags",
-        "title": "Universal Ambient",
-        "description": "The ambient_generic entity allows you to play a specific sound. It is a flexible entity that can be used for both looping ambient sounds and one-off sound effects triggered on cue."
+        "atributes":
+        {
+            "color": "220 220 220",
+            "iconsprite": "dev/hammer/ambient_generic.spr",
+            "title": "Universal Ambient",
+            "base": "VolumeHealth10",
+            "description": "The ambient_generic entity allows you to play a specific sound. It is a flexible entity that can be used for both looping ambient sounds and one-off sound effects triggered on cue."
+        },
+        "message":
+        {
+            "type": "sound",
+            "title": "Path/filename.wav of WAV",
+            "default": "",
+            "description": "This defines which sound file will be played by the entity. This accepts an input of the form path/filename.wav (starting from the 'sound' folder). (Example: ambience/drips.wav). The name of a sentence defined in sentences.txt will also be accepted with the form '!SENTENCENAME'. (Example: !HG_ALERT1)"
+        },
+        "volstart":
+        {
+            "type": "integer",
+            "title": "Start Volume",
+            "default": "0",
+            "description": " Sets the volume that the sound should start at when fading in, and that it should stop at when fading out. Scales from 0 (completely silent) to 10 (maximum). (Should be lower than Volume.)"
+        },
+        "fadein":
+        {
+            "type": "cap",
+            "title": "Fade in time (0-100)",
+            "default": "0",
+            "description": "Sets how long the sound should take to fade in from Start Volume to Volume. Scales from 0 (instant) to 100 (very long).",
+            "min": "0",
+            "max": "100"
+        },
+        "fadeout":
+        {
+            "type": "cap",
+            "title": "Fade out time (0-100)",
+            "default": "0",
+            "description": "Sets how long the sound should take to fade out from Volume to Start Volume. Scales from 0 (instant) to 100 (very long).",
+            "min": "0",
+            "max": "100"
+        },
+        "pitch":
+        {
+            "type": "integer",
+            "title": "Pitch (> 100 = higher)",
+            "default": "100",
+            "description": "Sets the pitch of the sound. Scales from 100 (default), with lower values meaning lower pitch and higher values meaning higher pitch."
+        },
+        "pitchstart":
+        {
+            "type": "integer",
+            "title": "Start Pitch",
+            "default": "100",
+            "description": "Sets the pitch that the sound should start at when spinning up, and that it should stop at when spinning down. Scales from 100 (default), with lower values meaning lower pitch and higher values meaning higher pitch. (Should be lower than Pitch.)"
+        },
+        "spinup":
+        {
+            "type": "cap",
+            "title": "Spin up time (0-100)",
+            "default": "0",
+            "description": "Sets how long the sound should take to spin up from Start Pitch to Pitch. Scales from 0 (instant) to 100 (very long).",
+            "min": "0",
+            "max": "100"
+        },
+        "spindown":
+        {
+            "type": "cap",
+            "title": "Spin down time (0-100)",
+            "default": "0",
+            "description": "Sets how long the sound should take to spin down from Pitch to Start Pitch. Scales from 0 (instant) to 100 (very long).",
+            "min": "0",
+            "max": "100"
+        },
+        "lfotype":
+        {
+            "type": "choices",
+            "title": "LFO type",
+            "default": "0",
+            "description": "Allows the sound to have certain oscillating effects applied to its pitch.",
+            "choices":
+            {
+                "0":
+                {
+                    "title": "off",
+                    "description": "Disables the LFO effects."
+                },
+                "1":
+                {
+                    "title": "sqr",
+                    "description": "Switches between a low and high pitch."
+                },
+                "2":
+                {
+                    "title": "tri",
+                    "description": "Oscillates between a low and high pitch."
+                },
+                "3":
+                {
+                    "title": "rnd",
+                    "description": "Randomly switches pitches."
+                }
+            }
+        },
+        "lforate":
+        {
+            "type": "cap",
+            "title": "LFO rate (0-1000)",
+            "default": "0",
+            "description": "Sets how quickly the pitch changes with the LFO effects. Scales between 0 (does not change) and 1000 (changes extremely quickly).",
+            "min": "0",
+            "max": "1000"
+        },
+        "lfomodpitch":
+        {
+            "type": "cap",
+            "title": "LFO mod pitch (0-100)",
+            "default": "0",
+            "description": "Sets how much the pitch should change with the LFO effects. Scales between 0 (does not change) and 100 (very large changes).",
+            "min": "0",
+            "max": "100"
+        },
+        "lfomodvol":
+        {
+            "type": "cap",
+            "title": "LFO mod vol (0-100)",
+            "default": "0",
+            "description": "Sets how much the volume should change with the LFO effects. Seems to coincide with lower pitches. Scales between 0 (does not change) and 100 (silent).",
+            "min": "0",
+            "max": "100"
+        },
+        "cspinup":
+        {
+            "type": "integer",
+            "title": "Incremental spinup count",
+            "default": "0",
+            "description": "Sets how many times the ambient_generic can be triggered to have the pitch spin up on top of the pitch it was already playing at. Setting this to a value other than 0 will disable toggling the sound, and will prevent the sound from being turned off even it has been triggered that many times."
+        },
+        "spawnflags":
+        {
+            "1":
+
+            {
+                "title": "Play Everywhere",
+                "default": "0",
+                "description": "If enabled, the sound will be heard throughout the entire map."
+            },
+            "2":
+
+            {
+                "title": "Small Radius",
+                "default": "0",
+                "description": "If enabled, the sound will be at maximum volume within a roughly 256 unit radius, fading out completely at around 512 units away."
+            },
+            "4":
+
+            {
+                "title": "Medium Radius",
+                "default": "1",
+                "description": "If enabled, the sound will be at maximum volume within a roughly 512 unit radius, fading out completely at around 768 units away."
+            },
+            "8":
+
+            {
+                "title": "Large Radius",
+                "default": "0",
+                "description": "If enabled, the sound will be at maximum volume within a roughly 768 unit radius, fading out completely at around 1280 units away."
+            },
+            "16":
+
+            {
+                "title": "Start Silent",
+                "default": "0",
+                "description": "If enabled, the sound will not play at the start of the map, and will need to be triggered to play. Otherwise, the sound will play at the start of the map whether it is a looping sound or not."
+            },
+            "32":
+
+            {
+                "title": "Is NOT Looped",
+                "default": "0",
+                "description": "Tells the entity whether or not it is dealing with a looping sound. If enabled, the sound will play whenever the entity is triggered (intended for non-looping sounds). (Looping sounds will still play, but will not turn off when triggered.) If not enabled, the sound will toggle on or off when triggered (intended for looping sounds). (Non-looping sounds will still play, but every second trigger will turn the sound off regardless of whether the sound is actually playing anything.) See notes for more information about looping sounds."
+            }
+        },
+        "preset":
+        {
+            "type": "choices",
+            "title": "Dynamic Presets",
+            "default": "0",
+            "description": "Sets the ambient_generic to use a predefined set of dynamics. If set to anything other than 'None', this will override every other attribute apart from Name and WAV Name.",
+            "choices":
+            {
+                "0":
+                {
+                    "title": "None",
+                    "description": "Does not use a preset, and will not override any other entity attributes."
+                },
+                "1":
+                {
+                    "title": "Huge Machine",
+                    "description": "Very long spin up, starting slow and getting fast. Very long spin down."
+                },
+                "2":
+                {
+                    "title": "Big Machine",
+                    "description": "Medium spin up, starting normal and getting fast. Long spin down."
+                },
+                "3":
+                {
+                    "title": "Machine",
+                    "description": "Quick spin up, starting normal and getting fast. Quick spin down."
+                },
+                "4":
+                {
+                    "title": "Slow Fade in",
+                    "description": "Slow fade in/out."
+                },
+                "5":
+                {
+                    "title": "Fade in",
+                    "description": "Medium fade in/out."
+                },
+                "6":
+                {
+                    "title": "Quick Fade in",
+                    "description": "Quick fade in/out."
+                },
+                "7":
+                {
+                    "title": "Slow Pulse",
+                    "description": "Slow pulsing speed. Quick fade out."
+                },
+                "8":
+                {
+                    "title": "Pulse",
+                    "description": "Pulsing speed. Quick fade out."
+                },
+                "9":
+                {
+                    "title": "Quick pulse",
+                    "description": "Quick pulsing speed. Quick fade out."
+                },
+                "10":
+                {
+                    "title": "Slow Oscillator",
+                    "description": "Slow oscillation between normal and slow speed. Quick fade out."
+                },
+                "11":
+                {
+                    "title": "Oscillator",
+                    "description": "Medium oscillation between normal and slow speed. Quick fade out."
+                },
+                "12":
+                {
+                    "title": "Quick Oscillator",
+                    "description": "Fast oscillation between normal and slow speed. Quick fade out."
+                },
+                "13":
+                {
+                    "title": "Grunge pitch",
+                    "description": "Extremely slow. Quick fade out."
+                },
+                "14":
+                {
+                    "title": "Very low pitch",
+                    "description": "Very slow. Quick fade out."
+                },
+                "15":
+                {
+                    "title": "Low pitch",
+                    "description": "Slow. Quick fade out."
+                },
+                "16":
+                {
+                    "title": "High pitch",
+                    "description": "Fast. Quick fade out."
+                },
+                "17":
+                {
+                    "title": "Very high pitch",
+                    "description": "Very fast. Quick fade out."
+                },
+                "18":
+                {
+                    "title": "Screaming pitch",
+                    "description": "Extremely fast. Quick fade out."
+                },
+                "19":
+                {
+                    "title": "Oscillate spinup/down",
+                    "description": "Medium oscillation, with long spin up from slow to fast. Long spin down."
+                },
+                "20":
+                {
+                    "title": "Pulse spinup/down",
+                    "description": "Slow pulse, with long spin up from slow to fast. Long spin down."
+                },
+                "21":
+                {
+                    "title": "Random pitch",
+                    "description": "Occasionally switches speed, tending towards slower speeds. Quick fade out."
+                },
+                "22":
+                {
+                    "title": "Random pitch fast",
+                    "description": "Rapidly switches speed, tending towards faster speeds. Quick fade out."
+                },
+                "23":
+                {
+                    "title": "Incremental Spinup",
+                    "description": "Quick spin up. Subsequent triggers will not toggle, but will spin up from existing speed, up to five times. Cannot be turned off."
+                },
+                "24":
+                {
+                    "title": "Alien",
+                    "description": "Unusual pulsing and switching speed. Quick fade out."
+                },
+                "25":
+                {
+                    "title": "Bizzare",
+                    "description": "Fast oscillation between fast and slow/silent. Quick fade out."
+                },
+                "26":
+                {
+                    "title": "Planet X",
+                    "description": "Medium switching between slower speeds, similar to 'Random pitch'. Quick fade out."
+                },
+                "27":
+                {
+                    "title": "Haunted",
+                    "description": "Slow switch between normal and slow speed. Quick fade out."
+                }
+            }
+        }
     }
 }

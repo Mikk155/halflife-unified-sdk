@@ -1,9 +1,12 @@
 {
     "info_intermission":
     {
-        "BaseClass": "Mandatory, Target, Angles, appearflags",
-        "title": "Intermission Spot",
-        "entsize": "-4 -4 -4, 4 4 4",
-        "entcolor": "0 255 0"
+        "atributes":
+        {
+            "base": "Target, Angles",
+            "title": "Intermission Spot",
+            "size": "-4 -4 -4, 4 4 4",
+            "color": "0 255 0"
+        }
     }
 }

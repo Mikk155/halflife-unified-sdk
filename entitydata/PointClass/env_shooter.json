@@ -1,8 +1,50 @@
 {
     "env_shooter":
     {
-        "BaseClass": "Mandatory, Angles, CEnvShooter, CGibShooter, Scale, rendersettings, appearflags",
-        "title": "Model Shooter",
-        "description": ""
+        "atributes":
+        {
+            "color": "184 90 164",
+            "base": "Angles, CGibShooter, Skin, Scale, rendersettings",
+            "title": "Model Shooter",
+            "description": ""
+        },
+        "shootmodel":
+        {
+            "type": "studio",
+            "title": "Model or Sprite name"
+        },
+        "shootsounds":
+        {
+            "type": "choices",
+            "title": "Material Sound",
+            "default": "-1",
+            "choices":
+            {
+                "-1":
+                {
+                    "title": "None"
+                },
+                "0":
+                {
+                    "title": "Glass"
+                },
+                "1":
+                {
+                    "title": "Wood"
+                },
+                "2":
+                {
+                    "title": "Metal"
+                },
+                "3":
+                {
+                    "title": "Flesh"
+                },
+                "4":
+                {
+                    "title": "Concrete"
+                }
+            }
+        }
     }
 }

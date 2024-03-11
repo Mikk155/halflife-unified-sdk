@@ -1,8 +1,17 @@
 {
     "ammo_556":
     {
-        "BaseClass": "Mandatory, Angles, CAmmo556, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags",
-        "title": "M249 Ammo",
-        "description": ""
+        "atributes":
+        {
+            "studio": "",
+            "base": "Angles, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile",
+            "title": "M249 Ammo"
+        },
+        "model":
+        {
+            "type": "studio",
+            "title": "Model",
+            "default": "models/W_saw_clip.mdl"
+        }
     }
 }

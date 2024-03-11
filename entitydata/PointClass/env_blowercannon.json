@@ -1,8 +1,76 @@
 {
     "env_blowercannon":
     {
-        "BaseClass": "Mandatory, CEnvBlowerCannon, Target, rendersettings, appearflags",
-        "title": "Blower Cannon",
-        "description": ""
+        "atributes":
+        {
+            "size": "-16 -16 -16, 16 16 16",
+            "color": "255 0 0",
+            "base": "Target, rendersettings",
+            "title": "Blower Cannon"
+        },
+        "delay":
+        {
+            "type": "float",
+            "title": "Delay",
+            "default": "0",
+            "description": ""
+        },
+        "zoffset":
+        {
+            "type": "integer",
+            "title": "Z Offset",
+            "default": "0",
+            "description": ""
+        },
+        "weaptype":
+        {
+            "type": "choices",
+            "title": "Z Offset",
+            "default": "0",
+            "description": "",
+            "choices":
+            {
+                "1":
+                {
+                    "title": "Spore (Rocket)",
+                    "description": ""
+                },
+                "2":
+                {
+                    "title": "Spore (Grenade)",
+                    "description": ""
+                },
+                "3":
+                {
+                    "title": "Shock Beam",
+                    "description": ""
+                },
+                "4":
+                {
+                    "title": "Displacer Ball",
+                    "description": ""
+                }
+            }
+        },
+        "firetype":
+        {
+            "type": "choices",
+            "title": "Fire Type",
+            "default": "1",
+            "description": "",
+            "choices":
+            {
+                "1":
+                {
+                    "title": "Toggle On/Off",
+                    "description": ""
+                },
+                "2":
+                {
+                    "title": "Fire When Triggered",
+                    "description": ""
+                }
+            }
+        }
     }
 }

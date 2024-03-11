@@ -1,7 +1,16 @@
 {
     "game_player_hurt":
     {
-        "BaseClass": "Mandatory, CGamePlayerHurt, Master, appearflags",
-        "title": "Hurts player who fires"
+        "atributes":
+        {
+            "base": "SF1Remove, Master",
+            "title": "Hurts player who fires"
+        },
+        "dmg":
+        {
+            "type": "float",
+            "title": "Damage To Apply",
+            "default": "999"
+        }
     }
 }

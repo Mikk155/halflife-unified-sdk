@@ -1,7 +1,10 @@
 {
     "func_tankcontrols":
     {
-        "BaseClass": "Mandatory, Target, appearflags",
-        "title": "Tank controls"
+        "atributes":
+        {
+            "base": "Target",
+            "title": "Tank controls"
+        }
     }
 }

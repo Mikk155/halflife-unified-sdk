@@ -1,8 +1,51 @@
 {
     "env_shake":
     {
-        "BaseClass": "Mandatory, CEnvShake, appearflags",
-        "title": "Screen Shake",
-        "description": ""
+        "atributes":
+        {
+            "color": "188 180 172",
+            "iconsprite": "dev/hammer/env_shake.spr",
+            "title": "Screen Shake",
+            "description": ""
+        },
+        "spawnflags":
+        {
+            "1":
+            {
+                "title": "GlobalShake",
+                "default": "0",
+                "description": ""
+            }
+        },
+        "amplitude":
+        {
+            "type": "cap",
+            "title": "Amplitude 0-16",
+            "default": "0",
+            "description": "",
+            "min": "0",
+            "max": "16"
+        },
+        "radius":
+        {
+            "type": "float",
+            "title": "Effect radius",
+            "default": "500",
+            "description": ""
+        },
+        "duration":
+        {
+            "type": "float",
+            "title": "Duration (seconds)",
+            "default": "1",
+            "description": ""
+        },
+        "frequency":
+        {
+            "type": "float",
+            "title": "0.1 = jerk, 255.0 = rumble",
+            "default": "2.5",
+            "description": ""
+        }
     }
 }

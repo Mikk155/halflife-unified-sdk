@@ -1,8 +1,11 @@
 {
     "func_wall_toggle":
     {
-        "BaseClass": "Mandatory, Global, rendersettings, _minlight, ZHLT, appearflags",
-        "title": "Toggleable geometry",
+        "atributes":
+        {
+            "base": "Global, rendersettings, _minlight, ZHLT",
+            "title": "Toggleable geometry"
+        },
         "spawnflags":
         {
             "1":

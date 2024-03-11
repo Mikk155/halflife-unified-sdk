@@ -1,12 +1,105 @@
 {
     "ambient_music":
     {
-        "BaseClass": "Mandatory, CAmbientMusic, appearflags",
-        "title": "Plays music",
-        "description": "This entity allows level designers to control music playback. You can play and loop music, trigger it to fade out or stop it entirely.",
-        "notes":
+        "atributes":
         {
-            "1": "Part of the <a href=\"../../features/sound-system.md\">OpenAL sound system</a>"
+            "color": "200 150 255",
+            "iconsprite": "dev/hammer/ambient_generic.spr",
+            "title": "Plays music",
+            "description": "This entity allows level designers to control music playback. You can play and loop music, trigger it to fade out or stop it entirely.",
+            "notes":
+            {
+                "1": "Part of the <a href=\"../../features/sound-system.md\">OpenAL sound system</a>"
+            }
+        },
+        "filename":
+        {
+            "type": "string",
+            "title": "Filename of music file",
+            "default": "",
+            "description": "Relative name of the file to play, starting in the root directory. For example: media/Half-Life01.mp3. Only applies to the Play and Loop commands"
+        },
+        "command":
+        {
+            "type": "choices",
+            "title": "Command",
+            "default": "0",
+            "description": "The command to issue",
+            "choices":
+            {
+                "0":
+                {
+                    "title": "Play",
+                    "description": ""
+                },
+                "1":
+                {
+                    "title": "Play looping",
+                    "description": ""
+                },
+                "2":
+                {
+                    "title": "Fadeout",
+                    "description": ""
+                },
+                "3":
+                {
+                    "title": "Stop",
+                    "description": ""
+                }
+            }
+        },
+        "target_selector":
+        {
+            "type": "choices",
+            "title": "Target selector",
+            "default": "0",
+            "description": "How to select players to affect.",
+            "choices":
+            {
+                "0":
+                {
+                    "title": "All Players",
+                    "description": ""
+                },
+                "1":
+                {
+                    "title": "Activator",
+                    "description": ""
+                },
+                "2":
+                {
+                    "title": "Radius",
+                    "description": ""
+                }
+            }
+        },
+        "radius":
+        {
+            "type": "integer",
+            "title": "Player radius (for Radius target selector)",
+            "default": "",
+            "description": "If target_selector is Radius, this is how close the player has to be to be affected by this entity"
+        },
+        "remove_on_fire":
+        {
+            "type": "choices",
+            "title": "Remove on fire",
+            "default": "0",
+            "description": "Whether to remove the entity after it has been triggered or after it has affected at least one player (Radius only)",
+            "choices":
+            {
+                "0":
+                {
+                    "title": "No",
+                    "description": ""
+                },
+                "1":
+                {
+                    "title": "Yes",
+                    "description": ""
+                }
+            }
         }
     }
 }

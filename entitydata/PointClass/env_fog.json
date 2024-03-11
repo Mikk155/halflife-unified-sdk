@@ -1,8 +1,41 @@
 {
     "env_fog":
     {
-        "BaseClass": "Mandatory, CEnvFog, rendercolor, appearflags",
-        "title": "Global Fog Controller",
-        "description": ""
+        "atributes":
+        {
+            "base": "rendercolor",
+            "color": "196 195 192",
+            "title": "Global Fog Controller"
+        },
+        "density":
+        {
+            "type": "float",
+            "title": "Density (0.0-1.0)",
+            "default": "0.5",
+            "description": ""
+        },
+        "fogStartDistance":
+        {
+            "type": "integer",
+            "title": "Start Distance",
+            "default": "1500",
+            "description": ""
+        },
+        "fogStopDistance":
+        {
+            "type": "integer",
+            "title": "Stop Distance",
+            "default": "2000",
+            "description": ""
+        },
+        "spawnflags":
+        {
+            "1":
+            {
+                "title": "Fog Affects Skybox",
+                "default": "0",
+                "description": ""
+            }
+        }
     }
 }

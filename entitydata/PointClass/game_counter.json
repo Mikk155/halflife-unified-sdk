@@ -1,7 +1,29 @@
 {
     "game_counter":
     {
-        "BaseClass": "Mandatory, CGameCounter, Master, Target, FireTargets, CBaseDelay, appearflags",
-        "title": "Fires when it hits limit"
+        "atributes":
+        {
+            "base": "SF1Remove, Master, Target, FireTargets, CBaseDelay",
+            "title": "Fires when it hits limit"
+        },
+        "spawnflags":
+        {
+            "2":
+            {
+                "title": "Reset On fire"
+            }
+        },
+        "frags":
+        {
+            "type": "integer",
+            "title": "Initial Value",
+            "default": "0"
+        },
+        "health":
+        {
+            "type": "integer",
+            "title": "Limit Value",
+            "default": "10"
+        }
     }
 }

@@ -1,7 +1,10 @@
 {
     "func_ladder":
     {
-        "BaseClass": "Mandatory",
-        "title": "Ladder"
+        "atributes":
+        {
+            "base": "",
+            "title": "Ladder"
+        }
     }
 }

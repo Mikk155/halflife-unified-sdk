@@ -1,8 +1,17 @@
 {
     "ammo_357":
     {
-        "BaseClass": "Mandatory, Angles, CAmmo357, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags",
-        "title": "357 Ammo",
-        "description": ""
+        "atributes":
+        {
+            "studio": "",
+            "base": "Angles, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile",
+            "title": "357 Ammo"
+        },
+        "model":
+        {
+            "type": "studio",
+            "title": "Model",
+            "default": "models/w_357ammobox.mdl"
+        }
     }
 }

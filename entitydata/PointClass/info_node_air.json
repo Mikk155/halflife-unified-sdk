@@ -1,8 +1,11 @@
 {
     "info_node_air":
     {
-        "entsize": "-32 -32 0, 32 32 64",
-        "entcolor": "255 255 0",
-        "title": "ai air node"
+        "atributes":
+        {
+            "size": "-32 -32 0, 32 32 64",
+            "color": "255 255 0",
+            "title": "ai air node"
+        }
     }
 }

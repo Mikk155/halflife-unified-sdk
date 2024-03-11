@@ -1,7 +1,10 @@
 {
     "game_end":
     {
-        "BaseClass": "Mandatory, Master, appearflags",
-        "title": "End this multiplayer game"
+        "atributes":
+        {
+            "base": "Master",
+            "title": "End this multiplayer game"
+        }
     }
 }

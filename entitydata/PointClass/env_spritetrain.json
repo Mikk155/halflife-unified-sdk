@@ -1,8 +1,20 @@
 {
     "env_spritetrain":
     {
-        "BaseClass": "Mandatory, CEnvSpriteTrain, Scale, PlatSounds, CCustomSounds, appearflags",
-        "title": "Sprite Train",
-        "description": ""
+        "atributes":
+        {
+            "size": "-4 -4 -4, 4 4 4",
+            "color": "190 200 180",
+            "sprite": "",
+            "base": "Scale, speed, TargetTrain, PlatSounds, CCustomSounds",
+            "title": "Sprite Train",
+            "description": ""
+        },
+        "model":
+        {
+            "type": "sprite",
+            "title": "Sprite Name",
+            "default": "sprites/glow01.spr"
+        }
     }
 }

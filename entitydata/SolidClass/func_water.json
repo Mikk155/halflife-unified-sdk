@@ -1,7 +1,37 @@
 {
     "func_water":
     {
-        "BaseClass": "Mandatory, Angles, Global, CFuncWater, CDoor, CUnLockedSounds, Master, Target, FireTargets, CBaseDelay, rendersettings, CReplacemetFile, _minlight, ZHLT, appearflags",
-        "title": "Liquid"
+        "atributes":
+        {
+            "base": "Angles, Global, CDoor, CUnLockedSounds, Master, Target, FireTargets, CBaseDelay, rendersettings, CReplacemetFile, _minlight, ZHLT",
+            "title": "Liquid"
+        },
+        "skin":
+        {
+            "type": "choices",
+            "title": "Contents",
+            "default": "-3",
+            "choices":
+            {
+                "-3":
+                {
+                    "title": "Water"
+                },
+                "-4":
+                {
+                    "title": "Slime"
+                },
+                "-5":
+                {
+                    "title": "Lava"
+                }
+            }
+        },
+        "WaveHeight":
+        {
+            "type": "float",
+            "title": "Wave Height",
+            "default": "3.2"
+        }
     }
 }

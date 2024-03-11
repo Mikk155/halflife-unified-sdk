@@ -1,8 +1,26 @@
 {
     "cycler_sprite":
     {
-        "BaseClass": "Mandatory, Angles, CCyclerSprite, rendersettings, appearflags",
-        "title": "Sprite Cycler",
-        "description": ""
+        "atributes":
+        {
+            "size": "-16 -16 0, 16 16 72",
+            "sprite": "",
+            "base": "Angles, Angles, rendersettings",
+            "title": "Sprite Cycler"
+        },
+        "model":
+        {
+            "type": "sprite",
+            "title": "Model OR Sprite",
+            "default": "",
+            "description": ""
+        },
+        "framerate":
+        {
+            "type": "integer",
+            "title": "Frames per second",
+            "default": "10",
+            "description": ""
+        }
     }
 }

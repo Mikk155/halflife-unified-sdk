@@ -1,7 +1,9 @@
 {
     "info_landmark":
     {
-        "BaseClass": "Mandatory, appearflags",
-        "title": "Transition Landmark"
+        "atributes":
+        {
+            "title": "Transition Landmark"
+        }
     }
 }

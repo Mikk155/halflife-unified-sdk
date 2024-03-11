@@ -1,8 +1,17 @@
 {
     "ammo_9mmar":
     {
-        "BaseClass": "Mandatory, Angles, CAmmo9mmar, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags",
-        "title": "9mm Assault Rifle Ammo",
-        "description": ""
+        "atributes":
+        {
+            "studio": "",
+            "base": "Angles, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile",
+            "title": "9mm Assault Rifle Ammo"
+        },
+        "model":
+        {
+            "type": "studio",
+            "title": "Model",
+            "default": "models/w_chainammo.mdl"
+        }
     }
 }

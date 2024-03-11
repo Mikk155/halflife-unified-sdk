@@ -1,7 +1,10 @@
 {
     "gibshooter":
     {
-        "BaseClass": "Mandatory, Angles, CGibShooter, appearflags",
-        "title": "Gib Shooter"
+        "atributes":
+        {
+            "base": "Angles, CGibShooter",
+            "title": "Gib Shooter"
+        }
     }
 }

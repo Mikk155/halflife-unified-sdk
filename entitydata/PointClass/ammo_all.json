@@ -1,8 +1,12 @@
 {
     "ammo_all":
     {
-        "BaseClass": "Mandatory, Angles, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags",
-        "title": "Gives all ammo types",
-        "description": "Gives all ammo types to the player that picks it up."
+        "atributes":
+        {
+            "studio": "",
+            "base": "Angles, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile",
+            "title": "Gives all ammo types",
+            "description": "Gives all ammo types to the player that picks it up."
+        }
     }
 }

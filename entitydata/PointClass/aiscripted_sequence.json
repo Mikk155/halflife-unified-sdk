@@ -1,8 +1,14 @@
 {
     "aiscripted_sequence":
     {
-        "BaseClass": "Mandatory, Angles, CCineAI, CCineMonster, Target, FireTargets, CBaseDelay, appearflags",
-        "title": "AI Scripted Sequence",
-        "description": "Using the <a href=\"scripted_sequence.html\">scripted_sequence</a> entity as base, the aiscripted_sequence point entity inherit the same responsibility of making a monster entity move to a specific location and/or perform a given animation. The primary difference being that it completely overrides the targeted monster's AI. Regardless of what you do to the monster, it will follow this sequence."
+        "atributes":
+        {
+            "color": "164 0 255",
+            "size": "-16 -16 0, 16 16 72",
+            "flags": "Angle",
+            "title": "AI Scripted Sequence",
+            "base": "CCineMonster, Target, FireTargets, CBaseDelay",
+            "description": "Using the <a href=\"scripted_sequence.html\">scripted_sequence</a> entity as base, the aiscripted_sequence point entity inherit the same responsibility of making a monster entity move to a specific location and/or perform a given animation. The primary difference being that it completely overrides the targeted monster's AI. Regardless of what you do to the monster, it will follow this sequence."
+        }
     }
 }

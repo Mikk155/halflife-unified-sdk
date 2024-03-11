@@ -1,19 +1,169 @@
 {
     "env_beam":
     {
-        "BaseClass": "Mandatory, CEnvBeam, renderamt, rendercolor, renderfx, appearflags",
-        "title": "Energy Beam Effect",
-        "description": "",
-        "notes":
-
+        "atributes":
         {
-            "1" : "<a href=\"info_targets.html\">info_targets</a> are often used for stationary start/end points. To make moving beams, use <a href=\"func_train.html\">func_train</a>.",
-            "2": "The fluctuation of a beam (via the Amount of noise attribute) seems to be affected by the length of the beam; longer beams will be more affected by the same noise value.",
-            "3": "The sprite used in the beam does not seem to animate, though if the sprite has multiple frames, you can choose which frame it uses.",
-            "4": "Setting Life to less than 0.1 (but greater than 0) seems to make the beam not deactivate, but will still create new beams after Strike Again Time. This can cause the beams stack up. There seems to be a limit to how many beams will generate in this way, and after a while the beams will stop spawning. Possibly could be used to create unique visual effects.",
-            "5": "The \"Ring\" flag seems to not accept all entities as start/end points, including info_targets. It will accept func_trains though.",
-            "6": "If multiple entities have the same name as the Start Entity / Ending Entity, the beam will randomly choose a target from those entities. This can be used to create a random function by placing buttons triggered by damage in the path of the beams.",
-            "7": "It is possible to have the beam target random points. If you leave the end entity undefined, the beam will fire from the start entity to a random direction until it hits a wall. This is very useful for example on teleporters because you don't have to define loads of target points. If you leave both the start and end entity undefined, it will trace a line in a random direction from the actual env_beam entity for a start point and an another one from this point to get the end point. The beam will project between the points. This is totally random but could be used to create some kind of energy storm effect or something."
+            "size": "-12 -12 -12, 12 12 12",
+            "color": "255 250 230",
+            "base": "Angles, renderamt, rendercolor, renderfx",
+            "title": "Energy Beam Effect",
+            "notes":
+            {
+                "1" : "<a href=\"info_targets.html\">info_targets</a> are often used for stationary start/end points. To make moving beams, use <a href=\"func_train.html\">func_train</a>.",
+                "2": "The fluctuation of a beam (via the Amount of noise attribute) seems to be affected by the length of the beam; longer beams will be more affected by the same noise value.",
+                "3": "The sprite used in the beam does not seem to animate, though if the sprite has multiple frames, you can choose which frame it uses.",
+                "4": "Setting Life to less than 0.1 (but greater than 0) seems to make the beam not deactivate, but will still create new beams after Strike Again Time. This can cause the beams stack up. There seems to be a limit to how many beams will generate in this way, and after a while the beams will stop spawning. Possibly could be used to create unique visual effects.",
+                "5": "The \"Ring\" flag seems to not accept all entities as start/end points, including info_targets. It will accept func_trains though.",
+                "6": "If multiple entities have the same name as the Start Entity / Ending Entity, the beam will randomly choose a target from those entities. This can be used to create a random function by placing buttons triggered by damage in the path of the beams.",
+                "7": "It is possible to have the beam target random points. If you leave the end entity undefined, the beam will fire from the start entity to a random direction until it hits a wall. This is very useful for example on teleporters because you don't have to define loads of target points. If you leave both the start and end entity undefined, it will trace a line in a random direction from the actual env_beam entity for a start point and an another one from this point to get the end point. The beam will project between the points. This is totally random but could be used to create some kind of energy storm effect or something."
+            }
+        },
+        "texture":
+        {
+            "type": "sprite",
+            "title": "Sprite Name",
+            "default": "sprites/laserbeam.spr",
+            "description": "This defines which sprite file the entity will use to form the beam. This accepts an input of the form \"path/filename.spr\" (starting from the root folder). (Example: \"sprites/laserbeam.spr\")."
+        },
+        "LightningStart":
+        {
+            "type": "target_generic",
+            "title": "Start Entity",
+            "default": "",
+            "description": "The name of an entity to be used as the starting point for the beam. If undefined, the beam will choose a surface within the Radius to use as the starting point. (Note that if the Start Entity is undefined, the Ending Entity must also be undefined.)"
+        },
+        "LightningEnd":
+        {
+            "type": "target_generic",
+            "title": "Ending Entity",
+            "default": "",
+            "description": "The name of an entity to be used as the end point for the beam. If undefined, the beam will choose a surface within the Radius to use as the end point."
+        },
+        "Radius":
+        {
+            "type": "integer",
+            "title": "Radius",
+            "default": "",
+            "description": "If the beam has undefined start/end points, this attribute defines how far away the beam can choose to use as its start/end points."
+        },
+        "life":
+        {
+            "type": "float",
+            "title": "Life (seconds 0 = infinite)",
+            "default": "1.0",
+            "description": "Sets how many seconds the beam will stay on before deactivating. It will reactivate through Strike again time. Setting this to 0 will make the beam never deactivate automatically."
+        },
+        "BoltWidth":
+        {
+            "type": "cap",
+            "title": "Width of beam (pixels*0.1 0-255)",
+            "default": "20",
+            "description": "Sets the width of the beam. Measured in tenths of a unit. This attribute works like a radius; the beam will actually be twice as wide as the defined value.",
+            "min": "0",
+            "max": "255"
+        },
+        "NoiseAmplitude":
+        {
+            "type": "cap",
+            "title": "Amount of noise (0-255)",
+            "default": "0",
+            "description": "Sets how erratic the beam will be. The beam will always start and end at the usual points, but the path of the beam will move randomly to a degree defined by this attribute. Scales from 0 (perfectly straight beam) to 255 (wildly moving beam).",
+            "min": "0",
+            "max": "255"
+        },
+        "TextureScroll":
+        {
+            "type": "cap",
+            "title": "Texture Scroll Rate (0-100)",
+            "default": "35",
+            "description": "Sets how fast the sprites move along the beam. Scales from 0 (no movement) to 100 (extremely fast).",
+            "min": "0",
+            "max": "100"
+        },
+        "framerate":
+        {
+            "type": "integer",
+            "title": "Frames per 10 seconds",
+            "default": "0",
+            "description": "Seemingly unused."
+        },
+        "framestart":
+        {
+            "type": "integer",
+            "title": "Starting Frame",
+            "default": "0",
+            "description": " Sets which frame of animation that the sprite should use."
+        },
+        "StrikeTime":
+        {
+            "type": "integer",
+            "title": "Strike again time (secs)",
+            "default": "0",
+            "description": "Sets how long many seconds before the beam reactivates (after the beam deactivates after being on for the time defined in Life). If the beam has undefined start/end points, the beam will choose new points for the reactivation."
+        },
+        "damage":
+        {
+            "type": "float",
+            "title": "Damage / second",
+            "default": "0",
+            "description": "Sets how much damage the beam should do when you walk through it. Note that the damage is only dealt in a straight line between start and end point, regardless of any fluctuation in the beam from the Amount of Noise attribute."
+        },
+        "spawnflags":
+        {
+            "1":
+            {
+                "title": "Start On",
+                "default": "0",
+                "description": "If enabled, the beam will be turned on upon map start. Otherwise you will need to trigger the env_beam to turn it on."
+            },
+            "2":
+            {
+                "title": "Toggle",
+                "default": "0",
+                "description": "If enabled, the beam can be retriggered to stop the beam from reactivating automatically. Otherwise, the beam seems to loop indefinitely regardless of further triggerings."
+            },
+            "4":
+            {
+                "title": "Random Strike",
+                "default": "0",
+                "description": "If enabled, the beam will vary its activation and deactivation times. These times will be scaled somewhat around the times you provide in Life and Strike Again Time."
+            },
+            "8":
+            {
+                "title": "Ring",
+                "default": "0",
+                "description": "If enabled, the beam will form a ring between its two points rather than a straight line. The ring will tend towards being horizontal, and may malform if the two points are in a perfectly vertical line."
+            },
+            "16":
+            {
+                "title": "StartSparks",
+                "default": "0",
+                "description": "If enabled, the start of the beam will spark when it is activated."
+            },
+            "32":
+            {
+                "title": "EndSparks",
+                "default": "0",
+                "description": "If enabled, the end of the beam will spark when it is activated."
+            },
+            "64":
+            {
+                "title": "Decal End",
+                "default": "0",
+                "description": "Seemingly unused."
+            },
+            "128":
+            {
+                "title": "Shade Start",
+                "default": "0",
+                "description": "If enabled, the beam will fade towards the start."
+            },
+            "256":
+            {
+                "title": "Shade End",
+                "default": "0",
+                "description": "If enabled, the beam will fade towards the end. Will not function if \"Shade Start\" is enabled."
+            }
         }
     }
 }

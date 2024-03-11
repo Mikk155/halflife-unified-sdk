@@ -1,8 +1,17 @@
 {
     "ammo_762":
     {
-        "BaseClass": "Mandatory, Angles, CAmmo762, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags",
-        "title": "Sniper Ammo",
-        "description": ""
+        "atributes":
+        {
+            "studio": "",
+            "base": "Angles, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile",
+            "title": "Sniper Ammo"
+        },
+        "model":
+        {
+            "type": "studio",
+            "title": "Model",
+            "default": "models/w_m40a1clip.mdl"
+        }
     }
 }

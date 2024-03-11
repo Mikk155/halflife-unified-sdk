@@ -1,8 +1,95 @@
 {
     "env_laser":
     {
-        "BaseClass": "Mandatory, Angles, CEnvLaser, renderamt, rendercolor, appearflags",
-        "title": "Laser Beam Effect",
-        "description": ""
+        "atributes":
+        {
+            "color": "128 255 32",
+            "size": "-16 -16 -16, 16 16 16",
+            "base": "Angles, SF1StartOn, renderamt, rendercolor",
+            "title": "Laser Beam Effect"
+        },
+        "spawnflags":
+        {
+            "16":
+            {
+                "title": "StartSparks",
+                "default": "0",
+                "description": ""
+            },
+            "32":
+            {
+                "title": "EndSparks",
+                "default": "0",
+                "description": ""
+            },
+            "64":
+            {
+                "title": "Decal End",
+                "default": "0",
+                "description": ""
+            }
+        },
+        "LaserTarget":
+        {
+            "type": "target_destination",
+            "title": "Target of Laser",
+            "default": "",
+            "description": ""
+        },
+        "width":
+        {
+            "type": "cap",
+            "title": "Width of beam (pixels*0.1 0-255)",
+            "default": "0",
+            "description": "",
+            "min": "0",
+            "max": "255"
+        },
+        "NoiseAmplitude":
+        {
+            "type": "cap",
+            "title": "Amount of noise (0-255)",
+            "default": "0",
+            "description": "",
+            "min": "0",
+            "max": "255"
+        },
+        "texture":
+        {
+            "type": "sprite",
+            "title": "Sprite Name",
+            "default": "sprites/laserbeam.spr",
+            "description": ""
+        },
+        "EndSprite":
+        {
+            "type": "sprite",
+            "title": "End Sprite",
+            "default": "",
+            "description": ""
+        },
+        "TextureScroll":
+        {
+            "type": "cap",
+            "title": "Texture Scroll Rate (0-100)",
+            "default": "35",
+            "description": "0",
+            "min": "0",
+            "max": "100"
+        },
+        "framestart":
+        {
+            "type": "integer",
+            "title": "Starting Frame",
+            "default": "0",
+            "description": ""
+        },
+        "damage":
+        {
+            "type": "float",
+            "title": "Damage / second",
+            "default": "100",
+            "description": ""
+        }
     }
 }

@@ -1,7 +1,10 @@
 {
     "func_monsterclip":
     {
-        "BaseClass": "Mandatory",
-        "title": "Monster clip brush"
+        "atributes":
+        {
+            "base": "",
+            "title": "Monster clip brush"
+        }
     }
 }

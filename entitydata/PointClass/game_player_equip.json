@@ -1,7 +1,17 @@
 {
     "game_player_equip":
     {
-        "BaseClass": "Mandatory, CGamePlayerEquip, Master, appearflags",
-        "title": "Initial player equipment"
+        "atributes":
+        {
+            "base": "Master",
+            "title": "Initial player equipment"
+        },
+        "spawnflags":
+        {
+            "1":
+            {
+                "title": "Use Only"
+            }
+        }
     }
 }

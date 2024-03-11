@@ -1,12 +1,29 @@
 {
     "ammo_generic":
     {
-        "BaseClass": "Mandatory, Angles, CAmmoGeneric, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags",
-        "title": "Generic Ammo",
-        "description": "Gives the specified ammo type to the player that picks it up.",
-        "notes":
+        "atributes":
         {
-            "1": "Combine with <a href=\"trigger_changekeyvalue.md\">trigger_changekeyvalue</a> to dynamically change ammo type"
+            "studio": "",
+            "base": "Angles, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile",
+            "description": "Gives the specified ammo type to the player that picks it up.",
+            "title": "Generic Ammo",
+            "notes":
+            {
+                "1": "Combine with <a href=\"trigger_changekeyvalue.md\">trigger_changekeyvalue</a> to dynamically change ammo type"
+            }
+        },
+        "model":
+        {
+            "type": "studio",
+            "title": "Model",
+            "default": "models/w_9mmclip.mdl"
+        },
+        "ammo_name":
+        {
+            "type": "string",
+            "title": "Ammo Name (Required)",
+            "default": "ammo_9mmclip",
+            "description": "Name of the ammo type to give."
         }
     }
 }

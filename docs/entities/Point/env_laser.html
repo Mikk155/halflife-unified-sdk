@@ -8,7 +8,7 @@
 </head>
 </body>
 	<h1>env_laser</h1>
-	<h2></h2>
+	<h2>Laser Beam Effect</h2>
 	<p></p>
 	<p></p>
 	<h2>KeyValues</h2>
@@ -19,43 +19,60 @@
 		<th>Type</th>
 		<th>FGD</th>
 		<th>Description</th>
+		<tr>
+			<tr><td>targetname</td><td></td><td>target_source</td><td>Name</td><td class="table_description">Name is a general attribute used to identify entities</td></tr>
+			<tr><td>angles</td><td>0 0 0</td><td>vector</td><td>Pitch Yaw Roll (Y Z X)</td><td class="table_description"></td></tr>
+			<tr><td>renderamt</td><td>255</td><td>integer</td><td>FX Amount (1 - 255)</td><td class="table_description"></td></tr>
+			<tr><td>rendercolor</td><td>0 0 0</td><td>color255</td><td>FX Color (R G B)</td><td class="table_description"></td></tr>
+			<tr><td>LaserTarget</td><td></td><td>target_destination</td><td>Target of Laser</td><td class="table_description"></td></tr>
+			<tr><td>width</td><td>0</td><td>integer</td><td>Width of beam (pixels*0.1 0-255)</td><td class="table_description"></td></tr>
+			<tr><td>NoiseAmplitude</td><td>0</td><td>integer</td><td>Amount of noise (0-255)</td><td class="table_description"></td></tr>
+			<tr><td>texture</td><td>sprites/laserbeam.spr</td><td>sprite</td><td>Sprite Name</td><td class="table_description"></td></tr>
+			<tr><td>EndSprite</td><td></td><td>sprite</td><td>End Sprite</td><td class="table_description"></td></tr>
+			<tr><td>TextureScroll</td><td>35</td><td>integer</td><td>Texture Scroll Rate (0-100)</td><td class="table_description">0</td></tr>
+			<tr><td>framestart</td><td>0</td><td>integer</td><td>Starting Frame</td><td class="table_description"></td></tr>
+			<tr><td>damage</td><td>100</td><td>float</td><td>Damage / second</td><td class="table_description"></td></tr>
+			<tr><td>appearflag_singleplayer</td><td>0</td><td>choices</td><td>#AppearFlags SinglePlayer</td><td class="table_description">Appearance flags for SinglePlayer, This control when this entity should or should not appear in this condition.</td></tr>
+			<tr><td>appearflag_singleplayer</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is SinglePlayer.</td></tr>
+			<tr><td>appearflag_singleplayer</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being SinglePlayer</td></tr>
+			<tr><td>appearflag_singleplayer</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT SinglePlayer</td></tr>
+			<tr><td>appearflag_multiplayer</td><td>0</td><td>choices</td><td>#AppearFlags MultiPlayer</td><td class="table_description">Appearance flags for MultiPlayer, This control when this entity should or should not appear in this condition.</td></tr>
+			<tr><td>appearflag_multiplayer</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is MultiPlayer.</td></tr>
+			<tr><td>appearflag_multiplayer</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being MultiPlayer</td></tr>
+			<tr><td>appearflag_multiplayer</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT MultiPlayer</td></tr>
+			<tr><td>appearflag_cooperative</td><td>0</td><td>choices</td><td>#AppearFlags Cooperative</td><td class="table_description">Appearance flags for Cooperative, This control when this entity should or should not appear in this condition.</td></tr>
+			<tr><td>appearflag_cooperative</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is Cooperative.</td></tr>
+			<tr><td>appearflag_cooperative</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being Cooperative</td></tr>
+			<tr><td>appearflag_cooperative</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT Cooperative</td></tr>
+			<tr><td>appearflag_skilleasy</td><td>0</td><td>choices</td><td>#AppearFlags Easy</td><td class="table_description">Appearance flags for Skill level Easy, This control when this entity should or should not appear in this condition.</td></tr>
+			<tr><td>appearflag_skilleasy</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is Easy.</td></tr>
+			<tr><td>appearflag_skilleasy</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being Easy</td></tr>
+			<tr><td>appearflag_skilleasy</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT Easy</td></tr>
+			<tr><td>appearflag_skillmedium</td><td>0</td><td>choices</td><td>#AppearFlags Medium</td><td class="table_description">Appearance flags for Skill level Medium, This control when this entity should or should not appear in this condition.</td></tr>
+			<tr><td>appearflag_skillmedium</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is Medium.</td></tr>
+			<tr><td>appearflag_skillmedium</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being Medium</td></tr>
+			<tr><td>appearflag_skillmedium</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT Medium</td></tr>
+			<tr><td>appearflag_skillhard</td><td>0</td><td>choices</td><td>#AppearFlags Hard</td><td class="table_description">Appearance flags for Skill level Hard, This control when this entity should or should not appear in this condition.</td></tr>
+			<tr><td>appearflag_skillhard</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is Hard.</td></tr>
+			<tr><td>appearflag_skillhard</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being Hard</td></tr>
+			<tr><td>appearflag_skillhard</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT Hard</td></tr>
+		</tr>
+	</tr>
+	</table>
+	<h2>Spawnflags</h2>
+	<table id="env_laser flags" border="1">
 	<tr>
-<tr><td>title</td><td></td><td></td><td></td><td class="table_description"></td></tr>
-<tr><td>targetname</td><td></td><td>target_source</td><td>Name</td><td class="table_description">Name is a general attribute used to identify entities</td></tr>
-<tr><td>angles</td><td>0 0 0</td><td>vector</td><td>Pitch Yaw Roll (Y Z X)</td><td class="table_description"></td></tr>
-<tr><td>LaserTarget</td><td></td><td>target_destination</td><td>Target of Laser</td><td class="table_description"></td></tr>
-<tr><td>width</td><td>0</td><td>integer</td><td>Width of beam (pixels*0.1 0-255)</td><td class="table_description"></td></tr>
-<tr><td>NoiseAmplitude</td><td>0</td><td>integer</td><td>Amount of noise (0-255)</td><td class="table_description"></td></tr>
-<tr><td>texture</td><td>sprites/laserbeam.spr</td><td>sprite</td><td>Sprite Name</td><td class="table_description"></td></tr>
-<tr><td>EndSprite</td><td></td><td>sprite</td><td>End Sprite</td><td class="table_description"></td></tr>
-<tr><td>TextureScroll</td><td>35</td><td>integer</td><td>Texture Scroll Rate (0-100)</td><td class="table_description">0</td></tr>
-<tr><td>framestart</td><td>0</td><td>integer</td><td>Starting Frame</td><td class="table_description"></td></tr>
-<tr><td>damage</td><td>100</td><td>float</td><td>Damage / second</td><td class="table_description"></td></tr>
-<tr><td>renderamt</td><td>255</td><td>integer</td><td>FX Amount (1 - 255)</td><td class="table_description"></td></tr>
-<tr><td>rendercolor</td><td>0 0 0</td><td>color255</td><td>FX Color (R G B)</td><td class="table_description"></td></tr>
-<tr><td>appearflag_singleplayer</td><td>0</td><td>choices</td><td>#AppearFlags SinglePlayer</td><td class="table_description">Appearance flags for SinglePlayer, This control when this entity should or should not appear in this condition.</td></tr>
-<tr><td>appearflag_singleplayer</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is SinglePlayer.</td></tr>
-<tr><td>appearflag_singleplayer</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being SinglePlayer</td></tr>
-<tr><td>appearflag_singleplayer</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT SinglePlayer</td></tr>
-<tr><td>appearflag_multiplayer</td><td>0</td><td>choices</td><td>#AppearFlags MultiPlayer</td><td class="table_description">Appearance flags for MultiPlayer, This control when this entity should or should not appear in this condition.</td></tr>
-<tr><td>appearflag_multiplayer</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is MultiPlayer.</td></tr>
-<tr><td>appearflag_multiplayer</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being MultiPlayer</td></tr>
-<tr><td>appearflag_multiplayer</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT MultiPlayer</td></tr>
-<tr><td>appearflag_cooperative</td><td>0</td><td>choices</td><td>#AppearFlags Cooperative</td><td class="table_description">Appearance flags for Cooperative, This control when this entity should or should not appear in this condition.</td></tr>
-<tr><td>appearflag_cooperative</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is Cooperative.</td></tr>
-<tr><td>appearflag_cooperative</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being Cooperative</td></tr>
-<tr><td>appearflag_cooperative</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT Cooperative</td></tr>
-<tr><td>appearflag_skilleasy</td><td>0</td><td>choices</td><td>#AppearFlags Easy</td><td class="table_description">Appearance flags for Skill level Easy, This control when this entity should or should not appear in this condition.</td></tr>
-<tr><td>appearflag_skilleasy</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is Easy.</td></tr>
-<tr><td>appearflag_skilleasy</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being Easy</td></tr>
-<tr><td>appearflag_skilleasy</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT Easy</td></tr>
-<tr><td>appearflag_skillmedium</td><td>0</td><td>choices</td><td>#AppearFlags Medium</td><td class="table_description">Appearance flags for Skill level Medium, This control when this entity should or should not appear in this condition.</td></tr>
-<tr><td>appearflag_skillmedium</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is Medium.</td></tr>
-<tr><td>appearflag_skillmedium</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being Medium</td></tr>
-<tr><td>appearflag_skillmedium</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT Medium</td></tr>
-<tr><td>appearflag_skillhard</td><td>0</td><td>choices</td><td>#AppearFlags Hard</td><td class="table_description">Appearance flags for Skill level Hard, This control when this entity should or should not appear in this condition.</td></tr>
-<tr><td>appearflag_skillhard</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is Hard.</td></tr>
-<tr><td>appearflag_skillhard</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being Hard</td></tr>
-<tr><td>appearflag_skillhard</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT Hard</td></tr>
-</table>
+		<th>Bit</th>
+		<th>FGD</th>
+		<th>Description</th>
+	<tr>
+		<tr>
+			<td>1</td><td>Start On</td><td class="table_description"></td></tr>
+			<td>16</td><td>StartSparks</td><td class="table_description"></td></tr>
+			<td>32</td><td>EndSparks</td><td class="table_description"></td></tr>
+			<td>64</td><td>Decal End</td><td class="table_description"></td></tr>
+			<td>2048</td><td>Only in Singleplayer</td><td class="table_description">This entity won't spawn at all in multi-player</td></tr>
+		</tr>
+	</tr>
+	</table>
 </body></html>

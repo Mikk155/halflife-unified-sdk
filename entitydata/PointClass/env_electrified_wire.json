@@ -1,8 +1,47 @@
 {
     "env_electrified_wire":
     {
-        "BaseClass": "Mandatory, CEnvElectrifiedWire, appearflags",
-        "title": "Electrified Wire",
-        "description": ""
+        "atributes":
+        {
+            "size": "-16 -16 -16, 16 16 16",
+            "base": "CRopes",
+            "title": "Electrified Wire"
+        },
+        "sparkfrequency":
+        {
+            "type": "integer",
+            "title": "Spark Frequency",
+            "default": "3"
+        },
+        "bodysparkfrequency":
+        {
+            "type": "integer",
+            "title": "Body Spark Frequency",
+            "default": "3"
+        },
+        "lightningfrequency":
+        {
+            "type": "integer",
+            "title": "Lightning Frequency",
+            "default": "3"
+        },
+        "xforce":
+        {
+            "type": "integer",
+            "title": "X Force",
+            "default": "80000"
+        },
+        "yforce":
+        {
+            "type": "integer",
+            "title": "Y Force",
+            "default": "80000"
+        },
+        "zforce":
+        {
+            "type": "integer",
+            "title": "Z Force",
+            "default": "80000"
+        }
     }
 }

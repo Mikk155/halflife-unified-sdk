@@ -1,8 +1,79 @@
 {
     "env_message":
     {
-        "BaseClass": "Mandatory, CEnvMessage, Target, FireTargets, appearflags",
-        "title": "HUD Text Message",
-        "description": ""
+        "atributes":
+        {
+            "color": "255 0 255",
+            "base": "Target, FireTargets",
+            "title": "HUD Text Message"
+        },
+        "spawnflags":
+        {
+            "1":
+            {
+                "title": "Play Once",
+                "default": "0",
+                "description": ""
+            },
+            "2":
+            {
+                "title": "All Clients",
+                "default": "0",
+                "description": ""
+            }
+        },
+        "message":
+        {
+            "type": "string",
+            "title": "Message Name",
+            "default": "",
+            "description": ""
+        },
+        "messagesound":
+        {
+            "type": "sound",
+            "title": "path/filename.wav of WAV",
+            "default": "",
+            "description": ""
+        },
+        "messagevolume":
+        {
+            "type": "cap",
+            "title": "Volume (10 = loudest)",
+            "default": "0",
+            "description": "",
+            "min": "0",
+            "max": "10"
+        },
+        "messageattenuation":
+        {
+            "type": "choices",
+            "title": "Sound Radius",
+            "default": "0",
+            "description": "",
+            "choices":
+            {
+                "0":
+                {
+                    "title": "Small Radius",
+                    "description": ""
+                },
+                "1":
+                {
+                    "title": "Medium Radius",
+                    "description": ""
+                },
+                "2":
+                {
+                    "title": "Large  Radius",
+                    "description": ""
+                },
+                "3":
+                {
+                    "title": "Play Everywhere",
+                    "description": ""
+                }
+            }
+        }
     }
 }

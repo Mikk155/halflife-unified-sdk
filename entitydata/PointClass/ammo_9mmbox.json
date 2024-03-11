@@ -1,8 +1,13 @@
 {
     "ammo_9mmbox":
     {
+        "atributes":
+        {
+            "studio": "",
+            "base": "Angles, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile",
+            "title": "9mm Assault Rifle Ammo"
+        },
         "BaseClass": "Mandatory, Angles, CAmmo9mmbox, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags",
-        "title": "box of 200 9mm shells",
-        "description": ""
+        "title": "box of 200 9mm shells"
     }
 }

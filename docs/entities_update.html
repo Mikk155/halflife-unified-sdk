@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>aiscripted_sequence</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+</body>
+	<h1>Updating wiki</h1>
+	<h2>Using the python script format_forge_game_data.py we parse the json files located in 'entitydata/' to write our updated FGD and build the "entities" part of the wiki</h2>
+	<p>Note: Commentary are not allowed, this is only shown in here for explanation.</p>
+<pre>
+<jsvar>{</jsvar>
+    <jsstr>"Class Name"</jsstr><jsvar>:</jsvar>
+    <jsvar>{</jsvar>
+        <jscm>// Entity Atributes</jscm>
+        <jsstr>"atributes"</jsstr><jsvar>:</jsvar>
+        <jsvar>{</jsvar>
+            <jscm>// Entity color "R G B"</jscm>
+            <jsstr>"color"</jsstr><jsvar>:</jsvar> <jsstr>"255 0 0"</jsstr><jsvar>,</jsvar>
+
+            <jscm>// Entity size "Vector min, Vector max"</jscm>
+            <jsstr>"size"</jsstr><jsvar>:</jsvar> <jsstr>"-16 -16 -16, 16 16 16"</jsstr><jsvar>,</jsvar>
+
+            <jscm>// Entity flags "Flag1, Flag2, Flag3"</jscm>
+            <jsstr>"flags"</jsstr><jsvar>:</jsvar> <jsstr>"Angle"</jsstr><jsvar>,</jsvar>
+
+            <jscm>// Entity studio model, leave empty ("") if using with keyvalues</jscm>
+            <jsstr>"studio"</jsstr><jsvar>:</jsvar> <jsstr>"models/model.mdl"</jsstr><jsvar>,</jsvar>
+
+            <jscm>// Entity sprite model, leave empty ("") if using with keyvalues</jscm>
+            <jsstr>"sprite"</jsstr><jsvar>:</jsvar> <jsstr>"sprites/sprite.spr"</jsstr><jsvar>,</jsvar>
+
+            <jscm>// Entity sprite model to show on the level design only</jscm>
+            <jsstr>"iconsprite"</jsstr><jsvar>:</jsvar> <jsstr>"sprites/sprite.spr"</jsstr><jsvar>,</jsvar>
+
+            <jscm>// Description to show on level design and wiki</jscm>
+            <jsstr>"title"</jsstr><jsvar>:</jsvar> <jsstr>"Short Description"</jsstr><jsvar>,</jsvar>
+
+            <jscm>// Description to show on level design and wiki</jscm>
+            <jsstr>"description"</jsstr><jsvar>:</jsvar> <jsstr>"Full Description"</jsstr><jsvar>,</jsvar>
+
+            <jscm>// BaseClass to use.
+            <jscm>// Note "Mandatory" and "appearflags" are automatically added
+            <jscm>// to all entities due to it being supported by all of them
+            <jsstr>"base"</jsstr><jsvar>:</jsvar> <jsstr>"Angles, Target, rendersettings, CBaseDelay"</jsstr>
+
+        <jsvar>}</jsvar><jsvar>,</jsvar>
+        <jscm>// Entity KeyValue Fields</jscm>
+        <jsstr>"key name"</jsstr><jsvar>:</jsvar>
+        <jsvar>{</jsvar>
+            <jscm>// Type of key, see your level-editor program for supporting
+            <jsstr>"type"</jsstr><jsvar>:</jsvar> <jsstr>"integer"</jsstr><jsvar>,</jsvar>
+
+            <jscm>// Title for this key on the level-editor entity keyvalue field
+            <jsstr>"title"</jsstr><jsvar>:</jsvar> <jsstr>"Key Title"</jsstr><jsvar>,</jsvar>
+
+            <jscm>// Detailed description for the wiki
+            <jsstr>"description"</jsstr><jsvar>:</jsvar> <jsstr>"Detailed description"</jsstr><jsvar>,</jsvar>
+
+            <jscm>// Default value of this key
+            <jsstr>"default"</jsstr><jsvar>:</jsvar> <jsstr>""</jsstr><jsvar>,</jsvar>
+
+            <jscm>// min value to cap integer choices if type is "cap" (if bool is true)
+            <jsstr>"min"</jsstr><jsvar>:</jsvar> <jsstr>"0"</jsstr><jsvar>,</jsvar>
+
+            <jscm>// max value to cap integer choices if type is "cap" (if bool is true)
+            <jsstr>"max"</jsstr><jsvar>:</jsvar> <jsstr>"10"</jsstr><jsvar>,</jsvar>
+
+            <jscm>// when type is "choices" this is required as well as "default"
+            <jsstr>"choices"</jsstr><jsvar>:</jsvar>
+            <jsvar>{</jsvar>
+                <jsstr>"choices"</jsstr><jsvar>:</jsvar>
+                <jsvar>{</jsvar>
+                    <jsstr>"value name"</jsstr><jsvar>:</jsvar>
+                    <jsvar>{</jsvar>
+                        <jscm>// Title for this key on the level-editor entity keyvalue field
+                        <jsstr>"title"</jsstr><jsvar>:</jsvar> <jsstr>"Key Title"</jsstr><jsvar>,</jsvar>
+
+                        <jscm>// Detailed description for the wiki
+                        <jsstr>"description"</jsstr><jsvar>:</jsvar> <jsstr>"Detailed description"</jsstr>
+                    <jsvar>}</jsvar>
+                <jsvar>}</jsvar>
+            <jsvar>}</jsvar>
+        <jsvar>}</jsvar>
+        <jsstr>"spawnflags"</jsstr><jsvar>:</jsvar>
+        <jsvar>{</jsvar>
+            <jscm>// Bit field number of this spawnflag
+            <jsstr>"bit field"</jsstr><jsvar>:</jsvar>
+            <jsvar>{</jsvar>
+                    <jscm>// Title for this field on the level-editor entity keyvalue field
+                    <jsstr>"title"</jsstr><jsvar>:</jsvar> <jsstr>"Key Title"</jsstr><jsvar>,</jsvar>
+
+                    <jscm>// Detailed description for the wiki
+                    <jsstr>"description"</jsstr><jsvar>:</jsvar> <jsstr>"Detailed description"</jsstr>
+            <jsvar>}</jsvar>
+        <jsvar>}</jsvar>
+    <jsvar>}</jsvar>
+<jsvar>}</jsvar>
+</pre>
+
+<p>BaseClasses must be writted in BaseClass.json<br>While for entities you have to create a single json file for each of them<br>Name them with their classname<br>This will sort them aphabeticaly too</p>
+
+</body>
+</html>

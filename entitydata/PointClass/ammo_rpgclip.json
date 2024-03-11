@@ -1,8 +1,36 @@
 {
     "ammo_rpgclip":
     {
-        "BaseClass": "Mandatory, Angles, CAmmorpg, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile, appearflags",
-        "title": "RPG Ammo",
-        "description": ""
+        "atributes":
+        {
+            "studio": "",
+            "base": "Angles, CBaseAmmo, CBaseItem, Target, FireTargets, CBaseDelay, hullsize, rendersettings, CReplacemetFile",
+            "title": "RPG Ammo"
+        },
+        "model":
+        {
+            "type": "studio",
+            "title": "Model",
+            "default": "models/w_rpgammo.mdl"
+        },
+        "sequence":
+        {
+            "type": "choices",
+            "title": "Placement",
+            "default": "0",
+            "choices":
+            {
+                "0":
+                {
+                    "title": "Normal (flat)",
+                    "description": ""
+                },
+                "1":
+                {
+                    "title": "Capped",
+                    "description": ""
+                }
+            }
+        }
     }
 }

@@ -1,7 +1,10 @@
 {
     "func_traincontrols":
     {
-        "BaseClass": "Mandatory, Target, appearflags",
-        "title": "Train Controls"
+        "atributes":
+        {
+            "base": "Target",
+            "title": "Train Controls"
+        }
     }
 }

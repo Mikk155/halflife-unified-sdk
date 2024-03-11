@@ -1,8 +1,52 @@
 {
     "env_explosion":
     {
-        "BaseClass": "Mandatory, CEnvExplosion, appearflags",
-        "title": "Explosion",
-        "description": ""
+        "atributes":
+        {
+            "base": "SF2Repeatable",
+            "size": "-12 -12 -12, 12 12 12",
+            "color": "255 220 15",
+            "title": "Explosion"
+        },
+        "iMagnitude":
+        {
+            "type": "integer",
+            "title": "Magnitude",
+            "default": "100",
+            "description": ""
+        },
+        "spawnflags":
+        {
+            "1":
+            {
+                "title": "No Damage",
+                "default": "0",
+                "description": ""
+            },
+            "4":
+            {
+                "title": "No Fireball",
+                "default": "0",
+                "description": ""
+            },
+            "8":
+            {
+                "title": "No Smoke",
+                "default": "0",
+                "description": ""
+            },
+            "16":
+            {
+                "title": "No Decal",
+                "default": "0",
+                "description": ""
+            },
+            "32":
+            {
+                "title": "No Sparks",
+                "default": "0",
+                "description": ""
+            }
+        }
     }
 }

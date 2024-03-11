@@ -1,8 +1,26 @@
 {
     "cycler":
     {
-        "BaseClass": "Mandatory, Angles, CCycler, rendersettings, appearflags",
-        "title": "Monster Cycler",
-        "description": ""
+        "atributes":
+        {
+            "size": "-16 -16 0, 16 16 72",
+            "studio": "",
+            "base": "Angles, Angles, rendersettings",
+            "title": "Monster Cycler"
+        },
+        "model":
+        {
+            "type": "studio",
+            "title": "Model",
+            "default": "",
+            "description": ""
+        },
+        "bodygroup":
+        {
+            "type": "integer",
+            "title": "Body Group",
+            "default": "0",
+            "description": ""
+        }
     }
 }

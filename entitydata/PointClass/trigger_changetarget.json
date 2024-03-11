@@ -1,8 +1,16 @@
 {
     "trigger_changetarget":
     {
-        "entcolor": "60 155 30",
-        "BaseClass": "Mandatory, CTriggerChangeTarget, Target, CBaseDelay, appearflags",
-        "title": "Trigger Change Target"
+        "atributes":
+        {
+            "color": "60 155 30",
+            "base": "Target, CBaseDelay",
+            "title": "Trigger Change Target"
+        },
+        "m_iszNewTarget":
+        {
+            "type": "target_generic",
+            "title": "New Target"
+        }
     }
 }

@@ -1,7 +1,30 @@
 {
     "scripted_sequence":
     {
-        "BaseClass": "Mandatory, Angles, CScriptedSequence, CCineMonster, Target, FireTargets, CBaseDelay, appearflags",
-        "title": "Scripted Sequence"
+        "atributes":
+        {
+            "base": "Angles, CCineMonster, Target, FireTargets, CBaseDelay",
+            "title": "Scripted Sequence"
+        },
+        "m_iszIdle":
+        {
+            "type": "string",
+            "title": "Idle Animation"
+        },
+        "spawnflags":
+        {
+            "32": {
+                "title": "No Interruptions"
+            },
+            "64": {
+                "title": "Override AI"
+            },
+            "128": {
+                "title": "No Script Movement"
+            },
+            "256": {
+                "title": "No Reset Entity"
+            }
+        }
     }
 }

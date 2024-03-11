@@ -1,8 +1,38 @@
 {
     "env_warpball":
     {
-        "BaseClass": "Mandatory, CEnvWarpBall, Target, appearflags",
-        "title": "Warp In Ball",
-        "description": ""
+        "atributes":
+        {
+            "base": "SF1Remove, Target",
+            "size": "-32 -32 -32, 32 32 32",
+            "color": "0 255 0",
+            "title": "Warp In Ball",
+            "description": ""
+        },
+        "spawnflags":
+        {
+            "2":
+            {
+                "title": "Kill Center"
+            }
+        },
+        "radius":
+        {
+            "title": "Beam Radius",
+            "type": "integer",
+            "default": "256"
+        },
+        "warp_target":
+        {
+            "type": "target_destination",
+            "title": "Warp Target",
+            "default": ""
+        },
+        "damage_delay":
+        {
+            "type": "float",
+            "title": "Damage delay",
+            "default": "0"
+        }
     }
 }

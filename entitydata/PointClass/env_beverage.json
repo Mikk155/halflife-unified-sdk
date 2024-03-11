@@ -1,8 +1,63 @@
 {
     "env_beverage":
     {
-        "BaseClass": "Mandatory, CEnvBeverage, appearflags",
-        "title": "Beverage Dispenser",
-        "description": ""
+        "atributes":
+        {
+            "size": "-4 -4 -4, 4 4 4",
+            "color": "128 64 2",
+            "title": "Beverage Dispenser"
+        },
+        "health" :
+        {
+            "type": "integer",
+            "title": "Capacity",
+            "default": "10",
+            "description": ""
+        },
+        "skin":
+        {
+            "type": "choices",
+            "title": "Beverage Type",
+            "default": "0",
+            "description": "Sets the texture of the cans. You can set other than these to use if you're using a custom model, these are the skin index.",
+            "choices":
+            {
+                "0":
+                {
+                    "title": "Coca-Cola",
+                    "description": ""
+                },
+                "1":
+                {
+                    "title": "Sprite",
+                    "description": ""
+                },
+                "2":
+                {
+                    "title": "Diet Coke",
+                    "description": ""
+                },
+                "3":
+                {
+                    "title": "Orange",
+                    "description": ""
+                },
+                "4":
+                {
+                    "title": "Surge",
+                    "description": ""
+                },
+                "5":
+                {
+                    "title": "Moxie",
+                    "description": ""
+                },
+                "6":
+                {
+                    "title": "Random",
+                    "description": ""
+                }
+            }
+        }
     }
 }

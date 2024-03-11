@@ -1,7 +1,10 @@
 {
     "func_healthcharger":
     {
-        "BaseClass": "Mandatory, Global, CFuncChargers, CReplacemetFile, rendersettings, _minlight, ZHLT, appearflags",
-        "title": "Wall health recharger"
+        "atributes":
+        {
+            "base": "Global, CFuncChargers, CReplacemetFile, rendersettings, _minlight, ZHLT",
+            "title": "Wall health recharger"
+        }
     }
 }

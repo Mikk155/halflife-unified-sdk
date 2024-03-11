@@ -1,8 +1,28 @@
 {
     "button_target":
     {
-        "BaseClass": "Mandatory, Angles, CButtonTarget, Target, FireTargets, Master, rendersettings, ZHLT, appearflags",
-        "title": "Target Button",
-        "description": ""
+        "atributes":
+        {
+            "base": "Angles, Target, FireTargets, Master, rendersettings, ZHLT",
+            "title": "Target Button",
+            "description": ""
+        },
+        "spawnflags":
+        {
+            "1":
+
+            {
+                "title": "Use Activates",
+                "default": "1",
+                "description": ""
+            },
+            "2":
+
+            {
+                "title": "Start On",
+                "default": "0",
+                "description": ""
+            }
+        }
     }
 }

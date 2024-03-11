@@ -1,7 +1,33 @@
 {
     "func_door_rotating":
     {
-        "BaseClass": "Mandatory, Angles, Global, CDoorRotating, CDoor, CUnLockedSounds, Master, Target, FireTargets, CBaseDelay, rendersettings, CReplacemetFile, _minlight, ZHLT, appearflags",
-        "title": "Rotating Door"
+        "atributes":
+        {
+            "base": "Angles, Global, CDoor, CUnLockedSounds, Master, Target, FireTargets, CBaseDelay, rendersettings, CReplacemetFile, _minlight, ZHLT",
+            "title": "Rotating Door"
+        },
+        "distance":
+        {
+            "type": "cap",
+            "title": "Distance (deg)",
+            "default": "90",
+            "min": "-360",
+            "max": "360"
+        },
+        "spawnflags":
+        {
+            "2":{
+                "title": "Reverse Dir"
+            },
+            "16":{
+                "title": "One-way"
+            },
+            "64":{
+                "title": "X Axis"
+            },
+            "128":{
+                "title": "Y Axis"
+            }
+        }
     }
 }

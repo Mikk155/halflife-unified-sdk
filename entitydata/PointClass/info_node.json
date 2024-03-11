@@ -1,8 +1,11 @@
 {
     "info_node":
     {
-        "entsize": "-24 -24 -4, 24 24 4",
-        "entcolor": "255 255 0",
-        "title": "ai node"
+        "atributes":
+        {
+            "size": "-24 -24 -4, 24 24 4",
+            "color": "255 255 0",
+            "title": "ai node"
+        }
     }
 }

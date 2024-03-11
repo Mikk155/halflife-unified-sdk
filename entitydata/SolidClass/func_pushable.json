@@ -1,7 +1,50 @@
 {
     "func_pushable":
     {
-        "BaseClass": "Mandatory, Angles, Global, CFuncPushable, Breakable, Target, FireTargets, CBaseDelay, CReplacemetFile, rendersettings, _minlight, ZHLT, appearflags",
-        "title": "Pushable object"
+        "atributes":
+        {
+            "base": "Angles, Global, Breakable, Target, FireTargets, CBaseDelay, CReplacemetFile, rendersettings, _minlight, ZHLT",
+            "title": "Pushable object"
+        },
+        "size":
+        {
+            "type": "choices",
+            "title": "Hull Size",
+            "default": "0",
+            "choices":
+            {
+                "0": {
+                    "title": "Point size"
+                },
+                "1": {
+                    "title": "Player size"
+                },
+                "2": {
+                    "title": "Big Size"
+                },
+                "3": {
+                    "title": "Player duck"
+                }
+            }
+        },
+        "spawnflags":{
+            "128":{
+                "title": "Breakable"
+            }
+        },
+        "friction":
+        {
+            "type": "cap",
+            "title": "Friction (0-400)",
+            "default": "50",
+            "min": "0",
+            "max": "400"
+        },
+        "buoyancy":
+        {
+            "type": "integer",
+            "title": "Buoyancy)",
+            "default": "20"
+        }
     }
 }

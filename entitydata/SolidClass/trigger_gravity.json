@@ -1,7 +1,16 @@
 {
     "trigger_gravity":
     {
-        "BaseClass": "Mandatory, CTriggerGravity, CTrigger, Target, FireTargets, CBaseDelay, Master, appearflags",
-        "title": "Trigger Gravity"
+        "atributes":
+        {
+            "base": "CTrigger, Target, FireTargets, CBaseDelay, Master",
+            "title": "Gravity Trigger"
+        },
+        "gravity":
+        {
+            "type": "float",
+            "title": "Gravity (0-1)",
+            "default": "1.0"
+        }
     }
 }

@@ -1,8 +1,32 @@
 {
     "env_bubbles":
     {
-        "BaseClass": "Mandatory, CEnvBubbles, appearflags",
-        "title": "Bubble Volume",
-        "description": ""
+        "atributes":
+        {
+            "title": "Bubble Volume",
+            "base": "SF1StartOff",
+            "description": ""
+        },
+        "density":
+        {
+            "type": "integer",
+            "title": "Bubble density",
+            "default": "2",
+            "description": ""
+        },
+        "frequency":
+        {
+            "type": "integer",
+            "title": "Bubble frequency",
+            "default": "2",
+            "description": ""
+        },
+        "current":
+        {
+            "type": "integer",
+            "title": "Speed of Current",
+            "default": "2",
+            "description": ""
+        }
     }
 }

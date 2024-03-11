@@ -1,7 +1,10 @@
 {
     "pitworm_gibshooter":
     {
-        "BaseClass": "Mandatory, Angles, CGibShooter, appearflags",
-        "title": "Pitworm Gib Shooter"
+        "atributes":
+        {
+            "base": "CGibShooter, Angles",
+            "title": "Pitworm Gib Shooter"
+        }
     }
 }

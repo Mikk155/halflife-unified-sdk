@@ -1,8 +1,69 @@
 {
     "env_blood":
     {
-        "BaseClass": "Mandatory, CEnvBlood, appearflags",
-        "title": "Blood Effects",
-        "description": ""
+        "atributes":
+        {
+            "size": "-4 -4 -4, 4 4 4",
+            "color": "255 0 0",
+            "title": "Blood Effects"
+        },
+        "color":
+        {
+            "type": "choices",
+            "title": "Blood Color",
+            "default": "0",
+            "description": "",
+            "choices":
+            {
+                "0":
+                {
+                    "title": "Red (Human)",
+                    "description": ""
+                },
+                "1":
+                {
+                    "title": "Yellow (Alien)",
+                    "description": ""
+                }
+            }
+        },
+        "amount" :
+        {
+            "type": "integer",
+            "title": "Amount of blood (damage to simulate)",
+            "default": "100",
+            "description": ""
+        },
+        "spawnflags":
+        {
+            "1":
+
+            {
+                "title": "Random Direction",
+                "default": "0",
+                "description": ""
+            },
+            "2":
+
+            {
+                "title": "Blood Stream",
+                "default": "0",
+                "description": ""
+            },
+            "4":
+
+            {
+                "title": "On Player",
+                "default": "0",
+                "description": ""
+            },
+            "8":
+
+            {
+                "title": "Spray decals",
+                "default": "0",
+                "description": ""
+            }
+        }
     }
 }

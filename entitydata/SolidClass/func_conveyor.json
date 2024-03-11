@@ -1,7 +1,27 @@
 {
     "func_conveyor":
     {
-        "BaseClass": "Mandatory, Angles, Global, CFuncConveyor, rendersettings, _minlight, ZHLT, appearflags",
-        "title": "Conveyor Belt"
+        "atributes":
+        {
+            "base": "Angles, Global, rendersettings, _minlight, ZHLT",
+            "title": "Conveyor Belt"
+        },
+        "spawnflags":
+        {
+            "1":
+            {
+                "title": "No Push"
+            },
+            "2":
+            {
+                "title": "Not Solid"
+            }
+        },
+        "speed":
+        {
+            "type": "float",
+            "title": "Conveyor Speed",
+            "default": "100"
+        }
     }
 }

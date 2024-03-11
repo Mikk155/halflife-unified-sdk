@@ -1,8 +1,30 @@
 {
     "env_spark":
     {
-        "BaseClass": "Mandatory, Angles, CEnvSparks, appearflags",
-        "title": "Sparks",
-        "description": ""
+        "atributes":
+        {
+            "size": "-8 -8 -8, 8 8 8",
+            "color": "255 220 15",
+            "base": "Angles",
+            "title": "Sparks",
+            "description": ""
+        },
+        "MaxDelay":
+        {
+            "type": "float",
+            "title": "Max Delay",
+            "default": "0"
+        },
+        "spawnflags":
+        {
+            "32":
+            {
+                "title": "Toggle"
+            },
+            "64":
+            {
+                "title": "Start ON"
+            }
+        }
     }
 }

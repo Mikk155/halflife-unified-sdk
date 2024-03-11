@@ -1,7 +1,20 @@
 {
     "func_guntarget":
     {
-        "BaseClass": "Mandatory, Angles, Global, CFuncGunTarget, rendersettings, _minlight, ZHLT, appearflags",
-        "title": ""
+        "atributes":
+        {
+            "base": "speed, TargetTrain, SF1StartOn, Angles, Global, CFuncGunTarget, rendersettings, _minlight, ZHLT",
+            "title": "Gun target"
+        },
+        "message":
+        {
+            "title": "Fire on damage",
+            "type": "target_destination"
+        },
+        "health":
+        {
+            "title": "Damage to Take",
+            "type": "integer"
+        }
     }
 }

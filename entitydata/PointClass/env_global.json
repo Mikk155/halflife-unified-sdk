@@ -1,8 +1,81 @@
 {
     "env_global":
     {
-        "BaseClass": "Mandatory, CEnvGlobal, appearflags",
-        "title": "Global State",
-        "description": ""
+        "atributes":
+        {
+            "color": "4 32 250",
+            "title": "Global State"
+        },
+        "globalstate":
+        {
+            "type": "string",
+            "title": "Global State to Set",
+            "default": "",
+            "description": ""
+        },
+        "spawnflags":
+        {
+            "1":
+            {
+                "title": "Set Initial State",
+                "default": "0",
+                "description": ""
+            }
+        },
+        "triggermode":
+        {
+            "type": "choices",
+            "title": "Trigger Mode",
+            "default": "0",
+            "description": "",
+            "choices":
+            {
+                "0":
+                {
+                    "title": "Off",
+                    "description": ""
+                },
+                "1":
+                {
+                    "title": "On",
+                    "description": ""
+                },
+                "2":
+                {
+                    "title": "Dead",
+                    "description": ""
+                },
+                "3":
+                {
+                    "title": "Toggle",
+                    "description": ""
+                }
+            },
+            "initialstate":
+            {
+                "type": "choices",
+                "title": "Initial State",
+                "default": "0",
+                "description": "",
+                "choices":
+                {
+                    "0":
+                    {
+                        "title": "Off",
+                        "description": ""
+                    },
+                    "1":
+                    {
+                        "title": "On",
+                        "description": ""
+                    },
+                    "2":
+                    {
+                        "title": "Dead",
+                        "description": ""
+                    }
+                }
+            }
+        }
     }
 }

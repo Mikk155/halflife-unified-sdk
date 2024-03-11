@@ -1,7 +1,56 @@
 {
     "func_button":
     {
-        "BaseClass": "Mandatory, Angles, Global, CFuncButton, CUnLockedSounds, Master, Target, FireTargets, CBaseDelay, rendersettings, CReplacemetFile, _minlight, ZHLT, appearflags",
-        "title": "Button"
+        "atributes":
+        {
+            "BaseClass": "Mandatory, Angles, Global, CUnLockedSounds, Master, Target, FireTargets, CBaseDelay, rendersettings, CReplacemetFile, _minlight, ZHLT, appearflags",
+            "title": "Button"
+        },
+        "speed":
+        {
+            "type": "integer",
+            "title": "Speed",
+            "default": "5"
+        },
+        "health":
+        {
+            "type": "integer",
+            "title": "Health (shootable if > 0)"
+        },
+        "lip":
+        {
+            "type": "integer",
+            "title": "Lip"
+        },
+        "sounds":
+        {
+            "type": "sound",
+            "title": "Sounds"
+        },
+        "wait":
+        {
+            "type": "float",
+            "title": "Delay before reset (-1 = Stays pressed)",
+            "default": "-1"
+        },
+        "spawnflags":
+        {
+            "1":
+            {
+                "title": "Don't move"
+            },
+            "32":
+            {
+                "title": "Toggle"
+            },
+            "64":
+            {
+                "title": "Sparks"
+            },
+            "256":
+            {
+                "title": "Touch Activates"
+            }
+        }
     }
 }

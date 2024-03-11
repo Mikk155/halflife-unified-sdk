@@ -1,7 +1,29 @@
 {
     "func_breakable":
     {
-        "BaseClass": "Mandatory, Angles, Global, CFuncBreakable, Breakable, Target, FireTargets, CBaseDelay, CReplacemetFile, rendersettings, _minlight, ZHLT, appearflags",
-        "title": "Breakable Object"
+        "atributes":
+        {
+            "base": "Angles, Global, Breakable, Target, FireTargets, CBaseDelay, CReplacemetFile, rendersettings, _minlight, ZHLT",
+            "title": "Breakable Object"
+        },
+        "spawnflags":
+        {
+            "1":
+            {
+                "title": "Only Trigger"
+            },
+            "2":
+            {
+                "title": "Touch"
+            },
+            "5":
+            {
+                "title": "Pressure"
+            },
+            "256":
+            {
+                "title": "Instant Crowbar"
+            }
+        }
     }
 }

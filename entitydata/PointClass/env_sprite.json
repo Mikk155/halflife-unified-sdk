@@ -1,8 +1,43 @@
 {
     "env_sprite":
     {
-        "BaseClass": "Mandatory, Angles, CEnvSprite, Scale, rendersettings, appearflags",
-        "title": "Sprite Effect",
-        "description": ""
+        "atributes":
+        {
+            "size": "-4 -4 -4, 4 4 4",
+            "color": "190 200 180",
+            "sprite": "",
+            "base": "Angles, Scale, rendersettings",
+            "title": "Sprite Effect",
+            "description": ""
+        },
+        "framerate":
+        {
+            "type": "float",
+            "title": "Framerate",
+            "default": "10.0",
+            "description": ""
+        },
+        "model":
+        {
+            "type": "sprite",
+            "title": "Sprite Name",
+            "default": "sprites/glow01.spr",
+            "description": ""
+        },
+        "spawnflags":
+        {
+            "1":
+            {
+                "title": "Start on",
+                "default": "0",
+                "description": ""
+            },
+            "2":
+            {
+                "title": "Play Once",
+                "default": "0",
+                "description": ""
+            }
+        }
     }
 }

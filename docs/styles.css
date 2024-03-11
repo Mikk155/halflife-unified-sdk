@@ -7,6 +7,27 @@ body
     text-align: center;
 }
 
+pre
+{
+    background-color: rgb(37, 0, 80);
+    text-align: left;
+    font-weight: lighter;
+    font-size: medium;
+}
+
+jsstr
+{
+    color: #6dbff9;
+}
+jsvar
+{
+    color: #eef200;
+}
+jscm
+{
+    color: #3c6500;
+}
+
 .table_description
 {
     text-align: left;

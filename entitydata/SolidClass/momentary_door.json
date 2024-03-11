@@ -1,7 +1,10 @@
 {
     "momentary_door":
     {
-        "BaseClass": "Mandatory, Angles, Global, CDoor, CUnLockedSounds, Master, Target, FireTargets, CBaseDelay, rendersettings, CReplacemetFile, _minlight, ZHLT, appearflags",
-        "title": "Momentary/Continuous door"
+        "atributes":
+        {
+            "base": "Angles, Global, CDoor, CUnLockedSounds, Master, Target, FireTargets, CBaseDelay, rendersettings, CReplacemetFile, _minlight, ZHLT",
+            "title": "Momentary/Continuous door"
+        }
     }
 }

@@ -1,8 +1,46 @@
 {
     "env_fade":
     {
-        "BaseClass": "Mandatory, CEnvFade, renderamt, rendercolor, appearflags",
-        "title": "Screen Fade",
-        "description": ""
+        "atributes":
+        {
+            "base": "renderamt, rendercolor",
+            "color": "100 150 100",
+            "title": "Screen Fade"
+        },
+        "duration":
+        {
+            "type": "float",
+            "title": "Duration (seconds)",
+            "default": "2",
+            "description": ""
+        },
+        "holdtime":
+        {
+            "type": "float",
+            "title": "Hold Fade (seconds)",
+            "default": "0",
+            "description": ""
+        },
+        "spawnflags":
+        {
+            "1":
+            {
+                "title": "Fade From",
+                "default": "0",
+                "description": ""
+            },
+            "2":
+            {
+                "title": "Modulate",
+                "default": "0",
+                "description": ""
+            },
+            "4":
+            {
+                "title": "Activator Only",
+                "default": "0",
+                "description": ""
+            }
+        }
     }
 }

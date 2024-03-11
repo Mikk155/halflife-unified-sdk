@@ -1,7 +1,10 @@
 {
     "trigger_once":
     {
-        "BaseClass": "Mandatory, CTrigger, Target, FireTargets, CBaseDelay, Master, appearflags",
-        "title": "Activate once"
+        "atributes":
+        {
+            "base": "CTrigger, Target, FireTargets, CBaseDelay, Master",
+            "title": "Activate once"
+        }
     }
 }

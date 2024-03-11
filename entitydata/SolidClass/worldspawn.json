@@ -1,7 +1,10 @@
 {
     "worldspawn":
     {
-        "title": "World entity",
+        "atributes":
+        {
+            "title": "World entity"
+        },
         "message":
         {
             "type": "string",

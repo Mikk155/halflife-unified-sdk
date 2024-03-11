@@ -1,0 +1,1321 @@
+{
+    "Angles":
+    {
+        "angles":
+        {
+            "type": "vector",
+            "title": "Pitch Yaw Roll (Y Z X)",
+            "default": "0 0 0",
+            "description": ""
+        }
+    },
+    "_minlight":
+    {
+        "_minlight":
+        {
+            "type": "string",
+            "title": "Minimum light level"
+        }
+    },
+    "appearflags":
+    {
+        "appearflag_singleplayer":
+        {
+            "type": "choices",
+            "title": "#AppearFlags SinglePlayer",
+            "default": "0",
+            "description": "Appearance flags for SinglePlayer, This control when this entity should or should not appear in this condition.",
+            "choices":
+            {
+                "-1":
+                {
+                    "title": "Not in",
+                    "description": "This entity won't exist if the game is SinglePlayer."
+                },
+                "0":
+                {
+                    "title": "Default",
+                    "description": "This entity is not affected by the game being SinglePlayer"
+                },
+                "1":
+                {
+                    "title": "Only in",
+                    "description": "This entity won't exist if the game is NOT SinglePlayer"
+                }
+            }
+        },
+        "appearflag_multiplayer":
+        {
+            "type": "choices",
+            "title": "#AppearFlags MultiPlayer",
+            "default": "0",
+            "description": "Appearance flags for MultiPlayer, This control when this entity should or should not appear in this condition.",
+            "choices":
+            {
+                "-1":
+                {
+                    "title": "Not in",
+                    "description": "This entity won't exist if the game is MultiPlayer."
+                },
+                "0":
+                {
+                    "title": "Default",
+                    "description": "This entity is not affected by the game being MultiPlayer"
+                },
+                "1":
+                {
+                    "title": "Only in",
+                    "description": "This entity won't exist if the game is NOT MultiPlayer"
+                }
+            }
+        },
+        "appearflag_cooperative":
+        {
+            "type": "choices",
+            "title": "#AppearFlags Cooperative",
+            "default": "0",
+            "description": "Appearance flags for Cooperative, This control when this entity should or should not appear in this condition.",
+            "choices":
+            {
+                "-1":
+                {
+                    "title": "Not in",
+                    "description": "This entity won't exist if the game is Cooperative."
+                },
+                "0":
+                {
+                    "title": "Default",
+                    "description": "This entity is not affected by the game being Cooperative"
+                },
+                "1":
+                {
+                    "title": "Only in",
+                    "description": "This entity won't exist if the game is NOT Cooperative"
+                }
+            }
+        },
+        "appearflag_skilleasy":
+        {
+            "type": "choices",
+            "title": "#AppearFlags Easy",
+            "default": "0",
+            "description": "Appearance flags for Skill level Easy, This control when this entity should or should not appear in this condition.",
+            "choices":
+            {
+                "-1":
+                {
+                    "title": "Not in",
+                    "description": "This entity won't exist if the game is Easy."
+                },
+                "0":
+                {
+                    "title": "Default",
+                    "description": "This entity is not affected by the game being Easy"
+                },
+                "1":
+                {
+                    "title": "Only in",
+                    "description": "This entity won't exist if the game is NOT Easy"
+                }
+            }
+        },
+        "appearflag_skillmedium":
+        {
+            "type": "choices",
+            "title": "#AppearFlags Medium",
+            "default": "0",
+            "description": "Appearance flags for Skill level Medium, This control when this entity should or should not appear in this condition.",
+            "choices":
+            {
+                "-1":
+                {
+                    "title": "Not in",
+                    "description": "This entity won't exist if the game is Medium."
+                },
+                "0":
+                {
+                    "title": "Default",
+                    "description": "This entity is not affected by the game being Medium"
+                },
+                "1":
+                {
+                    "title": "Only in",
+                    "description": "This entity won't exist if the game is NOT Medium"
+                }
+            }
+        },
+        "appearflag_skillhard":
+        {
+            "type": "choices",
+            "title": "#AppearFlags Hard",
+            "default": "0",
+            "description": "Appearance flags for Skill level Hard, This control when this entity should or should not appear in this condition.",
+            "choices":
+            {
+                "-1":
+                {
+                    "title": "Not in",
+                    "description": "This entity won't exist if the game is Hard."
+                },
+                "0":
+                {
+                    "title": "Default",
+                    "description": "This entity is not affected by the game being Hard"
+                },
+                "1":
+                {
+                    "title": "Only in",
+                    "description": "This entity won't exist if the game is NOT Hard"
+                }
+            }
+        }
+    },
+    "Breakable":
+    {
+        "health":
+        {
+            "type": "integer",
+            "title": "Strength",
+            "default" : "1"
+        },
+        "material":
+        {
+            "title": "Material Type",
+            "type": "choices",
+            "default": "0",
+            "choices":
+            {
+                "0":
+                {
+                    "title": "Glass"
+                },
+                "1":
+                {
+                    "title": "Wood"
+                },
+                "2":
+                {
+                    "title": "Metal"
+                },
+                "3":
+                {
+                    "title": "Flesh"
+                },
+                "4":
+                {
+                    "title": "Cinder Block"
+                },
+                "5":
+                {
+                    "title": "Ceiling Tile"
+                },
+                "6":
+                {
+                    "title": "Computer"
+                },
+                "7":
+                {
+                    "title": "Unbreakable Glass"
+                },
+                "8":
+                {
+                    "title": "Rocks"
+                }
+            },
+            "explosion":
+            {
+                "type": "choices",
+                "title": "Gibs Direction",
+                "default": "0",
+                "choices":
+                {
+                    "0":
+                    {
+                        "title": "Random"
+                    },
+                    "1":
+                    {
+                        "title": "Relative to Attack"
+                    }
+                }
+            },
+            "gibmodel":
+            {
+                "type": "studio",
+                "title": "Gib Model"
+            },
+            "spawnobject":
+            {
+                "type": "string",
+                "title": "Item to spawn on break"
+            },
+            "explodemagnitude":
+            {
+                "type": "integer",
+                "title": "Explode Magnitude (0=none)",
+                "default" : "0"
+            }
+        }
+    },
+    "CBaseAmmo":
+    {
+        "atributes":
+        {
+            "color": "4 128 240"
+        },
+        "ammo_amount":
+        {
+            "type": "integer",
+            "title": "Ammo Amount To Give (-1 == Maximum)",
+            "default": "",
+            "description": "If set, the player will receive this much ammo instead of the default amount. If set to **-1** the player will receive the maximum amount of ammo for this type. Can be **0** to make a fake ammo entity."
+        }
+    },
+    "CBaseDelay":
+    {
+        "killtarget":
+        {
+            "type": "target_destination",
+            "title": "KillTarget",
+            "default": "",
+            "description": ""
+        },
+        "delay":
+        {
+            "type": "float",
+            "title": "Delay before trigger",
+            "default": "0",
+            "description": ""
+        }
+    },
+    "CBaseItem":
+    {
+        "atributes":
+        {
+            "size": "-16 -16 0, 16 16 32",
+            "color": "0 0 200",
+            "studio": ""
+        },
+        "respawn_delay":
+        {
+            "type": "float",
+            "title": "Respawn delay (-1 == Never)",
+            "default": "-1",
+            "description": "Custom respawn delay. If set, overrides the delay configured by the skill configuration. A delay of **-1** disables respawn. This allows items to respawn in singleplayer."
+        },
+        "stay_visible_during_respawn":
+        {
+            "type": "choices",
+            "title": "Stay Visible During Respawn",
+            "default": "0",
+            "choices":
+            {
+                "0":
+                {
+                    "title": "No",
+                    "description": "The items are invisible until respawn."
+                },
+                "1":
+                {
+                    "title": "Yes",
+                    "description": "The item remains visible during the respawn time."
+                }
+            }
+        },
+        "flash_on_respawn":
+        {
+            "type": "choices",
+            "title": "Flash On Respawn",
+            "default": "1",
+            "choices":
+            {
+                "0":
+                {
+                    "title": "No",
+                    "description": ""
+                },
+                "1":
+                {
+                    "title": "Yes",
+                    "description": "The item will flash when it respawns."
+                }
+            }
+        },
+        "play_pickup_sound":
+        {
+            "type": "choices",
+            "title": "Play Pickup Sound",
+            "default": "1",
+            "choices":
+            {
+                "0":
+                {
+                    "title": "No",
+                    "description": "The item won't play its pickup sound."
+                },
+                "1":
+                {
+                    "title": "Yes",
+                    "description": "The item will play its pickup sound."
+                }
+            }
+        },
+        "fall_mode":
+        {
+            "type": "choices",
+            "title": "Fall Mode",
+            "default": "0",
+            "description": "Controls whether the item falls to the ground or floats when it spawns.",
+            "choices":
+            {
+                "0":
+                {
+                    "title": "Fall",
+                    "description": "Item falls to ground when it spawns"
+                },
+                "1":
+                {
+                    "title": "Float",
+                    "description": "Item floats in the air where it spawns"
+                }
+            }
+        },
+        "trigger_on_spawn":
+        {
+            "type": "target_destination",
+            "title": "Trigger On Spawn",
+            "default": "",
+            "description": "Target to trigger when the item (re)spawns."
+        },
+        "trigger_on_despawn":
+        {
+            "type": "target_destination",
+            "title": "Trigger On Despawn",
+            "default": "",
+            "description": "Target to trigger when the item despawns. This happens when the player picks up the item."
+        }
+    },
+    "CCineMonster":
+    {
+        "color": "164 128 255",
+        "size": "-16 -16 0, 16 16 72",
+        "flags": "Angle",
+        "spawnflags":
+        {
+            "4":
+            {
+                "title": "Repeatable",
+                "default": "0",
+                "description": "If enabled, the sequence can be repeated more than once. Otherwise the entity will be removed once the sequence is complete."
+            },
+            "8":
+            {
+                "title": "Leave Corpse",
+                "default": "0",
+                "description": "If enabled, the monster leave it's corpse instead of fading out. This is only noticeable in-between two scripted_sequence when the monster is on a dying state."
+            }
+        },
+        "m_iszEntity":
+        {
+            "type": "target_generic",
+            "title": "Target Monster",
+            "default": "",
+            "description": "The name of the monster entity that this sequence affects. You can also input a monster classname (monster_scientist, for example). (Only one monster will be chosen to follow the sequence.)"
+        },
+        "m_iszPlay":
+        {
+            "type": "string",
+            "title": "Action Animation",
+            "default": "",
+            "description": "The name of the animation that will be performed by \"Target Monster\"."
+        },
+        "m_flRadius":
+        {
+            "type": "integer",
+            "title": "Search Radius",
+            "default": "512",
+            "description": "If you input a monster classname into \"Target Monster\", the entity will pick a monster within this radius of the entity to follow the sequence. If none are within the radius, the first monster to enter the radius will follow the sequence."
+        },
+        "m_flRepeat":
+        {
+            "type": "float",
+            "title": "Repeat Rate ms",
+            "default": "0",
+            "description": "How often to check if a monster is within the search radius. A check will be made even if search radius is zero, so set this to a large value if it's not used."
+        },
+        "m_fMoveTo":
+        {
+            "type": "choices",
+            "title": "Move to Position",
+            "default": "0",
+            "description": "Sets how (or if) the monster moves before performing the animation",
+            "choices":
+            {
+                "0":
+                {
+                    "title": "No",
+                    "description": "The monster will not move or turn. It will perform the animation wherever it is."
+                },
+                "1":
+                {
+                    "title": "Walk",
+                    "description": "The monster will walk to the scripted_sequence, then perform the animation."
+                },
+                "2":
+                {
+                    "title": "Run",
+                    "description": "The monster will run to the scripted_sequence, then perform the animation."
+                },
+                "4":
+                {
+                    "title": "Instantaneous",
+                    "description": "The monster will instantly warp to the location of the scripted_sequence and perform the animation."
+                },
+                "5":
+                {
+                    "title": "No - Turn to Face",
+                    "description": "The monster will not move, but will turn to the scripted_sequence's angle before performing the animation."
+                }
+            }
+        },
+        "m_iFinishSchedule":
+        {
+            "type": "choices",
+            "title": "AI Schedule when done",
+            "default": "0",
+            "description": "Defines what happens to the monster's AI when the sequence is completed/canceled.",
+            "choices":
+            {
+                "0":
+                {
+                    "title": "Default AI",
+                    "description": "The AI will order the monster to clear it's schedule (kinda like a \"reset\"). It will resume normal behavior afterwards."
+                },
+                "1":
+                {
+                    "title": "Ambush",
+                    "description": "The AI will order the monster to go into an \"ambush\" schedule. That is to wait for an infinite period of time unless it see an enemy or take damage."
+                }
+            }
+        }
+    },
+    "CCustomModels":
+    {
+        "model_replacement_filename":
+        {
+            "type": "string",
+            "title": "Model replacement file",
+            "default": "",
+            "description": "Path to the model replacement file. Must be a relative path starting in the mod directory. All search paths are checked, See <a href=\"../features/replacement-map-system.md\">Replacement Map System</a>"
+        }
+    },
+    "CCustomSentence":
+    {
+        "sentence_replacement_filename":
+        {
+            "type": "string",
+            "title": "Sentence replacement file",
+            "default": "",
+            "description": "Path to the Sentence replacement file. Must be a relative path starting in the mod directory. All search paths are checked, See <a href=\"../features/replacement-map-system.md\">Replacement Map System</a>"
+        }
+    },
+    "CCustomSounds":
+    {
+        "sound_replacement_filename":
+        {
+            "type": "string",
+            "title": "Sound replacement file",
+            "default": "",
+            "description": "Path to the Sound replacement file. Must be a relative path starting in the mod directory. All search paths are checked, See <a href=\"../features/replacement-map-system.md\">Replacement Map System</a>"
+        }
+    },
+    "CDoor":
+    {
+        "speed":
+        {
+            "type": "integer",
+            "title": "Speed",
+            "default": "100"
+        },
+        "movesnd":
+        {
+            "type": "sound",
+            "title": "Move Sound"
+        },
+        "stopsnd":
+        {
+            "type": "sound",
+            "title": "Stop Sound"
+        },
+        "wait":
+        {
+            "type": "integer",
+            "title": "Delay before close (-1 = Stays open)",
+            "default": "-1"
+        },
+        "lip":
+        {
+            "type": "integer",
+            "title": "Lip"
+        },
+        "dmg":
+        {
+            "type": "integer",
+            "default": "0",
+            "title": "Damage inflicted when blocked"
+        },
+        "message":
+        {
+            "type": "string",
+            "title": "Message if triggered"
+        },
+        "netname":
+        {
+            "type": "target_destination",
+            "title": "Fire on Close"
+        },
+        "health":
+        {
+            "type": "integer",
+            "default": "0",
+            "title": "Health (shoot open)"
+        },
+        "spawnflags":
+        {
+            "1":{
+                "title": "Starts Open"
+            },
+            "4":{
+                "title": "Don't link"
+            },
+            "8":{
+                "title": "Passable"
+            },
+            "32":{
+                "title": "Toggle"
+            },
+            "256":{
+                "title": "Use Only"
+            },
+            "512":{
+                "title": "Monsters Can't"
+            }
+        }
+    },
+    "CRopes":
+    {
+        "segments":
+        {
+            "type": "integer",
+            "title": "Segments"
+        },
+        "disable":
+        {
+            "type": "choices",
+            "title": "Disable Use",
+            "default": "0",
+            "choices":
+            {
+                "0":
+                {
+                    "title": "Not Disabled"
+                },
+                "1":
+                {
+                    "title": "Disabled"
+                }
+            }
+        },
+        "endingmodel":
+        {
+            "type": "studio",
+            "title": "Ending Model",
+            "default": "models/rope16.mdl"
+        },
+        "bodymodel":
+        {
+            "type": "studio",
+            "title": "Body Model",
+            "default": "models/rope16.mdl"
+        }
+    },
+    "CFuncFriction":
+    {
+        "modifier":
+        {
+            "type": "cap",
+            "title": "Percentage of standard (0 - 100)",
+            "default": "15",
+            "min": "0",
+            "max": "100"
+        }
+    },
+    "CTrigger":
+    {
+        "netname":
+        {
+            "type": "target_destination",
+            "title": "Target Path"
+        },
+        "message":
+        {
+            "type": "string",
+            "title": "Message"
+        },
+        "spawnflags":
+        {
+            "1":{
+                "title": "Monsters"
+            },
+            "2":{
+                "title": "No Clients"
+            },
+            "4":{
+                "title": "Pushables"
+            }
+        }
+    },
+    "CTriggerState":
+    {
+        "triggerstate":
+        {
+            "type": "choices",
+            "title": "Trigger State",
+            "default": "0",
+            "choices":
+            {
+                "0":{
+                    "title": "Off"
+                },
+                "1":{
+                    "title": "On"
+                },
+                "2":{
+                    "title": "Toggle"
+                }
+            }
+        }
+    },
+    "CFuncChargers":
+    {
+        "fire_on_recharge":
+        {
+            "type": "target_destination",
+            "title": "Target To Fire On Recharge"
+        },
+        "fire_on_empty":
+        {
+            "type": "target_destination",
+            "title": "Target To Fire On Empty"
+        },
+        "fire_on_spawn":
+        {
+            "type": "choices",
+            "title": "Fire Targets On Map Spawn",
+            "default": "1",
+            "choices":
+            {
+                "0":{
+                    "title": "No"
+                },
+                "1":{
+                    "title": "Yes"
+                }
+            }
+        },
+        "total_juice":
+        {
+            "type": "integer",
+            "title": "Total Juice In Charger (-1 == Unlimited)"
+        },
+        "recharge_delay":
+        {
+            "type": "integer",
+            "title": "Recharge Delay"
+        },
+        "charge_per_use":
+        {
+            "type": "integer",
+            "title": "Charge Per Use"
+        }
+    },
+    "CGibShooter":
+    {
+        "base": "SF1Repeatable",
+        "size": "-16 -16 -16, 16 16 16",
+        "flags": "Angle",
+        "m_iGibs":
+        {
+            "type": "integer",
+            "title": "Number of Gibs",
+            "default": "3"
+        },
+        "delay":
+        {
+            "type": "float",
+            "title": "Delay between shots",
+            "default": "0"
+        },
+        "m_flVelocity":
+        {
+            "type": "integer",
+            "title": "Give Velocity",
+            "default": "200"
+        },
+        "m_flVariance":
+        {
+            "type": "float",
+            "title": "Course Variance",
+            "default": "0.15"
+        },
+        "m_flGibLife":
+        {
+            "type": "float",
+            "title": "Gib Life",
+            "default": "4"
+        }
+    },
+    "CReplacemetFile":
+    {
+        "base": "CCustomModels, CCustomSounds, CCustomSentence"
+    },
+    "CUnLockedSounds":
+    {
+        "locked_sound":
+        {
+            "title": "Locked Sound",
+            "type": "sound"
+        },
+        "unlocked_sound":
+        {
+            "title": "Unlocked Sound",
+            "type": "sound"
+        },
+        "locked_sentence":
+        {
+            "title": "Locked Sentence",
+            "type": "string"
+        },
+        "unlocked_sentence":
+        {
+            "title": "Unlocked Sentence",
+            "type": "string"
+        }
+    },
+    "FireTargets":
+    {
+        "m_UseType":
+        {
+            "type": "choices",
+            "title": "Use Type",
+            "default": "-1",
+            "description": "Anything else will be count as USE_UNKNOWN and in fact, work the same as USE_UNSET",
+            "choices":
+            {
+                "-1":
+                {
+                    "title": "USE_UNSET (default)",
+                    "description": "This is the value by default and will have no effect at all in how entities normaly behave."
+                },
+                "0":
+                {
+                    "title": "USE_OFF",
+                    "description": ""
+                },
+                "1":
+                {
+                    "title": "USE_ON",
+                    "description": ""
+                },
+                "2":
+                {
+                    "title": "USE_SET",
+                    "description": "Does use of m_UseValue, See how it affects each entity."
+                },
+                "3":
+                {
+                    "title": "USE_TOGGLE",
+                    "description": ""
+                },
+                "4":
+                {
+                    "title": "USE_KILL",
+                    "description": "Remove the entity from the world."
+                },
+                "5":
+                {
+                    "title": "USE_SAME",
+                    "description": "Sends the same USE_TYPE that this entity receive."
+                },
+                "6":
+                {
+                    "title": "USE_OPPOSITE",
+                    "description": "Sends the opposite USE_TYPE that this entity receive, Swaps USE_ON <-> USE_OFF, If anything else then USE_TOGGLE is sent"
+                },
+                "7":
+                {
+                    "title": "USE_TOUCH",
+                    "description": "Calls the Touch function, the activator will be passed as the toucher."
+                },
+                "8":
+                {
+                    "title": "USE_LOCK",
+                    "description": "Locks the entity. Does use of m_UseValue"
+                },
+                "9":
+                {
+                    "title": "USE_UNLOCK",
+                    "description": "Un-Locks the entity. Does use of m_UseValue"
+                }
+            }
+        },
+        "m_UseValue":
+        {
+            "type": "float",
+            "title": "Use Value",
+            "default": "",
+            "description": ""
+        }
+    },
+    "Global":
+    {
+        "globalname":
+        {
+            "type": "string",
+            "title": "Global Entity Name",
+            "default": "",
+            "description": ""
+        }
+    },
+    "hullsize":
+    {
+        "custom_hull_min":
+        {
+            "type": "vector",
+            "title": "Custom Min hullsize (X Y Z)",
+            "description": "Custom minimum hull size. This overrides the size specified by models and entities."
+        },
+        "custom_hull_max":
+        {
+            "type": "vector",
+            "title": "Custom Max hullsize (X Y Z)",
+            "description": "Custom maximum hull size. This overrides the size specified by models and entities."
+        }
+    },
+    "Mandatory":
+    {
+        "spawnflags":
+        {
+            "2048":
+            {
+                "title": "Only in Singleplayer",
+                "description": "This entity won't spawn at all in multi-player"
+            }
+        },
+        "targetname":
+        {
+            "type": "target_source",
+            "title": "Name",
+            "description": "Name is a general attribute used to identify entities"
+        }
+    },
+    "Master":
+    {
+        "master":
+        {
+            "type": "target_destination",
+            "title": "Master",
+            "default": "",
+            "description": ""
+        }
+    },
+    "PlatSounds":
+    {
+        "movesnd":
+        {
+            "type": "sound",
+            "title": "Move Sound"
+        },
+        "stopsnd":
+        {
+            "type": "sound",
+            "title": "Stop Sound"
+        },
+        "volume":
+        {
+            "type": "float",
+            "title": "Sound Volume 0.0 - 1.0",
+            "default": "0.85"
+        }
+    },
+    "renderamt":
+    {
+        "renderamt":
+        {
+            "type": "cap",
+            "title": "FX Amount (1 - 255)",
+            "default": "255",
+            "description": "",
+            "min": "0",
+            "max": "255"
+        }
+    },
+    "rendercolor":
+    {
+        "rendercolor":
+        {
+            "type": "color255",
+            "title": "FX Color (R G B)",
+            "default": "0 0 0",
+            "description": ""
+        }
+    },
+    "renderfx":
+    {
+        "renderfx":
+        {
+            "type": "choices",
+            "title": "FX Effect",
+            "default": "0",
+            "description": "",
+            "choices":
+            {
+                "0":
+                {
+                    "title": "Normal",
+                    "description": ""
+                },
+                "1":
+                {
+                    "title": "Slow Pulse",
+                    "description": ""
+                },
+                "2":
+                {
+                    "title": "Fast Pulse",
+                    "description": ""
+                },
+                "3":
+                {
+                    "title": "Slow Wide Pulse",
+                    "description": ""
+                },
+                "4":
+                {
+                    "title": "Fast Wide Pulse",
+                    "description": ""
+                },
+                "9":
+                {
+                    "title": "Slow Strobe",
+                    "description": ""
+                },
+                "10":
+                {
+                    "title": "Fast Strobe",
+                    "description": ""
+                },
+                "11":
+                {
+                    "title": "Faster Strobe",
+                    "description": ""
+                },
+                "12":
+                {
+                    "title": "Slow Flicker",
+                    "description": ""
+                },
+                "13":
+                {
+                    "title": "Fast Flicker",
+                    "description": ""
+                },
+                "5":
+                {
+                    "title": "Slow Fade Away",
+                    "description": ""
+                },
+                "6":
+                {
+                    "title": "Fast Fade Away",
+                    "description": ""
+                },
+                "7":
+                {
+                    "title": "Slow Become Solid",
+                    "description": ""
+                },
+                "8":
+                {
+                    "title": "Fast Become Solid",
+                    "description": ""
+                },
+                "14":
+                {
+                    "title": "Constant Glow",
+                    "description": ""
+                },
+                "15":
+                {
+                    "title": "Distort",
+                    "description": ""
+                },
+                "16":
+                {
+                    "title": "Hologram (Distort + fade)",
+                    "description": ""
+                }
+            }
+        }
+    },
+    "rendermode":
+    {
+        "rendermode":
+        {
+            "type": "choices",
+            "title": "FX Mode",
+            "default": "0",
+            "description": "",
+            "choices": {
+                "0": {
+                    "title": "Normal",
+                    "description": ""
+                },
+                "1": {
+                    "title": "color",
+                    "description": ""
+                },
+                "2": {
+                    "title": "Texture",
+                    "description": ""
+                },
+                "3": {
+                    "title": "Glow",
+                    "description": ""
+                },
+                "4": {
+                    "title": "Solid",
+                    "description": ""
+                },
+                "5": {
+                    "title": "Additive",
+                    "description": ""
+                }
+            }
+        }
+    },
+    "rendersettings":
+    {
+        "atributes":
+        {
+            "base": "rendermode, renderamt, rendercolor, renderfx"
+        }
+    },
+    "Scale":
+    {
+        "scale":
+        {
+            "type": "float",
+            "title": "Scale",
+            "default": "1.0"
+        }
+    },
+    "Skin":
+    {
+        "skin":
+        {
+            "type": "integer",
+            "title": "Skin",
+            "default": "0"
+        }
+    },
+    "Sequence":
+    {
+        "sequence":
+        {
+            "type": "integer",
+            "title": "Animation Sequence (editor)",
+            "default": "",
+            "description": "Sequence to display in Jackhammer. This does not affect gameplay."
+        }
+    },
+    "SF1Repeatable":
+    {
+        "spawnflags":
+        {
+            "1":
+            {
+                "title": "Repeatable",
+                "default": "0",
+                "description": ""
+            }
+        }
+    },
+    "SF1Remove":
+    {
+        "spawnflags":
+        {
+            "1":
+            {
+                "title": "Remove On fire",
+                "description": ""
+            }
+        }
+    },
+    "SF1StartOff":
+    {
+        "spawnflags":
+        {
+            "1":
+
+            {
+                "title": "Start Off",
+                "default": "0",
+                "description": ""
+            }
+        }
+    },
+    "SF1StartOn":
+    {
+        "spawnflags":
+        {
+            "1":
+            {
+                "title": "Start On",
+                "default": "0",
+                "description": ""
+            }
+        }
+    },
+    "SF2Repeatable":
+    {
+        "spawnflags":
+        {
+            "2":
+            {
+                "title": "Repeatable",
+                "default": "0",
+                "description": ""
+            }
+        }
+    },
+    "Target":
+    {
+        "target":
+        {
+            "type": "target_destination",
+            "title": "Target",
+            "description": ""
+        }
+    },
+    "VolumeHealth10":
+    {
+        "health":
+        {
+            "type": "cap",
+            "title": "Volume (10 = loudest)",
+            "default": "0",
+            "description": " Sets the volume of the sound. Scales from 0 (completely silent) to 10 (maximum, default). (If using dynamics attributes below, this is the maximum volume the sound will reach.)",
+            "min": "0",
+            "max": "10"
+        }
+    },
+    "ZHLT_point":
+    {
+        "_falloff":
+        {
+            "type": "choices",
+            "title": "ZHLT Falloff",
+            "default": "",
+            "description": "",
+            "choices":
+            {
+                "0":
+                {
+                    "title": "Default",
+                    "description": ""
+                },
+                "1":
+                {
+                    "title": "Inverse Linear",
+                    "description": ""
+                },
+                "2":
+                {
+                    "title": "Inverse Square",
+                    "description": ""
+                }
+            },
+        "_fade":
+        {
+            "type": "string",
+            "title": "ZHLT Fade",
+            "default": "1.0",
+            "description": ""
+            }
+        }
+    },
+    "ZHLT":
+    {
+        "zhlt_lightflags":
+        {
+            "type": "choices",
+            "title": "ZHLT Lightflags",
+            "default": "",
+            "description": "",
+            "choices":
+            {
+                "0":
+                {
+                    "title": "Default",
+                    "description": ""
+                },
+                "1":
+                {
+                    "title": "Embedded Fix",
+                    "description": ""
+                },
+                "2":
+                {
+                    "title": "Opaque (blocks light)",
+                    "description": ""
+                },
+                "3":
+                {
+                    "title": "Opaque + Embedded fix",
+                    "description": ""
+                },
+                "4":
+                {
+                    "title": "Opaque + Concave Fix",
+                    "description": ""
+                }
+            }
+        },
+        "light_origin":
+        {
+            "type": "target_destination",
+            "title": "Light Origin Target",
+            "default": "",
+            "description": ""
+        }
+    },
+    "speed":
+    {
+        "speed":
+        {
+            "type": "integer",
+            "title": "Speed",
+            "default": "100"
+        }
+    },
+    "TargetTrain":
+    {
+        "target":
+        {
+            "type": "target_destination",
+            "title": "First stop target"
+        }
+    },
+    "END": true
+}
