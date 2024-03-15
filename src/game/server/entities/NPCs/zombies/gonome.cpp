@@ -35,7 +35,7 @@ public:
 
 	void Animate();
 
-	static void Shoot(CBaseEntity* owner, Vector vecStart, Vector vecVelocity, CBaseEntity* owner );
+	static void Shoot(CBaseEntity* owner, Vector vecStart, Vector vecVelocity);
 
 	static COFGonomeGuts* GonomeGutsCreate(const Vector& origin, CBaseEntity* owner );
 
@@ -130,7 +130,7 @@ void COFGonomeGuts::Animate()
 	}
 }
 
-void COFGonomeGuts::Shoot(CBaseEntity* owner, Vector vecStart, Vector vecVelocity, CBaseEntity* owner )
+void COFGonomeGuts::Shoot(CBaseEntity* owner, Vector vecStart, Vector vecVelocity)
 {
 	auto pGuts = g_EntityDictionary->Create<COFGonomeGuts>("gonomeguts");
 	UTIL_InitializeKeyValues( pGuts, owner->m_InheritKey, owner->m_InheritValue, owner->m_InheritKeyValues );
