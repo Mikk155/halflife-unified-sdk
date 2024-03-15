@@ -35,9 +35,9 @@ public:
 
 	void Animate();
 
-	static void Shoot(CBaseEntity* owner, Vector vecStart, Vector vecVelocity);
+	static void Shoot(CBaseEntity* owner, Vector vecStart, Vector vecVelocity, CBaseEntity* owner );
 
-	static COFGonomeGuts* GonomeGutsCreate(const Vector& origin);
+	static COFGonomeGuts* GonomeGutsCreate(const Vector& origin, CBaseEntity* owner );
 
 	void Launch(CBaseEntity* owner, Vector vecStart, Vector vecVelocity);
 
@@ -130,9 +130,10 @@ void COFGonomeGuts::Animate()
 	}
 }
 
-void COFGonomeGuts::Shoot(CBaseEntity* owner, Vector vecStart, Vector vecVelocity)
+void COFGonomeGuts::Shoot(CBaseEntity* owner, Vector vecStart, Vector vecVelocity, CBaseEntity* owner )
 {
 	auto pGuts = g_EntityDictionary->Create<COFGonomeGuts>("gonomeguts");
+	UTIL_InitializeKeyValues( pGuts, owner->m_InheritKey, owner->m_InheritValue, owner->m_InheritKeyValues );
 	pGuts->Spawn();
 
 	pGuts->SetOrigin(vecStart);
@@ -146,9 +147,10 @@ void COFGonomeGuts::Shoot(CBaseEntity* owner, Vector vecStart, Vector vecVelocit
 	}
 }
 
-COFGonomeGuts* COFGonomeGuts::GonomeGutsCreate(const Vector& origin)
+COFGonomeGuts* COFGonomeGuts::GonomeGutsCreate(const Vector& origin, CBaseEntity* owner )
 {
 	auto pGuts = g_EntityDictionary->Create<COFGonomeGuts>("gonomeguts");
+	UTIL_InitializeKeyValues( pGuts, owner->m_InheritKey, owner->m_InheritValue, owner->m_InheritKeyValues );
 	pGuts->Spawn();
 
 	pGuts->pev->origin = origin;
@@ -316,7 +318,7 @@ void COFGonome::HandleAnimEvent(MonsterEvent_t* pEvent)
 
 			if (!m_pGonomeGuts)
 			{
-				m_pGonomeGuts = COFGonomeGuts::GonomeGutsCreate(vecGutsPos);
+				m_pGonomeGuts = COFGonomeGuts::GonomeGutsCreate(vecGutsPos, this);
 			}
 
 			// Attach to hand for throwing
@@ -349,7 +351,7 @@ void COFGonome::HandleAnimEvent(MonsterEvent_t* pEvent)
 
 			if (!m_pGonomeGuts)
 			{
-				m_pGonomeGuts = COFGonomeGuts::GonomeGutsCreate(vecGutsPos);
+				m_pGonomeGuts = COFGonomeGuts::GonomeGutsCreate(vecGutsPos, this);
 			}
 
 			auto direction = (m_hEnemy->pev->origin + m_hEnemy->pev->view_ofs - vecGutsPos).Normalize();

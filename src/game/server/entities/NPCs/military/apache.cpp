@@ -296,7 +296,9 @@ void CApache::DyingThink()
 
 		if (/*(pev->spawnflags & SF_NOWRECKAGE) == 0 && */ (pev->flags & FL_ONGROUND) != 0)
 		{
-			CBaseEntity* pWreckage = Create("cycler_wreckage", pev->origin, pev->angles);
+			CBaseEntity* pWreckage = Create("cycler_wreckage", pev->origin, pev->angles, nullptr, false );
+			UTIL_InitializeKeyValues( pWreckage, m_InheritKey, m_InheritValue, m_InheritKeyValues );
+			DispatchSpawn( pWreckage->edict() );
 			// pWreckage->SetModel(STRING(pev->model));
 			pWreckage->SetSize(Vector(-200, -200, -128), Vector(200, 200, -32));
 			pWreckage->pev->frame = pev->frame;
@@ -719,7 +721,10 @@ void CApache::FireRocket()
 		break;
 	}
 
-	CBaseEntity* pRocket = CBaseEntity::Create("hvr_rocket", vecSrc, pev->angles, this);
+	CBaseEntity* pRocket = CBaseEntity::Create("hvr_rocket", vecSrc, pev->angles, this, false );
+	UTIL_InitializeKeyValues( pRocket, m_InheritKey, m_InheritValue, m_InheritKeyValues );
+	DispatchSpawn( pRocket->edict() );
+
 	if (pRocket)
 	{
 		MESSAGE_BEGIN(MSG_PVS, SVC_TEMPENTITY, vecSrc);
@@ -907,6 +912,13 @@ void CApache::TraceAttack(CBaseEntity* attacker, float flDamage, Vector vecDir, 
 		// AddMultiDamage( attacker, this, flDamage / 2.0, bitsDamageType );
 		UTIL_Ricochet(ptr->vecEndPos, 2.0);
 	}
+}
+
+bool CApache :: ShouldInheritKeyValue( const char* szKey )
+{
+    return ( FStrEq( szKey, "model_replacement_filename" )
+          || FStrEq( szKey, "sound_replacement_filename" )
+    );
 }
 
 class CApacheHVR : public CGrenade

@@ -264,6 +264,8 @@ CSpore* CSpore::CreateSpore(
 {
 	auto pSpore = g_EntityDictionary->Create<CSpore>("spore");
 
+	UTIL_InitializeKeyValues( static_cast<CBaseEntity*>( pSpore ), pOwner->m_InheritKey, pOwner->m_InheritValue, pOwner->m_InheritKeyValues );
+
 	pSpore->SetOrigin(vecOrigin);
 
 	pSpore->m_SporeType = sporeType;

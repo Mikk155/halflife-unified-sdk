@@ -91,6 +91,7 @@ public:
 
 	int m_iDoLeftSmokePuff;
 	int m_iDoRightSmokePuff;
+	bool ShouldInheritKeyValue( const char* szKey ) override;
 
 protected:
 	/**

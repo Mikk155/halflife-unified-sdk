@@ -63,6 +63,7 @@ public:
 	void Precache() override;
 	void SetYawSpeed() override;
 	int ISoundMask() override;
+	bool ShouldInheritKeyValue( const char* szKey ) override;
 	void HandleAnimEvent(MonsterEvent_t* pEvent) override;
 	void SetObjectCollisionBox() override
 	{
@@ -205,6 +206,13 @@ int CAGrunt::ISoundMask()
 		   bits_SOUND_COMBAT |
 		   bits_SOUND_PLAYER |
 		   bits_SOUND_DANGER;
+}
+
+bool CAGrunt :: ShouldInheritKeyValue( const char* szKey )
+{
+	return ( FStrEq( szKey, "model_replacement_filename" )
+		  || FStrEq( szKey, "sound_replacement_filename" )
+	);
 }
 
 void CAGrunt::TraceAttack(CBaseEntity* attacker, float flDamage, Vector vecDir, TraceResult* ptr, int bitsDamageType)
@@ -416,7 +424,9 @@ void CAGrunt::HandleAnimEvent(MonsterEvent_t* pEvent)
 		WRITE_BYTE(128);				 // brightness
 		MESSAGE_END();
 
-		CBaseEntity* pHornet = CBaseEntity::Create("hornet", vecArmPos, UTIL_VecToAngles(vecDirToEnemy), this);
+		CBaseEntity* pHornet = CBaseEntity::Create("hornet", vecArmPos, UTIL_VecToAngles(vecDirToEnemy), this, false);
+		UTIL_InitializeKeyValues( pHornet, m_InheritKey, m_InheritValue, m_InheritKeyValues );
+		DispatchSpawn( pHornet->edict() );
 		UTIL_MakeVectors(pHornet->pev->angles);
 		pHornet->pev->velocity = gpGlobals->v_forward * 300;
 
@@ -575,7 +585,7 @@ void CAGrunt::Precache()
 
 	iAgruntMuzzleFlash = PrecacheModel("sprites/muz4.spr");
 
-	UTIL_PrecacheOther("hornet");
+	UTIL_PrecacheOther( "hornet", m_InheritKey, m_InheritValue, m_InheritKeyValues );
 }
 
 Task_t tlAGruntFail[] =

@@ -47,7 +47,7 @@ public:
 	void Precache() override;
 	void Spawn() override;
 
-	static void Shoot(CBaseEntity* owner, Vector vecStart, Vector vecVelocity, Vector vecAngles);
+	static void Shoot(CBaseEntity* owner, Vector vecStart, Vector vecVelocity, Vector vecAngles, CBaseEntity* owner );
 	void SpikeTouch(CBaseEntity* pOther);
 
 	void StartTrail();
@@ -90,9 +90,11 @@ void CPitdroneSpike::Spawn()
 	m_maxFrame = (float)MODEL_FRAMES(pev->modelindex) - 1;
 }
 
-void CPitdroneSpike::Shoot(CBaseEntity* owner, Vector vecStart, Vector vecVelocity, Vector vecAngles)
+void CPitdroneSpike::Shoot(CBaseEntity* owner, Vector vecStart, Vector vecVelocity, Vector vecAngles, CBaseEntity* owner )
 {
 	CPitdroneSpike* pSpit = g_EntityDictionary->Create<CPitdroneSpike>("pitdronespike");
+
+	UTIL_InitializeKeyValues( pSpit, owner->m_InheritKey, owner->m_InheritValue, owner->m_InheritKeyValues );
 
 	pSpit->pev->angles = vecAngles;
 	pSpit->SetOrigin(vecStart);
@@ -238,11 +240,14 @@ public:
 	void GibMonster() override;
 	bool KeyValue(KeyValueData* pkvd) override;
 
+	bool ShouldInheritKeyValue( const char* szKey ) override;
+
 	float m_flLastHurtTime;	 //!< we keep track of this, because if something hurts a squid, it will forget about its love of headcrabs for a while.
 	float m_flNextSpikeTime; //!< last time the pit drone used the spike attack.
 	int m_iInitialAmmo;
 	float m_flNextEatTime;
 };
+
 LINK_ENTITY_TO_CLASS(monster_pitdrone, CPitdrone);
 
 BEGIN_DATAMAP(CPitdrone)
@@ -477,7 +482,7 @@ void CPitdrone::HandleAnimEvent(MonsterEvent_t* pEvent)
 			WRITE_BYTE(25);					  // noise ( client will divide by 100 )
 			MESSAGE_END();
 
-			CPitdroneSpike::Shoot(this, vecSpitOffset, vecSpitDir * 900, UTIL_VecToAngles(vecSpitDir));
+			CPitdroneSpike::Shoot(this, vecSpitOffset, vecSpitDir * 900, UTIL_VecToAngles(vecSpitDir), this);
 
 			auto ammoSubModel = GetBodygroup(PitdroneBodygroup::Weapons);
 
@@ -1133,4 +1138,11 @@ bool CPitdrone::KeyValue(KeyValueData* pkvd)
 	}
 
 	return CBaseMonster::KeyValue(pkvd);
+}
+
+bool CPitdrone :: ShouldInheritKeyValue( const char* szKey )
+{
+    return ( FStrEq( szKey, "model_replacement_filename" )
+          || FStrEq( szKey, "sound_replacement_filename" )
+    );
 }

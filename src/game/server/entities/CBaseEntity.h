@@ -38,6 +38,8 @@ class CTalkMonster;
 class CItemCTF;
 struct ReplacementMap;
 
+#define SHARED_KEYVALUE_MAX 32 // Max number of shared keyvalues to save
+
 #define MAX_PATH_SIZE 10 // max number of nodes available for a path.
 
 // These are caps bits to indicate what an object's capabilities (currently used for save/restore and level transitions)
@@ -206,6 +208,12 @@ public:
 	 *	even if an entity does not call the base class version of KeyValue.
 	 */
 	bool RequiredKeyValue(KeyValueData* pkvd);
+
+	string_t m_InheritKey[SHARED_KEYVALUE_MAX];
+	string_t m_InheritValue[SHARED_KEYVALUE_MAX];
+	int m_InheritKeyValues;
+	// Return true to store the key-value
+	virtual bool ShouldInheritKeyValue( const char* szKey ){ return false; };
 
 	void LoadReplacementFiles();
 
@@ -599,10 +607,12 @@ public:
 	string_t m_ModelReplacementFileName;
 	string_t m_SoundReplacementFileName;
 	string_t m_SentenceReplacementFileName;
+	string_t m_ConfigReplacementFileName;
 
 	const ReplacementMap* m_ModelReplacement{};
 	const ReplacementMap* m_SoundReplacement{};
 	const ReplacementMap* m_SentenceReplacement{};
+	const ReplacementMap* m_ConfigReplacement{};
 
 	Vector m_CustomHullMin{vec3_origin};
 	Vector m_CustomHullMax{vec3_origin};

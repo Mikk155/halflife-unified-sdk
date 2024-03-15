@@ -2018,7 +2018,7 @@ void CHGruntRepel::Spawn()
 
 void CHGruntRepel::PrecacheCore(const char* classname)
 {
-	UTIL_PrecacheOther(classname);
+	UTIL_PrecacheOther(classname, m_InheritKey, m_InheritValue, m_InheritKeyValues );
 	m_iSpriteTexture = PrecacheModel("sprites/rope.spr");
 }
 
@@ -2036,7 +2036,9 @@ void CHGruntRepel::CreateMonster(const char* classname)
 		return nullptr;
 	*/
 
-	CBaseEntity* pEntity = Create(classname, pev->origin, pev->angles);
+	CBaseEntity* pEntity = Create(classname, pev->origin, pev->angles, nullptr, false );
+	UTIL_InitializeKeyValues( pEntity, m_InheritKey, m_InheritValue, m_InheritKeyValues );
+	DispatchSpawn( pEntity->edict() );
 	CBaseMonster* pGrunt = pEntity->MyMonsterPointer();
 	pGrunt->pev->movetype = MOVETYPE_FLY;
 	pGrunt->pev->velocity = Vector(0, 0, RANDOM_FLOAT(-196, -128));
@@ -2057,6 +2059,13 @@ void CHGruntRepel::CreateMonster(const char* classname)
 void CHGruntRepel::RepelUse(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value)
 {
 	CreateMonster("monster_human_grunt");
+}
+
+bool CHGruntRepel :: ShouldInheritKeyValue( const char* szKey )
+{
+    return ( FStrEq( szKey, "model_replacement_filename" )
+          || FStrEq( szKey, "sound_replacement_filename" )
+    );
 }
 
 void CDeadHGrunt::OnCreate()

@@ -82,6 +82,8 @@ public:
 
 	void RemoveBalls();
 
+	bool ShouldInheritKeyValue( const char* szKey ) override;
+
 	CSprite* m_pBall[2];   // hand balls
 	int m_iBall[2];		   // how bright it should be
 	float m_iBallTime[2];  // when it should be that color
@@ -223,6 +225,13 @@ void CController::RemoveBalls()
 	}
 }
 
+bool CController :: ShouldInheritKeyValue( const char* szKey )
+{
+	return ( FStrEq( szKey, "model_replacement_filename" )
+		  || FStrEq( szKey, "sound_replacement_filename" )
+	);
+}
+
 void CController::PainSound()
 {
 	if (RANDOM_LONG(0, 5) < 2)
@@ -300,8 +309,9 @@ void CController::HandleAnimEvent(MonsterEvent_t* pEvent)
 		WRITE_COORD(32); // decay
 		MESSAGE_END();
 
-		CBaseMonster* pBall = (CBaseMonster*)Create("controller_head_ball", vecStart, pev->angles, this);
-
+		CBaseMonster* pBall = (CBaseMonster*)Create("controller_head_ball", vecStart, pev->angles, this, false);
+		UTIL_InitializeKeyValues( pBall, m_InheritKey, m_InheritValue, m_InheritKeyValues );
+		DispatchSpawn( pBall->edict() );
 		pBall->pev->velocity = Vector(0, 0, 32);
 		pBall->m_hEnemy = m_hEnemy;
 
@@ -369,8 +379,8 @@ void CController::Precache()
 
 	PrecacheModel("sprites/xspark4.spr");
 
-	UTIL_PrecacheOther("controller_energy_ball");
-	UTIL_PrecacheOther("controller_head_ball");
+	UTIL_PrecacheOther("controller_energy_ball", m_InheritKey, m_InheritValue, m_InheritKeyValues );
+	UTIL_PrecacheOther("controller_head_ball", m_InheritKey, m_InheritValue, m_InheritKeyValues );
 }
 
 Task_t tlControllerChaseEnemy[] =
@@ -598,7 +608,9 @@ void CController::RunTask(const Task_t* pTask)
 				vecDir = vecDir + Vector(RANDOM_FLOAT(-delta, delta), RANDOM_FLOAT(-delta, delta), RANDOM_FLOAT(-delta, delta)) * GetSkillFloat("controller_speedball"sv);
 
 				vecSrc = vecSrc + vecDir * (gpGlobals->time - m_flShootTime);
-				CBaseMonster* pBall = (CBaseMonster*)Create("controller_energy_ball", vecSrc, pev->angles, this);
+				CBaseMonster* pBall = (CBaseMonster*)Create("controller_energy_ball", vecSrc, pev->angles, this, false );
+				UTIL_InitializeKeyValues( pBall, m_InheritKey, m_InheritValue, m_InheritKeyValues );
+				DispatchSpawn( pBall->edict() );
 				pBall->pev->velocity = vecDir;
 			}
 			m_flShootTime += 0.2;

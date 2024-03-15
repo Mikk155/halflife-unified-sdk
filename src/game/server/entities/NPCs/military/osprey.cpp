@@ -121,7 +121,7 @@ void COsprey::Spawn()
 
 void COsprey::PrecacheCore(const char* tailModel, const char* bodyModel, const char* engineModel)
 {
-	UTIL_PrecacheOther(GetMonsterClassname());
+	UTIL_PrecacheOther(GetMonsterClassname(), m_InheritKey, m_InheritValue, m_InheritKeyValues );
 
 	PrecacheModel(STRING(pev->model));
 	PrecacheModel("models/HVR.mdl");
@@ -210,6 +210,13 @@ void COsprey::DeployThink()
 	pev->nextthink = gpGlobals->time + 0.1;
 }
 
+bool COsprey :: ShouldInheritKeyValue( const char* szKey )
+{
+    return ( FStrEq( szKey, "model_replacement_filename" )
+          || FStrEq( szKey, "sound_replacement_filename" )
+    );
+}
+
 bool COsprey::HasDead()
 {
 	for (int i = 0; i < m_iUnits; i++)
@@ -247,6 +254,8 @@ CBaseMonster* COsprey::MakeGrunt(Vector vecSrc)
 				m_hGrunt[i]->SUB_StartFadeOut();
 			}
 			pEntity = Create(monsterClassname, vecSrc, pev->angles, nullptr, false);
+
+			UTIL_InitializeKeyValues( pEntity, m_InheritKey, m_InheritValue, m_InheritKeyValues );
 
 			MaybeSetChildClassification(pEntity);
 

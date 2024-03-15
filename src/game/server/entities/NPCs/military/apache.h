@@ -80,4 +80,6 @@ public:
 
 	int m_iDoSmokePuff;
 	CBeam* m_pBeam;
+
+	bool ShouldInheritKeyValue( const char* szKey ) override;
 };
