@@ -47,7 +47,7 @@ public:
 	void Precache() override;
 	void Spawn() override;
 
-	static void Shoot(CBaseEntity* owner, Vector vecStart, Vector vecVelocity, Vector vecAngles, CBaseEntity* owner );
+	static void Shoot(CBaseEntity* owner, Vector vecStart, Vector vecVelocity, Vector vecAngles);
 	void SpikeTouch(CBaseEntity* pOther);
 
 	void StartTrail();
@@ -90,7 +90,7 @@ void CPitdroneSpike::Spawn()
 	m_maxFrame = (float)MODEL_FRAMES(pev->modelindex) - 1;
 }
 
-void CPitdroneSpike::Shoot(CBaseEntity* owner, Vector vecStart, Vector vecVelocity, Vector vecAngles, CBaseEntity* owner )
+void CPitdroneSpike::Shoot(CBaseEntity* owner, Vector vecStart, Vector vecVelocity, Vector vecAngles)
 {
 	CPitdroneSpike* pSpit = g_EntityDictionary->Create<CPitdroneSpike>("pitdronespike");
 
@@ -482,7 +482,7 @@ void CPitdrone::HandleAnimEvent(MonsterEvent_t* pEvent)
 			WRITE_BYTE(25);					  // noise ( client will divide by 100 )
 			MESSAGE_END();
 
-			CPitdroneSpike::Shoot(this, vecSpitOffset, vecSpitDir * 900, UTIL_VecToAngles(vecSpitDir), this);
+			CPitdroneSpike::Shoot(this, vecSpitOffset, vecSpitDir * 900, UTIL_VecToAngles(vecSpitDir));
 
 			auto ammoSubModel = GetBodygroup(PitdroneBodygroup::Weapons);
 
