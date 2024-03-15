@@ -54,12 +54,25 @@ struct ReplacementMap;
 // UNDONE: This will ignore transition volumes (trigger_transition), but not the PVS!!!
 #define FCAP_FORCE_TRANSITION 0x00000080 // ALWAYS goes across transitions
 
+#define USE_VALUE_USE ( 1 << 0 )
+#define USE_VALUE_TOUCH ( 1 << 1 )
+#define USE_VALUE_MASTER ( 1 << 2 )
+#define USE_VALUE_THINK ( 1 << 3 )
+
 enum USE_TYPE : int
 {
+	USE_UNSET = -1,
 	USE_OFF = 0,
 	USE_ON = 1,
 	USE_SET = 2,
-	USE_TOGGLE = 3
+	USE_TOGGLE = 3,
+	USE_KILL = 4,
+	USE_SAME = 5,
+	USE_OPPOSITE = 6,
+	USE_TOUCH = 7,
+	USE_LOCK = 8,
+	USE_UNLOCK = 9,
+	USE_UNKNOWN = 10
 };
 
 // people gib if their health is <= this at the time of death
@@ -617,6 +630,11 @@ public:
 	 *	@details The entity's angles affect this offset.
 	 */
 	Vector m_SoundOffset{};
+
+	USE_TYPE m_UseType = USE_UNSET;
+	USE_TYPE m_UseTypeLast = USE_UNSET;
+	float m_UseValue;
+	int m_UseLocked;
 };
 
 inline bool FNullEnt(CBaseEntity* ent) { return (ent == nullptr) || FNullEnt(ent->edict()); }
