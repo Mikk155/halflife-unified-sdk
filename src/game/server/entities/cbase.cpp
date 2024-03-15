@@ -175,7 +175,7 @@ void DispatchTouch(edict_t* pentTouched, edict_t* pentOther)
 	CBaseEntity* pEntity = (CBaseEntity*)GET_PRIVATE(pentTouched);
 	CBaseEntity* pOther = (CBaseEntity*)GET_PRIVATE(pentOther);
 
-	if (pEntity && pOther && ((pEntity->pev->flags | pOther->pev->flags) & FL_KILLME) == 0)
+	if( pEntity && pOther && ( (pEntity->pev->flags | pOther->pev->flags) & FL_KILLME) == 0 && !FBitSet( pEntity->m_UseLocked, USE_VALUE_TOUCH ) )
 		pEntity->Touch(pOther);
 }
 
@@ -184,14 +184,14 @@ void DispatchUse(edict_t* pentUsed, edict_t* pentOther)
 	CBaseEntity* pEntity = (CBaseEntity*)GET_PRIVATE(pentUsed);
 	CBaseEntity* pOther = (CBaseEntity*)GET_PRIVATE(pentOther);
 
-	if (pEntity && (pEntity->pev->flags & FL_KILLME) == 0)
+	if (pEntity && (pEntity->pev->flags & FL_KILLME) == 0 && !FBitSet( pEntity->m_UseLocked, USE_VALUE_USE ) )
 		pEntity->Use(pOther, pOther, USE_TOGGLE, 0);
 }
 
 void DispatchThink(edict_t* pent)
 {
 	CBaseEntity* pEntity = (CBaseEntity*)GET_PRIVATE(pent);
-	if (pEntity)
+	if( pEntity && !FBitSet( pEntity->m_UseLocked, USE_VALUE_THINK ) )
 	{
 		if (FBitSet(pEntity->pev->flags, FL_DORMANT))
 			CBaseEntity::Logger->error("Dormant entity {} is thinking!!", STRING(pEntity->pev->classname));
@@ -598,6 +598,16 @@ bool CBaseEntity::RequiredKeyValue(KeyValueData* pkvd)
 
 		return true;
 	}
+	else if( FStrEq( pkvd->szKeyName, "m_UseType" ) && atoi( pkvd->szValue ) > USE_UNSET && atoi( pkvd->szValue ) < USE_UNKNOWN )
+	{
+		m_UseType = static_cast<USE_TYPE>( atoi( pkvd->szValue ) );
+		return true;
+	}
+	else if( FStrEq( pkvd->szKeyName, "m_UseValue" ) )
+	{
+		m_UseValue = atof( pkvd->szValue );
+		return true;
+	}
 
 	return false;
 }
@@ -820,7 +830,7 @@ bool CBaseEntity::IsDormant()
 
 bool CBaseEntity::IsLockedByMaster()
 {
-	return !FStringNull(m_sMaster) && !UTIL_IsMasterTriggered(m_sMaster, m_hActivator);
+	return !FStringNull(m_sMaster) && !UTIL_IsMasterTriggered(m_sMaster, m_hActivator, m_UseLocked);
 }
 
 bool CBaseEntity::IsInWorld()
