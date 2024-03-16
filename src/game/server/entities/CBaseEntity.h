@@ -25,6 +25,7 @@
 #include "DataMap.h"
 #include "EntityClassificationSystem.h"
 #include "skill.h"
+#include "appearflags.h"
 
 class CBaseEntity;
 class CBaseItem;
@@ -645,6 +646,9 @@ public:
 	USE_TYPE m_UseTypeLast = USE_UNSET;
 	float m_UseValue;
 	int m_UseLocked;
+
+	int m_appearflag_notin = (int)appearflags::DEFAULT;
+	int m_appearflag_onlyin = (int)appearflags::DEFAULT;
 };
 
 inline bool FNullEnt(CBaseEntity* ent) { return (ent == nullptr) || FNullEnt(ent->edict()); }
