@@ -25,6 +25,7 @@
 #include "DataMap.h"
 #include "EntityClassificationSystem.h"
 #include "skill.h"
+#include "appearflags.h"
 
 class CBaseEntity;
 class CBaseItem;
@@ -617,6 +618,9 @@ public:
 	 *	@details The entity's angles affect this offset.
 	 */
 	Vector m_SoundOffset{};
+
+	int m_appearflag_notin = (int)appearflags::DEFAULT;
+	int m_appearflag_onlyin = (int)appearflags::DEFAULT;
 };
 
 inline bool FNullEnt(CBaseEntity* ent) { return (ent == nullptr) || FNullEnt(ent->edict()); }
