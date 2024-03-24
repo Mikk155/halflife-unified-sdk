@@ -1,6 +1,12 @@
 name: CI/CD
 
-on: [push, pull_request]
+on:
+  push:
+    paths:
+      - 'docs/**'
+  pull_request:
+    paths:
+      - 'docs/**'
 
 env:
   BUILD_TYPE: Release
@@ -12,12 +18,14 @@ jobs:
   linux:
     name: Linux-x86
     runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' || github.event_name == 'pull_request' }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
         with:
           submodules: recursive
-          
+
       - name: Install G++ Multilib & 32 bit OpenGL library
         run: |
           sudo dpkg --add-architecture i386
@@ -50,10 +58,12 @@ jobs:
         with:
           name: Linux-x86
           path: ${{env.GAME_NAME}}
-        
+
   win32:
     name: Win32
     runs-on: windows-latest
+    if: ${{ github.event_name == 'push' || github.event_name == 'pull_request' }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
