@@ -1,0 +1,14 @@
+{
+    "url": "https://www.moddb.com/games/half-life/addons/access-point",
+    "ripent":
+    {
+        "import":
+        {
+            "accesspoint": true
+        }
+    },
+    "resources":
+    {
+        "maps/accesspoint.bsp": true
+    }
+}
