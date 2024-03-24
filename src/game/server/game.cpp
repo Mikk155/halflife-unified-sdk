@@ -53,10 +53,8 @@ cvar_t multipower = {"mp_multipower", "0", FCVAR_SERVER};
 cvar_t sv_entityinfo_enabled{"sv_entityinfo_enabled", "0", FCVAR_SERVER};
 cvar_t sv_entityinfo_eager{"sv_entityinfo_eager", "1", FCVAR_SERVER};
 
-// cl_ because will be sent to clients? idk
-cvar_t cl_discord_rpc_image{"cl_discord_rpc_image", "", ( FCVAR_PRINTABLEONLY | FCVAR_SERVER ) };
-cvar_t cl_discord_rpc_header{"cl_discord_rpc_header", "", ( FCVAR_PRINTABLEONLY | FCVAR_SERVER ) };
-cvar_t cl_discord_rpc_description{"cl_discord_rpc_description", "", ( FCVAR_PRINTABLEONLY | FCVAR_SERVER ) };
+cvar_t discord_rpc_header{"discord_rpc_header", "", ( FCVAR_SERVER ) };
+cvar_t discord_rpc_description{"discord_rpc_description", "", FCVAR_SERVER };
 
 cvar_t sv_schedule_debug{"sv_schedule_debug", "0", FCVAR_SERVER};
 
@@ -136,9 +134,8 @@ void GameDLLInit()
 
 	// END REGISTER CVARS FOR OPPOSING FORCE
 
-	CVAR_REGISTER(&cl_discord_rpc_image);
-	CVAR_REGISTER(&cl_discord_rpc_header);
-	CVAR_REGISTER(&cl_discord_rpc_description);
+	CVAR_REGISTER(&discord_rpc_header);
+	CVAR_REGISTER(&discord_rpc_description);
 
 	// Default to on in debug builds to match original behavior.
 #ifdef DEBUG

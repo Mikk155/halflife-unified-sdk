@@ -19,8 +19,8 @@ class CDiscordServer final
 {
 public:
     void SendPresence();
-    void ClearPresence();
     void UpdatePresence();
+    const char* GetArguments( const char* szCommand );
     float m_flNextThink;
 };
 

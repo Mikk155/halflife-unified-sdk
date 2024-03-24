@@ -310,9 +310,6 @@ void ServerLibrary::NewMapStarted(bool loadGame)
 		ShutdownServer("Shutting down server due to error loading BSP data");
 	}
 
-	// Clear before reading cvars
-	g_DiscordServer.ClearPresence();
-
 	// Load the config files, which will initialize the map state as needed
 	LoadServerConfigFiles();
 
