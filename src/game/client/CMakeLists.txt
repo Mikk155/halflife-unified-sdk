@@ -20,13 +20,16 @@ target_include_directories(SDL2 INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/../../../e
 
 if (WIN32)
 	set_target_properties(vgui PROPERTIES IMPORTED_IMPLIB "${CMAKE_CURRENT_SOURCE_DIR}/../../../utils/vgui/lib/win32_vc6/vgui.lib")
+	set_target_properties(discord PROPERTIES IMPORTED_IMPLIB "${CMAKE_CURRENT_SOURCE_DIR}/../../../external/discord/lib/discord-rpc.lib")
 	set_target_properties(SDL2 PROPERTIES IMPORTED_IMPLIB "${CMAKE_CURRENT_SOURCE_DIR}/../../../external/SDL2/lib/SDL2.lib")
 else()
 	# Copy libraries provided by the game to the build directory so we can point the compiler and linker to the files.
 	configure_file(../../../utils/vgui/lib/linux/vgui${CMAKE_SHARED_LIBRARY_SUFFIX} ${CMAKE_CURRENT_BINARY_DIR}/vgui${CMAKE_SHARED_LIBRARY_SUFFIX} COPYONLY)
+	configure_file(../../../external/discord/lib/discord-rpc${CMAKE_SHARED_LIBRARY_SUFFIX} ${CMAKE_CURRENT_BINARY_DIR}/discord-rpc${CMAKE_SHARED_LIBRARY_SUFFIX} COPYONLY)
 	configure_file(../../../external/SDL2/lib/libSDL2-2.0${CMAKE_SHARED_LIBRARY_SUFFIX}.0 ${CMAKE_CURRENT_BINARY_DIR}/libSDL2-2.0${CMAKE_SHARED_LIBRARY_SUFFIX}.0 COPYONLY)
-	
+
 	set_target_properties(vgui PROPERTIES IMPORTED_LOCATION "${CMAKE_CURRENT_BINARY_DIR}/vgui${CMAKE_SHARED_LIBRARY_SUFFIX}")
+	set_target_properties(discord PROPERTIES IMPORTED_LOCATION "${CMAKE_CURRENT_BINARY_DIR}/discord-rpc${CMAKE_SHARED_LIBRARY_SUFFIX}")
 	set_target_properties(SDL2 PROPERTIES IMPORTED_LOCATION "${CMAKE_CURRENT_BINARY_DIR}/libSDL2-2.0${CMAKE_SHARED_LIBRARY_SUFFIX}.0")
 endif()
 
@@ -62,15 +65,16 @@ target_include_directories(client PRIVATE
 	../../engine
 	../../../utils/vgui/include
 	${OPENGL_INCLUDE_DIR})
-	
+
 target_compile_definitions(client PRIVATE
 	CLIENT_DLL
 	HL_DLL)
-	
+
 target_link_libraries(client PRIVATE
 	vgui
 	$<$<PLATFORM_ID:Windows>:delayimp>
 	$<$<PLATFORM_ID:Windows>:wsock32>
+	discord
 	SDL2
 	OpenAL::OpenAL
 	libnyquist)
@@ -82,6 +86,7 @@ endif()
 
 target_link_options(client PRIVATE
 	$<$<PLATFORM_ID:Windows>:/DELAYLOAD:openal-hlu.dll>
+	$<$<PLATFORM_ID:Windows>:/DELAYLOAD:discord-rpc.dll>
 	$<$<PLATFORM_ID:Darwin>:-framework Carbon>)
 
 target_sources(client PRIVATE
@@ -110,7 +115,12 @@ target_sources(client PRIVATE
 	player_info.h
 	view.cpp
 	view.h
-	
+
+	discord/CDiscord.cpp
+	discord/CDiscord.h
+	discord/discord_register.h
+	discord/discord_rpc.h
+
 	hl/hl_baseentity.cpp
 	hl/hl_events.cpp
 	hl/hl_objects.cpp
@@ -121,10 +131,10 @@ target_sources(client PRIVATE
 	input/inputw32.cpp
 	input/in_camera.cpp
 	input/kbutton.h
-	
+
 	networking/ClientUserMessages.cpp
 	networking/ClientUserMessages.h
-	
+
 	particleman/CBaseParticle.cpp
 	particleman/CBaseParticle.h
 	particleman/CFrustum.cpp
@@ -135,7 +145,7 @@ target_sources(client PRIVATE
 	particleman/IParticleMan_Active.h
 	particleman/particleman.h
 	particleman/particleman_internal.h
-	
+
 	prediction/ClientPredictionSystem.cpp
 	prediction/ClientPredictionSystem.h
 
@@ -145,7 +155,7 @@ target_sources(client PRIVATE
 	rendering/StudioModelRenderer.h
 	rendering/tri.cpp
 	rendering/tri.h
-	
+
 	sound/ClientSoundReplacementSystem.h
 	sound/DummySoundSystem.h
 	sound/GameSoundSystem.cpp
@@ -203,7 +213,7 @@ target_sources(client PRIVATE
 	ui/hud/status_icons.cpp
 	ui/hud/text_message.cpp
 	ui/hud/train.cpp
-	
+
 	ui/vgui/CampaignSelectSystem.cpp
 	ui/vgui/CampaignSelectSystem.h
 	ui/vgui/vgui_CampaignSelect.cpp
@@ -245,7 +255,7 @@ target_sources(client PRIVATE
 	../server/extdll.h
 	../server/entities/cbase.h
 	../server/entities/NPCs/basemonster.h
-	
+
 	../../common/beamdef.h
 	../../common/cl_entity.h
 	../../common/ClassData.h

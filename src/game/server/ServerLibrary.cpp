@@ -68,6 +68,8 @@
 
 #include "ui/hud/HudReplacementSystem.h"
 
+#include "discord.h"
+
 constexpr char DefaultMapConfigFileName[] = "cfg/DefaultMapConfig.json";
 
 cvar_t servercfgfile = {"sv_servercfgfile", "cfg/server/server.json", FCVAR_NOEXTRAWHITEPACE | FCVAR_ISPATH};
@@ -557,6 +559,9 @@ void ServerLibrary::LoadServerConfigFiles()
 	g_pGameRules = InstallGameRules(gameModeConfig.GameMode);
 
 	assert(g_pGameRules);
+
+	// Update after set gamerules but before reading config
+	g_DiscordServer.UpdatePresence();
 
 	ServerConfigContext context{.State = *m_MapState};
 
