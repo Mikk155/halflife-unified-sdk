@@ -70,16 +70,16 @@ find_package(libnyquist REQUIRED)
 # Sets properties common to all projects
 function(set_common_properties TARGET_NAME)
 	set_target_properties(${TARGET_NAME} PROPERTIES PREFIX "")
-	
+
 	# Enable use of Clang-Tidy in code analysis. See [repo_root]/.clang-tidy for the checks used in the project.
 	set_target_properties(${TARGET_NAME} PROPERTIES VS_GLOBAL_EnableClangTidyCodeAnalysis true)
-	
+
 	if(HalfLife_LTO)
 		set_target_properties(${TARGET_NAME} PROPERTIES INTERPROCEDURAL_OPTIMIZATION TRUE)
 	endif()
-	
+
 	target_compile_features(${TARGET_NAME} PRIVATE cxx_std_20)
-		
+
 	target_compile_definitions(${TARGET_NAME} PRIVATE
 		_CRT_SECURE_NO_WARNINGS
 		$<$<CONFIG:DEBUG>:_DEBUG>
@@ -88,7 +88,7 @@ function(set_common_properties TARGET_NAME)
 		$<$<PLATFORM_ID:Linux, Darwin>:POSIX _POSIX LINUX _LINUX GNUC>
 		$<$<PLATFORM_ID:Darwin>:OSX _OSX>
 		UNIFIED_SDK_CONFIG="$<CONFIG>")
-		
+
 	target_link_libraries(${TARGET_NAME} PRIVATE
 		Angelscript::angelscript
 		spdlog::spdlog
@@ -97,7 +97,7 @@ function(set_common_properties TARGET_NAME)
 		nlohmann_json
 		nlohmann_json_schema_validator
 		EASTL)
-	
+
 	target_include_directories(${TARGET_NAME} PRIVATE
 		${CMAKE_BINARY_DIR})
 
@@ -108,17 +108,17 @@ function(set_common_properties TARGET_NAME)
 		# Since the arch settings used are i686 this means including the setting ensures original settings are used,
 		# but it could cause problems for AMD targets
 		$<$<CXX_COMPILER_ID:Clang,AppleClang,GNU>:-fpermissive -fno-strict-aliasing -Wno-invalid-offsetof -march=pentium-m -mfpmath=387>
-		
+
 		# flifetime-dse=1 is needed to disable a compiler optimization that optimizes out std::memset calls in CBaseEntity::operator new
 		# See https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html#index-flifetime-dse for more information about this flag
 		# fno-gnu-unique is needed to disable a compiler optimization that prevents dlclose from unloading mod dlls,
 		# causing them to retain state and crash when the engine tries to access memory in an invalid way
 		# See https://gcc.gnu.org/onlinedocs/gcc/Code-Gen-Options.html#index-fno-gnu-unique for more information about this flag
 		$<$<CXX_COMPILER_ID:GNU>:-flifetime-dse=1 -fno-gnu-unique>
-		
+
 		# Can't set warning level to W4 until the compiler can deal with std::visit containing static_assert, which currently causes false positive "Unreachable code" warnings
 		$<$<CXX_COMPILER_ID:MSVC>:/W3 /MP>
-			
+
 		# These are all from the original Makefile
 		# They have not been tested with CMake since there is no Mac system available to test on, so this might not work
 		$<$<PLATFORM_ID:Darwin>:-Qunused-arguments -mmacosx-version-min=10.5 -fasm-blocks -arch i386 -march=prescott -momit-leaf-frame-pointer -mtune=core2>)
@@ -144,7 +144,7 @@ function(set_common_properties TARGET_NAME)
 
 	target_link_options(${TARGET_NAME} PRIVATE
 		$<$<PLATFORM_ID:Linux>:-static-libstdc++ -Wl,-Map,${TARGET_NAME}_map.txt>)
-	
+
 	target_sources(${TARGET_NAME}
 		PRIVATE
 			${CMAKE_CURRENT_FUNCTION_LIST_DIR}/src/public/eastl_allocator.cpp
@@ -177,30 +177,30 @@ set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT c
 if (MSVC)
 	set(HL_EXECUTABLE "hl.exe")
 	set(HLDS_EXECUTABLE "hlds.exe")
-	
+
 	set(HalfLife_DEVELOPER_LEVEL "0" CACHE STRING "When launching from Visual Studio, the developer level is set to this value")
 	set_property(CACHE HalfLife_DEVELOPER_LEVEL PROPERTY STRINGS 0 1 2 3)
-	
+
 	option(HalfLife_ENABLE_CHEATS "When launching from Visual Studio, enable cheats as well" OFF)
 	option(HalfLife_ENABLE_CONSOLE "When launching from Visual Studio, enable the console on startup" OFF)
 	option(HalfLife_ENABLE_DEV_MODE "When launching from Visual Studio, enables developer mode. The engine will enable the console on startup, sets developer to 1 during startup and sets sv_cheats to 1" OFF)
-	
+
 	set(HalfLife_ADDITIONAL_COMMAND_ARGUMENTS "" CACHE STRING "When launching from Visual Studio, additional command line arguments to add")
-	
+
 	set(COMMAND_ARGUMENTS "-game ${MOD_NAME} +developer ${HalfLife_DEVELOPER_LEVEL}")
-	
+
 	if (HalfLife_ENABLE_CHEATS)
 		set(COMMAND_ARGUMENTS "${COMMAND_ARGUMENTS} +sv_cheats 1")
 	endif()
-	
+
 	if (HalfLife_ENABLE_CONSOLE)
 		set(COMMAND_ARGUMENTS "${COMMAND_ARGUMENTS} -console")
 	endif()
-	
+
 	if (HalfLife_ENABLE_DEV_MODE)
 		set(COMMAND_ARGUMENTS "${COMMAND_ARGUMENTS} -dev")
 	endif()
-	
+
 	set(COMMAND_ARGUMENTS "${COMMAND_ARGUMENTS} ${HalfLife_ADDITIONAL_COMMAND_ARGUMENTS}")
 
 	# Set debugging settings to work on the mod directory
@@ -215,7 +215,7 @@ if (MSVC)
 		VS_DEBUGGER_COMMAND_ARGUMENTS "${COMMAND_ARGUMENTS}"
 		VS_DEBUGGER_WORKING_DIRECTORY "${HalfLife_HLDS_DIRECTORY}")
 endif()
-	
+
 # Set install paths to the user-defined mod directory
 install(TARGETS client
 	RUNTIME DESTINATION cl_dlls
@@ -229,8 +229,9 @@ install(TARGETS server
 
 configure_file(config/liblist.gam.in liblist.gam @ONLY)
 
-install(FILES 
+install(FILES
 	config/network/delta.lst
+	config/cl_dlls/discord-rpc.dll
 	${CMAKE_BINARY_DIR}/liblist.gam
 	DESTINATION .)
 
@@ -261,4 +262,4 @@ if (NOT ${HalfLife_HLDS_DIRECTORY} STREQUAL "")
 	configure_file(cmake/InstallToHLDS.cmake.in ${hldsInstallScriptFile} @ONLY)
 	install(SCRIPT ${hldsInstallScriptFile})
 endif()
-	
+
