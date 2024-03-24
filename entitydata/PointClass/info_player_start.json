@@ -1,0 +1,10 @@
+{
+    "info_player_start":
+    {
+        "atributes":
+        {
+            "base": "PlayerClass",
+            "title": "Player 1 start"
+        }
+    }
+}

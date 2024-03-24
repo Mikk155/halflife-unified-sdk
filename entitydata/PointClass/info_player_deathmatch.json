@@ -1,0 +1,10 @@
+{
+    "info_player_deathmatch":
+    {
+        "atributes":
+        {
+            "base": "PlayerClass, Target, Master",
+            "title": "Player deathmatch start"
+        }
+    }
+}

@@ -17,6 +17,16 @@
             "title": "Minimum light level"
         }
     },
+    "PlayerClass":
+    {
+        "atributes":{
+            "base": "Angles",
+            "flags": "Angle",
+            "size": "-16 -16 -36, 16 16 36",
+            "color": "0 255 0",
+            "studio": "models/player.mdl"
+        }
+    },
     "appearflags":
     {
         "appearflag_singleplayer":

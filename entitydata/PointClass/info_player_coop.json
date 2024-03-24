@@ -1,0 +1,10 @@
+{
+    "info_player_coop":
+    {
+        "atributes":
+        {
+            "base": "PlayerClass",
+            "title": "Player cooperative start"
+        }
+    }
+}
