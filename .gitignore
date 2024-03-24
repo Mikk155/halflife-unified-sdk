@@ -5,6 +5,5 @@
 build/*
 .vs/*
 .vscode/*
-src/.vscode/*
 out/*
 src/fgd/halflife-unified.fgd
