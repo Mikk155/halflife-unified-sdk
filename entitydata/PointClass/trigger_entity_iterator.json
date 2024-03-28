@@ -1,0 +1,114 @@
+{
+    "trigger_entity_iterator":
+    {
+        "atributes":
+        {
+            "size": "-12 -12 -12, 12 12 12",
+            "color": "255 255 0",
+            "title": "Entity Iterator"
+        },
+		"name_filter":
+		{
+            "type": "target_destination",
+            "title": "Filter Entities by Name",
+            "description": "Find entities with this targetname, supports wildcard at the end (my_name_*)"
+		},
+		"classname_filter":
+		{
+            "type": "string",
+            "title": "Filter Entities by Classname",
+            "description": "Find entities with this classname, supports wildcard at the end (monster_*)"
+		},
+		"status_filter":
+		{
+            "type": "choices",
+            "title": "Filter Entities by Status",
+			"default": "0",
+			"choices": {
+                "0": {
+                    "title": "No Filter (default)",
+                    "description": "do not aply any filter"
+                },
+                "1": {
+                    "title": "Only Living Entities",
+                    "description": "Skip entities whose state is dead"
+                },
+                "2": {
+                    "title": "Only Dead Entities",
+                    "description": "Skip entities whose state is not dead"
+                }
+			}
+		},
+		"delay_between_triggers":
+		{
+            "type": "string",
+            "title": "Delay between Entities (secs)",
+			"default": "0.0",
+			"description": "Time to wait until the next entity can fire the target"
+		},
+		"target":
+		{
+            "type": "target_destination",
+            "title": "Entity's Trigger Target",
+			"description": "Target to fire for all the given entities"
+		},
+		"triggerstate":
+		{
+            "type": "choices",
+            "title": "Entity's Trigger State",
+			"description": "Trigger type to send for target",
+			"default": "0",
+			"choices": {
+                "-1": {
+                    "title": "m_UseType of the given entity"
+                },
+                "0": {
+                    "title": "Off"
+                },
+                "1": {
+                    "title": "On"
+                },
+                "2": {
+                    "title": "Toggle"
+                }
+			}
+		},
+		"run_mode":
+		{
+            "type": "choices",
+            "title": "Run Mode",
+			"description": "",
+			"default": "0",
+			"choices": {
+                "0": {
+                    "title": "Run Once"
+                },
+                "1": {
+                    "title": "Run Once; Multi-threaded"
+                },
+                "2": {
+                    "title": "Toggle On/Off"
+                }
+			}
+		},
+		"maximum_runs":
+		{
+            "type": "integer",
+            "title": "Maximum Runs (0 for unlimited)",
+			"description": "",
+			"default": "0"
+		},
+		"trigger_after_run":
+		{
+            "type": "target_destination",
+            "title": "Trigger at end of each Run",
+			"description": ""
+		},
+		"delay_between_runs":
+		{
+            "type": "string",
+            "title": "Delay before Restarting (secs)",
+			"description": "0.5"
+		}
+	}
+}
