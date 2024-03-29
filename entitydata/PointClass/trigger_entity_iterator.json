@@ -5,6 +5,7 @@
         {
             "size": "-12 -12 -12, 12 12 12",
             "color": "255 255 0",
+            "base": "SF1StartOn",
             "title": "Entity Iterator"
         },
 		"name_filter":
@@ -82,9 +83,6 @@
 			"choices": {
                 "0": {
                     "title": "Run Once"
-                },
-                "1": {
-                    "title": "Run Once; Multi-threaded"
                 },
                 "2": {
                     "title": "Toggle On/Off"
