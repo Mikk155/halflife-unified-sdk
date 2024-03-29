@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>info_player_coop</title>
+	<link rel="stylesheet" href="../../styles.css">
+</head>
+</body>
+	<h1>info_player_coop</h1>
+	<h2>Player cooperative start</h2>
+	<p></p>
+	<p></p>
+	<h2>KeyValues</h2>
+	<table id="info_player_coop" border="1">
+	<tr>
+		<th>Key</th>
+		<th>Value</th>
+		<th>Type</th>
+		<th>FGD</th>
+		<th>Description</th>
+		<tr>
+			<tr><td>targetname</td><td></td><td>target_source</td><td>Name</td><td class="table_description">Name is a general attribute used to identify entities</td></tr>
+			<tr><td>appearflag_singleplayer</td><td>0</td><td>choices</td><td>#AppearFlags SinglePlayer</td><td class="table_description">Appearance flags for SinglePlayer, This control when this entity should or should not appear in this condition.</td></tr>
+			<tr><td>appearflag_singleplayer</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is SinglePlayer.</td></tr>
+			<tr><td>appearflag_singleplayer</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being SinglePlayer</td></tr>
+			<tr><td>appearflag_singleplayer</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT SinglePlayer</td></tr>
+			<tr><td>appearflag_multiplayer</td><td>0</td><td>choices</td><td>#AppearFlags MultiPlayer</td><td class="table_description">Appearance flags for MultiPlayer, This control when this entity should or should not appear in this condition.</td></tr>
+			<tr><td>appearflag_multiplayer</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is MultiPlayer.</td></tr>
+			<tr><td>appearflag_multiplayer</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being MultiPlayer</td></tr>
+			<tr><td>appearflag_multiplayer</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT MultiPlayer</td></tr>
+			<tr><td>appearflag_cooperative</td><td>0</td><td>choices</td><td>#AppearFlags Cooperative</td><td class="table_description">Appearance flags for Cooperative, This control when this entity should or should not appear in this condition.</td></tr>
+			<tr><td>appearflag_cooperative</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is Cooperative.</td></tr>
+			<tr><td>appearflag_cooperative</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being Cooperative</td></tr>
+			<tr><td>appearflag_cooperative</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT Cooperative</td></tr>
+			<tr><td>appearflag_skilleasy</td><td>0</td><td>choices</td><td>#AppearFlags Easy</td><td class="table_description">Appearance flags for Skill level Easy, This control when this entity should or should not appear in this condition.</td></tr>
+			<tr><td>appearflag_skilleasy</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is Easy.</td></tr>
+			<tr><td>appearflag_skilleasy</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being Easy</td></tr>
+			<tr><td>appearflag_skilleasy</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT Easy</td></tr>
+			<tr><td>appearflag_skillmedium</td><td>0</td><td>choices</td><td>#AppearFlags Medium</td><td class="table_description">Appearance flags for Skill level Medium, This control when this entity should or should not appear in this condition.</td></tr>
+			<tr><td>appearflag_skillmedium</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is Medium.</td></tr>
+			<tr><td>appearflag_skillmedium</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being Medium</td></tr>
+			<tr><td>appearflag_skillmedium</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT Medium</td></tr>
+			<tr><td>appearflag_skillhard</td><td>0</td><td>choices</td><td>#AppearFlags Hard</td><td class="table_description">Appearance flags for Skill level Hard, This control when this entity should or should not appear in this condition.</td></tr>
+			<tr><td>appearflag_skillhard</td><td>-1</td><td></td><td>Not in</td><td class="table_description">This entity won't exist if the game is Hard.</td></tr>
+			<tr><td>appearflag_skillhard</td><td>0</td><td></td><td>Default</td><td class="table_description">This entity is not affected by the game being Hard</td></tr>
+			<tr><td>appearflag_skillhard</td><td>1</td><td></td><td>Only in</td><td class="table_description">This entity won't exist if the game is NOT Hard</td></tr>
+		</tr>
+	</tr>
+	</table>
+	<h2>Spawnflags</h2>
+	<table id="info_player_coop flags" border="1">
+	<tr>
+		<th>Bit</th>
+		<th>FGD</th>
+		<th>Description</th>
+	<tr>
+		<tr>
+			<td>2048</td><td>Only in Singleplayer</td><td class="table_description">This entity won't spawn at all in multi-player</td></tr>
+		</tr>
+	</tr>
+	</table>
+</body></html>

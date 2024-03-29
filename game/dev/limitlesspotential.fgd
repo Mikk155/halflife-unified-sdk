@@ -8,6 +8,10 @@
 	_minlight(string) : "Minimum light level" : "" : ""
 ]
 
+@BaseClass color(0 255 0) size(-16 -16 -36, 16 16 36) flags(Angle) studio("models/player.mdl") base(Mandatory, Angles, appearflags) = PlayerClass
+[
+]
+
 @BaseClass = appearflags
 [
 	appearflag_singleplayer(choices) : "#AppearFlags SinglePlayer" : "0" : "Appearance flags for SinglePlayer, This control when this entity should or should not appear in this condition." =
@@ -1035,6 +1039,12 @@
 
 @PointClass base(Mandatory, appearflags) = info_null : "info_null (spotlight target)" : "" []
 
+@PointClass base(Mandatory, PlayerClass, appearflags) = info_player_coop : "Player cooperative start" : "" []
+
+@PointClass base(Mandatory, PlayerClass, Target, Master, appearflags) = info_player_deathmatch : "Player deathmatch start" : "" []
+
+@PointClass base(Mandatory, PlayerClass, appearflags) = info_player_start : "Player 1 start" : "" []
+
 @PointClass decal() base(Mandatory, Appearflags) = infodecal : "Decal"
 [
 	texture(decal)
@@ -1069,6 +1079,37 @@
 ]
 
 @PointClass color(60 155 30) base(Mandatory, CEnttrigger_changetarget, Target, CBaseDelay, appearflags) = trigger_changetarget : "Trigger Change Target" : "" []
+
+@BaseClass = CEnttrigger_entity_iterator
+[
+	name_filter(target_destination) : "Filter Entities by Name" : "" : "Find entities with this targetname, supports wildcard at the end (my_name_*)"
+	classname_filter(string) : "Filter Entities by Classname" : "" : "Find entities with this classname, supports wildcard at the end (monster_*)"
+	status_filter(choices) : "Filter Entities by Status" : "0" : "" =
+	[
+		"0" : "No Filter (default)" : "do not aply any filter"
+		"1" : "Only Living Entities" : "Skip entities whose state is dead"
+		"2" : "Only Dead Entities" : "Skip entities whose state is not dead"
+	]
+	delay_between_triggers(string) : "Delay between Entities (secs)" : "0.0" : "Time to wait until the next entity can fire the target"
+	target(target_destination) : "Entity's Trigger Target" : "" : "Target to fire for all the given entities"
+	triggerstate(choices) : "Entity's Trigger State" : "0" : "Trigger type to send for target" =
+	[
+		"-1" : "m_UseType of the given entity" : ""
+		"0" : "Off" : ""
+		"1" : "On" : ""
+		"2" : "Toggle" : ""
+	]
+	run_mode(choices) : "Run Mode" : "0" : "" =
+	[
+		"0" : "Run Once" : ""
+		"2" : "Toggle On/Off" : ""
+	]
+	maximum_runs(integer) : "Maximum Runs (0 for unlimited)" : "0" : ""
+	trigger_after_run(target_destination) : "Trigger at end of each Run" : "" : ""
+	delay_between_runs(string) : "Delay before Restarting (secs)" : "" : "0.5"
+]
+
+@PointClass color(255 255 0) size(-12 -12 -12, 12 12 12) base(Mandatory, CEnttrigger_entity_iterator, SF1StartOn, appearflags) = trigger_entity_iterator : "Entity Iterator" : "" []
 
 @BaseClass = CEnttrigger_relay
 [
