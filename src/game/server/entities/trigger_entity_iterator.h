@@ -53,4 +53,5 @@ class CTriggerEntityIterator : public CBaseDelay
 		float delay_between_runs = 0.5;
 		float delay_between_triggers = 0.0;
 		float flNextDelayTrigger = 0.0;
+		bool IsThinking = false;
 };

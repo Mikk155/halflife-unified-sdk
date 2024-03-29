@@ -39,6 +39,7 @@ void CTriggerEntityIterator :: Spawn()
 	if( FBitSet( pev->spawnflags, SF_START_ON ) )
 	{
 		SetThink( &CTriggerEntityIterator::IteratorThink );
+		IsThinking = true;
 		pev->nextthink = gpGlobals->time + 0.1;
 	}
 }
@@ -112,14 +113,16 @@ void CTriggerEntityIterator :: Use( CBaseEntity* pActivator, CBaseEntity* pCalle
 {
 	if( run_mode == RUN_MODE_TOGGLE_ON_OFF )
 	{
-		if( &CTriggerEntityIterator::IteratorThink )
+		if( !IsThinking )
 		{
 			SetThink( &CTriggerEntityIterator::IteratorThink );
+			IsThinking = true;
 			pev->nextthink = gpGlobals->time + 0.1;
 		}
 		else
 		{
 			SetThink( nullptr );
+			IsThinking = false;
 		}
 	}
 	else
