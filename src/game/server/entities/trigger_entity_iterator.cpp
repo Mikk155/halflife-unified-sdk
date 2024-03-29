@@ -36,7 +36,7 @@ void CTriggerEntityIterator :: Spawn()
 {
 	pev->solid = SOLID_NOT;
 
-	if( FBitSet( pev->spawnflags, TEI_FLAGS::spawnflags::START_ON ) )
+	if( FBitSet( pev->spawnflags, SF_START_ON ) )
 	{
 		SetThink( &CTriggerEntityIterator::IteratorThink );
 		pev->nextthink = gpGlobals->time + 0.1;
@@ -45,7 +45,7 @@ void CTriggerEntityIterator :: Spawn()
 
 void CTriggerEntityIterator :: IteratorThink()
 {
-	if( run_mode == TEI_FLAGS::run_mode::TOGGLE && ( maximum_runs == 0 || current_runs < maximum_runs ) )
+	if( run_mode == RUN_MODE_TOGGLE_ON_OFF && ( maximum_runs == 0 || current_runs < maximum_runs ) )
 	{
 		pev->nextthink = gpGlobals->time + delay_between_runs;
 
@@ -102,7 +102,7 @@ bool CTriggerEntityIterator :: KeyValue( KeyValueData* pkvd )
 	}
 	else
 	{
-		return CBaseEntity::KeyValue( pkvd );
+		return CBaseDelay::KeyValue( pkvd );
 	}
 
 	return true;
@@ -110,7 +110,7 @@ bool CTriggerEntityIterator :: KeyValue( KeyValueData* pkvd )
 
 void CTriggerEntityIterator :: Use( CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value )
 {
-	if( run_mode == TEI_FLAGS::run_mode::TOGGLE )
+	if( run_mode == RUN_MODE_TOGGLE_ON_OFF )
 	{
 		if( &CTriggerEntityIterator::IteratorThink )
 		{
@@ -162,35 +162,18 @@ void CTriggerEntityIterator :: IteratorFind()
 void CTriggerEntityIterator :: IteratorTrigger( CBaseEntity* pTarget )
 {
 	if(( !FStringNull( classname_filter ) && !pTarget->ClassnameIs( STRING( classname_filter ) ) )
-	or ( !FStringNull( name_filter ) && !FStrEq( STRING( pTarget->pev->targetname ), STRING( name_filter ) ) )
-	or ( status_filter == TEI_FLAGS::status_filter::ONLY_DEAD && pTarget->IsAlive() )
-	or ( status_filter == TEI_FLAGS::status_filter::ONLY_LIVING && !pTarget->IsAlive() )
+	|| ( !FStringNull( name_filter ) && !FStrEq( STRING( pTarget->pev->targetname ), STRING( name_filter ) ) )
+	|| ( status_filter == FILTER_STATUS_ONLY_DEAD && pTarget->IsAlive() )
+	|| ( status_filter == FILTER_STATUS_ONLY_LIVING && !pTarget->IsAlive() )
 	) { return; }
 
 	USE_TYPE UseType = static_cast<USE_TYPE>( triggerstate );
 
-/*
-	if( UseType == USE_UNSET )
-	{
-		UseType = pTarget->m_UseType;
-	}
-*/
-
 	if( delay_between_triggers > 0.0 )
 	{
 		flNextDelayTrigger += delay_between_triggers;
-
-		// create a temp object to fire at a later time
-		CBaseDelay* pTemp = g_EntityDictionary->Create<CBaseDelay>("entity_iterator_delayed");
-
-		pTemp->pev->nextthink = gpGlobals->time + flNextDelayTrigger;
-
-		pTemp->SetThink(&CBaseDelay::DelayThink);
-
-		pTemp->pev->button = (int)UseType;
-		pTemp->pev->target = pev->target;
-		pTemp->m_hActivator = pTarget;
-
+		m_flDelay = flNextDelayTrigger;
+		SUB_UseTargets( pTarget, UseType, 0 );
 	}
 	else
 	{

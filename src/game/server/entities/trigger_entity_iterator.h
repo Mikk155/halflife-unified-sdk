@@ -19,40 +19,18 @@
 
 #define NAME_FILTER_LIMIT 32
 
-namespace TEI_FLAGS
+#define SF_START_ON ( 1 << 0 )
+
+#define FILTER_STATUS_ONLY_LIVING 1
+#define FILTER_STATUS_ONLY_DEAD 2
+
+#define RUN_MODE_RUN_ONCE 0
+#define RUN_MODE_ONCE_MULTI_THREADED 1
+#define RUN_MODE_TOGGLE_ON_OFF 2
+
+class CTriggerEntityIterator : public CBaseDelay
 {
-	const int NONE = 0;
-
-	namespace spawnflags {
-		const int START_ON = ( 1 << 0 );
-	}
-	namespace status_filter {
-
-		const int ONLY_LIVING = 1;
-		const int ONLY_DEAD = 2;
-	}
-	namespace run_mode {
-		const int RUN_ONCE = 0;
-		const int ONCE_MULTI_THREADED = 1;
-		const int TOGGLE = 2;
-	}
-}
-
-/*
-enum TEI_FLAGS : int
-{
-	NONE = 0,
-	START_ON = ( 1 << 0 ),
-	ONLY_LIVING = 1,
-	ONLY_DEAD = 2,
-	CLASSNAME = ( 1 << 0 ),
-	TARGETNAME = ( 1 << 1 )
-};
-*/
-
-class CTriggerEntityIterator : public CBaseEntity
-{
-	DECLARE_CLASS( CTriggerEntityIterator, CBaseEntity );
+	DECLARE_CLASS( CTriggerEntityIterator, CBaseDelay );
 	DECLARE_DATAMAP();
 
 	public:
@@ -67,7 +45,7 @@ class CTriggerEntityIterator : public CBaseEntity
 		string_t name_filter;
 		string_t classname_filter;
 		string_t trigger_after_run;
-		int status_filter = TEI_FLAGS::NONE;
+		int status_filter = 0;
 		int triggerstate = 2;
 		int run_mode = 0;
 		int maximum_runs = 0;
