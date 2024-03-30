@@ -101,6 +101,7 @@ target_sources(server PRIVATE
 	entities/changelevel.h
 	entities/CMultiSource.h
 	entities/CPointEntity.h
+	entities/CKeyValueLogic.cpp
 	entities/CKeyValueLogic.h
 	entities/CTriggerChangeKeyValue.cpp
 	entities/doors.cpp

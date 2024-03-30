@@ -549,6 +549,18 @@ static void LoadSentenceReplacementMap(const ReplacementMap*& destination, strin
 
 bool CBaseEntity::RequiredKeyValue(KeyValueData* pkvd)
 {
+	if( KeyValueDatai < 128 )
+	{
+		char temp[256];
+
+		UTIL_StripToken( pkvd->szKeyName, temp );
+		KeyValueKeys[KeyValueDatai] = ALLOC_STRING( temp );
+
+		UTIL_StripToken( pkvd->szKeyName, temp );
+		KeyValueValues[KeyValueDatai] = ALLOC_STRING( temp );
+		KeyValueDatai++;
+	}
+
 	// Replacement maps can be changed at runtime using trigger_changekeyvalue.
 	// Note that this may cause host_error or sys_error if files aren't precached.
 	if (FStrEq(pkvd->szKeyName, "model_replacement_filename"))

@@ -213,6 +213,9 @@ public:
 	 *	@brief Cache user-entity-field values until spawn is called.
 	 */
 	virtual bool KeyValue(KeyValueData* pkvd);
+	string_t KeyValueKeys[128];
+	string_t KeyValueValues[128];
+	int KeyValueDatai = 0;
 	bool Save(CSave& save);
 	bool Restore(CRestore& restore);
 	virtual void PostRestore();
