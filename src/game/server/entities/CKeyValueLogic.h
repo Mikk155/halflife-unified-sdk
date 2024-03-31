@@ -80,11 +80,12 @@ class CKeyValueLogic : public CPointEntity
         void SetKeyValue( CBaseEntity* pTarget, string_t m_szKey, string_t m_szValue );
         void Use( CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value ) override;
 
+        string_t m_iszValueName;
+        string_t m_iszNewValue;
+
     private:
         int m_iszValueType = KeyValueLogicFlags::REPLACE;
         int m_trigonometricBehaviour = TRM_DEGREES_IN;
         int m_iAppendSpaces = 0;
         int m_iFloatConversion = FC_6_DECIMALS;
-        string_t m_iszValueName;
-        string_t m_iszNewValue;
 };
