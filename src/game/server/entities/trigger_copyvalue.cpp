@@ -92,7 +92,7 @@ void CTriggerCopyValue :: CopyValues( CBaseEntity* pActivator, CBaseEntity* pCal
 
         if( pTarget )
         {
-            m_iszNewValue = MAKE_STRING( GetValueOfKey( pTarget, m_iszSrcValueName ) );
+            m_iszNewValue = ALLOC_STRING( GetValueOfKey( pTarget, m_iszSrcValueName ).c_str() );
         }
     }
     FindTarget( pActivator, pCaller );
