@@ -72,11 +72,14 @@ class CKeyValueLogic : public CPointEntity
 
     public:
         void Spawn() override;
-        const char* ToString( Vector VecValue );
+        bool IsVector( std::string m_szKey );
+        bool IsFloat( const std::string str );
         void ModifyValue( CBaseEntity* pTarget );
         bool KeyValue(KeyValueData* pkvd) override;
+        std::string FloatConversion( std::string szValue );
         void FindTarget( CBaseEntity* pActivator, CBaseEntity* pCaller );
-        const char* GetValueOfKey( CBaseEntity* pTarget, string_t m_szKey );
+        std::string GetValueOfKey( CBaseEntity* pTarget, string_t m_szKey );
+        std::string ModifyVector( Vector VecOld, float x, float y, float z );
         void SetKeyValue( CBaseEntity* pTarget, string_t m_szKey, string_t m_szValue );
         void Use( CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value ) override;
 
