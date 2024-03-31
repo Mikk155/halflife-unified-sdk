@@ -15,6 +15,8 @@
 
 #pragma once
 
+#include <string>
+
 //=========================================================
 // 2DVector - used for many pathfinding and many other
 // operations that are treated as planar rather than 3d.
@@ -51,6 +53,11 @@ public:
 			flLen = 1 / flLen;
 			return Vector2D(x * flLen, y * flLen);
 		}
+	}
+
+	[[nodiscard]] const char* ToString() const
+	{
+		return std::string( std::to_string( x ) + " " + std::to_string( y ) ).c_str();
 	}
 
 	vec_t x = 0, y = 0;
@@ -108,6 +115,11 @@ public:
 			return Vector(0, 0, 1); // ????
 		flLen = 1 / flLen;
 		return Vector(x * flLen, y * flLen, z * flLen);
+	}
+
+	[[nodiscard]] const char* ToString() const
+	{
+		return std::string( std::to_string( x ) + " " + std::to_string( y ) + " " + std::to_string( z ) ).c_str();
 	}
 
 	[[nodiscard]] constexpr Vector2D Make2D() const
