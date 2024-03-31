@@ -10,6 +10,7 @@
 
 <body>
     <p>Branches inheritance graphic</p>
+    <p>Branches unlisted in here may be because they're currently a work in progress or they do not rely on other branches to work on its own</p>
 
     <div class="mermaid">
         graph TD;
@@ -22,9 +23,18 @@
         master{{"master (main mod)"}}:::color_purple
         click master "https://github.com/Mikk155/halflife-unified-sdk/tree/master" "github.com/Mikk155/halflife-unified-sdk/tree/master"
 
-        firetargets{{"FireTargets features"}}:::color_purple
-        click firetargets "https://github.com/Mikk155/halflife-unified-sdk/tree/FireTargets-features" "github.com/Mikk155/halflife-unified-sdk/tree/FireTargets-features"
-        upstream --> firetargets --> master
+        CKeyValueLogic{{"Class CKeyValueLogic"}}:::color_purple
+        click CKeyValueLogic "https://github.com/Mikk155/halflife-unified-sdk/tree/CKeyValueLogic" "github.com/Mikk155/halflife-unified-sdk/tree/CKeyValueLogic"
+        upstream --> CKeyValueLogic
+
+        trigger_changevalue{{"Entity trigger_changevalue"}}:::color_purple
+        click trigger_changevalue "https://github.com/Mikk155/halflife-unified-sdk/tree/entity-trigger_changevalue" "github.com/Mikk155/halflife-unified-sdk/tree/entity-trigger_changevalue"
+        CKeyValueLogic --> trigger_copyvalue --> master
+
+        trigger_copyvalue{{"Entity trigger_copyvalue"}}:::color_purple
+        click trigger_copyvalue "https://github.com/Mikk155/halflife-unified-sdk/tree/entity-trigger_copyvalue" "github.com/Mikk155/halflife-unified-sdk/tree/entity-trigger_copyvalue"
+        CKeyValueLogic --> trigger_changevalue --> master
+
     </div>
 </body>
 </html>
