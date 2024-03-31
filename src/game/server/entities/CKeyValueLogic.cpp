@@ -33,6 +33,7 @@ void CKeyValueLogic :: Use( CBaseEntity* pActivator, CBaseEntity* pCaller, USE_T
 {
     if( !FStringNull( pev->message ) )
     {
+        CBaseEntity::Logger->debug( "{} {} Fire target message {}", STRING(pev->classname), STRING(pev->targetname), STRING(pev->message) );
         FireTargets( STRING( pev->message ), pActivator, pCaller, useType, value );
     }
 }
@@ -88,137 +89,230 @@ void CKeyValueLogic :: FindTarget( CBaseEntity* pActivator, CBaseEntity* pCaller
     }
 }
 
-void CKeyValueLogic :: ModifyValue( CBaseEntity* pTarget )
+std::string CKeyValueLogic :: ModifyVector( Vector VecOld, float x, float y, float z )
 {
-    switch( m_iszValueType )
+    if( !FBitSet( pev->spawnflags, SF_DONT_USE_X ) )
     {
-        case KeyValueLogicFlags::REPLACE:
+        if( m_iszValueType == KeyValueLogicFlags::ADD )
+            VecOld.x = VecOld.x + x;
+        else if( m_iszValueType == KeyValueLogicFlags::DIV )
+            VecOld.x = VecOld.x - x;
+        else if( m_iszValueType == KeyValueLogicFlags::MUL )
         {
-            SetKeyValue( pTarget, m_iszValueName, m_iszNewValue );
-            break;
+            if( x == 0 ) { CBaseEntity::Logger->debug( "{} {} can not multiply by zero!", STRING(pev->classname), STRING(pev->targetname) ); }
+            else { VecOld.x = VecOld.x * x; }
         }
-        case KeyValueLogicFlags::ADD:
+        else if( m_iszValueType == KeyValueLogicFlags::DIV )
         {
-            int i = atoi( GetValueOfKey( pTarget, m_iszValueName ) );
-            int d = atoi( STRING( m_iszNewValue ) );
-            SetKeyValue( pTarget, m_iszValueName, MAKE_STRING( std::to_string( i + d ).c_str() ) );
-            break;
-        }
-        case KeyValueLogicFlags::APPEND:
-        {
-            std::string str = GetValueOfKey( pTarget, m_iszValueName );
-            for( int i = 0; i < m_iAppendSpaces; i++ )
-                str += " ";
-            str += STRING( m_iszNewValue );
-            SetKeyValue( pTarget, m_iszValueName, MAKE_STRING( str.c_str() ) );
-            break;
-        }
-        case KeyValueLogicFlags::MUL:
-        {
-            int i = atoi( GetValueOfKey( pTarget, m_iszValueName ) );
-            int d = atoi( STRING( m_iszNewValue ) );
-            SetKeyValue( pTarget, m_iszValueName, MAKE_STRING( std::to_string( i * d ).c_str() ) );
-            break;
-        }
-        case KeyValueLogicFlags::SUB:
-        {
-            int i = atoi( GetValueOfKey( pTarget, m_iszValueName ) );
-            int d = atoi( STRING( m_iszNewValue ) );
-            SetKeyValue( pTarget, m_iszValueName, MAKE_STRING( std::to_string( i - d ).c_str() ) );
-            break;
-        }
-        case KeyValueLogicFlags::DIV:
-        {
-            int i = atoi( GetValueOfKey( pTarget, m_iszValueName ) );
-            int d = atoi( STRING( m_iszNewValue ) );
-            SetKeyValue( pTarget, m_iszValueName, MAKE_STRING( std::to_string( i / d ).c_str() ) );
-            break;
-        }
-        case KeyValueLogicFlags::AND:
-        {
-            int i = atoi( GetValueOfKey( pTarget, m_iszValueName ) );
-            int d = atoi( STRING( m_iszNewValue ) );
-            ClearBits( i, d );
-            SetKeyValue( pTarget, m_iszValueName, MAKE_STRING( std::to_string( i ).c_str() ) );
-            break;
-        }
-        case KeyValueLogicFlags::OR:
-        {
-            int i = atoi( GetValueOfKey( pTarget, m_iszValueName ) );
-            int d = atoi( STRING( m_iszNewValue ) );
-            SetBits( i, d );
-            SetKeyValue( pTarget, m_iszValueName, MAKE_STRING( std::to_string( i ).c_str() ) );
-            break;
-        }
-        case KeyValueLogicFlags::NAND:
-        {
-            break;
-        }
-        case KeyValueLogicFlags::NOR:
-        {
-            break;
-        }
-        case KeyValueLogicFlags::DANGLES:
-        {
-            break;
-        }
-        case KeyValueLogicFlags::ADIRECTION:
-        {
-            break;
-        }
-        case KeyValueLogicFlags::MOD:
-        {
-            break;
-        }
-        case KeyValueLogicFlags::XOR:
-        {
-            break;
-        }
-        case KeyValueLogicFlags::NXOR:
-        {
-            break;
-        }
-        case KeyValueLogicFlags::POW:
-        {
-            break;
-        }
-        case KeyValueLogicFlags::SIN:
-        {
-            break;
-        }
-        case KeyValueLogicFlags::COS:
-        {
-            break;
-        }
-        case KeyValueLogicFlags::TAN:
-        {
-            break;
-        }
-        case KeyValueLogicFlags::ARCSIN:
-        {
-            break;
-        }
-        case KeyValueLogicFlags::ARCCOS:
-        {
-            break;
-        }
-        case KeyValueLogicFlags::ARCTAN:
-        {
-            break;
-        }
-        case KeyValueLogicFlags::COT:
-        {
-            break;
-        }
-        case KeyValueLogicFlags::ARCCOT:
-        {
-            break;
-        }
-        default:
-        {
-            SetKeyValue( pTarget, m_iszValueName, m_iszNewValue );
+            if( x == 0 ) { CBaseEntity::Logger->debug( "{} {} can not divide by zero!", STRING(pev->classname), STRING(pev->targetname) ); }
+            else { VecOld.x = VecOld.x / x; }
         }
     }
+    if( !FBitSet( pev->spawnflags, SF_DONT_USE_Y ) )
+    {
+        if( m_iszValueType == KeyValueLogicFlags::ADD )
+            VecOld.y = VecOld.y + y;
+        else if( m_iszValueType == KeyValueLogicFlags::DIV )
+            VecOld.y = VecOld.y - y;
+        else if( m_iszValueType == KeyValueLogicFlags::MUL )
+        {
+            if( y == 0 ) { CBaseEntity::Logger->debug( "{} {} can not multiply by zero!", STRING(pev->classname), STRING(pev->targetname) ); }
+            else { VecOld.y = VecOld.y * y; }
+        }
+        else if( m_iszValueType == KeyValueLogicFlags::DIV )
+        {
+            if( y == 0 ) { CBaseEntity::Logger->debug( "{} {} can not divide by zero!", STRING(pev->classname), STRING(pev->targetname) ); }
+            else { VecOld.y = VecOld.y / y; }
+        }
+    }
+    if( !FBitSet( pev->spawnflags, SF_DONT_USE_Z ) )
+    {
+        if( m_iszValueType == KeyValueLogicFlags::ADD )
+            VecOld.z = VecOld.z + z;
+        else if( m_iszValueType == KeyValueLogicFlags::DIV )
+            VecOld.z = VecOld.z - z;
+        else if( m_iszValueType == KeyValueLogicFlags::MUL )
+        {
+            if( z == 0 ) { CBaseEntity::Logger->debug( "{} {} can not multiply by zero!", STRING(pev->classname), STRING(pev->targetname) ); }
+            else { VecOld.z = VecOld.z * z; }
+        }
+        else if( m_iszValueType == KeyValueLogicFlags::DIV )
+        {
+            if( y == 0 ) { CBaseEntity::Logger->debug( "{} {} can not divide by zero!", STRING(pev->classname), STRING(pev->targetname) ); }
+            else { VecOld.z = VecOld.z / z; }
+        }
+    }
+
+    return std::string( VecOld.ToString() );
+}
+
+bool CKeyValueLogic :: IsVector( std::string m_szKey )
+{
+    std::istringstream iss( m_szKey );
+    float x, y, z;
+    char delimiter;
+
+    if( !( iss >> x >> delimiter >> y >> delimiter >> z ) )
+        return false;
+
+    std::string rest;
+
+    if( iss >> rest )
+        return false;
+
+    return true;
+}
+
+bool CKeyValueLogic :: IsFloat( const std::string str )
+{
+    bool puntoDecimal = false;
+    bool tieneDigitos = false;
+
+    for (char c : str) {
+        if (isdigit(c)) {
+            tieneDigitos = true;
+        } else if (c == '.') {
+            if (puntoDecimal) {
+                return false;
+            }
+            puntoDecimal = true;
+        } else {
+            return false;
+        }
+    }
+
+    return tieneDigitos && (puntoDecimal || str.back() != '.');
+}
+
+std::string CKeyValueLogic :: FloatConversion( std::string szValue )
+{
+    if( IsFloat( szValue ) )
+    {
+        switch( m_iFloatConversion )
+        {
+            case FC_INT_ROUND:
+            {
+                szValue = std::to_string( atoi( szValue.c_str() ) );
+                break;
+            }
+            case FC_INT_ROUND_DOWN:
+            {
+                szValue = std::to_string( (int)floor( atof( szValue.c_str() ) ) );
+                break;
+            }
+            case FC_INT_ROUND_UP:
+            {
+                szValue = std::to_string( (int)ceil( atof( szValue.c_str() ) ) );
+                break;
+            }
+            case FC_6_DECIMALS:
+            {
+                szValue = std::to_string( atof( szValue.c_str() ) ).substr( 0, szValue.find('.') + 7 );
+                break;
+            }
+            case FC_5_DECIMALS:
+            {
+                szValue = std::to_string( atof( szValue.c_str() ) ).substr( 0, szValue.find('.') + 6 );
+                break;
+            }
+            case FC_4_DECIMALS:
+            {
+                szValue = std::to_string( atof( szValue.c_str() ) ).substr( 0, szValue.find('.') + 5 );
+                break;
+            }
+            case FC_3_DECIMALS:
+            {
+                szValue = std::to_string( atof( szValue.c_str() ) ).substr( 0, szValue.find('.') + 4 );
+                break;
+            }
+            case FC_2_DECIMALS:
+            {
+                szValue = std::to_string( atof( szValue.c_str() ) ).substr( 0, szValue.find('.') + 3 );
+                break;
+            }
+            case FC_1_DECIMALS:
+            {
+                szValue = std::to_string( atof( szValue.c_str() ) ).substr( 0, szValue.find('.') + 2 );
+                break;
+            }
+        }
+    }
+    return szValue;
+}
+
+void CKeyValueLogic :: ModifyValue( CBaseEntity* pTarget )
+{
+    std::string m_szOldValue = GetValueOfKey( pTarget, m_iszValueName );
+
+    std::string m_szNewValue = std::string( STRING( m_iszNewValue ) );
+
+    if( m_iszValueType == KeyValueLogicFlags::AND )
+    {
+        int i = atoi( m_szOldValue.c_str() );
+        ClearBits( i, atoi( m_szNewValue.c_str() ) );
+        m_szNewValue = std::to_string( i );
+    }
+    else if( m_iszValueType == KeyValueLogicFlags::OR )
+    {
+        int i = atoi( m_szOldValue.c_str() );
+        SetBits( i, atoi( m_szNewValue.c_str() ) );
+        m_szNewValue = std::to_string( i );
+    }
+    else if( m_iszValueType == KeyValueLogicFlags::APPEND )
+    {
+        std::string str = m_szOldValue;
+        for( int i = 0; i < m_iAppendSpaces; i++ ) { str += " "; }
+        m_szNewValue = FloatConversion( m_szNewValue );
+        m_szNewValue = str + m_szNewValue;
+    }
+    else if( IsVector( m_szOldValue ) )
+    {
+        Vector VecOld;
+        UTIL_StringToVector( VecOld, m_szOldValue );
+
+        if( IsVector( m_szNewValue ) )
+        {
+            Vector VecNew;
+            UTIL_StringToVector( VecNew, m_szNewValue );
+
+            m_szNewValue = ModifyVector( VecOld, VecNew.x, VecNew.y, VecNew.z );
+        }
+        else
+        {
+            float i = atof( m_szNewValue.c_str() );
+            m_szNewValue = ModifyVector( VecOld, i, i, i );
+        }
+    }
+    else if( m_iszValueType == KeyValueLogicFlags::ADD )
+    {
+        m_szNewValue = std::to_string( atof( m_szOldValue.c_str() ) + atof( m_szNewValue.c_str() ) );
+    }
+    else if( m_iszValueType == KeyValueLogicFlags::MUL )
+    {
+        if( atof( m_szNewValue.c_str() ) == 0 )
+        {
+            CBaseEntity::Logger->debug( "{} {} can not multiply by zero!", STRING(pev->classname), STRING(pev->targetname) );
+            return;
+        }
+        m_szNewValue = std::to_string( atof( m_szOldValue.c_str() ) * atof( m_szNewValue.c_str() ) );
+    }
+    else if( m_iszValueType == KeyValueLogicFlags::SUB )
+    {
+        m_szNewValue = std::to_string( atof( m_szOldValue.c_str() ) - atof( m_szNewValue.c_str() ) );
+    }
+    else if( m_iszValueType == KeyValueLogicFlags::DIV )
+    {
+        if( atoi( m_szNewValue.c_str() ) == 0 )
+        {
+            CBaseEntity::Logger->debug( "{} {} can not divide by zero!", STRING(pev->classname), STRING(pev->targetname) );
+            return;
+        }
+        m_szNewValue = std::to_string( atoi( m_szOldValue.c_str() ) / atoi( m_szNewValue.c_str() ) );
+    }
+
+    m_szNewValue = FloatConversion( m_szNewValue );
+
+    SetKeyValue( pTarget, m_iszValueName, ALLOC_STRING( m_szNewValue.c_str() ) );
 }
 
 void CKeyValueLogic :: SetKeyValue( CBaseEntity* pTarget, string_t m_szKey, string_t m_szValue )
@@ -239,13 +333,7 @@ void CKeyValueLogic :: SetKeyValue( CBaseEntity* pTarget, string_t m_szKey, stri
     }
 }
 
-const char* CKeyValueLogic :: ToString( Vector VecValue )
-{
-    std::string str = std::to_string( VecValue.x ) + " " + std::to_string( VecValue.y ) + " " + std::to_string( VecValue.z );
-    return str.c_str();
-}
-
-const char* CKeyValueLogic :: GetValueOfKey( CBaseEntity* pTarget, string_t m_szKey )
+std::string CKeyValueLogic :: GetValueOfKey( CBaseEntity* pTarget, string_t m_szKey )
 {
     const char* szKey = STRING( m_szKey );
 
@@ -316,7 +404,14 @@ const char* CKeyValueLogic :: GetValueOfKey( CBaseEntity* pTarget, string_t m_sz
     else if( FStrEq( szKey, "scale" ) ) return std::to_string( pTarget->pev->scale ).c_str();
     else if( FStrEq( szKey, "renderamt" ) ) return std::to_string( pTarget->pev->renderamt ).c_str();
     else if( FStrEq( szKey, "health" ) ) return std::to_string( pTarget->pev->health ).c_str();
-    else if( FStrEq( szKey, "frags" ) ) return std::to_string( pTarget->pev->frags ).c_str();
+    else if( FStrEq( szKey, "frags" ) )
+    {
+        float i = pTarget->pev->frags;
+        std::string s = std::to_string( i );
+        const char* c = s.c_str();
+        CBaseEntity::Logger->debug( "i \"{}\" s \"{}\" c \"{}\"", i, s, c );
+        return c;
+    }
     else if( FStrEq( szKey, "takedamage" ) ) return std::to_string( pTarget->pev->takedamage ).c_str();
     else if( FStrEq( szKey, "max_health" ) ) return std::to_string( pTarget->pev->max_health ).c_str();
     else if( FStrEq( szKey, "teleport_time" ) ) return std::to_string( pTarget->pev->teleport_time ).c_str();
@@ -337,29 +432,29 @@ const char* CKeyValueLogic :: GetValueOfKey( CBaseEntity* pTarget, string_t m_sz
     else if( FStrEq( szKey, "fuser2" ) ) return std::to_string( pTarget->pev->fuser2 ).c_str();
     else if( FStrEq( szKey, "fuser3" ) ) return std::to_string( pTarget->pev->fuser3 ).c_str();
     else if( FStrEq( szKey, "fuser4" ) ) return std::to_string( pTarget->pev->fuser4 ).c_str();
-    else if( FStrEq( szKey, "origin" ) ) return ToString( pTarget->pev->origin );
-    else if( FStrEq( szKey, "oldorigin" ) ) return ToString( pTarget->pev->oldorigin );
-    else if( FStrEq( szKey, "velocity" ) ) return ToString( pTarget->pev->velocity );
-    else if( FStrEq( szKey, "basevelocity" ) ) return ToString( pTarget->pev->basevelocity );
-    else if( FStrEq( szKey, "clbasevelocity" ) ) return ToString( pTarget->pev->clbasevelocity );
-    else if( FStrEq( szKey, "movedir" ) ) return ToString( pTarget->pev->movedir );
-    else if( FStrEq( szKey, "angles" ) ) return ToString( pTarget->pev->angles );
-    else if( FStrEq( szKey, "avelocity" ) ) return ToString( pTarget->pev->avelocity );
-    else if( FStrEq( szKey, "punchangle" ) ) return ToString( pTarget->pev->punchangle );
-    else if( FStrEq( szKey, "v_angle" ) ) return ToString( pTarget->pev->v_angle );
-    else if( FStrEq( szKey, "endpos" ) ) return ToString( pTarget->pev->endpos );
-    else if( FStrEq( szKey, "startpos" ) ) return ToString( pTarget->pev->startpos );
-    else if( FStrEq( szKey, "absmin" ) ) return ToString( pTarget->pev->absmin );
-    else if( FStrEq( szKey, "absmax" ) ) return ToString( pTarget->pev->absmax );
-    else if( FStrEq( szKey, "mins" ) ) return ToString( pTarget->pev->mins );
-    else if( FStrEq( szKey, "maxs" ) ) return ToString( pTarget->pev->maxs );
-    else if( FStrEq( szKey, "size" ) ) return ToString( pTarget->pev->size );
-    else if( FStrEq( szKey, "rendercolor" ) ) return ToString( pTarget->pev->rendercolor );
-    else if( FStrEq( szKey, "view_ofs" ) ) return ToString( pTarget->pev->view_ofs );
-    else if( FStrEq( szKey, "vuser1" ) ) return ToString( pTarget->pev->vuser1 );
-    else if( FStrEq( szKey, "vuser2" ) ) return ToString( pTarget->pev->vuser2 );
-    else if( FStrEq( szKey, "vuser3" ) ) return ToString( pTarget->pev->vuser3 );
-    else if( FStrEq( szKey, "vuser4" ) ) return ToString( pTarget->pev->vuser4 );
+    else if( FStrEq( szKey, "origin" ) ) return pTarget->pev->origin.ToString();
+    else if( FStrEq( szKey, "oldorigin" ) ) return pTarget->pev->oldorigin.ToString();
+    else if( FStrEq( szKey, "velocity" ) ) return pTarget->pev->velocity.ToString();
+    else if( FStrEq( szKey, "basevelocity" ) ) return pTarget->pev->basevelocity.ToString();
+    else if( FStrEq( szKey, "clbasevelocity" ) ) return pTarget->pev->clbasevelocity.ToString();
+    else if( FStrEq( szKey, "movedir" ) ) return pTarget->pev->movedir.ToString();
+    else if( FStrEq( szKey, "angles" ) ) return pTarget->pev->angles.ToString();
+    else if( FStrEq( szKey, "avelocity" ) ) return pTarget->pev->avelocity.ToString();
+    else if( FStrEq( szKey, "punchangle" ) ) return pTarget->pev->punchangle.ToString();
+    else if( FStrEq( szKey, "v_angle" ) ) return pTarget->pev->v_angle.ToString();
+    else if( FStrEq( szKey, "endpos" ) ) return pTarget->pev->endpos.ToString();
+    else if( FStrEq( szKey, "startpos" ) ) return pTarget->pev->startpos.ToString();
+    else if( FStrEq( szKey, "absmin" ) ) return pTarget->pev->absmin.ToString();
+    else if( FStrEq( szKey, "absmax" ) ) return pTarget->pev->absmax.ToString();
+    else if( FStrEq( szKey, "mins" ) ) return pTarget->pev->mins.ToString();
+    else if( FStrEq( szKey, "maxs" ) ) return pTarget->pev->maxs.ToString();
+    else if( FStrEq( szKey, "size" ) ) return pTarget->pev->size.ToString();
+    else if( FStrEq( szKey, "rendercolor" ) ) return pTarget->pev->rendercolor.ToString();
+    else if( FStrEq( szKey, "view_ofs" ) ) return pTarget->pev->view_ofs.ToString();
+    else if( FStrEq( szKey, "vuser1" ) ) return pTarget->pev->vuser1.ToString();
+    else if( FStrEq( szKey, "vuser2" ) ) return pTarget->pev->vuser2.ToString();
+    else if( FStrEq( szKey, "vuser3" ) ) return pTarget->pev->vuser3.ToString();
+    else if( FStrEq( szKey, "vuser4" ) ) return pTarget->pev->vuser4.ToString();
 
     /*
 	byte controller[NUM_ENT_CONTROLLERS]; // bone controller setting (0..255)
@@ -389,3 +484,4 @@ const char* CKeyValueLogic :: GetValueOfKey( CBaseEntity* pTarget, string_t m_sz
     }
     return "";
 }
+
