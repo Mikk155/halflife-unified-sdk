@@ -10,7 +10,7 @@
 
 <body>
     <p>Branches inheritance graphic</p>
-    <p>Branches unlisted in here may be because they're currently a work in progress or they do not rely on other branches to work on its own</p>
+    <p>Only branches that inherits from a modified branch will be shown here</p>
 
     <div class="mermaid">
         graph TD;
@@ -20,20 +20,21 @@
         upstream{{"halflife-unified (up-stream)"}}:::color_purple
         click upstream "https://github.com/twhl-community/halflife-unified-sdk" "github.com/twhl-community/halflife-unified-sdk"
 
-        master{{"master (main mod)"}}:::color_purple
-        click master "https://github.com/Mikk155/halflife-unified-sdk/tree/master" "github.com/Mikk155/halflife-unified-sdk/tree/master"
-
         CKeyValueLogic{{"Class CKeyValueLogic"}}:::color_purple
         click CKeyValueLogic "https://github.com/Mikk155/halflife-unified-sdk/tree/CKeyValueLogic" "github.com/Mikk155/halflife-unified-sdk/tree/CKeyValueLogic"
         upstream --> CKeyValueLogic
 
         trigger_changevalue{{"Entity trigger_changevalue"}}:::color_purple
         click trigger_changevalue "https://github.com/Mikk155/halflife-unified-sdk/tree/entity-trigger_changevalue" "github.com/Mikk155/halflife-unified-sdk/tree/entity-trigger_changevalue"
-        CKeyValueLogic --> trigger_copyvalue --> master
+        CKeyValueLogic --> trigger_changevalue
 
         trigger_copyvalue{{"Entity trigger_copyvalue"}}:::color_purple
         click trigger_copyvalue "https://github.com/Mikk155/halflife-unified-sdk/tree/entity-trigger_copyvalue" "github.com/Mikk155/halflife-unified-sdk/tree/entity-trigger_copyvalue"
-        CKeyValueLogic --> trigger_changevalue --> master
+        CKeyValueLogic --> trigger_copyvalue
+
+        trigger_condition{{"Entity trigger_condition"}}:::color_purple
+        click trigger_condition "https://github.com/Mikk155/halflife-unified-sdk/tree/entity-trigger_condition" "github.com/Mikk155/halflife-unified-sdk/tree/entity-trigger_condition"
+        CKeyValueLogic --> trigger_condition
 
     </div>
 </body>
