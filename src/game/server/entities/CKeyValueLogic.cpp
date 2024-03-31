@@ -55,7 +55,7 @@ bool CKeyValueLogic :: KeyValue( KeyValueData* pkvd )
     {
         m_iFloatConversion = atoi( pkvd->szValue );
     }
-    else if( FStrEq( pkvd->szKeyName, "m_iszValueName" ) )
+    else if( FStrEq( pkvd->szKeyName, "m_iszValueName" ) || FStrEq( pkvd->szKeyName, "m_iszDstValueName" ) )
     {
         m_iszValueName = ALLOC_STRING( pkvd->szValue );
     }
