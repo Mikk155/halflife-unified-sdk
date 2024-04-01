@@ -34,7 +34,7 @@ LINK_ENTITY_TO_CLASS( trigger_condition, CTriggerCondition )
 
 void CTriggerCondition :: Spawn()
 {
-    if( !FBitSet( pev->spawnflags, SF_START_OFF ) && FBitSet( pev->spawnflags, SF_CYCLIC_NTOGGLE ) )
+    if( !FBitSet( pev->spawnflags, SF_START_OFF ) && !FBitSet( pev->spawnflags, SF_CYCLIC_NTOGGLE ) )
     {
         SetThink( &CTriggerCondition::ThinkCondition );
         IsThinking = true;
