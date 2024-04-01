@@ -15,16 +15,16 @@
 
 #pragma once
 
-#include "cbase.h"
+#include "CKeyValueLogic.h"
 
-#define SF_DONT_USE_X       ( 1 << 0 ) // Start Off
-#define SF_DONT_USE_X       ( 1 << 1 ) // Do not use X (Vector)
-#define SF_DONT_USE_Y       ( 1 << 2 ) // Do not use Y (Vector)
-#define SF_DONT_USE_Z       ( 1 << 3 ) // Do not use Z (Vector)
-#define SF_DONT_USE_W       ( 1 << 4 ) // Don't use W (A)
-#define SF_DONT_USE_W       ( 1 << 5 ) // Cyclic; no toggle, Check once when fired - do not toggle
+#define SF_START_OFF        ( 1 << 0 ) // Start Off
+#define SF_DONTUSE_X        ( 1 << 1 ) // Do not use X (Vector)
+#define SF_DONTUSE_Y        ( 1 << 2 ) // Do not use Y (Vector)
+#define SF_DONTUSE_Z        ( 1 << 3 ) // Do not use Z (Vector)
+#define SF_DONTUSE_W        ( 1 << 4 ) // Don't use W (A)
+#define SF_CYCLIC_NTOGGLE   ( 1 << 5 ) // Cyclic; no toggle, Check once when fired - do not toggle
 #define SF_KEEP_ACTIVATOR   ( 1 << 6 ) // Keep '!activator'
-#define SF_IGNORE_1STRESULT ( 1 << 6 ) // Ignore initial result
+#define SF_IGNORE_1STRESULT ( 1 << 7 ) // Ignore initial result
 
 #define CHECK_ALTERNATINGLY 0   // Fire true/false alternatingly
 #define CHECK_ONLY_FALSE 1      // Only wait after false
@@ -42,29 +42,30 @@ enum TriggerConditionCheck : int
 	LOGICAL_AND = 6         // (Ent keyvalue & mappers value) does not equal 0 (Flag check)
 };
 
-class CTriggerCondition : public CPointEntity
+class CTriggerCondition : public CKeyValueLogic
 {
-	DECLARE_CLASS( CTriggerCondition, CPointEntity );
+	DECLARE_CLASS( CTriggerCondition, CKeyValueLogic );
 	DECLARE_DATAMAP();
 
     public:
         void Spawn() override;
         bool KeyValue(KeyValueData* pkvd) override;
+        void GetComparator();
+        void ThinkCondition();
+        bool IsPossitive( std::string Source, std::string Destination );
         void Use( CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value ) override;
 
 
     private:
-        string_t m_iszValueName;    // Monitored key
-        string_t m_iszSourceName;   // Compare-entity
-        string_t m_iszSourceKey;    // Compare-key
-        string_t m_iszCheckValue;   // Compare-value (alternative)
-        int m_iCheckType = TriggerConditionCheck::EQUAL;  // Comparator; mon. val. -> comp.-val.
+        EHANDLE m_szActivator;
+        EHANDLE m_szCaller;
+        string_t m_iszValueName; // Monitored key
+        string_t m_iszSourceName; // Compare-entity
+        string_t m_iszSourceKey; // Compare-key
+        string_t m_iszCheckValue; // Compare-value (alternative)
+        int m_iCheckType = TriggerConditionCheck::EQUAL; // Comparator; mon. val. -> comp.-val.
         float m_fCheckInterval; // Check-interval (seconds)
-        int m_iCheckBehaviour = // Constant mode trigger behaviour
+        int m_iCheckBehaviour = CHECK_TRUE_FALSE; // Constant mode trigger behaviour
+        bool IsThinking = false;
+        bool LastFireCase = false;
 };
-
-/*
-	target(target_destination) : "Monitored entity"
-	netname(string) : "Target for 'true'-case"
-	message(string) : "Target for 'false'-case"
-*/
