@@ -1172,6 +1172,17 @@
             }
         }
     },
+    "SF1AllPlayers":
+    {
+        "spawnflags":
+        {
+            "1":
+            {
+                "title": "All Players",
+                "description": ""
+            }
+        }
+    },
     "SF1StartOff":
     {
         "spawnflags":
