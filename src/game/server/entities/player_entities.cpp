@@ -622,3 +622,39 @@ void CPlayerHasWeapon::Use(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TY
 		}
 	}
 }
+
+class CPlayerCommand : public CPointEntity
+{
+	public:
+		void Use( CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value ) override;
+};
+
+LINK_ENTITY_TO_CLASS( player_command, CPlayerCommand );
+
+void CPlayerCommand :: Use( CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value )
+{
+	if( FBitSet( pev->spawnflags, 1 ) )
+	{
+		for( auto pPlayer : UTIL_FindPlayers() )
+		{
+			if( pPlayer && pPlayer->IsPlayer() )
+			{
+				CLIENT_COMMAND( pPlayer->edict(), STRING( pev->message ) );
+			}
+		}
+	}
+	else
+	{
+		auto pPlayer = ToBasePlayer( pActivator );
+
+		if( pPlayer && pPlayer->IsPlayer() )
+		{
+			CLIENT_COMMAND( pPlayer->edict(), STRING( pev->message ) );
+		}
+	}
+
+	if( !FStringNull( pev->target ) )
+	{
+		FireTargets( STRING( pev->target ), pActivator, this, USE_TOGGLE, 0 );
+	}
+}
