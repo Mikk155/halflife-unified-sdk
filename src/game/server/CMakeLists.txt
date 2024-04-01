@@ -137,6 +137,8 @@ target_sources(server PRIVATE
 	entities/subs.cpp
 	entities/teleport_entities.cpp
 	entities/trains.h
+	entities/trigger_condition.cpp
+	entities/trigger_condition.h
 	entities/triggers.cpp
 	entities/world.cpp
 	entities/world.h
