@@ -1,0 +1,10 @@
+{
+    "player_command":
+    {
+        "atributes":
+        {
+            "base": "SF1AllPlayers",
+            "title": "Exe a command on the clients"
+        }
+    }
+}
