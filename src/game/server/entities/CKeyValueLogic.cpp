@@ -33,8 +33,7 @@ void CKeyValueLogic :: Use( CBaseEntity* pActivator, CBaseEntity* pCaller, USE_T
 {
     if( !FStringNull( pev->message ) )
     {
-        CBaseEntity::Logger->debug( "{} {} Fire target message {}", STRING(pev->classname), STRING(pev->targetname), STRING(pev->message) );
-        FireTargets( STRING( pev->message ), pActivator, pCaller, useType, value );
+        FireTargets( STRING( pev->message ), pActivator, this, USE_TOGGLE, 0 );
     }
 }
 
@@ -404,14 +403,7 @@ std::string CKeyValueLogic :: GetValueOfKey( CBaseEntity* pTarget, string_t m_sz
     else if( FStrEq( szKey, "scale" ) ) return std::to_string( pTarget->pev->scale ).c_str();
     else if( FStrEq( szKey, "renderamt" ) ) return std::to_string( pTarget->pev->renderamt ).c_str();
     else if( FStrEq( szKey, "health" ) ) return std::to_string( pTarget->pev->health ).c_str();
-    else if( FStrEq( szKey, "frags" ) )
-    {
-        float i = pTarget->pev->frags;
-        std::string s = std::to_string( i );
-        const char* c = s.c_str();
-        CBaseEntity::Logger->debug( "i \"{}\" s \"{}\" c \"{}\"", i, s, c );
-        return c;
-    }
+    else if( FStrEq( szKey, "frags" ) ) return std::to_string( pTarget->pev->frags ).c_str();
     else if( FStrEq( szKey, "takedamage" ) ) return std::to_string( pTarget->pev->takedamage ).c_str();
     else if( FStrEq( szKey, "max_health" ) ) return std::to_string( pTarget->pev->max_health ).c_str();
     else if( FStrEq( szKey, "teleport_time" ) ) return std::to_string( pTarget->pev->teleport_time ).c_str();
