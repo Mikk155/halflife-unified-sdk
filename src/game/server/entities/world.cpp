@@ -294,16 +294,8 @@ void CWorld::Precache()
 	PrecacheSound("common/bodydrop3.wav"); // dead bodies hitting the ground (animation events)
 	PrecacheSound("common/bodydrop4.wav");
 
-	g_Language = (int)CVAR_GET_FLOAT("sv_language");
-	if (g_Language == LANGUAGE_GERMAN)
-	{
-		PrecacheModel("models/germangibs.mdl");
-	}
-	else
-	{
-		PrecacheModel("models/hgibs.mdl");
-		PrecacheModel("models/agibs.mdl");
-	}
+	PrecacheModel("models/hgibs.mdl");
+	PrecacheModel("models/agibs.mdl");
 
 	PrecacheSound("weapons/ric1.wav");
 	PrecacheSound("weapons/ric2.wav");

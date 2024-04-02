@@ -59,21 +59,10 @@ void COFGonomeGuts::Spawn()
 	pev->rendermode = kRenderTransAlpha;
 	pev->renderamt = 255;
 
-	// TODO: probably shouldn't be assinging to x every time
-	if (g_Language == LANGUAGE_GERMAN)
-	{
-		SetModel("sprites/bigspit.spr");
-		pev->rendercolor.x = 0;
-		pev->rendercolor.x = 255;
-		pev->rendercolor.x = 0;
-	}
-	else
-	{
-		SetModel("sprites/bigspit.spr");
-		pev->rendercolor.x = 128;
-		pev->rendercolor.x = 32;
-		pev->rendercolor.x = 128;
-	}
+	SetModel("sprites/bigspit.spr");
+	pev->rendercolor.x = 128;
+	pev->rendercolor.x = 32;
+	pev->rendercolor.x = 128;
 
 	pev->frame = 0;
 	pev->scale = 0.5;
