@@ -89,6 +89,7 @@ DEFINE_FIELD(m_hEnemy, FIELD_EHANDLE),
 	DEFINE_FIELD(m_pCine, FIELD_CLASSPTR),
 	DEFINE_FIELD(m_AllowItemDropping, FIELD_BOOLEAN),
 	DEFINE_FIELD(m_AllowFollow, FIELD_BOOLEAN),
+	DEFINE_FIELD(m_freeRoam, FIELD_INTEGER),
 
 	DEFINE_FUNCTION(MonsterUse),
 	DEFINE_FUNCTION(CallMonsterThink),
@@ -2718,6 +2719,11 @@ bool CBaseMonster::KeyValue(KeyValueData* pkvd)
 	else if (FStrEq(pkvd->szKeyName, "UnUseSentence"))
 	{
 		m_iszUnUse = ALLOC_STRING(pkvd->szValue);
+		return true;
+	}
+	else if ( FStrEq( pkvd->szKeyName, "freeroam" ) )
+	{
+		m_freeRoam = atoi( pkvd->szValue );
 		return true;
 	}
 
