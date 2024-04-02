@@ -23,11 +23,13 @@
         },
         "netname":
         {
-            "title": "Start Landmark"
+            "title": "Start Landmark",
+            "type": "target_destination"
         },
         "message":
         {
-            "title": "End Landmark"
+            "title": "End Landmark",
+            "type": "target_destination"
         }
     }
 }
