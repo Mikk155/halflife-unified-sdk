@@ -117,6 +117,26 @@
                     "description": ""
                 }
             }
+        },
+        "freeroam":
+        {
+            "type": "choices",
+            "title": "Roaming monsters (node graph)",
+            "default": "0",
+            "description": "",
+            "choices":
+            {
+                "0":
+                {
+                    "title": "No",
+                    "description": ""
+                },
+                "1":
+                {
+                    "title": "Yes",
+                    "description": ""
+                }
+            }
         }
     }
 }
