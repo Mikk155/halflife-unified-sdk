@@ -1,0 +1,33 @@
+{
+    "trigger_teleport_relative":
+    {
+        "atributes":
+        {
+            "BaseClass": "Target, FireTargets",
+            "title": "Relative Teleport"
+        },
+        "spawnflags":
+        {
+            "1": {
+                "title": "Only Trigger"
+            },
+            "2": {
+                "title": "Allow Monsters"
+            },
+            "4": {
+                "title": "No Clients"
+            },
+            "8": {
+                "title": "No Velocity"
+            }
+        },
+        "netname":
+        {
+            "title": "Start Landmark"
+        },
+        "message":
+        {
+            "title": "End Landmark"
+        }
+    }
+}
