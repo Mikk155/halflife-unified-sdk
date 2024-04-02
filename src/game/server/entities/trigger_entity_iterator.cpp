@@ -19,6 +19,7 @@
 BEGIN_DATAMAP( CTriggerEntityIterator )
 	DEFINE_FUNCTION( IteratorThink ),
 	DEFINE_FIELD( run_mode, FIELD_INTEGER ),
+	DEFINE_FIELD( IsThinking, FIELD_BOOLEAN ),
 	DEFINE_FIELD( name_filter, FIELD_STRING ),
 	DEFINE_FIELD( triggerstate, FIELD_INTEGER ),
 	DEFINE_FIELD( maximum_runs, FIELD_INTEGER ),
