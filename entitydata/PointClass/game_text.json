@@ -1,0 +1,110 @@
+{
+    "game_text":
+    {
+        "atributes":
+        {
+            "base": "Target, SF1AllPlayers, Master",
+            "title": "Fires when it hits limit",
+			"color": "192 255 0"
+        },
+        "spawnflags":
+        {
+            "2":
+            {
+                "title": "Reset On fire"
+            }
+        },
+        "message":
+        {
+            "type": "string",
+            "title": "Message Text"
+        },
+        "x":
+        {
+            "type": "float",
+            "title": "X (0 - 1.0 = left to right) (-1 centers)",
+            "default": "-1"
+        },
+        "y":
+        {
+            "type": "float",
+            "title": "Y (0 - 1.0 = top to bottom) (-1 centers)",
+            "default": "-1"
+        },
+        "effect":
+        {
+            "type": "choices",
+            "title": "Text Effect",
+            "default": "0",
+			"choices":
+			{
+				"0": {
+					"title": "Fade In/Out"
+				},
+				"1": {
+					"title": "Credits"
+				},
+				"2": {
+					"title": "Scan Out"
+				}
+			}
+        },
+        "color":
+        {
+            "type": "color255",
+            "title": "Color1",
+            "default": "100 100 100"
+        },
+        "color2":
+        {
+            "type": "color255",
+            "title": "Color2",
+            "default": "240 110 0"
+        },
+        "fadein":
+        {
+            "type": "float",
+            "title": "Fade in Time (or character scan time)",
+            "default": "1.5"
+        },
+        "fadeout":
+        {
+            "type": "float",
+            "title": "Fade Out Time",
+            "default": "0.5"
+        },
+        "holdtime":
+        {
+            "type": "float",
+            "title": "Hold Time",
+            "default": "1.5"
+        },
+        "fxtime":
+        {
+            "type": "float",
+            "title": "Scan time (scan effect only)",
+            "default": "0.25"
+        },
+        "channel":
+        {
+            "type": "choices",
+            "title": "Text Channel",
+            "default": "1",
+			"choices":
+			{
+				"1": {
+					"title": "Channel 1"
+				},
+				"2": {
+					"title": "Channel 2"
+				},
+				"3": {
+					"title": "Channel 3"
+				},
+				"4": {
+					"title": "Channel 4"
+				}
+			}
+        }
+    }
+}
