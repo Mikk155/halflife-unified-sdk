@@ -102,6 +102,7 @@ void CBaseTrigger::MultiWaitOver()
 	//		pev->solid		= SOLID_BBOX;
 	//		}
 	SetThink(nullptr);
+	gpGlobals->force_retouch++;
 }
 
 void CBaseTrigger::ToggleUse(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value)
