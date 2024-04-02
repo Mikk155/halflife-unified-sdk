@@ -862,34 +862,17 @@ bool CBaseEntity::IsLockedByMaster()
 
 bool CBaseEntity::IsInWorld()
 {
-	// position
-	if (pev->origin.x >= 4096)
-		return false;
-	if (pev->origin.y >= 4096)
-		return false;
-	if (pev->origin.z >= 4096)
-		return false;
-	if (pev->origin.x <= -4096)
-		return false;
-	if (pev->origin.y <= -4096)
-		return false;
-	if (pev->origin.z <= -4096)
-		return false;
-	// speed
-	if (pev->velocity.x >= 2000)
-		return false;
-	if (pev->velocity.y >= 2000)
-		return false;
-	if (pev->velocity.z >= 2000)
-		return false;
-	if (pev->velocity.x <= -2000)
-		return false;
-	if (pev->velocity.y <= -2000)
-		return false;
-	if (pev->velocity.z <= -2000)
-		return false;
-
-	return true;
+	return
+	(
+		/* Position */
+		pev->origin.x		<	4096	&&	pev->origin.x		>	-4096 &&
+		pev->origin.y		<	4096	&&	pev->origin.y		>	-4096 &&
+		pev->origin.z		<	4096	&&	pev->origin.z		>	-4096 &&
+		/* Speed */
+		pev->velocity.x 	<	2000	&&	pev->velocity.x		>	-2000 &&
+		pev->velocity.y 	<	2000	&&	pev->velocity.y		>	-2000 &&
+		pev->velocity.z 	<	2000	&&	pev->velocity.z		>	-2000
+	);
 }
 
 bool CBaseEntity::ShouldToggle(USE_TYPE useType, bool currentState)
