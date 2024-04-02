@@ -16,7 +16,6 @@
 #include "cbase.h"
 
 #define BARNACLE_BODY_HEIGHT 44 //!< how 'tall' the barnacle's model is.
-#define BARNACLE_PULL_SPEED 8
 #define BARNACLE_KILL_VICTIM_DELAY 5 //!< how many seconds after pulling prey in to gib them.
 
 #define BARNACLE_AE_PUKEGIB 2
@@ -70,7 +69,7 @@ void CBarnacle::OnCreate()
 {
 	CBaseMonster::OnCreate();
 
-	pev->health = 25;
+	pev->health = GetSkillFloat("barnacle_health"sv);
 	pev->model = MAKE_STRING("models/barnacle.mdl");
 
 	SetClassification("alien_monster");
@@ -170,8 +169,8 @@ void CBarnacle::BarnacleThink()
 			vecNewEnemyOrigin.x -= 6 * cos(m_hEnemy->pev->angles.y * PI / 180.0);
 			vecNewEnemyOrigin.y -= 6 * sin(m_hEnemy->pev->angles.y * PI / 180.0);
 
-			m_flAltitude -= BARNACLE_PULL_SPEED;
-			vecNewEnemyOrigin.z += BARNACLE_PULL_SPEED;
+			m_flAltitude -= GetSkillFloat("barnacle_speed"sv);
+			vecNewEnemyOrigin.z += GetSkillFloat("barnacle_speed"sv);
 
 			if (fabs(pev->origin.z - (vecNewEnemyOrigin.z + m_hEnemy->pev->view_ofs.z - 8)) < BARNACLE_BODY_HEIGHT)
 			{
@@ -298,7 +297,7 @@ void CBarnacle::BarnacleThink()
 			if (m_flAltitude < flLength)
 			{
 				// if tongue is higher than is should be, lower it kind of slowly.
-				m_flAltitude += BARNACLE_PULL_SPEED;
+				m_flAltitude += GetSkillFloat("barnacle_speed"sv);
 				m_fTongueExtended = false;
 			}
 			else
