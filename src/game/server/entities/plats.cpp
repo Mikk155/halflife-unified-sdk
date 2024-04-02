@@ -2170,6 +2170,7 @@ class CGunTarget : public CBaseMonster
 	DECLARE_DATAMAP();
 
 public:
+	bool IsMonster() override { return false; }
 	void OnCreate() override;
 	void Spawn() override;
 	void Activate() override;

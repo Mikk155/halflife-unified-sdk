@@ -345,6 +345,7 @@ public:
 	virtual bool IsInWorld();
 	virtual bool IsPlayer() { return false; }
 	virtual bool IsNetClient() { return false; }
+	virtual bool IsMonster() { return false; }
 	virtual const char* TeamID() { return ""; }
 
 

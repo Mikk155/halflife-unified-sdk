@@ -262,14 +262,14 @@ bool CGraph::HandleLinkEnt(int iNode, entvars_t* pevLinkEnt, int afCapMask, NODE
 // FindNearestLink - finds the connection (line) nearest
 // the given point. Returns false if fails, or true if it
 // has stuffed the index into the nearest link pool connection
-// into the passed int pointer, and a bool telling whether or 
+// into the passed int pointer, and a bool telling whether or
 // not the point is along the line into the passed bool pointer.
 //=========================================================
 int	CGraph::FindNearestLink(const Vector& vecTestPoint, int* piNearestLink, bool* pfAlongLine)
 {
 	int			i, j;// loops
 
-	int			iNearestLink;// index into the link pool, this is the nearest node at any time. 
+	int			iNearestLink;// index into the link pool, this is the nearest node at any time.
 	float		flMinDist;// the distance of of the nearest case so far
 	float		flDistToLine;// the distance of the current test case
 
@@ -289,7 +289,7 @@ int	CGraph::FindNearestLink(const Vector& vecTestPoint, int* piNearestLink, bool
 
 	flMinDist = 9999;// anything will be closer than this
 
-// go through all of the nodes, and each node's connections	
+// go through all of the nodes, and each node's connections
 	int	cSkip = 0;// how many links proper pairing allowed us to skip
 	int cChecked = 0;// how many links were checked
 
@@ -323,15 +323,15 @@ int	CGraph::FindNearestLink(const Vector& vecTestPoint, int* piNearestLink, bool
 			// these values need a little attention now and then, or sometimes ramps cause trouble.
 			if (fabs(vecSpot1.z - vecTestPoint.z) > 48 && fabs(vecSpot2.z - vecTestPoint.z) > 48)
 			{
-				// if both endpoints of the line are 32 units or more above or below the monster, 
+				// if both endpoints of the line are 32 units or more above or below the monster,
 				// the monster won't be able to get to them, so we do a bit of trivial rejection here.
-				// this may change if monsters are allowed to jump down. 
-				// 
+				// this may change if monsters are allowed to jump down.
+				//
 				// !!!LATER: some kind of clever X/Y hashing should be used here, too
 				continue;
 			}
 
-			// now we have two endpoints for a line segment that we've not already checked. 
+			// now we have two endpoints for a line segment that we've not already checked.
 			// since all lines that make it this far are within -/+ 32 units of the test point's
 			// Z Plane, we can get away with doing the point->line check in 2d.
 
@@ -1448,6 +1448,7 @@ class CTestHull : public CBaseMonster
 	DECLARE_DATAMAP();
 
 public:
+	bool IsMonster() override { return false; }
 	void Spawn(CBaseEntity* masterNode);
 	int ObjectCaps() override { return CBaseMonster::ObjectCaps() & ~FCAP_ACROSS_TRANSITION; }
 	void CallBuildNodeGraph();

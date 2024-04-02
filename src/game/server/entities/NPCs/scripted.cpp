@@ -1026,6 +1026,7 @@ bool CScriptedSentence::StartSentence(CBaseMonster* pTarget)
 class CFurniture : public CBaseMonster
 {
 public:
+	bool IsMonster() override { return false; }
 	void OnCreate() override;
 
 	/**

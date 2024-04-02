@@ -282,6 +282,9 @@ public:
 	void Listen();
 
 	bool IsAlive() override { return (pev->deadflag != DEAD_DEAD); }
+
+	bool IsMonster() override { return true; }
+
 	virtual bool ShouldFadeOnDeath();
 
 	// Basic Monster AI functions
