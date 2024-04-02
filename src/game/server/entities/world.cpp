@@ -420,6 +420,11 @@ void CWorld::Precache()
 	}
 
 	CVAR_SET_FLOAT("sv_wateramp", pev->scale);
+
+	if( m_freeRoam ) // Delayed so the map overrides the server's setting
+	{
+		CVAR_SET_FLOAT( "mp_monster_roaming", m_freeRoam );
+	}
 }
 
 bool CWorld::KeyValue(KeyValueData* pkvd)
@@ -481,6 +486,11 @@ bool CWorld::KeyValue(KeyValueData* pkvd)
 		{
 			pev->spawnflags |= SF_WORLD_FORCETEAM;
 		}
+		return true;
+	}
+	else if( FStrEq( pkvd->szKeyName, "freeroam" ) )
+	{
+		m_freeRoam = atoi( pkvd->szValue );
 		return true;
 	}
 
