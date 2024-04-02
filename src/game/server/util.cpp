@@ -492,6 +492,12 @@ void UTIL_MakeVectors(const Vector& vecAngles)
 	AngleVectors(vecAngles, gpGlobals->v_forward, gpGlobals->v_right, gpGlobals->v_up);
 }
 
+Vector atov( const char* VecIn )
+{
+	Vector VecOut;
+	UTIL_StringToVector( VecOut, VecIn );
+	return VecOut;
+}
 
 void UTIL_MakeAimVectors(const Vector& vecAngles)
 {

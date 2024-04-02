@@ -140,6 +140,8 @@ CBasePlayer* UTIL_FindNearestPlayer(const Vector& origin);
 CBasePlayer* UTIL_FindClientInPVS(CBaseEntity* entity);
 void UTIL_MakeVectors(const Vector& vecAngles);
 
+Vector atov( const char* VecIn );
+
 // Pass in an array of pointers and an array size, it fills the array and returns the number inserted
 int UTIL_MonstersInSphere(CBaseEntity** pList, int listMax, const Vector& center, float radius);
 int UTIL_EntitiesInBox(CBaseEntity** pList, int listMax, const Vector& mins, const Vector& maxs, int flagMask);
