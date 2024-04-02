@@ -369,11 +369,27 @@
 	]
 ]
 
+@BaseClass = SF2UseAngles
+[
+	spawnflags(flags) =
+	[
+		1 : "Repeatable" : 0 : ""
+	]
+]
+
 @BaseClass = SF1Remove
 [
 	spawnflags(flags) =
 	[
 		1 : "Remove On fire" : 0 : ""
+	]
+]
+
+@BaseClass = SF1AllPlayers
+[
+	spawnflags(flags) =
+	[
+		1 : "All Players" : 0 : ""
 	]
 ]
 
@@ -1027,6 +1043,38 @@
 
 @PointClass base(Mandatory, CEntgame_player_hurt, SF1Remove, Master, appearflags) = game_player_hurt : "Hurts player who fires" : "" []
 
+@BaseClass = CEntgame_text
+[
+	spawnflags(flags) =
+	[
+		2 : "No echo console" : 0 : ""
+	]
+	message(string) : "Message Text" : "" : ""
+	x(float) : "X (0 - 1.0 = left to right) (-1 centers)" : "-1" : ""
+	y(float) : "Y (0 - 1.0 = top to bottom) (-1 centers)" : "-1" : ""
+	effect(choices) : "Text Effect" : "0" : "" =
+	[
+		"0" : "Fade In/Out" : ""
+		"1" : "Credits" : ""
+		"2" : "Scan Out" : ""
+	]
+	color(color255) : "Color1" : "100 100 100" : ""
+	color2(color255) : "Color2" : "240 110 0" : ""
+	fadein(float) : "Fade in Time (or character scan time)" : "1.5" : ""
+	fadeout(float) : "Fade Out Time" : "0.5" : ""
+	holdtime(float) : "Hold Time" : "1.5" : ""
+	fxtime(float) : "Scan time (scan effect only)" : "0.25" : ""
+	channel(choices) : "Text Channel" : "1" : "" =
+	[
+		"1" : "Channel 1" : ""
+		"2" : "Channel 2" : ""
+		"3" : "Channel 3" : ""
+		"4" : "Channel 4" : ""
+	]
+]
+
+@PointClass color(192 255 0) base(Mandatory, CEntgame_text, Target, SF1AllPlayers, Master, appearflags) = game_text : "Fires when it hits limit" : "" []
+
 @PointClass base(Mandatory, Angles, CGibShooter, appearflags) = gibshooter : "Gib Shooter" : "" []
 
 @PointClass color(0 255 0) size(-4 -4 -4, 4 4 4) base(Mandatory, Target, Angles, appearflags) = info_intermission : "Intermission Spot" : "" []
@@ -1051,6 +1099,8 @@
 ]
 
 @PointClass base(Mandatory, CGibShooter, Angles, appearflags) = pitworm_gibshooter : "Pitworm Gib Shooter" : "" []
+
+@PointClass base(Mandatory, SF1AllPlayers, appearflags) = player_command : "Exe a command on the clients" : "" []
 
 @BaseClass = CEntscripted_sequence
 [
@@ -1206,6 +1256,17 @@
 
 @SolidClass base(Mandatory, Global, CFuncChargers, CReplacemetFile, rendersettings, _minlight, ZHLT, appearflags) = func_healthcharger : "Wall health recharger" : "" []
 
+@BaseClass = CEntfunc_illusionary
+[
+	skin(choices) : "Contents" : "-1" : "" =
+	[
+		"-1" : "Empty" : ""
+		"-7" : "Volumetric Light" : ""
+	]
+]
+
+@SolidClass base(Mandatory, CEntfunc_illusionary, SF2UseAngles, rendersettings, _minlight, ZHLT, appearflags) = func_illusionary : "Fake Wall/Light" : "" []
+
 @SolidClass base(Mandatory, , appearflags) = func_ladder : "Ladder" : "" []
 
 @SolidClass base(Mandatory, , appearflags) = func_monsterclip : "Monster clip brush" : "" []
@@ -1235,7 +1296,7 @@
 
 @SolidClass base(Mandatory, Target, appearflags) = func_traincontrols : "Train Controls" : "" []
 
-@SolidClass base(Mandatory, Global, rendersettings, _minlight, ZHLT, appearflags) = func_wall : "Wall" : "" []
+@SolidClass base(Mandatory, Global, SF2UseAngles, rendersettings, _minlight, ZHLT, appearflags) = func_wall : "Wall" : "" []
 
 @BaseClass = CEntfunc_wall_toggle
 [
@@ -1245,7 +1306,7 @@
 	]
 ]
 
-@SolidClass base(Mandatory, CEntfunc_wall_toggle, Global, rendersettings, _minlight, ZHLT, appearflags) = func_wall_toggle : "Toggleable geometry" : "" []
+@SolidClass base(Mandatory, CEntfunc_wall_toggle, Global, SF2UseAngles, rendersettings, _minlight, ZHLT, appearflags) = func_wall_toggle : "Toggleable geometry" : "" []
 
 @BaseClass = CEntfunc_water
 [
@@ -1345,6 +1406,11 @@
 	[
 		"0" : "Fewest Players" : ""
 		"1" : "First Team" : ""
+	]
+	freeroam(choices) : "Roaming monsters (node graph)" : "0" : "" =
+	[
+		"0" : "No" : ""
+		"1" : "Yes" : ""
 	]
 ]
 
