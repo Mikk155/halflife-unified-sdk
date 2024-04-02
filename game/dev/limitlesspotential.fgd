@@ -1380,7 +1380,45 @@
 
 @SolidClass base(Mandatory, CTrigger, Target, FireTargets, CBaseDelay, Master, appearflags) = trigger_once : "Activate once" : "" []
 
+@BaseClass = CEnttrigger_teleport_relative
+[
+	spawnflags(flags) =
+	[
+		1 : "Only Trigger" : 0 : ""
+		2 : "Allow Monsters" : 0 : ""
+		4 : "No Clients" : 0 : ""
+		8 : "No Velocity" : 0 : ""
+	]
+	netname(target_destination) : "Start Landmark" : "" : ""
+	message(target_destination) : "End Landmark" : "" : ""
+]
+
+@SolidClass base(Mandatory, CEnttrigger_teleport_relative, appearflags) = trigger_teleport_relative : "Relative Teleport" : "" []
+
 @SolidClass base(Mandatory, appearflags) = trigger_transition : "Select Transition Area" : "" []
+
+@BaseClass = CEnttrigger_zone
+[
+	m_iszEntity(string) : "Classname filter" : "" : ""
+	spawnflags(flags) =
+	[
+		1 : "Ignore dead entities" : 0 : ""
+	]
+	m_InUse(choices) : "IN Use Type" : "0" : "" =
+	[
+		"0" : "USE_OFF" : ""
+		"1" : "USE_ON" : ""
+		"2" : "USE_SET" : "Does use of m_UseValue, See how it affects each entity."
+		"3" : "USE_TOGGLE" : ""
+		"5" : "USE_SAME" : "Sends the same USE_TYPE that this entity receive."
+		"6" : "USE_OPPOSITE" : "Sends the opposite USE_TYPE that this entity receive, Swaps USE_ON  USE_OFF, If anything else then USE_TOGGLE is sent"
+		"7" : "USE_TOUCH" : "Calls the Touch function, the activator will be passed as the toucher."
+	]
+	m_InValue(float) : "IN float Value" : "0" : ""
+	m_OutValue(float) : "IN float Value" : "0" : ""
+]
+
+@SolidClass base(Mandatory, CEnttrigger_zone, appearflags) = trigger_zone : "Trigger by in/out entities" : "" []
 
 @SolidClass = worldspawn : "World entity"
 [
