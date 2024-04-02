@@ -87,6 +87,7 @@ bool CFrictionModifier::KeyValue(KeyValueData* pkvd)
 }
 
 #define SF_AUTO_FIREONCE 0x0001
+#define SF_AUTO_WAITCLIENT ( 1 << 1 )
 
 /**
  *	@brief This trigger will fire when the level spawns (or respawns if not fire once)
@@ -159,6 +160,12 @@ void CAutoTrigger::Think()
 {
 	if (FStringNull(m_globalstate) || gGlobalState.EntityGetState(m_globalstate) == GLOBAL_ON)
 	{
+        if( FBitSet( pev->spawnflags, SF_AUTO_WAITCLIENT ) && !UTIL_FindEntityByClassname( nullptr, "player" ) )
+        {
+            pev->nextthink = gpGlobals->time + 0.1;
+            return;
+        }
+
 		SUB_UseTargets(this, triggerType, 0);
 		if ((pev->spawnflags & SF_AUTO_FIREONCE) != 0)
 			UTIL_Remove(this);
