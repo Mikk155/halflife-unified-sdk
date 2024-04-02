@@ -173,6 +173,7 @@ void CAutoTrigger::Think()
 }
 
 #define SF_RELAY_FIREONCE 0x0001
+#define SF_RELAY_ACTIVATOR	( 1 << 6 )
 
 class CTriggerRelay : public CBaseDelay
 {
@@ -230,7 +231,7 @@ void CTriggerRelay::Use(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE 
 		return;
 	}
 
-	SUB_UseTargets(this, triggerType, 0);
+	SUB_UseTargets( ( FBitSet( pev->spawnflags, SF_RELAY_ACTIVATOR ) ? pActivator : this ), triggerType, 0);
 	if ((pev->spawnflags & SF_RELAY_FIREONCE) != 0)
 		UTIL_Remove(this);
 }
