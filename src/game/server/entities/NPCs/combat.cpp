@@ -47,12 +47,6 @@ void CGib::SpawnStickyGibs(CBaseEntity* victim, Vector vecOrigin, int cGibs)
 {
 	int i;
 
-	if (g_Language == LANGUAGE_GERMAN)
-	{
-		// no sticky gibs in germany right now!
-		return;
-	}
-
 	for (i = 0; i < cGibs; i++)
 	{
 		CGib* pGib = g_EntityDictionary->Create<CGib>("gib");
@@ -116,16 +110,8 @@ void CGib::SpawnHeadGib(CBaseEntity* victim)
 {
 	CGib* pGib = g_EntityDictionary->Create<CGib>("gib");
 
-	if (g_Language == LANGUAGE_GERMAN)
-	{
-		pGib->Spawn("models/germangibs.mdl"); // throw one head
-		pGib->pev->body = 0;
-	}
-	else
-	{
-		pGib->Spawn("models/hgibs.mdl"); // throw one head
-		pGib->pev->body = 0;
-	}
+	pGib->Spawn("models/hgibs.mdl"); // throw one head
+	pGib->pev->body = 0;
 
 	if (victim)
 	{
@@ -183,39 +169,31 @@ void CGib::SpawnRandomGibs(CBaseEntity* victim, int cGibs, const GibData& gibDat
 	{
 		CGib* pGib = g_EntityDictionary->Create<CGib>("gib");
 
-		if (g_Language == LANGUAGE_GERMAN)
+		pGib->Spawn(gibData.ModelName);
+
+		if (gibData.Limits)
 		{
-			pGib->Spawn("models/germangibs.mdl");
-			pGib->pev->body = RANDOM_LONG(0, GERMAN_GIB_COUNT - 1);
+			if (limitTracking[currentBody] >= gibData.Limits[currentBody].MaxGibs)
+			{
+				++currentBody;
+
+				// We've hit the limit, stop spawning gibs.
+				// This should only happen if calling code told us to spawn more gibs than the provided submodel limits allow for.
+				if (currentBody >= gibData.SubModelCount)
+				{
+					Logger->warn("Too many gibs spawned; gib submodel limit reached (code configuration issue)");
+					UTIL_Remove(pGib);
+					return;
+				}
+			}
+
+			pGib->pev->body = currentBody;
+
+			++limitTracking[currentBody];
 		}
 		else
 		{
-			pGib->Spawn(gibData.ModelName);
-
-			if (gibData.Limits)
-			{
-				if (limitTracking[currentBody] >= gibData.Limits[currentBody].MaxGibs)
-				{
-					++currentBody;
-
-					// We've hit the limit, stop spawning gibs.
-					// This should only happen if calling code told us to spawn more gibs than the provided submodel limits allow for.
-					if (currentBody >= gibData.SubModelCount)
-					{
-						Logger->warn("Too many gibs spawned; gib submodel limit reached (code configuration issue)");
-						UTIL_Remove(pGib);
-						return;
-					}
-				}
-
-				pGib->pev->body = currentBody;
-
-				++limitTracking[currentBody];
-			}
-			else
-			{
-				pGib->pev->body = RANDOM_LONG(gibData.FirstSubModel, gibData.SubModelCount - 1);
-			}
+			pGib->pev->body = RANDOM_LONG(gibData.FirstSubModel, gibData.SubModelCount - 1);
 		}
 
 		if (victim)
@@ -754,7 +732,7 @@ void CGib::BounceGibTouch(CBaseEntity* pOther)
 	}
 	else
 	{
-		if (g_Language != LANGUAGE_GERMAN && m_cBloodDecals > 0 && m_bloodColor != DONT_BLEED)
+		if (m_cBloodDecals > 0 && m_bloodColor != DONT_BLEED)
 		{
 			vecSpot = pev->origin + Vector(0, 0, 8); // move up a bit, and trace down.
 			UTIL_TraceLine(vecSpot, vecSpot + Vector(0, 0, -24), ignore_monsters, edict(), &tr);

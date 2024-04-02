@@ -289,7 +289,6 @@ Vector VecBModelOrigin(CBaseEntity* bModel);
 //
 // Un-comment only as needed
 //
-#define LANGUAGE_GERMAN 1
 
 inline int g_Language;
 
