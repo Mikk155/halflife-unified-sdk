@@ -130,6 +130,7 @@ class CBasePlayer : public CBaseMonster
 	DECLARE_DATAMAP();
 
 public:
+	bool IsMonster() override { return false; }
 	// Spectator camera
 	/**
 	 *	@brief Find the next client in the game for this player to spectate

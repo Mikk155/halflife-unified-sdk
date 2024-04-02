@@ -34,6 +34,7 @@ class CMonsterMaker : public CBaseMonster
 	DECLARE_DATAMAP();
 
 public:
+	bool IsMonster() override { return false; }
 	void Spawn() override;
 	void Precache() override;
 	bool KeyValue(KeyValueData* pkvd) override;

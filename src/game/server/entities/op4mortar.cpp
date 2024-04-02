@@ -226,6 +226,7 @@ class COp4Mortar : public CBaseMonster
 	DECLARE_DATAMAP();
 
 public:
+	bool IsMonster() override { return false; }
 	bool KeyValue(KeyValueData* pkvd) override;
 
 	void OnCreate() override;

@@ -102,6 +102,7 @@ class CEnvExplosion : public CBaseMonster
 	DECLARE_DATAMAP();
 
 public:
+	bool IsMonster() override { return false; }
 	void Spawn() override;
 	void Smoke();
 	bool KeyValue(KeyValueData* pkvd) override;
