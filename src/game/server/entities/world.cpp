@@ -397,11 +397,19 @@ void CWorld::Precache()
 		CBaseEntity* pEntity = CBaseEntity::Create("env_message", g_vecZero, g_vecZero, nullptr);
 		if (pEntity)
 		{
-			pEntity->SetThink(&CBaseEntity::SUB_CallUseToggle);
 			pEntity->pev->message = pev->netname;
 			pev->netname = string_t::Null;
-			pEntity->pev->nextthink = gpGlobals->time + 0.3;
-			pEntity->pev->spawnflags = SF_MESSAGE_ONCE;
+
+			if( g_pGameRules->IsMultiplayer() )
+			{
+				pEntity->pev->targetname = MAKE_STRING( "game_playerspawn" );
+			}
+			else
+			{
+				pEntity->SetThink(&CBaseEntity::SUB_CallUseToggle);
+				pEntity->pev->nextthink = gpGlobals->time + 0.3;
+				pEntity->pev->spawnflags = SF_MESSAGE_ONCE;
+			}
 		}
 	}
 
