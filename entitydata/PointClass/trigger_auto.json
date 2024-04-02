@@ -11,6 +11,12 @@
         {
             "type": "target_destination",
             "title": "Global State to Read"
+        },
+        "spawnflags":
+        {
+            "2":{
+                "title": "Wait for players"
+            }
         }
     }
 }
