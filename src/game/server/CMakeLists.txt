@@ -108,6 +108,7 @@ target_sources(server PRIVATE
 	entities/effects.h
 	entities/EntityTemplateSystem.cpp
 	entities/EntityTemplateSystem.h
+	entities/env_render.cpp
 	entities/explode.cpp
 	entities/explode.h
 	entities/func_break.cpp

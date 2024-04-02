@@ -452,48 +452,6 @@ void CMultiManager::ManagerReport()
 }
 #endif
 
-// Flags to indicate masking off various render parameters that are normally copied to the targets
-#define SF_RENDER_MASKFX (1 << 0)
-#define SF_RENDER_MASKAMT (1 << 1)
-#define SF_RENDER_MASKMODE (1 << 2)
-#define SF_RENDER_MASKCOLOR (1 << 3)
-
-/**
- *	@brief This entity will copy its render parameters (renderfx, rendermode, rendercolor, renderamt)
- *	to its targets when triggered.
- */
-class CRenderFxManager : public CBaseEntity
-{
-public:
-	void Spawn() override;
-	void Use(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value) override;
-};
-
-LINK_ENTITY_TO_CLASS(env_render, CRenderFxManager);
-
-void CRenderFxManager::Spawn()
-{
-	pev->solid = SOLID_NOT;
-}
-
-void CRenderFxManager::Use(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value)
-{
-	if (!FStringNull(pev->target))
-	{
-		for (auto target : UTIL_FindEntitiesByTargetname(STRING(pev->target)))
-		{
-			if (!FBitSet(pev->spawnflags, SF_RENDER_MASKFX))
-				target->pev->renderfx = pev->renderfx;
-			if (!FBitSet(pev->spawnflags, SF_RENDER_MASKAMT))
-				target->pev->renderamt = pev->renderamt;
-			if (!FBitSet(pev->spawnflags, SF_RENDER_MASKMODE))
-				target->pev->rendermode = pev->rendermode;
-			if (!FBitSet(pev->spawnflags, SF_RENDER_MASKCOLOR))
-				target->pev->rendercolor = pev->rendercolor;
-		}
-	}
-}
-
 /**
  *	@brief hurts anything that touches it. if the trigger has a targetname, firing it will toggle state
  */
