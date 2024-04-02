@@ -42,7 +42,6 @@ public:
 	void BarnacleThink();
 	void WaitTillDead();
 	void Killed(CBaseEntity* attacker, int iGib) override;
-	bool TakeDamage(CBaseEntity* inflictor, CBaseEntity* attacker, float flDamage, int bitsDamageType) override;
 
 	float m_flAltitude;
 	float m_flKillVictimTime;
@@ -116,16 +115,6 @@ void CBarnacle::Spawn()
 	pev->nextthink = gpGlobals->time + 0.5;
 
 	SetOrigin(pev->origin);
-}
-
-bool CBarnacle::TakeDamage(CBaseEntity* inflictor, CBaseEntity* attacker, float flDamage, int bitsDamageType)
-{
-	if ((bitsDamageType & DMG_CLUB) != 0)
-	{
-		flDamage = pev->health;
-	}
-
-	return CBaseMonster::TakeDamage(inflictor, attacker, flDamage, bitsDamageType);
 }
 
 void CBarnacle::BarnacleThink()
