@@ -19,7 +19,7 @@ target_include_directories(server PRIVATE
 	../shared/saverestore
 	../shared/utils
 	../../public)
-	
+
 target_compile_definitions(server PRIVATE
 	VALVE_DLL)
 
@@ -54,10 +54,10 @@ target_sources(server PRIVATE
 	vector.h
 	voice_gamemgr.cpp
 	voice_gamemgr.h
-	
+
 	bot/BotSystem.cpp
 	bot/BotSystem.h
-	
+
 	config/CommandWhitelist.cpp
 	config/CommandWhitelist.h
 	config/ConditionEvaluator.cpp
@@ -77,7 +77,7 @@ target_sources(server PRIVATE
 	config/sections/HudReplacementSection.h
 	config/sections/SpawnInventorySection.h
 	config/sections/SuitLightTypeSection.h
-	
+
 	entities/animating.cpp
 	entities/animation.cpp
 	entities/animation.h
@@ -135,11 +135,12 @@ target_sources(server PRIVATE
 	entities/subs.cpp
 	entities/teleport_entities.cpp
 	entities/trains.h
+	entities/trigger_teleport_relative.cpp
 	entities/triggers.cpp
 	entities/world.cpp
 	entities/world.h
 	entities/xen.cpp
-	
+
 	entities/ctf/CHUDIconTrigger.cpp
 	entities/ctf/CHUDIconTrigger.h
 	entities/ctf/ctf_goals.cpp
@@ -151,7 +152,7 @@ target_sources(server PRIVATE
 	entities/ctf/CTFDetect.h
 	entities/ctf/CTFSpawn.cpp
 	entities/ctf/CTFSpawn.h
-	
+
 	entities/items/airtank.cpp
 	entities/items/CAmmoAll.cpp
 	entities/items/CAmmoGeneric.cpp
@@ -180,7 +181,7 @@ target_sources(server PRIVATE
 	entities/items/weapons/CSpore.cpp
 	entities/items/weapons/CSpore.h
 	entities/items/weapons/weapons.cpp
-	
+
 	entities/rope/CElectrifiedWire.cpp
 	entities/rope/CElectrifiedWire.h
 	entities/rope/CRope.cpp
@@ -189,13 +190,13 @@ target_sources(server PRIVATE
 	entities/rope/CRopeSample.h
 	entities/rope/CRopeSegment.cpp
 	entities/rope/CRopeSegment.h
-	
+
 	entities/NPCs/basemonster.h
 	entities/NPCs/combat.cpp
 	entities/NPCs/defaultai.cpp
 	entities/NPCs/defaultai.h
 	entities/NPCs/flyingmonster.cpp
-	entities/NPCs/flyingmonster.h	
+	entities/NPCs/flyingmonster.h
 	entities/NPCs/h_ai.cpp
 	entities/NPCs/monstermaker.cpp
 	entities/NPCs/monsters.cpp
@@ -211,7 +212,7 @@ target_sources(server PRIVATE
 	entities/NPCs/squadmonster.h
 	entities/NPCs/talkmonster.cpp
 	entities/NPCs/talkmonster.h
-	
+
 	entities/NPCs/aliens/aflock.cpp
 	entities/NPCs/aliens/agrunt.cpp
 	entities/NPCs/aliens/barnacle.cpp
@@ -229,7 +230,7 @@ target_sources(server PRIVATE
 	entities/NPCs/aliens/leech.cpp
 	entities/NPCs/aliens/nihilanth.cpp
 	entities/NPCs/aliens/tentacle.cpp
-	
+
 	entities/NPCs/blackmesa/barney.cpp
 	entities/NPCs/blackmesa/barney.h
 	entities/NPCs/blackmesa/cleansuit_scientist.cpp
@@ -238,12 +239,12 @@ target_sources(server PRIVATE
 	entities/NPCs/blackmesa/rosenberg.cpp
 	entities/NPCs/blackmesa/scientist.cpp
 	entities/NPCs/blackmesa/scientist.h
-	
+
 	entities/NPCs/blackops/blkop_apache.cpp
 	entities/NPCs/blackops/blkop_osprey.cpp
 	entities/NPCs/blackops/hassassin.cpp
 	entities/NPCs/blackops/male_assassin.cpp
-	
+
 	entities/NPCs/military/apache.cpp
 	entities/NPCs/military/apache.h
 	entities/NPCs/military/COFSquadTalkMonster.cpp
@@ -261,14 +262,14 @@ target_sources(server PRIVATE
 	entities/NPCs/military/osprey.h
 	entities/NPCs/military/recruit.cpp
 	entities/NPCs/military/turret.cpp
-	
+
 	entities/NPCs/other/genericmonster.cpp
 	entities/NPCs/other/gman.cpp
 	entities/NPCs/other/penguin_grenade.cpp
 	entities/NPCs/other/rat.cpp
 	entities/NPCs/other/roach.cpp
 	entities/NPCs/other/skeleton.cpp
-	
+
 	entities/NPCs/racex/baby_voltigore.cpp
 	entities/NPCs/racex/geneworm.cpp
 	entities/NPCs/racex/pitdrone.cpp
@@ -277,13 +278,13 @@ target_sources(server PRIVATE
 	entities/NPCs/racex/shocktrooper.cpp
 	entities/NPCs/racex/voltigore.cpp
 	entities/NPCs/racex/voltigore.h
-	
+
 	entities/NPCs/zombies/gonome.cpp
 	entities/NPCs/zombies/zombie.cpp
 	entities/NPCs/zombies/zombie.h
 	entities/NPCs/zombies/zombie_barney.cpp
 	entities/NPCs/zombies/zombie_soldier.cpp
-	
+
 	gamerules/CGameRules.cpp
 	gamerules/CGameRules.h
 	gamerules/CHalfLifeCoopplay.cpp
@@ -303,12 +304,12 @@ target_sources(server PRIVATE
 	gamerules/PlayerInventory.cpp
 	gamerules/PlayerInventory.h
 	gamerules/SpawnInventorySystem.h
-	
+
 	sound/SentencesSystem.cpp
 	sound/SentencesSystem.h
 	sound/ServerSoundSystem.cpp
 	sound/ServerSoundSystem.h
-	
+
 	../../common/ClassData.h
 	../../common/com_model.h
 	../../common/common_types.h
@@ -341,7 +342,7 @@ target_sources(server PRIVATE
 	../../engine/progs.h
 	../../engine/shake.h
 	../../engine/studio.h
-	
+
 	../../public/interface.cpp
 	../../public/interface.h
 	../../public/steam/steamtypes.h)
