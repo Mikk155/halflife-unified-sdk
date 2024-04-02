@@ -314,6 +314,8 @@ constexpr int SND_CHANGE_PITCH = 1 << 7;	 // duplicated in protocol.h change sou
 constexpr int SND_SPAWNING = 1 << 8;		 // duplicated in protocol.h we're spawing, used in some cases for ambients
 constexpr int SND_PLAY_WHEN_PAUSED = 1 << 9; // For client side use only: start playing sound even when paused.
 constexpr int SND_NOTHOST = 1 << 10;		 // Don't send sound message to host (only for sounds emitted by players).
+constexpr int SND_PRIVATE = 1 << 11;		 // Don't send sound message to non-host (only for sounds emitted by players).
+
 
 #define LFO_SQUARE 1
 #define LFO_TRIANGLE 2
