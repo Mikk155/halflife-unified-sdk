@@ -1,0 +1,27 @@
+{
+    "func_traincontrols":
+    {
+        "atributes":
+        {
+            "base": "SF2UseAngles, rendersettings, _minlight, ZHLT",
+            "title": "Fake Wall/Light"
+        },
+		"skin":
+		{
+			"title": "Contents",
+			"default": "-1",
+			"type": "choices",
+			"choices":
+			{
+				"-1":
+				{
+					"title": "Empty"
+				},
+				"-7":
+				{
+					"title": "Volumetric Light"
+				}
+			}
+		}
+    }
+}

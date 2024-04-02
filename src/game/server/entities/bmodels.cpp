@@ -27,6 +27,8 @@
 
 #define SF_PENDULUM_SWING 2 // spawnflag that makes a pendulum a rope swing.
 
+#define SF_USE_ANGLES 2
+
 /**
  *	@brief This is just a solid wall if not inhibited
  */
@@ -44,7 +46,8 @@ LINK_ENTITY_TO_CLASS(func_wall, CFuncWall);
 
 void CFuncWall::Spawn()
 {
-	pev->angles = g_vecZero;
+	if( !FBitSet( pev->spawnflags, SF_USE_ANGLES ) )
+		pev->angles = g_vecZero;
 	pev->movetype = MOVETYPE_PUSH; // so it doesn't get pushed by anything
 	pev->solid = SOLID_BSP;
 	SetModel(STRING(pev->model));
@@ -195,7 +198,8 @@ bool CFuncIllusionary::KeyValue(KeyValueData* pkvd)
 
 void CFuncIllusionary::Spawn()
 {
-	pev->angles = g_vecZero;
+	if( !FBitSet( pev->spawnflags, SF_USE_ANGLES ) )
+		pev->angles = g_vecZero;
 	pev->movetype = MOVETYPE_NONE;
 	pev->solid = SOLID_NOT; // always solid_not
 	SetModel(STRING(pev->model));

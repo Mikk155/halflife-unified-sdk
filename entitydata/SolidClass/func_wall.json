@@ -3,7 +3,7 @@
     {
         "atributes":
         {
-            "base": "Global, rendersettings, _minlight, ZHLT",
+            "base": "Global, SF2UseAngles, rendersettings, _minlight, ZHLT",
             "title": "Wall"
         }
     }

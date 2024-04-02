@@ -1161,6 +1161,18 @@
             }
         }
     },
+    "SF2UseAngles":
+    {
+        "spawnflags":
+        {
+            "1":
+            {
+                "title": "Repeatable",
+                "default": "0",
+                "description": ""
+            }
+        }
+    },
     "SF1Remove":
     {
         "spawnflags":
