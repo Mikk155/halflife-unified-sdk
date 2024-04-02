@@ -170,6 +170,7 @@ void CGameEnd::Use(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useTy
 
 #define SF_ENVTEXT_ALLPLAYERS 0x0001
 #define SF_ENVTEXT_NOCONSOLE_ECHO ( 1 << 1 )
+#define SF_ENVTEXT_FIRE_FOR_PLAYERS ( 1 << 2 )
 
 /**
  *	@brief NON-Localized HUD Message (use env_message to display a titles.txt message)
@@ -307,8 +308,14 @@ void CGameText::Use(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useT
 
 			if( !FBitSet(pev->spawnflags, SF_ENVTEXT_NOCONSOLE_ECHO ) )
 				ClientPrint( player, print_console, std::string( std::string( "HUD-MSG: " ) + std::string( MessageGet() ) ).c_str() );
+
+			if( FBitSet( pev->spawnflags, SF_ENVTEXT_FIRE_FOR_PLAYERS ) )
+				FireTargets( STRING( pev->target ), player, this, USE_TOGGLE, 0 );
 		}
 	}
+
+	if( !FBitSet( pev->spawnflags, SF_ENVTEXT_FIRE_FOR_PLAYERS ) )
+		FireTargets( STRING( pev->target ), pActivator, this, USE_TOGGLE, 0 );
 }
 
 #define SF_TEAMMASTER_FIREONCE 0x0001

@@ -4,14 +4,16 @@
         "atributes":
         {
             "base": "Target, SF1AllPlayers, Master",
-            "title": "Fires when it hits limit",
-			"color": "192 255 0"
+            "title": "Game text message",
+            "color": "192 255 0"
         },
         "spawnflags":
         {
-            "2":
-            {
+            "2": {
                 "title": "No echo console"
+            },
+            "4": {
+                "title": "Fire target for all player"
             }
         },
         "message":
