@@ -1,0 +1,118 @@
+{
+    "trigger_zone":
+    {
+        "atributes":
+        {
+            "BaseClass": "Target, FireTargets",
+            "title": "Trigger by in/out entities"
+        },
+        "m_iszEntity":
+        {
+            "title": "Classname filter",
+            "type": "string"
+        },
+        "spawnflags":
+        {
+            "1": {
+                "title": "Ignore dead entities"
+            }
+        },
+        "m_InUse":
+        {
+            "title": "IN Use Type",
+            "type": "choices",
+            "default": "0",
+            "choices":
+            {
+                "0":
+                {
+                    "title": "USE_OFF",
+                    "description": ""
+                },
+                "1":
+                {
+                    "title": "USE_ON",
+                    "description": ""
+                },
+                "2":
+                {
+                    "title": "USE_SET",
+                    "description": "Does use of m_UseValue, See how it affects each entity."
+                },
+                "3":
+                {
+                    "title": "USE_TOGGLE",
+                    "description": ""
+                },
+                "5":
+                {
+                    "title": "USE_SAME",
+                    "description": "Sends the same USE_TYPE that this entity receive."
+                },
+                "6":
+                {
+                    "title": "USE_OPPOSITE",
+                    "description": "Sends the opposite USE_TYPE that this entity receive, Swaps USE_ON <-> USE_OFF, If anything else then USE_TOGGLE is sent"
+                },
+                "7":
+                {
+                    "title": "USE_TOUCH",
+                    "description": "Calls the Touch function, the activator will be passed as the toucher."
+                }
+            }
+        },
+        "m_InValue":
+        {
+            "title": "IN float Value",
+            "type": "float",
+            "default": "0"
+        },
+        "m_OutUse":
+        {
+            "choices":
+            {
+                "0":
+                {
+                    "title": "USE_OFF",
+                    "description": ""
+                },
+                "1":
+                {
+                    "title": "USE_ON",
+                    "description": ""
+                },
+                "2":
+                {
+                    "title": "USE_SET",
+                    "description": "Does use of m_UseValue, See how it affects each entity."
+                },
+                "3":
+                {
+                    "title": "USE_TOGGLE",
+                    "description": ""
+                },
+                "5":
+                {
+                    "title": "USE_SAME",
+                    "description": "Sends the same USE_TYPE that this entity receive."
+                },
+                "6":
+                {
+                    "title": "USE_OPPOSITE",
+                    "description": "Sends the opposite USE_TYPE that this entity receive, Swaps USE_ON <-> USE_OFF, If anything else then USE_TOGGLE is sent"
+                },
+                "7":
+                {
+                    "title": "USE_TOUCH",
+                    "description": "Calls the Touch function, the activator will be passed as the toucher."
+                }
+            }
+        },
+        "m_OutValue":
+        {
+            "title": "IN float Value",
+            "type": "float",
+            "default": "0"
+        }
+    }
+}
