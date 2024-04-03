@@ -460,6 +460,291 @@
 	target(target_destination) : "First stop target" : "" : ""
 ]
 
+@BaseClass = CEntbutton_target
+[
+	spawnflags(flags) =
+	[
+		1 : "Use Activates" : 1 : ""
+		2 : "Start On" : 0 : ""
+	]
+]
+
+@SolidClass base(Mandatory, CEntbutton_target, Angles, Target, FireTargets, Master, rendersettings, ZHLT, appearflags) = button_target : "Target Button" : "" []
+
+@BaseClass = CEntenv_bubbles
+[
+	density(integer) : "Bubble density" : "2" : ""
+	frequency(integer) : "Bubble frequency" : "2" : ""
+	current(integer) : "Speed of Current" : "2" : ""
+]
+
+@SolidClass base(Mandatory, CEntenv_bubbles, SF1StartOff, appearflags) = env_bubbles : "Bubble Volume" : "" []
+
+@BaseClass = CEntfunc_breakable
+[
+	spawnflags(flags) =
+	[
+		1 : "Only Trigger" : 0 : ""
+		2 : "Touch" : 0 : ""
+		5 : "Pressure" : 0 : ""
+		256 : "Instant Crowbar" : 0 : ""
+	]
+]
+
+@SolidClass base(Mandatory, CEntfunc_breakable, Angles, Global, Breakable, Target, FireTargets, CBaseDelay, CReplacemetFile, rendersettings, _minlight, ZHLT, appearflags) = func_breakable : "Breakable Object" : "" []
+
+@BaseClass = CEntfunc_button
+[
+	speed(integer) : "Speed" : "5" : ""
+	health(integer) : "Health (shootable if > 0)" : "" : ""
+	lip(integer) : "Lip" : "" : ""
+	sounds(sound) : "Sounds" : "" : ""
+	wait(float) : "Delay before reset (-1 = Stays pressed)" : "-1" : ""
+	spawnflags(flags) =
+	[
+		1 : "Don't move" : 0 : ""
+		32 : "Toggle" : 0 : ""
+		64 : "Sparks" : 0 : ""
+		256 : "Touch Activates" : 0 : ""
+	]
+]
+
+@SolidClass base(Mandatory, CEntfunc_button, appearflags) = func_button : "Button" : "" []
+
+@BaseClass = CEntfunc_conveyor
+[
+	spawnflags(flags) =
+	[
+		1 : "No Push" : 0 : ""
+		2 : "Not Solid" : 0 : ""
+	]
+	speed(float) : "Conveyor Speed" : "100" : ""
+]
+
+@SolidClass base(Mandatory, CEntfunc_conveyor, Angles, Global, rendersettings, _minlight, ZHLT, appearflags) = func_conveyor : "Conveyor Belt" : "" []
+
+@SolidClass base(Mandatory, Angles, Global, CDoor, CUnLockedSounds, Master, Target, FireTargets, CBaseDelay, rendersettings, CReplacemetFile, _minlight, ZHLT, appearflags) = func_door : "Basic Door" : "" []
+
+@BaseClass = CEntfunc_door_rotating
+[
+	distance(integer) : "Distance (deg)" : "90" : ""
+	spawnflags(flags) =
+	[
+		2 : "Reverse Dir" : 0 : ""
+		16 : "One-way" : 0 : ""
+		64 : "X Axis" : 0 : ""
+		128 : "Y Axis" : 0 : ""
+	]
+]
+
+@SolidClass base(Mandatory, CEntfunc_door_rotating, Angles, Global, CDoor, CUnLockedSounds, Master, Target, FireTargets, CBaseDelay, rendersettings, CReplacemetFile, _minlight, ZHLT, appearflags) = func_door_rotating : "Rotating Door" : "" []
+
+@BaseClass = CEntfunc_guntarget
+[
+	message(target_destination) : "Fire on damage" : "" : ""
+	health(integer) : "Damage to Take" : "" : ""
+]
+
+@SolidClass base(Mandatory, CEntfunc_guntarget, speed, TargetTrain, SF1StartOn, Angles, Global, CFuncGunTarget, rendersettings, _minlight, ZHLT, appearflags) = func_guntarget : "Gun target" : "" []
+
+@SolidClass base(Mandatory, Global, CFuncChargers, CReplacemetFile, rendersettings, _minlight, ZHLT, appearflags) = func_healthcharger : "Wall health recharger" : "" []
+
+@BaseClass = CEntfunc_illusionary
+[
+	skin(choices) : "Contents" : "-1" : "" =
+	[
+		"-1" : "Empty" : ""
+		"-7" : "Volumetric Light" : ""
+	]
+]
+
+@SolidClass base(Mandatory, CEntfunc_illusionary, SF2UseAngles, rendersettings, _minlight, ZHLT, appearflags) = func_illusionary : "Fake Wall/Light" : "" []
+
+@SolidClass base(Mandatory, , appearflags) = func_ladder : "Ladder" : "" []
+
+@SolidClass base(Mandatory, , appearflags) = func_monsterclip : "Monster clip brush" : "" []
+
+@BaseClass = CEntfunc_pushable
+[
+	size(choices) : "Hull Size" : "0" : "" =
+	[
+		"0" : "Point size" : ""
+		"1" : "Player size" : ""
+		"2" : "Big Size" : ""
+		"3" : "Player duck" : ""
+	]
+	spawnflags(flags) =
+	[
+		128 : "Breakable" : 0 : ""
+	]
+	friction(integer) : "Friction (0-400)" : "50" : ""
+	buoyancy(integer) : "Buoyancy)" : "20" : ""
+]
+
+@SolidClass base(Mandatory, CEntfunc_pushable, Angles, Global, Breakable, Target, FireTargets, CBaseDelay, CReplacemetFile, rendersettings, _minlight, ZHLT, appearflags) = func_pushable : "Pushable object" : "" []
+
+@SolidClass base(Mandatory, Global, CFuncChargers, CReplacemetFile, rendersettings, _minlight, ZHLT, appearflags) = func_recharge : "Wall Battery recharger" : "" []
+
+@SolidClass base(Mandatory, Target, appearflags) = func_tankcontrols : "Tank controls" : "" []
+
+@SolidClass base(Mandatory, Target, appearflags) = func_traincontrols : "Train Controls" : "" []
+
+@SolidClass base(Mandatory, Global, SF2UseAngles, rendersettings, _minlight, ZHLT, appearflags) = func_wall : "Wall" : "" []
+
+@BaseClass = CEntfunc_wall_toggle
+[
+	spawnflags(flags) =
+	[
+		1 : "Starts Invisible" : 0 : ""
+	]
+]
+
+@SolidClass base(Mandatory, CEntfunc_wall_toggle, Global, SF2UseAngles, rendersettings, _minlight, ZHLT, appearflags) = func_wall_toggle : "Toggleable geometry" : "" []
+
+@BaseClass = CEntfunc_water
+[
+	skin(choices) : "Contents" : "-3" : "" =
+	[
+		"-3" : "Water" : ""
+		"-4" : "Slime" : ""
+		"-5" : "Lava" : ""
+	]
+	WaveHeight(float) : "Wave Height" : "3.2" : ""
+]
+
+@SolidClass base(Mandatory, CEntfunc_water, Angles, Global, CDoor, CUnLockedSounds, Master, Target, FireTargets, CBaseDelay, rendersettings, CReplacemetFile, _minlight, ZHLT, appearflags) = func_water : "Liquid" : "" []
+
+@SolidClass base(Mandatory, Angles, Global, CDoor, CUnLockedSounds, Master, Target, FireTargets, CBaseDelay, rendersettings, CReplacemetFile, _minlight, ZHLT, appearflags) = momentary_door : "Momentary/Continuous door" : "" []
+
+@SolidClass base(Mandatory, Master, appearflags) = trigger_autosave : "AutoSave Trigger" : "" []
+
+@BaseClass = CEnttrigger_gravity
+[
+	gravity(float) : "Gravity (0-1)" : "1.0" : ""
+]
+
+@SolidClass base(Mandatory, CEnttrigger_gravity, CTrigger, Target, FireTargets, CBaseDelay, Master, appearflags) = trigger_gravity : "Gravity Trigger" : "" []
+
+@BaseClass = CEnttrigger_hurt
+[
+	spawnflags(flags) =
+	[
+		1 : "Target Once" : 0 : ""
+		2 : "Start Off" : 0 : ""
+		8 : "No clients" : 0 : ""
+		16 : "Fire Clients Only" : 0 : ""
+		32 : "TouchClientOnly" : 0 : ""
+	]
+	dmg(integer) : "Damage" : "10" : ""
+	damagetype(choices) : "Damage" : "0" : "" =
+	[
+		"0" : "GENERIC" : ""
+		"1" : "CRUSH" : ""
+		"2" : "BULLET" : ""
+		"4" : "SLASH" : ""
+		"8" : "BURN" : ""
+		"16" : "FREEZE" : ""
+		"32" : "FALL" : ""
+		"64" : "BLAST" : ""
+		"128" : "CLUB" : ""
+		"256" : "SHOCK" : ""
+		"512" : "SONIC" : ""
+		"1024" : "ENERGYBEAM" : ""
+		"16384" : "DROWN" : ""
+		"32768" : "PARALYSE" : ""
+		"65536" : "NERVEGAS" : ""
+		"131072" : "POISON" : ""
+		"262144" : "RADIATION" : ""
+		"524288" : "DROWNRECOVER" : ""
+		"1048576" : "CHEMICAL" : ""
+		"2097152" : "SLOWBURN" : ""
+		"4194304" : "SLOWFREEZE" : ""
+	]
+]
+
+@SolidClass base(Mandatory, CEnttrigger_hurt, Target, Master, appearflags) = trigger_hurt : "Trigger player hurt" : "" []
+
+@BaseClass = CEnttrigger_monsterjump
+[
+	height(integer) : "Jump Height" : "128" : ""
+]
+
+@SolidClass base(Mandatory, CEnttrigger_monsterjump, speed, Angle, Target, CBaseDelay, Master, appearflags) = trigger_monsterjump : "Trigger monster jump" : "" []
+
+@SolidClass base(Mandatory, CTrigger, Target, FireTargets, CBaseDelay, Master, appearflags) = trigger_once : "Activate once" : "" []
+
+@BaseClass = CEnttrigger_teleport_relative
+[
+	spawnflags(flags) =
+	[
+		1 : "Only Trigger" : 0 : ""
+		2 : "Allow Monsters" : 0 : ""
+		4 : "No Clients" : 0 : ""
+		8 : "No Velocity" : 0 : ""
+	]
+	netname(target_destination) : "Start Landmark" : "" : ""
+	message(target_destination) : "End Landmark" : "" : ""
+]
+
+@SolidClass base(Mandatory, CEnttrigger_teleport_relative, appearflags) = trigger_teleport_relative : "Relative Teleport" : "" []
+
+@SolidClass base(Mandatory, appearflags) = trigger_transition : "Select Transition Area" : "" []
+
+@BaseClass = CEnttrigger_zone
+[
+	m_iszEntity(string) : "Classname filter" : "" : ""
+	spawnflags(flags) =
+	[
+		1 : "Ignore dead entities" : 0 : ""
+	]
+	m_InUse(choices) : "IN Use Type" : "0" : "" =
+	[
+		"0" : "USE_OFF" : ""
+		"1" : "USE_ON" : ""
+		"2" : "USE_SET" : "Does use of m_UseValue, See how it affects each entity."
+		"3" : "USE_TOGGLE" : ""
+		"5" : "USE_SAME" : "Sends the same USE_TYPE that this entity receive."
+		"6" : "USE_OPPOSITE" : "Sends the opposite USE_TYPE that this entity receive, Swaps USE_ON  USE_OFF, If anything else then USE_TOGGLE is sent"
+		"7" : "USE_TOUCH" : "Calls the Touch function, the activator will be passed as the toucher."
+	]
+	m_InValue(float) : "IN float Value" : "0" : ""
+	m_OutValue(float) : "IN float Value" : "0" : ""
+]
+
+@SolidClass base(Mandatory, CEnttrigger_zone, appearflags) = trigger_zone : "Trigger by in/out entities" : "" []
+
+@SolidClass = worldspawn : "World entity"
+[
+	message(string) : "Map Description / Title" : "" : ""
+	skyname(sky) : "environment map (cl_skyname)" : "" : ""
+	light(integer) : "Default light level" : "" : ""
+	WaveHeight(string) : "Default Wave Height" : "" : ""
+	MaxRange(string) : "Max viewable distance" : "4096" : ""
+	chaptertitle(string) : "Chapter Title Message" : "" : ""
+	startdark(choices) : "Level Fade In" : "0" : "" =
+	[
+		"0" : "No" : ""
+		"1" : "Yes" : ""
+	]
+	gametitle(string) : "Game whose title to display" : "" : ""
+	newunit(choices) : "New Level Unit" : "0" : "" =
+	[
+		"0" : "No, keep current" : ""
+		"1" : "Yes, clear previous levels" : ""
+	]
+	mapteams(string) : "Map Team List" : "grunt;scientist" : ""
+	defaultteam(choices) : "Default Team" : "0" : "" =
+	[
+		"0" : "Fewest Players" : ""
+		"1" : "First Team" : ""
+	]
+	freeroam(choices) : "Roaming monsters (node graph)" : "0" : "" =
+	[
+		"0" : "No" : ""
+		"1" : "Yes" : ""
+	]
+]
+
 @PointClass color(164 0 255) size(-16 -16 0, 16 16 72) flags(Angle) base(Mandatory, CCineMonster, Target, FireTargets, CBaseDelay, appearflags) = aiscripted_sequence : "AI Scripted Sequence" : "Using the scripted_sequence entity as base, the aiscripted_sequence point entity inherit the same responsibility of making a monster entity move to a specific location and/or perform a given animation. The primary difference being that it completely overrides the targeted monster's AI. Regardless of what you do to the monster, it will follow this sequence." []
 
 @BaseClass = CEntambient_generic
@@ -1048,6 +1333,7 @@
 	spawnflags(flags) =
 	[
 		2 : "No echo console" : 0 : ""
+		4 : "Fire target for all player" : 0 : ""
 	]
 	message(string) : "Message Text" : "" : ""
 	x(float) : "X (0 - 1.0 = left to right) (-1 centers)" : "-1" : ""
@@ -1073,7 +1359,7 @@
 	]
 ]
 
-@PointClass color(192 255 0) base(Mandatory, CEntgame_text, Target, SF1AllPlayers, Master, appearflags) = game_text : "Fires when it hits limit" : "" []
+@PointClass color(192 255 0) base(Mandatory, CEntgame_text, Target, SF1AllPlayers, Master, appearflags) = game_text : "Game text message" : "" []
 
 @PointClass base(Mandatory, Angles, CGibShooter, appearflags) = gibshooter : "Gib Shooter" : "" []
 
@@ -1119,6 +1405,10 @@
 @BaseClass = CEnttrigger_auto
 [
 	globalstate(target_destination) : "Global State to Read" : "" : ""
+	spawnflags(flags) =
+	[
+		2 : "Wait for players" : 0 : ""
+	]
 ]
 
 @PointClass color(250 10 165) base(Mandatory, CEnttrigger_auto, CTriggerState, SF1Remove, Target, FireTargets, CBaseDelay, appearflags) = trigger_auto : "AutoTrigger" : "" []
@@ -1163,292 +1453,11 @@
 
 @BaseClass = CEnttrigger_relay
 [
-]
-
-@PointClass = trigger_relay
-
-@BaseClass = CEntbutton_target
-[
 	spawnflags(flags) =
 	[
-		1 : "Use Activates" : 1 : ""
-		2 : "Start On" : 0 : ""
+		64 : "Keep !activator" : 0 : ""
 	]
 ]
 
-@SolidClass base(Mandatory, CEntbutton_target, Angles, Target, FireTargets, Master, rendersettings, ZHLT, appearflags) = button_target : "Target Button" : "" []
-
-@BaseClass = CEntenv_bubbles
-[
-	density(integer) : "Bubble density" : "2" : ""
-	frequency(integer) : "Bubble frequency" : "2" : ""
-	current(integer) : "Speed of Current" : "2" : ""
-]
-
-@SolidClass base(Mandatory, CEntenv_bubbles, SF1StartOff, appearflags) = env_bubbles : "Bubble Volume" : "" []
-
-@BaseClass = CEntfunc_breakable
-[
-	spawnflags(flags) =
-	[
-		1 : "Only Trigger" : 0 : ""
-		2 : "Touch" : 0 : ""
-		5 : "Pressure" : 0 : ""
-		256 : "Instant Crowbar" : 0 : ""
-	]
-]
-
-@SolidClass base(Mandatory, CEntfunc_breakable, Angles, Global, Breakable, Target, FireTargets, CBaseDelay, CReplacemetFile, rendersettings, _minlight, ZHLT, appearflags) = func_breakable : "Breakable Object" : "" []
-
-@BaseClass = CEntfunc_button
-[
-	speed(integer) : "Speed" : "5" : ""
-	health(integer) : "Health (shootable if > 0)" : "" : ""
-	lip(integer) : "Lip" : "" : ""
-	sounds(sound) : "Sounds" : "" : ""
-	wait(float) : "Delay before reset (-1 = Stays pressed)" : "-1" : ""
-	spawnflags(flags) =
-	[
-		1 : "Don't move" : 0 : ""
-		32 : "Toggle" : 0 : ""
-		64 : "Sparks" : 0 : ""
-		256 : "Touch Activates" : 0 : ""
-	]
-]
-
-@SolidClass base(Mandatory, CEntfunc_button, appearflags) = func_button : "Button" : "" []
-
-@BaseClass = CEntfunc_conveyor
-[
-	spawnflags(flags) =
-	[
-		1 : "No Push" : 0 : ""
-		2 : "Not Solid" : 0 : ""
-	]
-	speed(float) : "Conveyor Speed" : "100" : ""
-]
-
-@SolidClass base(Mandatory, CEntfunc_conveyor, Angles, Global, rendersettings, _minlight, ZHLT, appearflags) = func_conveyor : "Conveyor Belt" : "" []
-
-@SolidClass base(Mandatory, Angles, Global, CDoor, CUnLockedSounds, Master, Target, FireTargets, CBaseDelay, rendersettings, CReplacemetFile, _minlight, ZHLT, appearflags) = func_door : "Basic Door" : "" []
-
-@BaseClass = CEntfunc_door_rotating
-[
-	distance(integer) : "Distance (deg)" : "90" : ""
-	spawnflags(flags) =
-	[
-		2 : "Reverse Dir" : 0 : ""
-		16 : "One-way" : 0 : ""
-		64 : "X Axis" : 0 : ""
-		128 : "Y Axis" : 0 : ""
-	]
-]
-
-@SolidClass base(Mandatory, CEntfunc_door_rotating, Angles, Global, CDoor, CUnLockedSounds, Master, Target, FireTargets, CBaseDelay, rendersettings, CReplacemetFile, _minlight, ZHLT, appearflags) = func_door_rotating : "Rotating Door" : "" []
-
-@BaseClass = CEntfunc_guntarget
-[
-	message(target_destination) : "Fire on damage" : "" : ""
-	health(integer) : "Damage to Take" : "" : ""
-]
-
-@SolidClass base(Mandatory, CEntfunc_guntarget, speed, TargetTrain, SF1StartOn, Angles, Global, CFuncGunTarget, rendersettings, _minlight, ZHLT, appearflags) = func_guntarget : "Gun target" : "" []
-
-@SolidClass base(Mandatory, Global, CFuncChargers, CReplacemetFile, rendersettings, _minlight, ZHLT, appearflags) = func_healthcharger : "Wall health recharger" : "" []
-
-@BaseClass = CEntfunc_illusionary
-[
-	skin(choices) : "Contents" : "-1" : "" =
-	[
-		"-1" : "Empty" : ""
-		"-7" : "Volumetric Light" : ""
-	]
-]
-
-@SolidClass base(Mandatory, CEntfunc_illusionary, SF2UseAngles, rendersettings, _minlight, ZHLT, appearflags) = func_illusionary : "Fake Wall/Light" : "" []
-
-@SolidClass base(Mandatory, , appearflags) = func_ladder : "Ladder" : "" []
-
-@SolidClass base(Mandatory, , appearflags) = func_monsterclip : "Monster clip brush" : "" []
-
-@BaseClass = CEntfunc_pushable
-[
-	size(choices) : "Hull Size" : "0" : "" =
-	[
-		"0" : "Point size" : ""
-		"1" : "Player size" : ""
-		"2" : "Big Size" : ""
-		"3" : "Player duck" : ""
-	]
-	spawnflags(flags) =
-	[
-		128 : "Breakable" : 0 : ""
-	]
-	friction(integer) : "Friction (0-400)" : "50" : ""
-	buoyancy(integer) : "Buoyancy)" : "20" : ""
-]
-
-@SolidClass base(Mandatory, CEntfunc_pushable, Angles, Global, Breakable, Target, FireTargets, CBaseDelay, CReplacemetFile, rendersettings, _minlight, ZHLT, appearflags) = func_pushable : "Pushable object" : "" []
-
-@SolidClass base(Mandatory, Global, CFuncChargers, CReplacemetFile, rendersettings, _minlight, ZHLT, appearflags) = func_recharge : "Wall Battery recharger" : "" []
-
-@SolidClass base(Mandatory, Target, appearflags) = func_tankcontrols : "Tank controls" : "" []
-
-@SolidClass base(Mandatory, Target, appearflags) = func_traincontrols : "Train Controls" : "" []
-
-@SolidClass base(Mandatory, Global, SF2UseAngles, rendersettings, _minlight, ZHLT, appearflags) = func_wall : "Wall" : "" []
-
-@BaseClass = CEntfunc_wall_toggle
-[
-	spawnflags(flags) =
-	[
-		1 : "Starts Invisible" : 0 : ""
-	]
-]
-
-@SolidClass base(Mandatory, CEntfunc_wall_toggle, Global, SF2UseAngles, rendersettings, _minlight, ZHLT, appearflags) = func_wall_toggle : "Toggleable geometry" : "" []
-
-@BaseClass = CEntfunc_water
-[
-	skin(choices) : "Contents" : "-3" : "" =
-	[
-		"-3" : "Water" : ""
-		"-4" : "Slime" : ""
-		"-5" : "Lava" : ""
-	]
-	WaveHeight(float) : "Wave Height" : "3.2" : ""
-]
-
-@SolidClass base(Mandatory, CEntfunc_water, Angles, Global, CDoor, CUnLockedSounds, Master, Target, FireTargets, CBaseDelay, rendersettings, CReplacemetFile, _minlight, ZHLT, appearflags) = func_water : "Liquid" : "" []
-
-@SolidClass base(Mandatory, Angles, Global, CDoor, CUnLockedSounds, Master, Target, FireTargets, CBaseDelay, rendersettings, CReplacemetFile, _minlight, ZHLT, appearflags) = momentary_door : "Momentary/Continuous door" : "" []
-
-@SolidClass base(Mandatory, Master, appearflags) = trigger_autosave : "AutoSave Trigger" : "" []
-
-@BaseClass = CEnttrigger_gravity
-[
-	gravity(float) : "Gravity (0-1)" : "1.0" : ""
-]
-
-@SolidClass base(Mandatory, CEnttrigger_gravity, CTrigger, Target, FireTargets, CBaseDelay, Master, appearflags) = trigger_gravity : "Gravity Trigger" : "" []
-
-@BaseClass = CEnttrigger_hurt
-[
-	spawnflags(flags) =
-	[
-		1 : "Target Once" : 0 : ""
-		2 : "Start Off" : 0 : ""
-		8 : "No clients" : 0 : ""
-		16 : "Fire Clients Only" : 0 : ""
-		32 : "TouchClientOnly" : 0 : ""
-	]
-	dmg(integer) : "Damage" : "10" : ""
-	damagetype(choices) : "Damage" : "0" : "" =
-	[
-		"0" : "GENERIC" : ""
-		"1" : "CRUSH" : ""
-		"2" : "BULLET" : ""
-		"4" : "SLASH" : ""
-		"8" : "BURN" : ""
-		"16" : "FREEZE" : ""
-		"32" : "FALL" : ""
-		"64" : "BLAST" : ""
-		"128" : "CLUB" : ""
-		"256" : "SHOCK" : ""
-		"512" : "SONIC" : ""
-		"1024" : "ENERGYBEAM" : ""
-		"16384" : "DROWN" : ""
-		"32768" : "PARALYSE" : ""
-		"65536" : "NERVEGAS" : ""
-		"131072" : "POISON" : ""
-		"262144" : "RADIATION" : ""
-		"524288" : "DROWNRECOVER" : ""
-		"1048576" : "CHEMICAL" : ""
-		"2097152" : "SLOWBURN" : ""
-		"4194304" : "SLOWFREEZE" : ""
-	]
-]
-
-@SolidClass base(Mandatory, CEnttrigger_hurt, Target, Master, appearflags) = trigger_hurt : "Trigger player hurt" : "" []
-
-@BaseClass = CEnttrigger_monsterjump
-[
-	height(integer) : "Jump Height" : "128" : ""
-]
-
-@SolidClass base(Mandatory, CEnttrigger_monsterjump, speed, Angle, Target, CBaseDelay, Master, appearflags) = trigger_monsterjump : "Trigger monster jump" : "" []
-
-@SolidClass base(Mandatory, CTrigger, Target, FireTargets, CBaseDelay, Master, appearflags) = trigger_once : "Activate once" : "" []
-
-@BaseClass = CEnttrigger_teleport_relative
-[
-	spawnflags(flags) =
-	[
-		1 : "Only Trigger" : 0 : ""
-		2 : "Allow Monsters" : 0 : ""
-		4 : "No Clients" : 0 : ""
-		8 : "No Velocity" : 0 : ""
-	]
-	netname(target_destination) : "Start Landmark" : "" : ""
-	message(target_destination) : "End Landmark" : "" : ""
-]
-
-@SolidClass base(Mandatory, CEnttrigger_teleport_relative, appearflags) = trigger_teleport_relative : "Relative Teleport" : "" []
-
-@SolidClass base(Mandatory, appearflags) = trigger_transition : "Select Transition Area" : "" []
-
-@BaseClass = CEnttrigger_zone
-[
-	m_iszEntity(string) : "Classname filter" : "" : ""
-	spawnflags(flags) =
-	[
-		1 : "Ignore dead entities" : 0 : ""
-	]
-	m_InUse(choices) : "IN Use Type" : "0" : "" =
-	[
-		"0" : "USE_OFF" : ""
-		"1" : "USE_ON" : ""
-		"2" : "USE_SET" : "Does use of m_UseValue, See how it affects each entity."
-		"3" : "USE_TOGGLE" : ""
-		"5" : "USE_SAME" : "Sends the same USE_TYPE that this entity receive."
-		"6" : "USE_OPPOSITE" : "Sends the opposite USE_TYPE that this entity receive, Swaps USE_ON  USE_OFF, If anything else then USE_TOGGLE is sent"
-		"7" : "USE_TOUCH" : "Calls the Touch function, the activator will be passed as the toucher."
-	]
-	m_InValue(float) : "IN float Value" : "0" : ""
-	m_OutValue(float) : "IN float Value" : "0" : ""
-]
-
-@SolidClass base(Mandatory, CEnttrigger_zone, appearflags) = trigger_zone : "Trigger by in/out entities" : "" []
-
-@SolidClass = worldspawn : "World entity"
-[
-	message(string) : "Map Description / Title" : "" : ""
-	skyname(sky) : "environment map (cl_skyname)" : "" : ""
-	light(integer) : "Default light level" : "" : ""
-	WaveHeight(string) : "Default Wave Height" : "" : ""
-	MaxRange(string) : "Max viewable distance" : "4096" : ""
-	chaptertitle(string) : "Chapter Title Message" : "" : ""
-	startdark(choices) : "Level Fade In" : "0" : "" =
-	[
-		"0" : "No" : ""
-		"1" : "Yes" : ""
-	]
-	gametitle(string) : "Game whose title to display" : "" : ""
-	newunit(choices) : "New Level Unit" : "0" : "" =
-	[
-		"0" : "No, keep current" : ""
-		"1" : "Yes, clear previous levels" : ""
-	]
-	mapteams(string) : "Map Team List" : "grunt;scientist" : ""
-	defaultteam(choices) : "Default Team" : "0" : "" =
-	[
-		"0" : "Fewest Players" : ""
-		"1" : "First Team" : ""
-	]
-	freeroam(choices) : "Roaming monsters (node graph)" : "0" : "" =
-	[
-		"0" : "No" : ""
-		"1" : "Yes" : ""
-	]
-]
+@PointClass color(165 30 165) base(Mandatory, CEnttrigger_relay, CTriggerState, SF1Remove, Master, Target, FireTargets, CBaseDelay, appearflags) = trigger_relay : "Trigger Change Target" : "" []
 
