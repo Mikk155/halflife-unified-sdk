@@ -1,14 +1,17 @@
 {
     "trigger_relay":
     {
-        "color": "165 30 165",
-        "base": "CTriggerState, SF1Remove, Master, Target, FireTargets, CBaseDelay",
-        "title": "Trigger Change Target"
-    },
-    "spawnflags":
-    {
-        "64":{
-            "title": "Keep !activator"
+        "atributes":
+        {
+            "color": "165 30 165",
+            "base": "CTriggerState, SF1Remove, Master, Target, FireTargets, CBaseDelay",
+            "title": "Trigger Change Target"
+        },
+        "spawnflags":
+        {
+            "64":{
+                "title": "Keep !activator"
+            }
         }
     }
 }
