@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ambient_music</title>
+	<link rel="stylesheet" href="../styles.css">
+</head>
+</body>
+	<h1>Damage Bits</h1>
+	<h2>title</h2>
+	<p>description</p>
+	<p></p>
+	<table id="ambient_music" border="1">
+	<tr>
+		<th>Name</th>
+		<th>Bit</th>
+		<th>Description</th>
+		<tr>
+			<tr><td>DMG_GENERIC</td><td>0</td><td class="table_description">generic damage was done</td></tr>
+			<tr><td>DMG_CRUSH</td><td>1</td><td class="table_description">crushed by falling or moving object</td></tr>
+			<tr><td>DMG_BULLET</td><td>2</td><td class="table_description">shot by a weapon bullet</td></tr>
+			<tr><td>DMG_SLASH</td><td>4</td><td class="table_description">cut, clawed, stabbed</td></tr>
+			<tr><td>DMG_NAIL</td><td>4</td><td class="table_description">TF Redefines since we never use the originals</td></tr>
+			<tr><td>DMG_BURN</td><td>8</td><td class="table_description">heat burned</td></tr>
+			<tr><td>DMG_FREEZE</td><td>16</td><td class="table_description">frozen</td></tr>
+			<tr><td>DMG_NOT_SELF</td><td>16</td><td class="table_description">TF Redefines since we never use the originals</td></tr>
+			<tr><td>DMG_FALL</td><td>32</td><td class="table_description">fell too far</td></tr>
+			<tr><td>DMG_BLAST</td><td>64</td><td class="table_description">explosive blast damage</td></tr>
+			<tr><td>DMG_CLUB</td><td>128</td><td class="table_description">crowbar, punch, headbutt</td></tr>
+			<tr><td>DMG_SHOCK</td><td>256</td><td class="table_description">electric shock</td></tr>
+			<tr><td>DMG_SONIC</td><td>512</td><td class="table_description">sound pulse shockwave</td></tr>
+			<tr><td>DMG_CONCUSS</td><td>512</td><td class="table_description">TF Redefines since we never use the originals</td></tr>
+			<tr><td>DMG_GIB_CORPSE</td><td>737</td><td class="table_description">these are the damage types that are allowed to gib corpses</td></tr>
+			<tr><td>DMG_ENERGYBEAM</td><td>1024</td><td class="table_description">laser or other high energy beam</td></tr>
+			<tr><td>DMG_NEVERGIB</td><td>4096</td><td class="table_description">with this bit OR'd in, no damage type will be able to gib victims upon death</td></tr>
+			<tr><td>DMG_ALWAYSGIB</td><td>8192</td><td class="table_description">with this bit OR'd in, any damage type can be made to gib victims upon death.</td></tr>
+			<tr><td>DMG_DROWN</td><td>16384</td><td class="table_description">Drowning</td></tr>
+			<tr><td>DMG_FIRSTTIMEBASED</td><td>16384</td><td class="table_description">Drowning</td></tr>
+			<tr><td>DMG_PARALYZE</td><td>32768</td><td class="table_description">slows affected creature down</td></tr>
+			<tr><td>DMG_NERVEGAS</td><td>65536</td><td class="table_description">nerve toxins, very bad</td></tr>
+			<tr><td>DMG_POISON</td><td>131072</td><td class="table_description">blood poisioning</td></tr>
+			<tr><td>DMG_RADIATION</td><td>262144</td><td class="table_description">radiation exposure</td></tr>
+			<tr><td>DMG_DROWNRECOVER</td><td>524288</td><td class="table_description">drowning recovery</td></tr>
+			<tr><td>DMG_ACID</td><td>1048576</td><td class="table_description">toxic chemicals or acid burns</td></tr>
+			<tr><td>DMG_SLOWBURN</td><td>2097152</td><td class="table_description">in an oven</td></tr>
+			<tr><td>DMG_SLOWFREEZE</td><td>4194304</td><td class="table_description">in a subzero freezer</td></tr>
+			<tr><td>DMG_MORTAR</td><td>8388608</td><td class="table_description">Hit by air raid (done to distinguish grenade from mortar)</td></tr>
+			<tr><td>DMG_TRANQ</td><td>8388608</td><td class="table_description"></td></tr>
+			<tr><td>DMG_SHOWNHUD</td><td>8467392</td><td class="table_description">these are the damage types that have client hud art</td></tr>
+			<tr><td>DMG_TIMEBASED</td><td>16711680</td><td class="table_description">mask for time-based damage</td></tr>
+			<tr><td>DMG_IGNITE</td><td>16777216</td><td class="table_description">Players hit by this begin to burn</td></tr>
+			<tr><td>DMG_IGNORE_MAXHEALTH</td><td>16777216</td><td class="table_description">TF Healing Additions for GiveHealth</td></tr>
+			<tr><td>DMG_RADIUS_MAX</td><td>33554432</td><td class="table_description">Radius damage with this flag doesn't decrease over distance</td></tr>
+			<tr><td>DMG_RADIUS_QUAKE</td><td>67108864</td><td class="table_description">Radius damage is done like Quake. 1/2 damage at 1/2 radius.</td></tr>
+			<tr><td>DMG_IGNOREARMOR</td><td>134217728</td><td class="table_description">Damage ignores target's armor</td></tr>
+			<tr><td>DMG_AIMED</td><td>268435456</td><td class="table_description">Does Hit location damage</td></tr>
+			<tr><td>DMG_WALLPIERCING</td><td>536870912</td><td class="table_description">Blast Damages ents through walls</td></tr>
+			<tr><td>DMG_CALTROP</td><td>1073741824</td><td class="table_description"></td></tr>
+			<tr><td>DMG_HALLUC</td><td>2147483648</td><td class="table_description"></td></tr>
+		</tr>
+	</tr>
+	</table>
+</body></html>
