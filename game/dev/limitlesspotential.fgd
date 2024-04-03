@@ -1343,6 +1343,11 @@
 		"0" : "Fade In/Out" : ""
 		"1" : "Credits" : ""
 		"2" : "Scan Out" : ""
+		"3" : "Simple HUD center" : ""
+		"5" : "Chat message" : ""
+		"6" : "Notify message" : ""
+		"7" : "Console message" : ""
+		"8" : "Center message" : ""
 	]
 	color(color255) : "Color1" : "100 100 100" : ""
 	color2(color255) : "Color2" : "240 110 0" : ""
@@ -1387,6 +1392,19 @@
 @PointClass base(Mandatory, CGibShooter, Angles, appearflags) = pitworm_gibshooter : "Pitworm Gib Shooter" : "" []
 
 @PointClass base(Mandatory, SF1AllPlayers, appearflags) = player_command : "Exe a command on the clients" : "" []
+
+@BaseClass = CEntplayer_percent
+[
+	message(target_destination) : "Fire for each player" : "" : "Fires this target passing the given activator player, this is done only once per player."
+	iuser1(integer) : "Percentage required" : "66" : "Requires this percentage of players to trigger this entity before firing 'target'"
+	spawnflags(flags) =
+	[
+		1 : "Reset on fire" : 0 : "After firing it's target, if this flag is set the entity is restored to it's initial state, else the entity is removed from the world"
+	]
+	target(target_destination) : "Fire after action" : "" : "Fires this target after this entity has been triggered for the Percentage required of players"
+]
+
+@PointClass base(Mandatory, CEntplayer_percent, Target, appearflags) = player_percent : "Trigger when meet percent" : "Triggers it's target when the percentage of players that fires this entity is greater than 'Percentage required'" []
 
 @BaseClass = CEntscripted_sequence
 [
