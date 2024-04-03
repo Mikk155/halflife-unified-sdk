@@ -4,6 +4,7 @@
         "atributes":
         {
             "color": "128 255 32",
+            "base": "CCustomModels",
             "size": "-16 -16 -16, 16 16 16",
             "title": "Large Portal Funnel"
         },
@@ -12,9 +13,17 @@
             "1":
             {
                 "title": "Reverse",
-                "default": "0",
                 "description": ""
+            },
+            "2":{
+                "title": "Reusable"
             }
+        },
+        "model":
+        {
+            "title": "Custom Sprite",
+            "default": "sprites/flare6.spr",
+            "type": "sprite"
         }
     }
 }

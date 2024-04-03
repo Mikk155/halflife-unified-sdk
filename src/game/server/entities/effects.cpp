@@ -22,6 +22,7 @@
 #define SF_GIBSHOOTER_REPEATABLE 1 // allows a gibshooter to be refired
 
 #define SF_FUNNEL_REVERSE 1 // funnel effect repels particles instead of attracting them.
+#define SF_FUNNEL_REPEATABLE 2
 
 /**
  *	@brief Lightning target, just alias landmark
@@ -1899,7 +1900,7 @@ public:
 
 void CEnvFunnel::Precache()
 {
-	m_iSprite = PrecacheModel("sprites/flare6.spr");
+	m_iSprite = PrecacheModel( ( FStringNull( pev->model ) ? "sprites/flare6.spr" : STRING( pev->model ) ) );
 }
 
 LINK_ENTITY_TO_CLASS(env_funnel, CEnvFunnel);
@@ -1925,8 +1926,11 @@ void CEnvFunnel::Use(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE use
 
 	MESSAGE_END();
 
-	SetThink(&CEnvFunnel::SUB_Remove);
-	pev->nextthink = gpGlobals->time;
+	if( !FBitSet( pev->spawnflags, SF_FUNNEL_REPEATABLE ) )
+	{
+		SetThink(&CEnvFunnel::SUB_Remove);
+		pev->nextthink = gpGlobals->time;
+	}
 }
 
 void CEnvFunnel::Spawn()
