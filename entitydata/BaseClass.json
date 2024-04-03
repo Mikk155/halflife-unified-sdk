@@ -511,9 +511,12 @@
     },
     "m_iInmuneDamage":
     {
-        "title": "Inmune to damage bits",
-        "type": "integer",
-        "description": "Set the bits of damage that this entity is inmune to, for example set 2 and this entity won't take any damage from bullets, see <a href=\"../features/damage_bits.html\">Damage Bits</a>"
+        "m_iInmuneDamage":
+        {
+            "title": "Inmune to damage bits",
+            "type": "integer",
+            "description": "Set the bits of damage that this entity is inmune to, for example set 2 and this entity won't take any damage from bullets, see <a href=\"../features/damage_bits.html\">Damage Bits</a>"
+        }
     },
     "CCustomModels":
     {
