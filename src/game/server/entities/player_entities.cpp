@@ -622,3 +622,116 @@ void CPlayerHasWeapon::Use(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TY
 		}
 	}
 }
+
+class CPlayerCommand : public CPointEntity
+{
+	public:
+		void Use( CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value ) override;
+};
+
+LINK_ENTITY_TO_CLASS( player_command, CPlayerCommand );
+
+void CPlayerCommand :: Use( CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value )
+{
+	if( FBitSet( pev->spawnflags, 1 ) )
+	{
+		for( auto pPlayer : UTIL_FindPlayers() )
+		{
+			if( pPlayer && pPlayer->IsPlayer() )
+			{
+				CLIENT_COMMAND( pPlayer->edict(), STRING( pev->message ) );
+			}
+		}
+	}
+	else
+	{
+		auto pPlayer = ToBasePlayer( pActivator );
+
+		if( pPlayer && pPlayer->IsPlayer() )
+		{
+			CLIENT_COMMAND( pPlayer->edict(), STRING( pev->message ) );
+		}
+	}
+
+	if( !FStringNull( pev->target ) )
+	{
+		FireTargets( STRING( pev->target ), pActivator, this, USE_TOGGLE, 0 );
+	}
+}
+
+#define SF_PPERCENT_RESET ( 1 << 0 )
+
+class CPlayerPercent : public CPointEntity
+{
+	public:
+		void Spawn() override;
+		bool CanFire( CBasePlayer* pPlayer );
+		void Use( CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value ) override;
+};
+
+LINK_ENTITY_TO_CLASS( player_percent, CPlayerPercent );
+
+void CPlayerPercent :: Spawn()
+{
+	pev->solid = SOLID_NOT;
+
+	pev->iuser1 = ( pev->iuser1 <= 0 ? 66 : pev->iuser1 );
+	pev->iuser2 = 0;
+}
+
+bool CPlayerPercent :: CanFire( CBasePlayer* pPlayer )
+{
+	if( pPlayer && pPlayer->IsPlayer() )
+	{
+		return true;
+	}
+	return false;
+}
+
+void CPlayerPercent :: Use( CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value )
+{
+	auto player = ToBasePlayer( pActivator );
+
+	if( CanFire( player ) )
+	{
+		if( !FStringNull( pev->message ) )
+		{
+			FireTargets( STRING( pev->message ), player, this, USE_TOGGLE, 0 );
+		}
+		pev->iuser2++;
+	}
+
+	int iPlayers = 0;
+
+	for( auto pPlayer : UTIL_FindPlayers() )
+	{
+		if( pPlayer && pPlayer->IsPlayer() && pPlayer->IsConnected() )
+		{
+			iPlayers++;
+		}
+	}
+
+	if( iPlayers > 0 )
+	{
+		float fPlayersTriggered = pev->iuser2;
+
+		float CurrentPercentage = ( fPlayersTriggered / iPlayers ) * 100;
+
+		if( CurrentPercentage >= pev->iuser1 )
+		{
+			if( !FStringNull( pev->target ) )
+			{
+				FireTargets( STRING( pev->target ), this, this, USE_TOGGLE, 0 );
+			}
+
+			if( FBitSet( pev->spawnflags, SF_PPERCENT_RESET ) )
+			{
+				pev->iuser2 = 0;
+			}
+			else
+			{
+				UTIL_Remove( this );
+			}
+		}
+	}
+}
