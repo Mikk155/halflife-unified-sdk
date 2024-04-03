@@ -373,7 +373,7 @@
 [
 	spawnflags(flags) =
 	[
-		1 : "Repeatable" : 0 : ""
+		1 : "Use Angles" : 0 : ""
 	]
 ]
 
@@ -1097,10 +1097,12 @@
 	spawnflags(flags) =
 	[
 		1 : "Reverse" : 0 : ""
+		2 : "Reusable" : 0 : ""
 	]
+	model(sprite) : "Custom Sprite" : "sprites/flare6.spr" : ""
 ]
 
-@PointClass color(128 255 32) size(-16 -16 -16, 16 16 16) base(Mandatory, CEntenv_funnel, appearflags) = env_funnel : "Large Portal Funnel" : "" []
+@PointClass color(128 255 32) size(-16 -16 -16, 16 16 16) base(Mandatory, CEntenv_funnel, CCustomModels, appearflags) = env_funnel : "Large Portal Funnel" : "" []
 
 @BaseClass = CEntenv_global
 [
