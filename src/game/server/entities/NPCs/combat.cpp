@@ -821,8 +821,12 @@ bool CBaseMonster::TakeDamage(CBaseEntity* inflictor, CBaseEntity* attacker, flo
 	float flTake;
 	Vector vecDir;
 
-	if( 0 == pev->takedamage || FBitSet( pev->flags, FL_GODMODE ) )
+	if( pev->takedamage == DAMAGE_NO
+	|| FBitSet( pev->flags, FL_GODMODE )
+	|| ( m_iInmuneDamage > 0 && ( bitsDamageType & m_iInmuneDamage ) != 0 ) )
+	{
 		return false;
+	}
 
 	if (!IsAlive())
 	{

@@ -3,7 +3,7 @@
     {
         "atributes":
         {
-            "base": "Angles, Global, Breakable, Target, FireTargets, CBaseDelay, CReplacemetFile, rendersettings, _minlight, ZHLT",
+            "base": "Angles, Global, Breakable, m_iInmuneDamage, Target, FireTargets, CBaseDelay, CReplacemetFile, rendersettings, _minlight, ZHLT",
             "title": "Breakable Object"
         },
         "spawnflags":

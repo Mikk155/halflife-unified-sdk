@@ -650,6 +650,8 @@ public:
 
 	int m_appearflag_notin = (int)appearflags::DEFAULT;
 	int m_appearflag_onlyin = (int)appearflags::DEFAULT;
+
+	int m_iInmuneDamage = 0;
 };
 
 inline bool FNullEnt(CBaseEntity* ent) { return (ent == nullptr) || FNullEnt(ent->edict()); }

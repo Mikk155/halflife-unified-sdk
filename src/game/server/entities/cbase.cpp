@@ -635,6 +635,11 @@ bool CBaseEntity::RequiredKeyValue(KeyValueData* pkvd)
 			}
 		}
 	}
+	else if( FStrEq( pkvd->szKeyName, "m_iInmuneDamage" ) )
+	{
+		m_iInmuneDamage = atoi( pkvd->szValue );
+		return true;
+	}
 
 	return false;
 }
@@ -719,8 +724,13 @@ bool CBaseEntity::TakeDamage(CBaseEntity* inflictor, CBaseEntity* attacker, floa
 {
 	Vector vecTemp;
 
-	if (0 == pev->takedamage)
+	if( pev->takedamage == DAMAGE_NO
+	|| FBitSet( pev->flags, FL_GODMODE )
+	|| ( m_iInmuneDamage > 0 && ( bitsDamageType & m_iInmuneDamage ) != 0 ) )
+	{
 		return false;
+	}
+
 
 	// UNDONE: some entity types may be immune or resistant to some bitsDamageType
 
