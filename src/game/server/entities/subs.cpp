@@ -156,23 +156,50 @@ namespace subs
 	}
 }
 
+#define MAX_SPLIT_TARGETS 8
+
 void FireTargets(const char* targetName, CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value)
 {
 	if (!targetName)
 		return;
 
-	CBaseEntity::IOLogger->debug("Firing: ({})", targetName);
+    std::string szSplit[ MAX_SPLIT_TARGETS ];
 
-	const char* s2 = targetName;
-	const char* s3 = subs::UseName( pActivator );
-	const char* s4 = subs::UseName( pCaller );
+    std::istringstream iss( targetName );
+    std::string token;
+    int i = 0;
 
-	CBaseEntity* target = nullptr;
-
-	while ((target = UTIL_FindEntityByTargetname(target, targetName, pActivator, pCaller)) != nullptr)
+    while( std::getline( iss, token, ';' ) && i < MAX_SPLIT_TARGETS )
 	{
-		if (target && (target->pev->flags & FL_KILLME) == 0) // Don't use dying ents
+        szSplit[i++] = token;
+    }
+
+    if( i == 0 )
+	{
+        szSplit[0] = targetName;
+        i = 1;
+    }
+
+    for( int j = 0; j < i; ++j )
+	{
+		const char* m_szTarget = szSplit[j].c_str();
+
+		if( !m_szTarget )
+			continue;
+
+		CBaseEntity::IOLogger->debug("Firing: ({})", m_szTarget );
+
+		const char* s2 = m_szTarget;
+		const char* s3 = subs::UseName( pActivator );
+		const char* s4 = subs::UseName( pCaller );
+
+		CBaseEntity* target = nullptr;
+
+		while( ( target = UTIL_FindEntityByTargetname( target, m_szTarget, pActivator, pCaller ) ) != nullptr )
 		{
+			if( !target || FBitSet( target->pev->flags, FL_KILLME ) )
+				continue; // Don't use dying ents
+
 			const char* s1 = STRING( target->pev->classname );
 
 			if( FBitSet( target->m_UseLocked, USE_VALUE_USE ) && pCaller->m_UseType != USE_UNLOCK )
