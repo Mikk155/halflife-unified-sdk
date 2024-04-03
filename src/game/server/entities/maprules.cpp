@@ -172,6 +172,19 @@ void CGameEnd::Use(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useTy
 #define SF_ENVTEXT_NOCONSOLE_ECHO ( 1 << 1 )
 #define SF_ENVTEXT_FIRE_FOR_PLAYERS ( 1 << 2 )
 
+enum CGameTextEffect : int
+{
+    INOUT   = 0,
+    CREDITS = 1,
+    SCANOUT = 2,
+    HUD     = 3,
+    MOTD    = 4,
+    CHAT    = 5,
+    NOTIFY  = 6,
+    CONSOLE = 7,
+    CENTER  = 8
+};
+
 /**
  *	@brief NON-Localized HUD Message (use env_message to display a titles.txt message)
  */
@@ -186,6 +199,8 @@ public:
 
 	void Use(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value) override;
 	bool KeyValue(KeyValueData* pkvd) override;
+
+	void ShowText( CBasePlayer* pPlayer, CBaseEntity* pActivator, CBaseEntity* pCaller );
 
 	inline bool MessageToAll() { return (pev->spawnflags & SF_ENVTEXT_ALLPLAYERS) != 0; }
 	inline void MessageSet(const char* pMessage) { pev->message = ALLOC_STRING(pMessage); }
@@ -241,6 +256,11 @@ bool CGameText::KeyValue(KeyValueData* pkvd)
 	}
 	else if (FStrEq(pkvd->szKeyName, "effect"))
 	{
+		if( atoi( pkvd->szValue ) == CGameTextEffect::CONSOLE )
+		{
+			SetBits( pev->spawnflags, SF_ENVTEXT_NOCONSOLE_ECHO );
+		}
+
 		m_textParms.effect = atoi(pkvd->szValue);
 		return true;
 	}
@@ -288,6 +308,59 @@ bool CGameText::KeyValue(KeyValueData* pkvd)
 	return CRulePointEntity::KeyValue(pkvd);
 }
 
+void CGameText :: ShowText( CBasePlayer* pPlayer, CBaseEntity* pActivator, CBaseEntity* pCaller )
+{
+	if( pPlayer && pPlayer->IsPlayer() && pPlayer->IsConnected() )
+	{
+		switch( m_textParms.effect )
+		{
+			case CGameTextEffect::CHAT:
+			{
+				ClientPrint( pPlayer, HUD_PRINTTALK, MessageGet() );
+				break;
+			}
+			case CGameTextEffect::CONSOLE:
+			{
+				ClientPrint( pPlayer, HUD_PRINTCONSOLE, MessageGet() );
+				break;
+			}
+			case CGameTextEffect::CENTER:
+			{
+				ClientPrint( pPlayer, HUD_PRINTCENTER, MessageGet() );
+				break;
+			}
+			case CGameTextEffect::NOTIFY:
+			{
+				ClientPrint( pPlayer, HUD_PRINTNOTIFY, MessageGet() );
+				break;
+			}
+			case CGameTextEffect::INOUT:
+			case CGameTextEffect::CREDITS:
+			case CGameTextEffect::SCANOUT:
+			{
+				UTIL_HudMessage( pPlayer, m_textParms, MessageGet() );
+				break;
+			}
+			case CGameTextEffect::HUD:
+			default:
+			{
+				UTIL_ShowMessage( MessageGet(), pPlayer );
+				break;
+			}
+		}
+
+		if( !FBitSet(pev->spawnflags, SF_ENVTEXT_NOCONSOLE_ECHO ) )
+		{
+			ClientPrint( pPlayer, HUD_PRINTCONSOLE, MessageGet() );
+		}
+
+		if( !FStringNull( pev->target ) && FBitSet( pev->spawnflags, SF_ENVTEXT_FIRE_FOR_PLAYERS ) )
+		{
+			FireTargets( STRING( pev->target ), pPlayer, this, USE_TOGGLE, 0 );
+		}
+	}
+}
+
 void CGameText::Use(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value)
 {
 	if (!CanFireForActivator(pActivator))
@@ -295,27 +368,20 @@ void CGameText::Use(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useT
 
 	if (MessageToAll())
 	{
-		UTIL_HudMessageAll(m_textParms, MessageGet());
-
-		if( !FBitSet(pev->spawnflags, SF_ENVTEXT_NOCONSOLE_ECHO ) )
-			UTIL_ClientPrintAll( print_console, std::string( std::string( "HUD-MSG: " ) + std::string( MessageGet() ) ).c_str() );
-	}
-	else
-	{
-		if (auto player = ToBasePlayer(pActivator); player && player->IsNetClient())
+		for( auto player : UTIL_FindPlayers() )
 		{
-			UTIL_HudMessage(player, m_textParms, MessageGet());
-
-			if( !FBitSet(pev->spawnflags, SF_ENVTEXT_NOCONSOLE_ECHO ) )
-				ClientPrint( player, print_console, std::string( std::string( "HUD-MSG: " ) + std::string( MessageGet() ) ).c_str() );
-
-			if( FBitSet( pev->spawnflags, SF_ENVTEXT_FIRE_FOR_PLAYERS ) )
-				FireTargets( STRING( pev->target ), player, this, USE_TOGGLE, 0 );
+			ShowText( player, pActivator, pCaller );
 		}
 	}
+	else if( auto player = ToBasePlayer(pActivator); player )
+	{
+		ShowText( player, pActivator, pCaller );
+	}
 
-	if( !FBitSet( pev->spawnflags, SF_ENVTEXT_FIRE_FOR_PLAYERS ) )
+	if( !FStringNull( pev->target ) && !FBitSet( pev->spawnflags, SF_ENVTEXT_FIRE_FOR_PLAYERS ) )
+	{
 		FireTargets( STRING( pev->target ), pActivator, this, USE_TOGGLE, 0 );
+	}
 }
 
 #define SF_TEAMMASTER_FIREONCE 0x0001

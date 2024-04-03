@@ -48,6 +48,21 @@
 				},
 				"2": {
 					"title": "Scan Out"
+				},
+				"3": {
+					"title": "Simple HUD center"
+				},
+				"5": {
+					"title": "Chat message"
+				},
+				"6": {
+					"title": "Notify message"
+				},
+				"7": {
+					"title": "Console message"
+				},
+				"8": {
+					"title": "Center message"
 				}
 			}
         },
