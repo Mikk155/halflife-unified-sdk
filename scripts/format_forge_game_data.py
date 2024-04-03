@@ -326,7 +326,7 @@ if __name__ == "__main__":
 
     with open( FGDFile, 'w') as FGD, open( BaseClassFile, 'r') as BaseClassF, open( DocMainFile, 'w') as readme:
 
-        readme.write('<!DOCTYPE html>\n<html lang="en">\n<head>\n\t<meta charset="UTF-8">\n\t<meta name="viewport" content="width=device-width, initial-scale=1.0">\n\t<title>Wiki</title>\n\t<link rel="stylesheet" href="styles.css">\n\t<style>\n\t\t.left-column {\n\t\t\tfloat: left;\n\t\t\twidth: 50%;\n\t\t}\n\t\t.right-column {\n\t\t\tfloat: left;\n\t\t\twidth: 50%;\n\t\t}\n\t</style>\n</head>\n</body>\n<div><a href="entities_update.html">Updating Entity wiki</a><div>\n<div class="left-column">\n\t<h2>Point:</h2>\n')
+        readme.write('<!DOCTYPE html>\n<html lang="en">\n<head>\n\t<meta charset="UTF-8">\n\t<meta name="viewport" content="width=device-width, initial-scale=1.0">\n\t<title>Wiki</title>\n\t<link rel="stylesheet" href="styles.css">\n\t<style>\n\t\t.left-column {\n\t\t\tfloat: left;\n\t\t\twidth: 50%;\n\t\t}\n\t\t.right-column {\n\t\t\tfloat: left;\n\t\t\twidth: 50%;\n\t\t}\n\t</style>\n</head>\n</body>\n<div><a href="entities_update.html">Updating Entity wiki</a><div>\n<div class="left-column">\n\t<h2>Solid:</h2>\n')
 
         BaseClass = json.load( BaseClassF )
 
@@ -336,7 +336,7 @@ if __name__ == "__main__":
 
             ParseClass( FGD, "Base", Name, ClassData, BaseClass, readme )
 
-        ParseType( "Point", FGD, readme )
-        readme.write('</div>\n<div class="right-column">\n\t<h2>Solid:</h2>\n')
         ParseType( "Solid", FGD, readme )
+        readme.write('</div>\n<div class="right-column">\n\t<h2>Point:</h2>\n')
+        ParseType( "Point", FGD, readme )
         readme.write('</div>\n</body>\n</html>\n')
