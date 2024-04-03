@@ -3,8 +3,13 @@
     {
         "atributes":
         {
-            "base": "SF1AllPlayers",
+            "base": "SF1AllPlayers, Target, FireTargets",
             "title": "Exe a command on the clients"
+        },
+        "message":
+        {
+            "title": "Command to execute",
+            "type": "string"
         }
     }
 }
