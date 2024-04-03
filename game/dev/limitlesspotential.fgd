@@ -133,6 +133,11 @@
 	]
 ]
 
+@BaseClass = m_iInmuneDamage
+[
+	m_iInmuneDamage(integer) : "Inmune to damage bits" : "" : "Set the bits of damage that this entity is inmune to, for example set 2 and this entity won't take any damage from bullets, see Damage Bits"
+]
+
 @BaseClass = CCustomModels
 [
 	model_replacement_filename(string) : "Model replacement file" : "" : "Path to the model replacement file. Must be a relative path starting in the mod directory. All search paths are checked, See Replacement Map System"
@@ -491,7 +496,7 @@
 	]
 ]
 
-@SolidClass base(Mandatory, CEntfunc_breakable, Angles, Global, Breakable, Target, FireTargets, CBaseDelay, CReplacemetFile, rendersettings, _minlight, ZHLT, appearflags) = func_breakable : "Breakable Object" : "" []
+@SolidClass base(Mandatory, CEntfunc_breakable, Angles, Global, Breakable, m_iInmuneDamage, Target, FireTargets, CBaseDelay, CReplacemetFile, rendersettings, _minlight, ZHLT, appearflags) = func_breakable : "Breakable Object" : "" []
 
 @BaseClass = CEntfunc_button
 [
@@ -581,7 +586,7 @@
 	buoyancy(integer) : "Buoyancy)" : "20" : ""
 ]
 
-@SolidClass base(Mandatory, CEntfunc_pushable, Angles, Global, Breakable, Target, FireTargets, CBaseDelay, CReplacemetFile, rendersettings, _minlight, ZHLT, appearflags) = func_pushable : "Pushable object" : "" []
+@SolidClass base(Mandatory, CEntfunc_pushable, Angles, Global, Breakable, m_iInmuneDamage, Target, FireTargets, CBaseDelay, CReplacemetFile, rendersettings, _minlight, ZHLT, appearflags) = func_pushable : "Pushable object" : "" []
 
 @SolidClass base(Mandatory, Global, CFuncChargers, CReplacemetFile, rendersettings, _minlight, ZHLT, appearflags) = func_recharge : "Wall Battery recharger" : "" []
 
