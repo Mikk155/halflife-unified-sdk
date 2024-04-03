@@ -20,6 +20,19 @@
 #include "CBaseToggle.h"
 #include "monsters.h"
 
+enum ScriptedCondition : int
+{
+	None = 0,
+	Death,
+	GiveHealth,
+	TakeDamage,
+	TraceAttack,
+	BarnacleVictimBitten,
+	FoundCover,
+	DropItem,
+	StopFollowing,
+};
+
 /**
  *	@brief Enum namespace
  */
@@ -129,9 +142,13 @@ class CBaseMonster : public CBaseToggle
 
 private:
 	int m_afConditions;
+	int m_szScriptedCondition;
+	string_t m_szScriptedTarget;
 
 public:
 	static inline std::shared_ptr<spdlog::logger> AILogger;
+
+	void CheckScriptedCondition( ScriptedCondition m_iCondition, CBaseEntity* pActivator, float fValue );
 
 	enum SCRIPTSTATE
 	{

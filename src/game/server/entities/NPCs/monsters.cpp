@@ -139,6 +139,7 @@ void CBaseMonster::BarnacleVictimBitten(CBaseEntity* pevBarnacle)
 	{
 		ChangeSchedule(pNewSchedule);
 	}
+	CheckScriptedCondition( ScriptedCondition::BarnacleVictimBitten, pevBarnacle, 0 );
 }
 
 void CBaseMonster::BarnacleVictimReleased()
@@ -2083,6 +2084,7 @@ bool CBaseMonster::FindCover(Vector vecThreat, Vector vecViewOffset, float flMin
 						MESSAGE_END();
 						*/
 
+						CheckScriptedCondition( ScriptedCondition::FoundCover, nullptr, 0 );
 						return true;
 					}
 				}
@@ -2720,8 +2722,27 @@ bool CBaseMonster::KeyValue(KeyValueData* pkvd)
 		m_iszUnUse = ALLOC_STRING(pkvd->szValue);
 		return true;
 	}
+	else if( FStrEq( pkvd->szKeyName, "m_szScriptedCondition" ) )
+	{
+		m_szScriptedCondition = atoi( pkvd->szValue );
+		return true;
+	}
+	else if( FStrEq( pkvd->szKeyName, "m_szScriptedTarget" ) )
+	{
+		m_szScriptedTarget = ALLOC_STRING( pkvd->szValue );
+		return true;
+	}
 
 	return BaseClass::KeyValue(pkvd);
+}
+
+void CBaseMonster :: CheckScriptedCondition( ScriptedCondition m_iCondition, CBaseEntity* pActivator, float fValue );
+{
+	if( !FStringNull( m_szScriptedTarget ) && m_szScriptedCondition == m_iCondition )
+	{
+		FireTargets( STRING( m_szScriptedTarget ), ( pActivator ? pActivator : this ), this, USE_TOGGLE, fValue );
+		m_szScriptedCondition = ScriptedCondition::None;
+	}
 }
 
 bool CBaseMonster::FCheckAITrigger()
@@ -3143,6 +3164,7 @@ CBaseEntity* CBaseMonster::DropItem(const char* pszItemName, const Vector& vecPo
 		// do we want this behavior to be default?! (sjb)
 		entity->pev->velocity = pev->velocity;
 		entity->pev->avelocity = Vector(0, RANDOM_FLOAT(0, 100), 0);
+		CheckScriptedCondition( ScriptedCondition::DropItem, entity, entity->pev->avelocity.y );
 		return entity;
 	}
 	else
@@ -3227,6 +3249,8 @@ void CBaseMonster::StopFollowing(bool clearSchedule)
 {
 	if (IsFollowing())
 	{
+		CheckScriptedCondition( ScriptedCondition::StopFollowing, m_hTargetEnt, m_movementGoal );
+
 		if (IRelationship(m_hTargetEnt) == Relationship::Ally)
 		{
 			if (!FStringNull(m_iszUnUse))

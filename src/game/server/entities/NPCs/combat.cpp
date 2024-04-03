@@ -631,6 +631,8 @@ void CBaseMonster::CallGibMonster()
 
 void CBaseMonster::Killed(CBaseEntity* attacker, int iGib)
 {
+	CheckScriptedCondition( ScriptedCondition::Death, attacker, (float)iGib );
+
 	// If this NPC is using the follower use function, remove it to prevent players from using it.
 	if (m_pfnUse == &CBaseMonster::FollowerUse)
 	{
@@ -833,6 +835,8 @@ bool CBaseMonster::GiveHealth(float flHealth, int bitsDamageType)
 	// UNDONE: generic health should not heal any
 	// UNDONE: time-based damage
 
+	CheckScriptedCondition( ScriptedCondition::GiveHealth, nullptr, flHealth );
+
 	m_bitsDamageType &= ~(bitsDamageType & ~DMG_TIMEBASED);
 
 	return CBaseEntity::GiveHealth(flHealth, bitsDamageType);
@@ -845,6 +849,8 @@ bool CBaseMonster::TakeDamage(CBaseEntity* inflictor, CBaseEntity* attacker, flo
 
 	if (0 == pev->takedamage)
 		return false;
+
+	CheckScriptedCondition( ScriptedCondition::TakeDamage, inflictor, flDamage );
 
 	if (!IsAlive())
 	{
@@ -1257,6 +1263,8 @@ void CBaseMonster::TraceAttack(CBaseEntity* attacker, float flDamage, Vector vec
 {
 	if (0 != pev->takedamage)
 	{
+		CheckScriptedCondition( ScriptedCondition::TraceAttack, attacker, flDamage );
+
 		m_LastHitGroup = ptr->iHitgroup;
 
 		switch (ptr->iHitgroup)
