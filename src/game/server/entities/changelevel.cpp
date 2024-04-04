@@ -503,44 +503,46 @@ class CTriggerEndSection : public CBaseTrigger
 
 public:
 	void Spawn() override;
+	void EndSection( CBaseEntity* pActivator );
 	void EndSectionTouch(CBaseEntity* pOther);
 	bool KeyValue(KeyValueData* pkvd) override;
-	void EndSectionUse(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
+	void Use( CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value ) override;
 };
 
 BEGIN_DATAMAP(CTriggerEndSection)
 DEFINE_FUNCTION(EndSectionTouch),
-	DEFINE_FUNCTION(EndSectionUse),
 	END_DATAMAP();
 
 LINK_ENTITY_TO_CLASS(trigger_endsection, CTriggerEndSection);
 
-void CTriggerEndSection::EndSectionUse(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value)
+void CTriggerEndSection :: EndSection( CBaseEntity* pActivator )
 {
-	// Only save on clients
-	if (pActivator && !pActivator->IsNetClient())
-		return;
-
-	SetUse(nullptr);
-
-	if (!FStringNull(pev->message))
+	if( pActivator && pActivator->IsPlayer() )
 	{
-		g_engfuncs.pfnEndSection(STRING(pev->message));
+		SetTouch(nullptr);
+
+		if( g_pGameRules->IsMultiplayer() )
+		{
+			CBaseEntity::Create( "game_end", g_vecZero, g_vecZero, this )->Use( pActivator, this, USE_TOGGLE, 0 );
+		}
+		else if( !FStringNull( pev->message ) )
+		{
+			g_engfuncs.pfnEndSection( STRING( pev->message ) );
+		}
+
+		UTIL_Remove( this );
 	}
-	UTIL_Remove(this);
+}
+
+void CTriggerEndSection::Use(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value)
+{
+	EndSection( pActivator );
 }
 
 void CTriggerEndSection::Spawn()
 {
-	if (g_pGameRules->IsMultiplayer())
-	{
-		REMOVE_ENTITY(edict());
-		return;
-	}
-
 	InitTrigger();
 
-	SetUse(&CTriggerEndSection::EndSectionUse);
 	// If it is a "use only" trigger, then don't set the touch function.
 	if ((pev->spawnflags & SF_ENDSECTION_USEONLY) == 0)
 		SetTouch(&CTriggerEndSection::EndSectionTouch);
@@ -548,17 +550,7 @@ void CTriggerEndSection::Spawn()
 
 void CTriggerEndSection::EndSectionTouch(CBaseEntity* pOther)
 {
-	// Only save on clients
-	if (!pOther->IsNetClient())
-		return;
-
-	SetTouch(nullptr);
-
-	if (!FStringNull(pev->message))
-	{
-		g_engfuncs.pfnEndSection(STRING(pev->message));
-	}
-	UTIL_Remove(this);
+	EndSection( pOther );
 }
 
 bool CTriggerEndSection::KeyValue(KeyValueData* pkvd)
