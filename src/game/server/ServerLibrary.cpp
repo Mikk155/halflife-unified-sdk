@@ -68,7 +68,7 @@
 
 #include "ui/hud/HudReplacementSystem.h"
 
-constexpr char DefaultMapConfigFileName[] = "cfg/DefaultMapConfig.json";
+constexpr char DefaultMapConfigFileName[] = "cfg/default_map_settings.json";
 
 cvar_t servercfgfile = {"sv_servercfgfile", "cfg/server/server.json", FCVAR_NOEXTRAWHITEPACE | FCVAR_ISPATH};
 cvar_t mp_gamemode = {"mp_gamemode", "", FCVAR_SERVER};
@@ -502,7 +502,7 @@ void ServerLibrary::LoadServerConfigFiles()
 	std::string mapConfigFileName;
 
 	// Use the map-specific cfg if it exists.
-	if (auto mapCfgFileName = fmt::format("cfg/maps/{}.json", STRING(gpGlobals->mapname));
+	if (auto mapCfgFileName = fmt::format("maps/{}.json", STRING(gpGlobals->mapname));
 		g_pFileSystem->FileExists(mapCfgFileName.c_str()))
 	{
 		mapConfigFileName = std::move(mapCfgFileName);
@@ -563,19 +563,31 @@ void ServerLibrary::LoadServerConfigFiles()
 	// Initialize file lists to their defaults.
 	context.SentencesFiles.push_back("sound/sentences.json");
 	context.MaterialsFiles.push_back("sound/materials.json");
-	context.SkillFiles.push_back("cfg/skill.json");
+	context.SkillFiles.push_back("cfg/skills/skill_default.json");
 
-	if (g_pGameRules->IsMultiplayer())
+	if( g_pGameRules->IsMultiplayer() )
 	{
-		context.SkillFiles.push_back("cfg/skill_multiplayer.json");
+		context.SkillFiles.push_back( "cfg/skills/skill_multiplayer.json" );
+
+		std::string m_szSkill;
+
+		if( g_pGameRules->IsCoOp() )
+			m_szSkill = "coop";
+		else if( g_pGameRules->IsCTF() )
+			m_szSkill = "capturetheflag";
+		else if( g_pGameRules->IsDeathmatch() )
+			m_szSkill = "deathmatch";
+		else if( g_pGameRules->IsTeamplay() )
+			m_szSkill = "teamplay";
+
+		context.SkillFiles.push_back( "cfg/skills/skill_" + m_szSkill + ".json" );
+	}
+	else
+	{
+		context.SkillFiles.push_back( "cfg/skills/skill_singleplayer.json" );
 	}
 
-	if (g_pGameRules->IsCoOp())
-	{
-		context.SkillFiles.push_back("cfg/skill_coop.json");
-	}
-
-	context.EntityClassificationsFileName = "cfg/default_entity_classes.json";
+	context.EntityClassificationsFileName = "cfg/relationship/relationship_default.json";
 
 	if (const auto cfgFile = servercfgfile.string; cfgFile && '\0' != cfgFile[0])
 	{

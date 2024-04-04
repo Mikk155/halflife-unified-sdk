@@ -20,7 +20,7 @@
 #include "GameLibrary.h"
 #include "utils/JSONSystem.h"
 
-constexpr const char* const CommandWhitelistFileName = "cfg/CommandWhitelist.json";
+constexpr const char* const CommandWhitelistFileName = "cfg/server/CommandWhitelist.json";
 const std::regex CommandWhitelistRegex{"^[\\w]+$"};
 constexpr std::string_view CommandWhitelistSchemaName{"CommandWhitelist"sv};
 
