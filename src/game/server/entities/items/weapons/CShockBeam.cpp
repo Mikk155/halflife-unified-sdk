@@ -149,7 +149,7 @@ void CShockBeam::BallTouch(CBaseEntity* pOther)
 
 		ClearMultiDamage();
 
-		const auto damage = g_pGameRules->IsMultiplayer() ? GetSkillFloat("plr_shockroachm"sv) : GetSkillFloat("plr_shockroachs"sv);
+		const auto damage = g_pGameRules->IsMultiplayer() ? GetSkillFloat("plr_shockroachm"sv, 15) : GetSkillFloat("plr_shockroachs"sv, 10);
 
 		auto bitsDamageTypes = DMG_ALWAYSGIB | DMG_SHOCK;
 

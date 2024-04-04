@@ -75,7 +75,7 @@ void CRpgRocket::Spawn()
 
 	pev->nextthink = gpGlobals->time + 0.4;
 
-	pev->dmg = GetSkillFloat("plr_rpg"sv);
+	pev->dmg = GetSkillFloat("plr_rpg"sv, 100);
 }
 
 void CRpgRocket::RocketTouch(CBaseEntity* pOther)

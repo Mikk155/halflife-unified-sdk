@@ -290,7 +290,7 @@ void CScientist::OnCreate()
 {
 	CTalkMonster::OnCreate();
 
-	pev->health = GetSkillFloat("scientist_health"sv);
+	pev->health = GetSkillFloat("scientist_health"sv, 20);
 	pev->model = MAKE_STRING("models/scientist.mdl");
 
 	m_iszUse = MAKE_STRING("SC_OK");
@@ -973,7 +973,7 @@ void CScientist::Heal()
 	if (target.Length() > 100)
 		return;
 
-	m_hTargetEnt->GiveHealth(GetSkillFloat("scientist_heal"sv), DMG_GENERIC);
+	m_hTargetEnt->GiveHealth(GetSkillFloat("scientist_heal"sv, 25), DMG_GENERIC);
 	// Don't heal again for 1 minute
 	m_healTime = gpGlobals->time + 60;
 }

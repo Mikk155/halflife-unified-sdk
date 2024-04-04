@@ -298,7 +298,7 @@ public:
 	void OnCreate() override
 	{
 		CBaseCharger::OnCreate();
-		m_TotalJuice = GetSkillFloat("healthcharger"sv);
+		m_TotalJuice = GetSkillFloat("healthcharger"sv, -1);
 		m_RechargeDelay = g_pGameRules->HealthChargerRechargeTime();
 		m_SoundVolume = VOL_NORM;
 		m_StartupSound = "items/medshot4.wav";
@@ -321,7 +321,7 @@ public:
 	void OnCreate() override
 	{
 		CBaseCharger::OnCreate();
-		m_TotalJuice = GetSkillFloat("suitcharger"sv);
+		m_TotalJuice = GetSkillFloat("suitcharger"sv, 50);
 		m_RechargeDelay = g_pGameRules->HEVChargerRechargeTime();
 		m_SoundVolume = 0.85f;
 		m_StartupSound = "items/suitchargeok1.wav";

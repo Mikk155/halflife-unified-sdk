@@ -268,21 +268,21 @@ void CBasePlayer::TraceAttack(CBaseEntity* attacker, float flDamage, Vector vecD
 		case HITGROUP_GENERIC:
 			break;
 		case HITGROUP_HEAD:
-			flDamage *= GetSkillFloat("player_head"sv);
+			flDamage *= GetSkillFloat("player_head"sv, 3);
 			break;
 		case HITGROUP_CHEST:
-			flDamage *= GetSkillFloat("player_chest"sv);
+			flDamage *= GetSkillFloat("player_chest"sv, 2);
 			break;
 		case HITGROUP_STOMACH:
-			flDamage *= GetSkillFloat("player_stomach"sv);
+			flDamage *= GetSkillFloat("player_stomach"sv, 2);
 			break;
 		case HITGROUP_LEFTARM:
 		case HITGROUP_RIGHTARM:
-			flDamage *= GetSkillFloat("player_arm"sv);
+			flDamage *= GetSkillFloat("player_arm"sv, 1);
 			break;
 		case HITGROUP_LEFTLEG:
 		case HITGROUP_RIGHTLEG:
-			flDamage *= GetSkillFloat("player_leg"sv);
+			flDamage *= GetSkillFloat("player_leg"sv, 1);
 			break;
 		default:
 			break;
@@ -2731,13 +2731,13 @@ void CBasePlayer::Spawn()
 			m_bIsSpawning = false;
 		}};
 
-	pev->health = ( GetSkillFloat("player_health"sv) > 0 ? GetSkillFloat("player_health"sv) : 100 );
-	pev->armorvalue = GetSkillFloat("player_armor"sv);
+	pev->health = GetSkillFloat("player_health"sv, 100 );
+	pev->armorvalue = 0;
 	pev->takedamage = DAMAGE_AIM;
 	pev->solid = SOLID_SLIDEBOX;
 	pev->movetype = MOVETYPE_WALK;
 	pev->max_health = pev->health;
-	pev->armortype = pev->armorvalue;
+	pev->armortype = GetSkillFloat("player_armor"sv, 100 );
 	pev->flags &= FL_PROXY | FL_FAKECLIENT; // keep proxy and fakeclient flags set by engine
 	pev->flags |= FL_CLIENT;
 	pev->air_finished = gpGlobals->time + 12;
@@ -3748,7 +3748,7 @@ void CBasePlayer::ItemPostFrame()
 
 	const bool canUseItem = m_flNextAttack <= UTIL_WeaponTimeBase();
 
-	if (canUseItem || GetSkillFloat("allow_use_while_busy") != 0)
+	if (canUseItem || GetSkillFloat("allow_use_while_busy", 0) != 0)
 	{
 		// Handle use events
 		PlayerUse();

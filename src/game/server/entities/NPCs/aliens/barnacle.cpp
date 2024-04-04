@@ -68,7 +68,7 @@ void CBarnacle::OnCreate()
 {
 	CBaseMonster::OnCreate();
 
-	pev->health = GetSkillFloat("barnacle_health"sv);
+	pev->health = GetSkillFloat("barnacle_health"sv, 75);
 	pev->model = MAKE_STRING("models/barnacle.mdl");
 
 	SetClassification("alien_monster");
@@ -158,8 +158,8 @@ void CBarnacle::BarnacleThink()
 			vecNewEnemyOrigin.x -= 6 * cos(m_hEnemy->pev->angles.y * PI / 180.0);
 			vecNewEnemyOrigin.y -= 6 * sin(m_hEnemy->pev->angles.y * PI / 180.0);
 
-			m_flAltitude -= GetSkillFloat("barnacle_speed"sv);
-			vecNewEnemyOrigin.z += GetSkillFloat("barnacle_speed"sv);
+			m_flAltitude -= GetSkillFloat("barnacle_speed"sv, 10);
+			vecNewEnemyOrigin.z += GetSkillFloat("barnacle_speed"sv, 10);
 
 			if (fabs(pev->origin.z - (vecNewEnemyOrigin.z + m_hEnemy->pev->view_ofs.z - 8)) < BARNACLE_BODY_HEIGHT)
 			{
@@ -286,7 +286,7 @@ void CBarnacle::BarnacleThink()
 			if (m_flAltitude < flLength)
 			{
 				// if tongue is higher than is should be, lower it kind of slowly.
-				m_flAltitude += GetSkillFloat("barnacle_speed"sv);
+				m_flAltitude += GetSkillFloat("barnacle_speed"sv, 10);
 				m_fTongueExtended = false;
 			}
 			else

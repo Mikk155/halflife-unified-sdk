@@ -91,12 +91,12 @@ void CHornet::Spawn()
 
 	if (!FNullEnt(pev->owner) && (pev->owner->v.flags & FL_CLIENT) != 0)
 	{
-		pev->dmg = GetSkillFloat("plr_hornet_dmg"sv);
+		pev->dmg = GetSkillFloat("plr_hornet_dmg"sv, 7);
 	}
 	else
 	{
 		// no real owner, or owner isn't a client.
-		pev->dmg = GetSkillFloat("hornet_dmg"sv);
+		pev->dmg = GetSkillFloat("hornet_dmg"sv, 5);
 	}
 
 	pev->nextthink = gpGlobals->time + 0.1;

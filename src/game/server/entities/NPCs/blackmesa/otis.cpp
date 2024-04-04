@@ -94,7 +94,7 @@ void COtis::OnCreate()
 {
 	CBarney::OnCreate();
 
-	pev->health = GetSkillFloat("otis_health"sv);
+	pev->health = GetSkillFloat("otis_health"sv, 35);
 	pev->model = MAKE_STRING("models/otis.mdl");
 
 	m_iszUse = MAKE_STRING("OT_OK");

@@ -1666,7 +1666,7 @@ void COFTriggerGeneWormHit::Spawn()
 
 	SetOrigin(pev->origin);
 
-	pev->dmg = GetSkillFloat("geneworm_dmg_hit"sv);
+	pev->dmg = GetSkillFloat("geneworm_dmg_hit"sv, 30);
 	m_flLastDamageTime = gpGlobals->time;
 }
 

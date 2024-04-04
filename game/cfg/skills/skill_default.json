@@ -1,7 +1,7 @@
 // DON'T MESS WITH THIS.
 {
 	// MONSTERS
-	
+
 	// Alien Grunt
 	"agrunt_health1": 60,
 	"agrunt_health2": 90,
@@ -11,13 +11,29 @@
 	"agrunt_dmg_punch2": 20,
 	"agrunt_dmg_punch3": 20,
 
-	// Apache 
+	// Apache
 	"apache_health1": 150,
 	"apache_health2": 250,
 	"apache_health3": 400,
+	
+	"apache_rockets1": 0,
+	"apache_rockets2": 1,
+	"apache_rockets3": 1,
 
 	// Barney
-	"barney_health": 35,
+	"barney_health1": 35,
+	"barney_health2": 35,
+	"barney_health3": 35,
+
+	// flDamage * barney_armor_chest
+	"barney_armor_chest1": 0.5,
+	"barney_armor_chest2": 0.6,
+	"barney_armor_chest3": 0.7,
+	
+	// flDamage - barney_armor_helmet
+	"barney_armor_helmet1": 20,
+	"barney_armor_helmet2": 15,
+	"barney_armor_helmet3": 10,
 
 	// Bullsquid
 	"bullsquid_health1": 40,
@@ -74,6 +90,13 @@
 	"hassassin_health1": 30,
 	"hassassin_health2": 50,
 	"hassassin_health3": 50,
+	
+	// 0 = always visible
+	// 1 = Invisible when not moving
+	// 2 = always invisible, flicks when moving
+	"hassassin_invisibility1": 0,
+	"hassassin_invisibility2": 1,
+	"hassassin_invisibility3": 2,
 
 
 	// Headcrab
@@ -85,7 +108,16 @@
 	"headcrab_dmg_bite2": 10,
 	"headcrab_dmg_bite3": 10,
 
-	// Hgrunt 
+	// Baby Headcrab
+	"babycrab_health1": 10,
+	"babycrab_health2": 10,
+	"babycrab_health3": 20,
+
+	"babycrab_dmg_bite1": 5,
+	"babycrab_dmg_bite2": 10,
+	"babycrab_dmg_bite3": 10,
+
+	// Hgrunt
 	"hgrunt_health1": 50,
 	"hgrunt_health2": 50,
 	"hgrunt_health3": 80,
@@ -102,6 +134,13 @@
 	"hgrunt_gspeed2": 600,
 	"hgrunt_gspeed3": 800,
 
+	// Next time this grunt can launch another grenade from it's mp5
+	// Random between 2 - hgrunt_next_glauncher
+	// In easy is not random but a fixed value of the skill
+	"hgrunt_next_glauncher1": 6,
+	"hgrunt_next_glauncher2": 5,
+	"hgrunt_next_glauncher3": 4,
+
 	// Houndeye
 	"houndeye_health1": 20,
 	"houndeye_health2": 20,
@@ -110,6 +149,10 @@
 	"houndeye_dmg_blast1": 10,
 	"houndeye_dmg_blast2": 15,
 	"houndeye_dmg_blast3": 15,
+
+	"houndeye_squad_bonus1": 1.1,
+	"houndeye_squad_bonus2": 1.2,
+	"houndeye_squad_bonus3": 1.3,
 
 	// ISlave
 	"islave_health1": 30,
@@ -120,12 +163,18 @@
 	"islave_dmg_claw2": 10,
 	"islave_dmg_claw3": 10,
 
-	"islave_dmg_clawrake": 25,
+	"islave_dmg_clawrake1": 25,
+	"islave_dmg_clawrake2": 30,
+	"islave_dmg_clawrake3": 35,
 
 	"islave_dmg_zap1": 10,
 	"islave_dmg_zap2": 10,
 	"islave_dmg_zap3": 15,
-	
+
+	"sk_islave_speed_zap1": 1,
+	"sk_islave_speed_zap2": 1.2,
+	"sk_islave_speed_zap3": 1.5,
+
 	// Icthyosaur
 	"ichthyosaur_health1": 200,
 	"ichthyosaur_health2": 200,
@@ -136,9 +185,13 @@
 	"ichthyosaur_shake3": 50,
 
 	// Leech
-	"leech_health": 2,
+	"leech_health1": 2,
+	"leech_health2": 5,
+	"leech_health3": 10,
 
-	"leech_dmg_bite": 2,
+	"leech_dmg_bite1": 2,
+	"leech_dmg_bite2": 3,
+	"leech_dmg_bite3": 4,
 
 	// Controller
 	"controller_health1": 60,
@@ -193,6 +246,12 @@
 	"turret_health1": 50,
 	"turret_health2": 50,
 	"turret_health3": 60,
+	
+	// 0 = turret can not take damage when it's off
+	// affects both turret and miniturret.
+	"turret_takedamage_off1": 1,
+	"turret_takedamage_off2": 1,
+	"turret_takedamage_off3": 1,
 
 	// MiniTurret
 	"miniturret_health1": 40,
@@ -204,6 +263,11 @@
 	"sentry_health2": 40,
 	"sentry_health3": 50,
 	
+	// 0 = sentry can not take damage when it's off
+	"sentry_takedamage_off1": 1,
+	"sentry_takedamage_off2": 1,
+	"sentry_takedamage_off3": 1,
+
 	// Otis
 	"otis_health": 35,
 
@@ -237,7 +301,7 @@
 
 	"hgrunt_ally_gspeed": 600,
 
-	// Medic Ally 
+	// Medic Ally
 	"medic_ally_health": 50,
 
 	"medic_ally_kick1": 10,
@@ -250,7 +314,7 @@
 	"medic_ally_heal2": 120,
 	"medic_ally_heal3": 75,
 
-	// Torch Ally 
+	// Torch Ally
 	"torch_ally_health": 50,
 
 	"torch_ally_kick1": 10,
@@ -259,7 +323,7 @@
 
 	"torch_ally_gspeed": 600,
 
-	// Male Assassin 
+	// Male Assassin
 	"massassin_health1": 50,
 	"massassin_health2": 50,
 	"massassin_health3": 80,
@@ -272,7 +336,7 @@
 	"massassin_gspeed2": 600,
 	"massassin_gspeed3": 800,
 
-	// ShockTrooper 
+	// ShockTrooper
 	"shocktrooper_health1": 125,
 	"shocktrooper_health2": 125,
 	"shocktrooper_health3": 200,
@@ -288,6 +352,9 @@
 	"shocktrooper_maxcharge": 8,
 
 	"shocktrooper_rchgspeed": 1,
+
+	// op4mortar
+	"op4mortar_damage": 200,
 
 	// Scientist
 	"cleansuit_scientist_health": 20,
@@ -397,13 +464,18 @@
 	"shockroach_lifespan": 10,
 
 	// Barnacle
-	"barnacle_health": 25,
-	"barnacle_speed": 8,
+	"barnacle_health1": 50,
+	"barnacle_health2": 75,
+	"barnacle_health3": 100,
 	
+	"barnacle_speed1": 8,
+	"barnacle_speed2": 10,
+	"barnacle_speed3": 12,
+
 	// Player
 	"player_health": 100,
-	"player_armor": 0,
-	
+	"player_armor": 100,
+
 	// PLAYER WEAPONS
 
 	// Crowbar whack
@@ -451,7 +523,7 @@
 
 	// PLAYER HORNET
 	"plr_hornet_dmg": 7,
-	
+
 	"plr_pipewrench": 20,
 
 	"plr_knife": 10,
@@ -519,18 +591,19 @@
 
 	// player damage adjusters
 	"player_head": 3,
-	"player_chest": 1,
-	"player_stomach": 1,
+	"player_chest": 2,
+	"player_stomach": 2,
 	"player_arm": 1,
 	"player_leg": 1,
-	
+
 	// Enables the buggy melee weapon behavior that allows for chainsaw-like effects.
 	"chainsaw_melee": 0,
-	
+
 	// Multiplayer weapon configuration
 	"crowbar_full_damage": 0,
 	"revolver_laser_sight": 0,
 	"smg_wide_spread": 0,
+
 	"shotgun_single_tight_spread": 0,
 	"shotgun_double_wide_spread": 0,
 	"crossbow_sniper_bolt": 0,
@@ -547,34 +620,37 @@
 	"grapple_fast": 0,
 	"m249_wide_spread": 0,
 	"shockrifle_fast": 0,
-	
+
 	// If set to 1, players can +USE entities while their current weapon is busy
 	"allow_use_while_busy": 0,
-	
+
 	"allow_flashlight" : 1,
-	
+
 	"allow_monsters": 1,
-	
+
 	// 0 == fixed damage
 	// 1 == progressive, longer falls deal more damage
 	"falldamagemode": 1,
-	
+
 	// -1 == never recharge
 	// 0 == recharge immediately
 	// > 0 == recharge after given amount of time has passed
 	"healthcharger_recharge_time": -1,
 	"hevcharger_recharge_time": -1,
-	
+
 	// -1 == never respawn
 	// 0 == respawn immediately
 	// > 0 == respawn after given amount of time has passed
 	"weapon_respawn_time": -1,
 	"ammo_respawn_time": -1,
 	"pickupitem_respawn_time": -1,
-	
+
 	// If set to 1, weapons not flagged to be limited in world will respawn immediately
 	"weapon_instant_respawn": 0,
-	
+
 	"allow_npc_item_dropping": 1,
-	"allow_player_weapon_dropping": 0
+	"allow_player_weapon_dropping": 0,
+
+	"infinite_ammo": 0,
+	"bottomless_magazines": 0
 }

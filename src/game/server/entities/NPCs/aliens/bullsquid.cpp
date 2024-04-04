@@ -150,7 +150,7 @@ void CSquidSpit::Touch(CBaseEntity* pOther)
 	}
 	else
 	{
-		pOther->TakeDamage(this, this, GetSkillFloat("bullsquid_dmg_spit"sv), DMG_GENERIC);
+		pOther->TakeDamage(this, this, GetSkillFloat("bullsquid_dmg_spit"sv, 10), DMG_GENERIC);
 	}
 
 	SetThink(&CSquidSpit::SUB_Remove);
@@ -248,7 +248,7 @@ void CBullsquid::OnCreate()
 {
 	CBaseMonster::OnCreate();
 
-	pev->health = GetSkillFloat("bullsquid_health"sv);
+	pev->health = GetSkillFloat("bullsquid_health"sv, 40);
 	pev->model = MAKE_STRING("models/bullsquid.mdl");
 
 	SetClassification("alien_predator");
@@ -358,7 +358,7 @@ bool CBullsquid::CheckRangeAttack1(float flDot, float flDist)
 
 bool CBullsquid::CheckMeleeAttack1(float flDot, float flDist)
 {
-	if (m_hEnemy->pev->health <= GetSkillFloat("bullsquid_dmg_whip"sv) && flDist <= 85 && flDot >= 0.7)
+	if (m_hEnemy->pev->health <= GetSkillFloat("bullsquid_dmg_whip"sv, 35) && flDist <= 85 && flDot >= 0.7)
 	{
 		return true;
 	}
@@ -547,7 +547,7 @@ void CBullsquid::HandleAnimEvent(MonsterEvent_t* pEvent)
 	case BSQUID_AE_BITE:
 	{
 		// SOUND HERE!
-		CBaseEntity* pHurt = CheckTraceHullAttack(70, GetSkillFloat("bullsquid_dmg_bite"sv), DMG_SLASH);
+		CBaseEntity* pHurt = CheckTraceHullAttack(70, GetSkillFloat("bullsquid_dmg_bite"sv, 25), DMG_SLASH);
 
 		if (pHurt)
 		{
@@ -561,7 +561,7 @@ void CBullsquid::HandleAnimEvent(MonsterEvent_t* pEvent)
 
 	case BSQUID_AE_TAILWHIP:
 	{
-		CBaseEntity* pHurt = CheckTraceHullAttack(70, GetSkillFloat("bullsquid_dmg_whip"sv), DMG_CLUB | DMG_ALWAYSGIB);
+		CBaseEntity* pHurt = CheckTraceHullAttack(70, GetSkillFloat("bullsquid_dmg_whip"sv, 35), DMG_CLUB | DMG_ALWAYSGIB);
 		if (pHurt)
 		{
 			pHurt->pev->punchangle.z = -20;

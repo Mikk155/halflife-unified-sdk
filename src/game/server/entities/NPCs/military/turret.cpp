@@ -296,7 +296,7 @@ void CTurret::OnCreate()
 {
 	CBaseTurret::OnCreate();
 
-	pev->health = GetSkillFloat("turret_health"sv);
+	pev->health = GetSkillFloat("turret_health"sv, 50);
 	pev->model = MAKE_STRING("models/turret.mdl");
 }
 
@@ -335,7 +335,7 @@ void CMiniTurret::OnCreate()
 {
 	CBaseTurret::OnCreate();
 
-	pev->health = GetSkillFloat("miniturret_health"sv);
+	pev->health = GetSkillFloat("miniturret_health"sv, 40);
 	pev->model = MAKE_STRING("models/miniturret.mdl");
 }
 
@@ -1009,7 +1009,7 @@ void CBaseTurret::TraceAttack(CBaseEntity* attacker, float flDamage, Vector vecD
 
 bool CBaseTurret::TakeDamage(CBaseEntity* inflictor, CBaseEntity* attacker, float flDamage, int bitsDamageType)
 {
-	if (0 == pev->takedamage)
+	if (0 == pev->takedamage || ( GetSkillFloat( "turret_takedamage_off"sv, 1 ) && !m_iOn ) )
 		return false;
 
 	if (!m_iOn)
@@ -1176,7 +1176,7 @@ void CSentry::OnCreate()
 {
 	CBaseTurret::OnCreate();
 
-	pev->health = GetSkillFloat("sentry_health"sv);
+	pev->health = GetSkillFloat("sentry_health"sv, 40);
 	pev->model = MAKE_STRING("models/sentry.mdl");
 }
 
@@ -1221,7 +1221,7 @@ void CSentry::Shoot(Vector& vecSrc, Vector& vecDirToEnemy)
 
 bool CSentry::TakeDamage(CBaseEntity* inflictor, CBaseEntity* attacker, float flDamage, int bitsDamageType)
 {
-	if (0 == pev->takedamage)
+	if (0 == pev->takedamage || ( GetSkillFloat( "sentry_takedamage_off"sv, 1 ) && !m_iOn ) )
 		return false;
 
 	if (!m_iOn)

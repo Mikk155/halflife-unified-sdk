@@ -360,7 +360,7 @@ void CBigMomma::OnCreate()
 {
 	CBaseMonster::OnCreate();
 
-	pev->health = 150 * GetSkillFloat("bigmomma_health_factor"sv);
+	pev->health = 150 * GetSkillFloat("bigmomma_health_factor"sv, 1.5);
 	pev->model = MAKE_STRING("models/big_mom.mdl");
 
 	SetClassification("alien_monster");
@@ -431,7 +431,7 @@ void CBigMomma::HandleAnimEvent(MonsterEvent_t* pEvent)
 
 		if (pHurt)
 		{
-			pHurt->TakeDamage(this, this, GetSkillFloat("bigmomma_dmg_slash"sv), DMG_CRUSH | DMG_SLASH);
+			pHurt->TakeDamage(this, this, GetSkillFloat("bigmomma_dmg_slash"sv, 60), DMG_CRUSH | DMG_SLASH);
 			pHurt->pev->punchangle.x = 15;
 			switch (pEvent->event)
 			{
@@ -700,7 +700,7 @@ void CBigMomma::NodeReach()
 		return;
 
 	if (0 != pTarget->pev->health)
-		pev->max_health = pev->health = pTarget->pev->health * GetSkillFloat("bigmomma_health_factor"sv);
+		pev->max_health = pev->health = pTarget->pev->health * GetSkillFloat("bigmomma_health_factor"sv, 1.5);
 
 	if (!HasMemory(bits_MEMORY_FIRED_NODE))
 	{
@@ -1154,6 +1154,6 @@ void CBMortar::Touch(CBaseEntity* pOther)
 
 	auto owner = GetOwner();
 
-	RadiusDamage(pev->origin, this, owner, GetSkillFloat("bigmomma_dmg_blast"sv), GetSkillFloat("bigmomma_radius_blast"sv), DMG_ACID);
+	RadiusDamage(pev->origin, this, owner, GetSkillFloat("bigmomma_dmg_blast"sv, 120), GetSkillFloat("bigmomma_radius_blast"sv, 250), DMG_ACID);
 	UTIL_Remove(this);
 }

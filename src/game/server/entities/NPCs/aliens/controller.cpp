@@ -145,7 +145,7 @@ void CController::OnCreate()
 {
 	CSquadMonster::OnCreate();
 
-	pev->health = GetSkillFloat("controller_health"sv);
+	pev->health = GetSkillFloat("controller_health"sv, 60);
 	pev->model = MAKE_STRING("models/controller.mdl");
 
 	SetClassification("alien_military");
@@ -603,9 +603,9 @@ void CController::RunTask(const Task_t* pTask)
 				{
 					m_vecEstVelocity = m_vecEstVelocity * 0.8;
 				}
-				vecDir = Intersect(vecSrc, m_hEnemy->BodyTarget(pev->origin), m_vecEstVelocity, GetSkillFloat("controller_speedball"sv));
+				vecDir = Intersect(vecSrc, m_hEnemy->BodyTarget(pev->origin), m_vecEstVelocity, GetSkillFloat("controller_speedball"sv, 800));
 				float delta = 0.03490; // +-2 degree
-				vecDir = vecDir + Vector(RANDOM_FLOAT(-delta, delta), RANDOM_FLOAT(-delta, delta), RANDOM_FLOAT(-delta, delta)) * GetSkillFloat("controller_speedball"sv);
+				vecDir = vecDir + Vector(RANDOM_FLOAT(-delta, delta), RANDOM_FLOAT(-delta, delta), RANDOM_FLOAT(-delta, delta)) * GetSkillFloat("controller_speedball"sv, 800);
 
 				vecSrc = vecSrc + vecDir * (gpGlobals->time - m_flShootTime);
 				CBaseMonster* pBall = (CBaseMonster*)Create("controller_energy_ball", vecSrc, pev->angles, this, false );
@@ -1156,7 +1156,7 @@ void CControllerHeadBall::HuntThink()
 		if (pEntity != nullptr && 0 != pEntity->pev->takedamage)
 		{
 			ClearMultiDamage();
-			pEntity->TraceAttack(m_hOwner, GetSkillFloat("controller_dmgzap"sv), pev->velocity, &tr, DMG_SHOCK);
+			pEntity->TraceAttack(m_hOwner, GetSkillFloat("controller_dmgzap"sv, 25), pev->velocity, &tr, DMG_SHOCK);
 			ApplyMultiDamage(this, m_hOwner);
 		}
 
@@ -1333,7 +1333,7 @@ void CControllerZapBall::ExplodeTouch(CBaseEntity* pOther)
 		}
 
 		ClearMultiDamage();
-		pOther->TraceAttack(owner, GetSkillFloat("controller_dmgball"sv), pev->velocity.Normalize(), &tr, DMG_ENERGYBEAM);
+		pOther->TraceAttack(owner, GetSkillFloat("controller_dmgball"sv,25), pev->velocity.Normalize(), &tr, DMG_ENERGYBEAM);
 		ApplyMultiDamage(owner, owner);
 
 		EmitAmbientSound(tr.vecEndPos, "weapons/electro4.wav", 0.3, ATTN_NORM, 0, RANDOM_LONG(90, 99));

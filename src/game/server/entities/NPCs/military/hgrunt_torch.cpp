@@ -108,7 +108,7 @@ void COFTorchAlly::OnCreate()
 {
 	CBaseHGruntAlly::OnCreate();
 
-	pev->health = GetSkillFloat("torch_ally_health"sv);
+	pev->health = GetSkillFloat("torch_ally_health"sv, 50);
 	pev->model = MAKE_STRING("models/hgrunt_torch.mdl");
 
 	// get voice pitch

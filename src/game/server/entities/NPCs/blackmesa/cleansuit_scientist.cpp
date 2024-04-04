@@ -36,7 +36,7 @@ void CCleansuitScientist::OnCreate()
 {
 	CScientist::OnCreate();
 
-	pev->health = GetSkillFloat("cleansuit_scientist_health"sv);
+	pev->health = GetSkillFloat("cleansuit_scientist_health"sv, 20);
 	pev->model = MAKE_STRING("models/cleansuit_scientist.mdl");
 }
 
@@ -49,7 +49,7 @@ void CCleansuitScientist::Heal()
 	if (target.Length() > 100)
 		return;
 
-	m_hTargetEnt->GiveHealth(GetSkillFloat("cleansuit_scientist_heal"sv), DMG_GENERIC);
+	m_hTargetEnt->GiveHealth(GetSkillFloat("cleansuit_scientist_heal"sv, 25), DMG_GENERIC);
 	// Don't heal again for 1 minute
 	m_healTime = gpGlobals->time + 60;
 }

@@ -282,7 +282,7 @@ void CNihilanth::OnCreate()
 {
 	CBaseMonster::OnCreate();
 
-	pev->max_health = pev->health = GetSkillFloat("nihilanth_health"sv);
+	pev->max_health = pev->health = GetSkillFloat("nihilanth_health"sv, 800);
 	pev->model = MAKE_STRING("models/nihilanth.mdl");
 
 	SetClassification("alien_military");
@@ -1473,7 +1473,7 @@ void CNihilanthHVR::ZapThink()
 		if (pEntity != nullptr && 0 != pEntity->pev->takedamage)
 		{
 			ClearMultiDamage();
-			pEntity->TraceAttack(this, GetSkillFloat("nihilanth_zap"sv), pev->velocity, &tr, DMG_SHOCK);
+			pEntity->TraceAttack(this, GetSkillFloat("nihilanth_zap"sv, 30), pev->velocity, &tr, DMG_SHOCK);
 			ApplyMultiDamage(this, this);
 		}
 
