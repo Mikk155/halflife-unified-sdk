@@ -52,7 +52,7 @@ END_DATAMAP();
 
 int CEnvModel :: ObjectCaps()
 {
-    return ( CBaseEntity::ObjectCaps() & ~FCAP_ACROSS_TRANSITION; );
+    return ( CBaseEntity::ObjectCaps() & ~FCAP_ACROSS_TRANSITION );
 }
 
 bool CEnvModel :: KeyValue( KeyValueData* pkvd )
@@ -67,11 +67,11 @@ bool CEnvModel :: KeyValue( KeyValueData* pkvd )
 	}
 	else if( FStrEq( pkvd->szKeyName, "m_iAction_On" ) )
 	{
-		m_iAction_On = ALLOC_STRING( pkvd->szValue );
+		m_iAction_On = atoi( pkvd->szValue );
 	}
 	else if( FStrEq( pkvd->szKeyName, "m_iAction_Off" ) )
 	{
-		m_iAction_Off = ALLOC_STRING( pkvd->szValue );
+		m_iAction_Off = atoi( pkvd->szValue );
 	}
     else
     {
@@ -140,7 +140,7 @@ void CEnvModel :: Use( CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE u
             break;
         }
         SetSequence();
-        pev->nextthink + gpGlobals->time + 0.1f;
+        pev->nextthink = gpGlobals->time + 0.1f;
     }
 }
 
@@ -164,7 +164,7 @@ void CEnvModel :: ModelThink()
             }
             case 2: // Change state
             {
-                if( FBitSet( pev->spawnflags & SF_ENVMODEL_OFF ) )
+                if( FBitSet( pev->spawnflags, SF_ENVMODEL_OFF ) )
                 {
                     ClearBits( pev->spawnflags, SF_ENVMODEL_OFF );
                 }
@@ -186,12 +186,12 @@ void CEnvModel :: ModelThink()
 
 void CEnvModel :: SetSequence()
 {
-	int iszSeq = ( FBitSet( pev->spawnflags & SF_ENVMODEL_OFF ) ? m_iszSequence_Off : m_iszSequence_On );
+	const char* iszSeq = ( FBitSet( pev->spawnflags, SF_ENVMODEL_OFF ) ? STRING( m_iszSequence_Off ) : STRING( m_iszSequence_On ) );
 
     if( !iszSeq )
         return;
 
-    pev->sequence = LookupSequence( STRING( iszSeq ) );
+    pev->sequence = LookupSequence( iszSeq );
 
     if( pev->sequence == -1 )
     {
