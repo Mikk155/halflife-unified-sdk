@@ -649,6 +649,12 @@ void CTriggerHurt::HurtTouch(CBaseEntity* pOther)
 
 void CTriggerHurt::RadiationThink()
 {
+	if( pev->solid == SOLID_NOT )
+	{
+		pev->nextthink = gpGlobals->time + 0.25;
+		return;
+	}
+
 	float flRange;
 	Vector vecSpot1;
 	Vector vecSpot2;
