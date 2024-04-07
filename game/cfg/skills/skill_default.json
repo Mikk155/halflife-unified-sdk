@@ -288,6 +288,10 @@
 	"pitdrone_dmg_spit2": 10,
 	"pitdrone_dmg_spit3": 15,
 
+	"pitdrone_speed_spit1": 900,
+	"pitdrone_speed_spit2": 900,
+	"pitdrone_speed_spit3": 1100,
+
 	// Hgrunt Ally
 	"hgrunt_ally_health": 50,
 
