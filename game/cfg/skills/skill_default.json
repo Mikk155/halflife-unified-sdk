@@ -15,7 +15,7 @@
 	"apache_health1": 150,
 	"apache_health2": 250,
 	"apache_health3": 400,
-	
+
 	"apache_rockets1": 0,
 	"apache_rockets2": 1,
 	"apache_rockets3": 1,
@@ -29,7 +29,7 @@
 	"barney_armor_chest1": 0.5,
 	"barney_armor_chest2": 0.6,
 	"barney_armor_chest3": 0.7,
-	
+
 	// flDamage - barney_armor_helmet
 	"barney_armor_helmet1": 20,
 	"barney_armor_helmet2": 15,
@@ -90,7 +90,7 @@
 	"hassassin_health1": 30,
 	"hassassin_health2": 50,
 	"hassassin_health3": 50,
-	
+
 	// 0 = always visible
 	// 1 = Invisible when not moving
 	// 2 = always invisible, flicks when moving
@@ -246,7 +246,7 @@
 	"turret_health1": 50,
 	"turret_health2": 50,
 	"turret_health3": 60,
-	
+
 	// 0 = turret can not take damage when it's off
 	// affects both turret and miniturret.
 	"turret_takedamage_off1": 1,
@@ -262,7 +262,7 @@
 	"sentry_health1": 40,
 	"sentry_health2": 40,
 	"sentry_health3": 50,
-	
+
 	// 0 = sentry can not take damage when it's off
 	"sentry_takedamage_off1": 1,
 	"sentry_takedamage_off2": 1,
@@ -467,7 +467,7 @@
 	"barnacle_health1": 50,
 	"barnacle_health2": 75,
 	"barnacle_health3": 100,
-	
+
 	"barnacle_speed1": 8,
 	"barnacle_speed2": 10,
 	"barnacle_speed3": 12,
@@ -523,6 +523,7 @@
 
 	// PLAYER HORNET
 	"plr_hornet_dmg": 7,
+	"plr_hornet_regen": 0.5,
 
 	"plr_pipewrench": 20,
 

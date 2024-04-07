@@ -118,7 +118,7 @@ void CHgun::PrimaryAttack()
 
 	pHornet->pev->velocity = gpGlobals->v_forward * 300;
 
-	m_flRechargeTime = gpGlobals->time + 0.5;
+	m_flRechargeTime = gpGlobals->time + GetSkillFloat( "plr_hornet_regen"sv, 0.5 );
 #endif
 
 	const bool wasLastShot = m_pPlayer->GetAmmoCountByIndex(m_iPrimaryAmmoType) == 1;
@@ -217,7 +217,7 @@ void CHgun::SecondaryAttack()
 
 	pHornet->SetThink(&CHornet::StartDart);
 
-	m_flRechargeTime = gpGlobals->time + 0.5;
+	m_flRechargeTime = gpGlobals->time + GetSkillFloat( "plr_hornet_regen"sv, 0.5 );
 #endif
 
 	int flags;
@@ -258,10 +258,10 @@ void CHgun::Reload()
 
 	bool updatedAmmo = false;
 
-	while (ammoCount < HORNET_MAX_CARRY && m_flRechargeTime < gpGlobals->time)
+	while( (int)GetSkillFloat( "plr_hornet_regen"sv, 0.5 ) != -1 && ammoCount < HORNET_MAX_CARRY && m_flRechargeTime < gpGlobals->time )
 	{
 		++ammoCount;
-		m_flRechargeTime += 0.5;
+		m_flRechargeTime += GetSkillFloat( "plr_hornet_regen"sv, 0.5 );
 		updatedAmmo = true;
 	}
 
