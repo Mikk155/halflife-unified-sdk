@@ -2063,9 +2063,7 @@ void CHGruntRepel::RepelUse(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_T
 
 bool CHGruntRepel :: ShouldInheritKeyValue( const char* szKey )
 {
-    return ( FStrEq( szKey, "model_replacement_filename" )
-          || FStrEq( szKey, "sound_replacement_filename" )
-    );
+    return true;
 }
 
 void CDeadHGrunt::OnCreate()
