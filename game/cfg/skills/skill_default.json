@@ -247,6 +247,11 @@
 	"turret_health2": 50,
 	"turret_health3": 60,
 
+	// seconds turret will stay active w/o a target
+	"turret_active_time1": 15,
+	"turret_active_time2": 20,
+	"turret_active_time3": 30,
+
 	// 0 = turret can not take damage when it's off
 	// affects both turret and miniturret.
 	"turret_takedamage_off1": 1,

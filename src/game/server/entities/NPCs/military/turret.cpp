@@ -19,7 +19,6 @@
 #define TURRET_RANGE (100 * 12)
 #define TURRET_SPREAD Vector(0, 0, 0)
 #define TURRET_TURNRATE 30 //!< angles per 0.1 second
-#define TURRET_MAXWAIT 15  //!< seconds turret will stay active w/o a target
 #define TURRET_MAXSPIN 5   //!< seconds turret barrel will spin w/o a target
 #define TURRET_MACHINE_VOLUME 0.5
 
@@ -383,7 +382,7 @@ void CBaseTurret::Initialize()
 		m_fTurnRate = TURRET_TURNRATE;
 	}
 	if (m_flMaxWait == 0)
-		m_flMaxWait = TURRET_MAXWAIT;
+		m_flMaxWait = GetSkillFloat( "turret_active_time"sv, 15 );
 	m_flStartYaw = pev->angles.y;
 	if (m_iOrientation == 1)
 	{
