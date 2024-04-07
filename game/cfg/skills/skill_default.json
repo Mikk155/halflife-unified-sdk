@@ -257,6 +257,9 @@
 	"turret_turn_rate2": 40,
 	"turret_turn_rate3": 45,
 
+	// range of the turret
+	"turret_max_range": 1200,
+
 	// 0 = turret can not take damage when it's off
 	// affects both turret and miniturret.
 	"turret_takedamage_off1": 1,

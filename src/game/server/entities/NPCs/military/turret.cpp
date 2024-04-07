@@ -16,7 +16,6 @@
 #include "cbase.h"
 
 #define TURRET_SHOTS 2
-#define TURRET_RANGE (100 * 12)
 #define TURRET_SPREAD Vector(0, 0, 0)
 #define TURRET_MAXSPIN 5   //!< seconds turret barrel will spin w/o a target
 #define TURRET_MACHINE_VOLUME 0.5
@@ -268,7 +267,7 @@ void CBaseTurret::Spawn()
 	SetBoneController(0, 0);
 	SetBoneController(1, 0);
 	m_flFieldOfView = VIEW_FIELD_FULL;
-	// m_flSightRange = TURRET_RANGE;
+	// m_flSightRange = GetSkillFloat( "turret_max_range"sv, 1200 );
 }
 
 void CBaseTurret::Precache()
@@ -523,7 +522,7 @@ void CBaseTurret::ActiveThink()
 	Vector vec = UTIL_VecToAngles(vecMidEnemy - vecMid);
 
 	// Current enmey is not visible.
-	if (!fEnemyVisible || (flDistToEnemy > TURRET_RANGE))
+	if (!fEnemyVisible || (flDistToEnemy > GetSkillFloat( "turret_max_range"sv, 1200 ) ))
 	{
 		if (0 == m_flLastSight)
 			m_flLastSight = gpGlobals->time + 0.5;
@@ -628,14 +627,14 @@ void CBaseTurret::ActiveThink()
 
 void CTurret::Shoot(Vector& vecSrc, Vector& vecDirToEnemy)
 {
-	FireBullets(1, vecSrc, vecDirToEnemy, TURRET_SPREAD, TURRET_RANGE, BULLET_MONSTER_12MM, 1);
+	FireBullets(1, vecSrc, vecDirToEnemy, TURRET_SPREAD, GetSkillFloat( "turret_max_range"sv, 1200 ), BULLET_MONSTER_12MM, 1);
 	EmitSound(CHAN_WEAPON, "turret/tu_fire1.wav", 1, 0.6);
 	pev->effects = pev->effects | EF_MUZZLEFLASH;
 }
 
 void CMiniTurret::Shoot(Vector& vecSrc, Vector& vecDirToEnemy)
 {
-	FireBullets(1, vecSrc, vecDirToEnemy, TURRET_SPREAD, TURRET_RANGE, BULLET_MONSTER_9MM, 1);
+	FireBullets(1, vecSrc, vecDirToEnemy, TURRET_SPREAD, GetSkillFloat( "turret_max_range"sv, 1200 ), BULLET_MONSTER_9MM, 1);
 
 	switch (RANDOM_LONG(0, 2))
 	{
@@ -854,7 +853,7 @@ void CBaseTurret::SearchThink()
 	// Acquire Target
 	if (m_hEnemy == nullptr)
 	{
-		Look(TURRET_RANGE);
+		Look(GetSkillFloat( "turret_max_range"sv, 1200 ));
 		m_hEnemy = BestVisibleEnemy();
 	}
 
@@ -909,7 +908,7 @@ void CBaseTurret::AutoSearchThink()
 
 	if (m_hEnemy == nullptr)
 	{
-		Look(TURRET_RANGE);
+		Look(GetSkillFloat( "turret_max_range"sv, 1200 ));
 		m_hEnemy = BestVisibleEnemy();
 	}
 
@@ -1200,7 +1199,7 @@ void CSentry::Spawn()
 
 void CSentry::Shoot(Vector& vecSrc, Vector& vecDirToEnemy)
 {
-	FireBullets(1, vecSrc, vecDirToEnemy, TURRET_SPREAD, TURRET_RANGE, BULLET_MONSTER_MP5, 1);
+	FireBullets(1, vecSrc, vecDirToEnemy, TURRET_SPREAD, GetSkillFloat( "turret_max_range"sv, 1200 ), BULLET_MONSTER_MP5, 1);
 
 	switch (RANDOM_LONG(0, 2))
 	{
