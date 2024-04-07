@@ -43,9 +43,8 @@ public:
     void RPCStateUpdate();
     void RPCShutDown();
     const char* m_szDefaultLogo = "logo";
-    const char* m_szImage = "";
     const char* m_szHeader = "";
-    const char* m_szDescription = "";
+    const char* m_szDescription = "Just started playing.";
 };
 
 inline CDiscord g_Discord;

@@ -392,13 +392,21 @@ void CHud::MsgFunc_SetFOV(const char* pszName, BufferReader& reader)
 
 void CHud :: MsgFunc_DiscordRPC(const char* pszName, BufferReader& reader)
 {
-	const char* szHeader = reader.ReadString();
-	const char* szDescription = reader.ReadString();
+	const char* szString = reader.ReadString();
+	int i = reader.ReadByte();
 
-	if( szHeader )
-		g_Discord.m_szHeader = szHeader;
-	if( szDescription )
-		g_Discord.m_szDescription = szDescription;
+	if( szString )
+	{
+		if( i == 1 )
+		{
+			g_Discord.m_szHeader = szString;
+		}
+		else
+		{
+			//ConsolePrint( fmt::format( "m_szDescription {}\n", g_Discord.m_szDescription ).c_str() );
+			g_Discord.m_szDescription = szString;
+		}
+	}
 }
 
 void CHud::AddHudElem(CHudBase* phudelem)

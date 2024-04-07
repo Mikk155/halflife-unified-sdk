@@ -17,11 +17,15 @@
 
 class CDiscordServer final
 {
-public:
-    void SendPresence();
-    void UpdatePresence();
-    const char* GetArguments( const char* szCommand );
-    float m_flNextThink;
+    public:
+        void SendPresence();
+        void SendMessage( const char* szCvar, int i );
+        void UpdatePresence();
+
+    private:
+        float m_flNextThink;
+        std::string format( const char* szCvar );
+
 };
 
 inline CDiscordServer g_DiscordServer;

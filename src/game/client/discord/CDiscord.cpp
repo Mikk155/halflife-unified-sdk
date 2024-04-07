@@ -56,14 +56,17 @@ void CDiscord :: RPCStateUpdate()
 		g_Discord.m_szHeader = "In main menu";
 	}
 
-	if( !g_Discord.m_szDescription || g_Discord.m_szDescription[0] == '\0' || !gEngfuncs.GetEntityByIndex(0) )
-	{
+	if( FStrEq( g_Discord.m_szHeader, "In main menu" )
+	&& !FStrEq( g_Discord.m_szDescription, "Just started playing." )
+	&& !gEngfuncs.GetEntityByIndex(0)
+	// NO FUCKING IDEA WHY THEY'RE BOTH EQUALS BUT THEY ARE.
+	|| FStrEq( g_Discord.m_szHeader, g_Discord.m_szDescription )
+	) {
 		g_Discord.m_szDescription = "";
 	}
 
-	discordPresence.details = g_Discord.m_szHeader;
 	discordPresence.state = g_Discord.m_szDescription;
-	discordPresence.largeImageKey = g_Discord.m_szDefaultLogo;
+	discordPresence.details = g_Discord.m_szHeader;
 	Discord_UpdatePresence(&discordPresence);
 }
 
