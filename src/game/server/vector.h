@@ -53,9 +53,9 @@ public:
 		}
 	}
 
-	[[nodiscard]] const char* ToString() const
+	[[nodiscard]] std::string ToString() const
 	{
-		return std::string( std::to_string( x ) + " " + std::to_string( y ) ).c_str();
+		return fmt::format("{} {}", x, y );
 	}
 
 	vec_t x = 0, y = 0;
@@ -115,9 +115,9 @@ public:
 		return Vector(x * flLen, y * flLen, z * flLen);
 	}
 
-	[[nodiscard]] const char* ToString() const
+	[[nodiscard]] std::string ToString() const
 	{
-		return std::string( std::to_string( x ) + " " + std::to_string( y ) + " " + std::to_string( z ) ).c_str();
+		return fmt::format("{} {} {}", x, y, z);
 	}
 
 	[[nodiscard]] constexpr Vector2D Make2D() const
