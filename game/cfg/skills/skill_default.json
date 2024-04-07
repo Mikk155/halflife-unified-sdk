@@ -252,6 +252,11 @@
 	"turret_active_time2": 20,
 	"turret_active_time3": 30,
 
+	// angles per 0.1 second
+	"turret_turn_rate1": 30,
+	"turret_turn_rate2": 40,
+	"turret_turn_rate3": 45,
+
 	// 0 = turret can not take damage when it's off
 	// affects both turret and miniturret.
 	"turret_takedamage_off1": 1,

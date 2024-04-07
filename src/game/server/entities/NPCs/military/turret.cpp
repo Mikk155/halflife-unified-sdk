@@ -18,7 +18,6 @@
 #define TURRET_SHOTS 2
 #define TURRET_RANGE (100 * 12)
 #define TURRET_SPREAD Vector(0, 0, 0)
-#define TURRET_TURNRATE 30 //!< angles per 0.1 second
 #define TURRET_MAXSPIN 5   //!< seconds turret barrel will spin w/o a target
 #define TURRET_MACHINE_VOLUME 0.5
 
@@ -374,12 +373,12 @@ void CBaseTurret::Initialize()
 	SetBoneController(1, 0);
 
 	if (m_iBaseTurnRate == 0)
-		m_iBaseTurnRate = TURRET_TURNRATE;
+		m_iBaseTurnRate = GetSkillFloat( "turret_turn_rate"sv, 30 );
 	// Make sure the turn rate is non-zero so a turret killed immediately after deploying
 	// will rotate its pitch to its ideal angle.
 	if (m_fTurnRate == 0)
 	{
-		m_fTurnRate = TURRET_TURNRATE;
+		m_fTurnRate = GetSkillFloat( "turret_turn_rate"sv, 30 );
 	}
 	if (m_flMaxWait == 0)
 		m_flMaxWait = GetSkillFloat( "turret_active_time"sv, 15 );
