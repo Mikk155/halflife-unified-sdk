@@ -353,6 +353,10 @@
 
 	"shocktrooper_rchgspeed": 1,
 
+	"shocktrooper_spore_dmg1": 50,
+	"shocktrooper_spore_dmg2": 50,
+	"shocktrooper_spore_dmg3": 50,
+
 	// op4mortar
 	"op4mortar_damage": 200,
 
