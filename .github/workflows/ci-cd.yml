@@ -4,11 +4,19 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'src/*'
+
+permissions:
+  contents: write
+  packages: write
+  pull-requests: write
 
 env:
   BUILD_TYPE: Release
   GAME_NAME: Half-Life
   MOD_NAME: hlu
+  RELEASE_VERSION: 0.0
   VCPKG_ROOT: ${{github.workspace}}/vcpkg
 
 jobs:
@@ -47,12 +55,25 @@ jobs:
         
       - name: Install
         run: cmake --install ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
-        
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v3
+  
+      - name: Create Release
+        uses: xresloader/upload-to-github-release@v1.5.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
         with:
-          name: Linux-x86
-          path: ${{env.GAME_NAME}}
+          file: ${{env.GAME_NAME}}
+          overwrite: true
+          tags: true
+          draft: false
+          prerelease: false
+          tag_name: ${{ env.RELEASE_VERSION }}
+          branches: main
+          default_release_name: ${{ env.MOD_NAME }} ${{ env.RELEASE_VERSION }}
+          token: ${{ secrets.TOKEN }}
+          default_release_body_path: changelog.md
+          update_release_body_path: changelog.md
+          target_owner: Mikk155
+          target_repo: halflife-unified-sdk
         
   win32:
     name: Win32
@@ -83,8 +104,24 @@ jobs:
       - name: Install
         run: cmake --install ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
         
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v3
+  
+      - name: Create Release
+        uses: xresloader/upload-to-github-release@v1.5.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
         with:
-          name: Win32
-          path: ${{env.GAME_NAME}}
+          file: ${{env.GAME_NAME}}
+          overwrite: true
+          tags: true
+          draft: false
+          prerelease: false
+          tag_name: ${{ env.RELEASE_VERSION }}
+          branches: main
+          default_release_name: ${{ env.MOD_NAME }} ${{ env.RELEASE_VERSION }}
+          token: ${{ secrets.TOKEN }}
+          default_release_body_path: changelog.md
+          update_release_body_path: changelog.md
+          target_owner: Mikk155
+          target_repo: halflife-unified-sdk
+
+
