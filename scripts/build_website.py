@@ -1,3 +1,6 @@
+# I know the same result could be achieved with JavaScript
+# What i don't know is JavaScript :p
+
 import os
 
 abs = os.path.abspath( '../src/website/' )
