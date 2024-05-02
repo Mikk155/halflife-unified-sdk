@@ -2,11 +2,9 @@ import os, requests, shutil, sys, zipfile
 from github import Github, GithubException
 
 user = 'Mikk155'
-repository = 'halflife-unified-SDK'
+repository = 'halflife-unified-sdk'
 
 url = f"https://github.com/{user}/{repository}/archive/game-assets.zip"
-
-access_token = os.getenv( "TOKEN" )
 
 response = requests.get( url, stream = True )
 
