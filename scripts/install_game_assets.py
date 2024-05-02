@@ -51,7 +51,7 @@ try:
 
     new_body = ""
 
-    changelog = os.path.join( os.path.dirname(__file__), f'../changelog.md' )
+    changelog = os.path.join( os.path.dirname(__file__), f'../docs/changelog.md' )
 
     with open( changelog, 'r') as cl:
 
