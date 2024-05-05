@@ -121,5 +121,25 @@
         "name": "Default Team",
         "description": "",
         "value": "0"
+    },
+    "freeroam":
+    {
+        "type": "choices",
+        "choices":
+        {
+            "0":
+            {
+                "name": "No",
+                "description": ""
+            },
+            "1":
+            {
+                "name": "Yes",
+                "description": ""
+            }
+        },
+        "name": "Roaming monsters (node graph)",
+        "description": "",
+        "value": "0"
     }
 }

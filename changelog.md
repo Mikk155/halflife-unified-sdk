@@ -19,6 +19,9 @@ This file will be updated from above to bellow, meaning besides from this text, 
 
 <details><summary>05</summary><p>
 
+- Merged branch [monster-free-roaming](https://github.com/Mikk155/halflife-unified-sdk/tree/monster-free-roaming)
+    - All credits goes to [FreeSlave](https://github.com/FreeSlave)
+
 - Created a [script](scripts/forge_game_data.py) for building a FGD file from json information
 
 - Created [BaseClass.json](src/fgd/en/EntityData/BaseClass.json) containing all the @BaseClass

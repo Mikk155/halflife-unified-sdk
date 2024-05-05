@@ -14,6 +14,26 @@
 {
     Gracias especiales a:
 }
+"console_variables 1"
+{
+    Console Variables
+}
+"Value"
+{
+    Value
+}
+"Description"
+{
+    Description
+}
+"mp_monster_roaming 0"
+{
+    Default behaviour
+}
+"mp_monster_roaming 1"
+{
+    Monsters will roam from info_nodes when they're out of combat
+}
 
 
 

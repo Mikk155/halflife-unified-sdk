@@ -5,27 +5,40 @@
 {
     This is a list of everybody who contributed to these projects.
 }
-
 // Commentary doesn't work while within a label, it'll get printed
 "CONTRIBUTORS 2"
 {
     Thanks for helping to make them better!
 }
-
 // The first spaces doesn't get printed on the HTML, do not worry for them
 "CONTRIBUTORS 3"
 {
     If you believe your name should be on this list make sure to let us know!
 }
-
 "CONTRIBUTORS 4"
 {
     Special Thanks to:
 }
-
-
-
-
+"console_variables 1"
+{
+    Console Variables
+}
+"Value"
+{
+    Value
+}
+"Description"
+{
+    Description
+}
+"mp_monster_roaming 0"
+{
+    Default behaviour
+}
+"mp_monster_roaming 1"
+{
+    Monsters will roam from info_nodes when they're out of combat
+}
 
 
 

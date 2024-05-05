@@ -808,6 +808,24 @@
             "name": "Un-Use Sentence",
             "description": "",
             "value": ""
+        },
+        "freeroam":
+        {
+            "type": "choices",
+            "name": "Monster Roaming (nodes)",
+            "choices":{
+                "0": { "name": "Map Default",
+                    "description": ""
+                },
+                "1": { "name": "Never",
+                    "description": ""
+                },
+                "2": { "name": "Always",
+                    "description": ""
+                }
+            },
+            "description": "",
+            "value": "0"
         }
     },
     "MonsterWithChildren":
