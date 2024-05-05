@@ -33,8 +33,58 @@
         {
             "type": "target_destination",
             "name": "Target",
-            "description": "",
+            "description": "Trigger multiple targets at once by using a semicolon to separate them, example 'This;That;Other' up to 8 targets",
             "value": ""
+        },
+        "m_UseType":
+        {
+            "type": "choices",
+            "name": "Use Type",
+            "value": "-1",
+            "description": "Anything else will be count as USE_UNKNOWN and in fact, work the same as USE_UNSET",
+            "choices":
+            {
+                "-1": { "title": "USE_UNSET (default)",
+                    "description": "This is the value by default and will have no effect at all in how entities normaly behave."
+                },
+                "0": { "title": "USE_OFF",
+                    "description": ""
+                },
+                "1": { "title": "USE_ON",
+                    "description": ""
+                },
+                "2": { "title": "USE_SET",
+                    "description": "Does use of m_UseValue, See how it affects each entity."
+                },
+                "3": { "title": "USE_TOGGLE",
+                    "description": ""
+                },
+                "4": { "title": "USE_KILL",
+                    "description": "Remove the entity from the world."
+                },
+                "5": { "title": "USE_SAME",
+                    "description": "Sends the same USE_TYPE that this entity receive."
+                },
+                "6": { "title": "USE_OPPOSITE",
+                    "description": "Sends the opposite USE_TYPE that this entity receive, Swaps USE_ON <-> USE_OFF, If anything else then USE_TOGGLE is sent"
+                },
+                "7": { "title": "USE_TOUCH",
+                    "description": "Calls the Touch function, the activator will be passed as the toucher."
+                },
+                "8": { "title": "USE_LOCK",
+                    "description": "Locks the entity. Does use of m_UseValue"
+                },
+                "9": { "title": "USE_UNLOCK",
+                    "description": "Un-Locks the entity. Does use of m_UseValue"
+                }
+            }
+        },
+        "m_UseValue":
+        {
+            "type": "float",
+            "title": "Use Value",
+            "default": "",
+            "description": ""
         }
     },
     "Global":

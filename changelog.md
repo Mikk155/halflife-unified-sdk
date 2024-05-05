@@ -19,6 +19,8 @@ This file will be updated from above to bellow, meaning besides from this text, 
 
 <details><summary>05</summary><p>
 
+- Merged branch [FireTargets-features](https://github.com/Mikk155/halflife-unified-sdk/tree/FireTargets-features)
+
 - Merged branch [monster-free-roaming](https://github.com/Mikk155/halflife-unified-sdk/tree/monster-free-roaming)
     - All credits goes to [FreeSlave](https://github.com/FreeSlave)
 
