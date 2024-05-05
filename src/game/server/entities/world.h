@@ -33,4 +33,7 @@ public:
 	void Spawn() override;
 	void Precache() override;
 	bool KeyValue(KeyValueData* pkvd) override;
+
+private:
+	int m_freeRoam;
 };

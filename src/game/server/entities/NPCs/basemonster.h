@@ -36,6 +36,16 @@ enum NPCWeaponState
 };
 }
 
+/**
+ *	@brief Values for NPC roaming mode.
+ */
+enum NPCRoamingMode : int
+{
+	MapDefault = 0,
+	Never,
+	Always
+};
+
 enum class PlayerAllyRelationship : int
 {
 	Default = 0,
@@ -221,6 +231,8 @@ public:
 	CCineMonster* m_pCine;
 
 	float m_flLastYawTime;
+
+	int m_freeRoam = NPCRoamingMode::MapDefault;
 
 	bool m_AllowItemDropping = true;
 
@@ -436,6 +448,7 @@ public:
 	 *	Then calls monster's member function to get a pointer to a schedule of the proper type.
 	 */
 	virtual const Schedule_t* GetSchedule();
+	const Schedule_t* GetFreeroamSchedule();
 	virtual void ScheduleChange() {}
 
 	/*

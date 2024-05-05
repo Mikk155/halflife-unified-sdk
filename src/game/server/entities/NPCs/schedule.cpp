@@ -1298,6 +1298,42 @@ void CBaseMonster::StartTask(const Task_t* pTask)
 		TaskComplete();
 		break;
 
+	case TASK_GET_PATH_TO_FREEROAM_NODE:
+	{
+		if( !WorldGraph.m_fGraphPresent || !WorldGraph.m_fGraphPointersSet )
+		{
+			TaskFail();
+		}
+		else
+		{
+			for( int i = 0; i < WorldGraph.m_cNodes; i++ )
+			{
+				int nodeNumber = ( i + WorldGraph.m_iLastActiveIdleSearch ) % WorldGraph.m_cNodes;
+
+				CNode &node = WorldGraph.Node( nodeNumber );
+
+				// Don't go to the node if already is close enough
+				if ((node.m_vecOrigin - pev->origin).Length() < 16.0f)
+					continue;
+
+				TraceResult tr;
+				UTIL_TraceLine( pev->origin + pev->view_ofs, node.m_vecOrigin + pev->view_ofs, dont_ignore_monsters, ENT( pev ), &tr );
+
+				if (tr.flFraction == 1.0f && MoveToLocation( ACT_WALK, 2, node.m_vecOrigin ))
+				{
+					TaskComplete();
+					WorldGraph.m_iLastActiveIdleSearch = nodeNumber + 1;
+					break;
+				}
+			}
+			if (!TaskIsComplete())
+			{
+				TaskFail();
+			}
+		}
+		break;
+	}
+
 	default:
 	{
 		AILogger->warn("No StartTask entry for {}", pTask->iTask);
@@ -1355,6 +1391,9 @@ const Schedule_t* CBaseMonster::GetSchedule()
 		else if (FRouteClear())
 		{
 			// no valid route!
+			const Schedule_t* freeroamSchedule = GetFreeroamSchedule();
+			if (freeroamSchedule)
+				return freeroamSchedule;
 			return GetScheduleOfType(SCHED_IDLE_STAND);
 		}
 		else
@@ -1370,6 +1409,10 @@ const Schedule_t* CBaseMonster::GetSchedule()
 		{
 			return GetScheduleOfType(SCHED_VICTORY_DANCE);
 		}
+
+		const Schedule_t* freeroamSchedule = GetFreeroamSchedule();
+		if (freeroamSchedule)
+			return freeroamSchedule;
 
 		if (HasConditions(bits_COND_LIGHT_DAMAGE | bits_COND_HEAVY_DAMAGE))
 		{
@@ -1496,6 +1539,14 @@ const Schedule_t* CBaseMonster::GetSchedule()
 	}
 
 	return &slError[0];
+}
+
+const Schedule_t* CBaseMonster::GetFreeroamSchedule()
+{
+	if( m_freeRoam == NPCRoamingMode::Always
+	||  m_freeRoam == NPCRoamingMode::MapDefault && (int)CVAR_GET_FLOAT( "mp_monster_roaming" ) == 1 )
+		return GetScheduleOfType( SCHED_FREEROAM );
+	return NULL;
 }
 
 bool CBaseMonster::JumpToTarget(Activity movementAct, float waitTime)

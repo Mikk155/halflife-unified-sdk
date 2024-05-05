@@ -53,6 +53,8 @@ cvar_t multipower = {"mp_multipower", "0", FCVAR_SERVER};
 cvar_t sv_entityinfo_enabled{"sv_entityinfo_enabled", "0", FCVAR_SERVER};
 cvar_t sv_entityinfo_eager{"sv_entityinfo_eager", "1", FCVAR_SERVER};
 
+cvar_t mp_monster_roaming{"mp_monster_roaming", "0", FCVAR_SERVER};
+
 cvar_t sv_schedule_debug{"sv_schedule_debug", "0", FCVAR_SERVER};
 
 static bool SV_InitServer()
@@ -116,6 +118,8 @@ void GameDLLInit()
 	CVAR_REGISTER(&mp_chattime);
 
 	CVAR_REGISTER(&sv_allowbunnyhopping);
+
+	CVAR_REGISTER(&mp_monster_roaming);
 
 	// BEGIN REGISTER CVARS FOR OPPOSING FORCE
 
