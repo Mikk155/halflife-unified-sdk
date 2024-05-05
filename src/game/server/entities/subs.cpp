@@ -109,21 +109,176 @@ void CBaseEntity::SUB_UseTargets(CBaseEntity* pActivator, USE_TYPE useType, floa
 	}
 }
 
+namespace subs
+{
+	const char* UseType( USE_TYPE UseType )
+	{
+		switch( UseType )
+		{
+			case USE_OFF:		return "USE_OFF (0)";
+			case USE_ON:		return "USE_ON (1)";
+			case USE_SET:		return "USE_SET (2)";
+			case USE_TOGGLE:	return "USE_TOGGLE (3)";
+			case USE_KILL:		return "USE_KILL (4)";
+			case USE_SAME:		return "USE_SAME (5)";
+			case USE_OPPOSITE:	return "USE_OPPOSITE (6)";
+			case USE_TOUCH:		return "USE_TOUCH (7)";
+			case USE_LOCK:		return "USE_LOCK (8)";
+			case USE_UNLOCK:	return "USE_UNLOCK (9)";
+		}
+		return "USE_UNKNOWN";
+	}
+
+	const char* UseName( CBaseEntity* pEnt )
+	{
+		return ( pEnt->IsPlayer() ? STRING( pEnt->pev->netname ) :
+					!FStringNull( pEnt->pev->targetname ) ? STRING( pEnt->pev->targetname ) :
+						pEnt ? STRING( pEnt->pev->classname ) : "NULL" );
+	}
+
+	const char* UseLock( int value )
+	{
+		std::string UseValue = "(";
+
+		if( value == 0 )
+			UseValue = "USE_VALUE_UNKNOWN";
+		if( ( value & USE_VALUE_MASTER ) != 0 )
+			UseValue += " Master ";
+		if( ( value & USE_VALUE_TOUCH ) != 0 )
+			UseValue += " Touch ";
+		if( ( value & USE_VALUE_USE ) != 0 )
+			UseValue += " Use ";
+		if( ( value & USE_VALUE_THINK ) != 0 )
+			UseValue += " Think ";
+		UseValue += ")";
+
+		return UseValue.c_str();
+	}
+}
+
+#define MAX_SPLIT_TARGETS 8
+
 void FireTargets(const char* targetName, CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value)
 {
 	if (!targetName)
 		return;
 
-	CBaseEntity::IOLogger->debug("Firing: ({})", targetName);
+    std::string szSplit[ MAX_SPLIT_TARGETS ];
 
-	CBaseEntity* target = nullptr;
+    std::istringstream iss( targetName );
+    std::string token;
+    int i = 0;
 
-	while ((target = UTIL_FindEntityByTargetname(target, targetName, pActivator, pCaller)) != nullptr)
+    while( std::getline( iss, token, ';' ) && i < MAX_SPLIT_TARGETS )
 	{
-		if (target && (target->pev->flags & FL_KILLME) == 0) // Don't use dying ents
+        szSplit[i++] = token;
+    }
+
+    if( i == 0 )
+	{
+        szSplit[0] = targetName;
+        i = 1;
+    }
+
+    for( int j = 0; j < i; ++j )
+	{
+		const char* m_szTarget = szSplit[j].c_str();
+
+		if( !m_szTarget )
+			continue;
+
+		CBaseEntity::IOLogger->debug("Firing: ({})", m_szTarget );
+
+		const char* s2 = m_szTarget;
+		const char* s3 = subs::UseName( pActivator );
+		const char* s4 = subs::UseName( pCaller );
+
+		CBaseEntity* target = nullptr;
+
+		while( ( target = UTIL_FindEntityByTargetname( target, m_szTarget, pActivator, pCaller ) ) != nullptr )
 		{
-			CBaseEntity::IOLogger->debug("Found: {}, firing ({})", STRING(target->pev->classname), targetName);
-			target->Use(pActivator, pCaller, useType, value);
+			if( !target || FBitSet( target->pev->flags, FL_KILLME ) )
+				continue; // Don't use dying ents
+
+			const char* s1 = STRING( target->pev->classname );
+
+			if( FBitSet( target->m_UseLocked, USE_VALUE_USE ) && pCaller->m_UseType != USE_UNLOCK )
+				continue; // Do this check in here or we won't be able to unlock :aaagaben:
+
+			if( pCaller && pCaller->m_UseType > USE_UNSET && pCaller->m_UseType < USE_UNKNOWN )
+			{
+				target->m_UseTypeLast = pCaller->m_UseType; // Get the USE_TYPE that caller received.
+
+				if( pCaller->m_UseType == USE_LOCK || pCaller->m_UseType == USE_UNLOCK )
+				{
+					int UseValue = (int)pCaller->m_UseValue;
+
+					if( UseValue > 0 )
+					{
+						if( pCaller->m_UseType == USE_UNLOCK )
+						{
+							CBaseEntity::IOLogger->debug( "{} {}->{} Un-Locked. will receive calls now", s1, s2, subs::UseLock( UseValue ) );
+							ClearBits( target->m_UseLocked, UseValue );
+						}
+						else
+						{
+							CBaseEntity::IOLogger->debug( "{} {}->{} Locked. won't receive any calls until get {}", s1, s2, subs::UseLock( UseValue ), subs::UseType( USE_UNLOCK ) );
+							SetBits( target->m_UseLocked, UseValue );
+						}
+					}
+				}
+				else if( pCaller->m_UseType == USE_TOUCH && !FBitSet( target->m_UseLocked, USE_VALUE_TOUCH ) )
+				{
+					CBaseEntity::IOLogger->debug( "{} {}->Touch( {} )", s1, s2, s3 );
+					target->Touch( pActivator );
+				}
+				else if( pCaller->m_UseType == USE_KILL )
+				{
+					CBaseEntity::IOLogger->debug( "{} {}->UpdateOnRemove()", s1, s2 );
+					UTIL_Remove( target );
+				}
+				else
+				{
+					// Get the USE_TYPE that caller received.
+					if( pCaller->m_UseType == USE_SAME )
+					{
+						target->m_UseTypeLast = ( pCaller->m_UseTypeLast != USE_SAME && pCaller->m_UseTypeLast != USE_OPPOSITE ? pCaller->m_UseTypeLast : USE_TOGGLE );
+						CBaseEntity::IOLogger->debug( "{} {}->Use( {}, {}, {} > {}, 0 )", s1, s2, s3, s4, subs::UseType( pCaller->m_UseType ), subs::UseType( target->m_UseTypeLast ) );
+					}
+					// Switch between USE_OFF and USE_ON, else just send USE_TOGGLE
+					else if( pCaller->m_UseType == USE_OPPOSITE )
+					{
+						target->m_UseTypeLast = ( pCaller->m_UseTypeLast == USE_ON ? USE_OFF : pCaller->m_UseTypeLast == USE_OFF ? USE_ON : USE_TOGGLE );
+						CBaseEntity::IOLogger->debug( "{} {}->Use( {}, {}, {} > {}, 0 )", s1, s2, s3, s4, subs::UseType( pCaller->m_UseType ), subs::UseType( target->m_UseTypeLast ) );
+					}
+					// Send the set float value.
+					else if( pCaller->m_UseType == USE_SET )
+					{
+						if( pCaller->m_UseValue )
+						{
+							value = pCaller->m_UseValue;
+						}
+						// pass value to debug. -Mikk
+						CBaseEntity::IOLogger->debug( "{} {}->Use( {}, {}, {}, {} )", s1, s2, s3, s4, subs::UseType( target->m_UseTypeLast ), value );
+					}
+					else
+					{
+						CBaseEntity::IOLogger->debug( "{} {}->Use( {}, {}, {}, 0 )", s1, s2, s3, s4, subs::UseType( target->m_UseTypeLast ) );
+					}
+
+					target->Use( pActivator, pCaller, target->m_UseTypeLast, value );
+				}
+			}
+			else
+			{
+				CBaseEntity::IOLogger->debug( "{} {}->Use( {}, {}, {}, 0 )", s1, s2, s3, s4, subs::UseType( useType ) );
+				target->Use( pActivator, pCaller, useType, value );
+			}
+
+			if( pCaller )
+			{
+				pCaller->m_UseTypeLast = USE_UNSET;
+			}
 		}
 	}
 }
@@ -151,6 +306,9 @@ void CBaseDelay::SUB_UseTargets(CBaseEntity* pActivator, USE_TYPE useType, float
 		pTemp->SetThink(&CBaseDelay::DelayThink);
 
 		// Save the useType
+		pTemp->m_UseType = m_UseType;
+		pTemp->m_UseTypeLast = m_UseTypeLast;
+		pTemp->m_UseValue = m_UseValue;
 		pTemp->pev->button = (int)useType;
 		pTemp->m_iszKillTarget = m_iszKillTarget;
 		pTemp->m_flDelay = 0; // prevent "recursion"
