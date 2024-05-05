@@ -1,0 +1,18 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "Trigger",
+            "Appearflags"
+        ],
+        "classname": "trigger_multiple",
+        "name": "Trigger: Activate multiple",
+        "description": ""
+    },
+    "wait": {
+        "type": "integer",
+        "name": "Delay before reset",
+        "description": "",
+        "value": "10"
+    }
+}

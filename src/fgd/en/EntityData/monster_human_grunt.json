@@ -1,0 +1,61 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-16",
+                "-16",
+                "0"
+            ],
+            [
+                "16",
+                "16",
+                "72"
+            ]
+        ],
+        "studio": "models/hgrunt.mdl",
+        "base": [
+            "Mandatory",
+            "Monster",
+            "Sequence",
+            "Appearflags"
+        ],
+        "classname": "monster_human_grunt",
+        "name": "Human Grunt (camo)",
+        "description": ""
+    },
+    "spawnflags": {
+        "32": {
+            "name": "SquadLeader",
+            "description": ""
+        }
+    },
+    "weapons": {
+        "type": "choices",
+        "name": "Weapons",
+        "description": "",
+        "value": "3",
+        "choices": {
+            "1": {
+                "name": "9mmAR",
+                "description": ""
+            },
+            "3": {
+                "name": "9mmAR + HG",
+                "description": ""
+            },
+            "5": {
+                "name": "9mmAR + GL",
+                "description": ""
+            },
+            "8": {
+                "name": "Shotgun",
+                "description": ""
+            },
+            "10": {
+                "name": "Shotgun + HG",
+                "description": ""
+            }
+        }
+    }
+}

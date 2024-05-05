@@ -1,0 +1,19 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "base": [
+            "Mandatory",
+            "Master",
+            "Appearflags"
+        ],
+        "classname": "game_player_equip",
+        "name": "Initial player equipment",
+        "description": ""
+    },
+    "spawnflags": {
+        "1": {
+            "name": "Use Only",
+            "description": ""
+        }
+    }
+}

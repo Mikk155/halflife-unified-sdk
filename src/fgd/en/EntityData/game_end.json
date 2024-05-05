@@ -1,0 +1,13 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "base": [
+            "Mandatory",
+            "Master",
+            "Appearflags"
+        ],
+        "classname": "game_end",
+        "name": "End this multiplayer game",
+        "description": ""
+    }
+}

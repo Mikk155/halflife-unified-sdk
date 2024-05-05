@@ -1,0 +1,88 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-16",
+                "-16",
+                "-16"
+            ],
+            [
+                "16",
+                "16",
+                "16"
+            ]
+        ],
+        "base": [
+            "Mandatory",
+            "Appearflags"
+        ],
+        "classname": "player_weaponstrip",
+        "name": "Strips player's weapons",
+        "description": ""
+    },
+    "all_players": {
+        "type": "choices",
+        "name": "Affect All Players",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "No",
+                "description": ""
+            },
+            "1": {
+                "name": "Yes",
+                "description": ""
+            }
+        }
+    },
+    "strip_weapons": {
+        "type": "choices",
+        "name": "Strip Weapons",
+        "description": "",
+        "value": "1",
+        "choices": {
+            "0": {
+                "name": "No",
+                "description": ""
+            },
+            "1": {
+                "name": "Yes",
+                "description": ""
+            }
+        }
+    },
+    "strip_suit": {
+        "type": "choices",
+        "name": "Strip Suit",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "No",
+                "description": ""
+            },
+            "1": {
+                "name": "Yes",
+                "description": ""
+            }
+        }
+    },
+    "strip_longjump": {
+        "type": "choices",
+        "name": "Strip Long Jump Module",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "No",
+                "description": ""
+            },
+            "1": {
+                "name": "Yes",
+                "description": ""
+            }
+        }
+    }
+}

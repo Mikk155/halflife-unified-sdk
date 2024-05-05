@@ -1,0 +1,76 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-16",
+                "-16",
+                "0"
+            ],
+            [
+                "16",
+                "16",
+                "72"
+            ]
+        ],
+        "studio": "models/scientist.mdl",
+        "base": [
+            "Mandatory",
+            "Monster",
+            "TalkMonster",
+            "Sequence",
+            "Appearflags"
+        ],
+        "classname": "monster_scientist",
+        "name": "Scared Scientist",
+        "description": ""
+    },
+    "body": {
+        "type": "choices",
+        "name": "Body",
+        "description": "",
+        "value": "-1",
+        "choices": {
+            "-1": {
+                "name": "Random",
+                "description": ""
+            },
+            "0": {
+                "name": "Glasses",
+                "description": ""
+            },
+            "1": {
+                "name": "Einstein",
+                "description": ""
+            },
+            "2": {
+                "name": "Luther",
+                "description": ""
+            },
+            "3": {
+                "name": "Slick",
+                "description": ""
+            }
+        }
+    },
+    "item": {
+        "type": "choices",
+        "name": "Item",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "None",
+                "description": ""
+            },
+            "1": {
+                "name": "Clipboard",
+                "description": ""
+            },
+            "2": {
+                "name": "Stick",
+                "description": ""
+            }
+        }
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "Trigger",
+            "Angles",
+            "Appearflags"
+        ],
+        "classname": "trigger_push",
+        "name": "Trigger player push",
+        "description": ""
+    },
+    "spawnflags": {
+        "2": {
+            "name": "Start Off",
+            "description": ""
+        }
+    },
+    "speed": {
+        "type": "integer",
+        "name": "Speed of push",
+        "description": "",
+        "value": "40"
+    }
+}

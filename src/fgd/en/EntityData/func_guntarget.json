@@ -1,0 +1,33 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "Global",
+            "RenderFields",
+            "Angles",
+            "ZHLT",
+            "Appearflags"
+        ],
+        "classname": "func_guntarget",
+        "name": "Moving platform",
+        "description": ""
+    },
+    "speed": {
+        "type": "integer",
+        "name": "Speed (units per second)",
+        "description": "",
+        "value": "100"
+    },
+    "health": {
+        "type": "integer",
+        "name": "Damage to Take",
+        "description": "",
+        "value": "0"
+    },
+    "spawnflags": {
+        "1": {
+            "name": "Start On",
+            "description": ""
+        }
+    }
+}

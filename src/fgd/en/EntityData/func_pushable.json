@@ -1,0 +1,56 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "Breakable",
+            "RenderFields",
+            "ZHLT",
+            "Appearflags"
+        ],
+        "classname": "func_pushable",
+        "name": "Pushable object",
+        "description": ""
+    },
+    "size": {
+        "type": "choices",
+        "name": "Hull Size",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "Point size",
+                "description": ""
+            },
+            "1": {
+                "name": "Player size",
+                "description": ""
+            },
+            "2": {
+                "name": "Big Size",
+                "description": ""
+            },
+            "3": {
+                "name": "Player duck",
+                "description": ""
+            }
+        }
+    },
+    "spawnflags": {
+        "128": {
+            "name": "Breakable",
+            "description": ""
+        }
+    },
+    "friction": {
+        "type": "integer",
+        "name": "Friction (0-400)",
+        "description": "",
+        "value": "50"
+    },
+    "buoyancy": {
+        "type": "integer",
+        "name": "Buoyancy",
+        "description": "",
+        "value": "20"
+    }
+}

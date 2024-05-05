@@ -1,0 +1,52 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-16",
+                "-16",
+                "0"
+            ],
+            [
+                "16",
+                "16",
+                "72"
+            ]
+        ],
+        "studio": "models/deadhaz.mdl",
+        "base": [
+            "Mandatory",
+            "RenderFields",
+            "Angles",
+            "Sequence",
+            "Appearflags"
+        ],
+        "classname": "monster_hevsuit_dead",
+        "name": "Dead HEV Suit",
+        "description": ""
+    },
+    "pose": {
+        "type": "choices",
+        "name": "Pose",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "On back",
+                "description": ""
+            },
+            "1": {
+                "name": "Seated",
+                "description": ""
+            },
+            "2": {
+                "name": "On stomach",
+                "description": ""
+            },
+            "3": {
+                "name": "On Table",
+                "description": ""
+            }
+        }
+    }
+}

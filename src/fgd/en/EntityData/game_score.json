@@ -1,0 +1,25 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "base": [
+            "Mandatory",
+            "Master",
+            "Appearflags"
+        ],
+        "classname": "game_score",
+        "name": "Award/Deduct Points",
+        "description": ""
+    },
+    "spawnflags": {
+        "2": {
+            "name": "Team Points",
+            "description": ""
+        }
+    },
+    "points": {
+        "type": "integer",
+        "name": "Points to add (+/-)",
+        "description": "",
+        "value": "1"
+    }
+}

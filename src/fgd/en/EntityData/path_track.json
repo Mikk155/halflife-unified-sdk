@@ -1,0 +1,28 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [ [ -8, -8, -8 ], [ 8, 8, 8 ] ],
+        "flags": [
+            "Path"
+        ],
+        "base": [
+            "Mandatory",
+            "Appearflags"
+        ],
+        "classname": "path_track",
+        "name": "Train Track Path",
+        "description": ""
+    },
+    "spawnflags": {
+        "8": {
+            "name": "Disable train",
+            "description": ""
+        }
+    },
+    "speed": {
+        "type": "integer",
+        "name": "New Train Speed",
+        "description": "",
+        "value": "0"
+    }
+}

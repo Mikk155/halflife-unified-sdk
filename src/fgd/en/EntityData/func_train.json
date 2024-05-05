@@ -1,0 +1,61 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "Global",
+            "RenderFields",
+            "ZHLT",
+            "PlatSounds",
+            "Appearflags"
+        ],
+        "classname": "func_train",
+        "name": "Moving platform",
+        "description": ""
+    },
+    "speed": {
+        "type": "integer",
+        "name": "Speed (units per second)",
+        "description": "",
+        "value": "64"
+    },
+    "dmg": {
+        "type": "integer",
+        "name": "Damage on crush",
+        "description": "",
+        "value": "0"
+    },
+    "skin": {
+        "type": "choices",
+        "name": "Contents",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "Solid",
+                "description": ""
+            },
+            "-1": {
+                "name": "Empty",
+                "description": ""
+            },
+            "-3": {
+                "name": "Water",
+                "description": ""
+            },
+            "-4": {
+                "name": "Slime",
+                "description": ""
+            },
+            "-5": {
+                "name": "Lava",
+                "description": ""
+            }
+        }
+    },
+    "spawnflags": {
+        "8": {
+            "name": "Not solid",
+            "description": ""
+        }
+    }
+}

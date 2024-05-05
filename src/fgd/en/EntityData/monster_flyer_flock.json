@@ -1,0 +1,39 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-16",
+                "-16",
+                "0"
+            ],
+            [
+                "16",
+                "16",
+                "16"
+            ]
+        ],
+        "studio": "models/aflock.mdl",
+        "base": [
+            "Mandatory",
+            "Monster",
+            "Sequence",
+            "Appearflags"
+        ],
+        "classname": "monster_flyer_flock",
+        "name": "Flock of Flyers",
+        "description": ""
+    },
+    "iFlockSize": {
+        "type": "integer",
+        "name": "Flock Size",
+        "description": "",
+        "value": "8"
+    },
+    "flFlockRadius": {
+        "type": "integer",
+        "name": "Flock Radius",
+        "description": "",
+        "value": "128"
+    }
+}

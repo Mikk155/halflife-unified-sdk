@@ -1,0 +1,27 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-16",
+                "-16",
+                "0"
+            ],
+            [
+                "16",
+                "16",
+                "36"
+            ]
+        ],
+        "studio": "models/w_battery.mdl",
+        "base": [
+            "Mandatory",
+            "Targetx",
+            "Item",
+            "Appearflags"
+        ],
+        "classname": "item_battery",
+        "name": "HEV battery",
+        "description": ""
+    }
+}

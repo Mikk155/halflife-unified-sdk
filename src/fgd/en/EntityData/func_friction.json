@@ -1,0 +1,13 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "RenderFields",
+            "ZHLT",
+            "Appearflags"
+        ],
+        "classname": "func_friction",
+        "name": "Surface with a change in friction",
+        "description": ""
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "BaseTank",
+            "ZHLT",
+            "Appearflags"
+        ],
+        "classname": "func_tankmortar",
+        "name": "Brush Mortar Turret",
+        "description": ""
+    },
+    "iMagnitude": {
+        "type": "integer",
+        "name": "Explosion Magnitude",
+        "description": "",
+        "value": "100"
+    }
+}

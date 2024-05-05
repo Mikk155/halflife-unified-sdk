@@ -1,0 +1,35 @@
+{
+    "ClassData":
+    {
+        "classname": "env_bubbles",
+        "name": "Bubble Volume",
+        "description": "",
+        "BaseClass":
+        [
+            "Mandatory",
+            "SF1StartOff",
+            "Appearflags"
+        ]
+    },
+    "density":
+    {
+        "type": "integer",
+        "name": "Bubble density",
+        "description": "",
+        "value": "2"
+    },
+    "frequency":
+    {
+        "type": "integer",
+        "name": "Bubble frequency",
+        "description": "",
+        "value": "2"
+    },
+    "current":
+    {
+        "type": "integer",
+        "name": "Speed of Current",
+        "description": "",
+        "value": "0"
+    }
+}

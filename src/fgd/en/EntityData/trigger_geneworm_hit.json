@@ -1,0 +1,25 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "Target",
+            "Master",
+            "Appearflags"
+        ],
+        "classname": "trigger_geneworm_hit",
+        "name": "Trigger GeneWorm Hit",
+        "description": ""
+    },
+    "spawnflags": {
+        "32": {
+            "name": "TouchClientOnly",
+            "description": ""
+        }
+    },
+    "delay": {
+        "type": "string",
+        "name": "Delay before trigger",
+        "description": "",
+        "value": "0"
+    }
+}

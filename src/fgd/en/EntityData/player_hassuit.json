@@ -1,0 +1,24 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-16",
+                "-16",
+                "-16"
+            ],
+            [
+                "16",
+                "16",
+                "16"
+            ]
+        ],
+        "base": [
+            "Mandatory",
+            "Appearflags"
+        ],
+        "classname": "player_hassuit",
+        "name": "Fires a target based on whether the activating player has a suit or not",
+        "description": ""
+    }
+}

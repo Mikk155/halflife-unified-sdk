@@ -1,0 +1,64 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "Global",
+            "RenderFields",
+            "Angles",
+            "ZHLT",
+            "ReplacementFiles",
+            "Appearflags"
+        ],
+        "classname": "func_tracktrain",
+        "name": "Track Train",
+        "description": ""
+    },
+    "spawnflags": {
+        "8": {
+            "name": "Passable",
+            "description": ""
+        }
+    },
+    "wheels": {
+        "type": "integer",
+        "name": "Distance between the wheels",
+        "description": "",
+        "value": "50"
+    },
+    "height": {
+        "type": "integer",
+        "name": "Height above track",
+        "description": "",
+        "value": "4"
+    },
+    "startspeed": {
+        "type": "integer",
+        "name": "Initial speed",
+        "description": "",
+        "value": "0"
+    },
+    "speed": {
+        "type": "integer",
+        "name": "Speed (units per second)",
+        "description": "",
+        "value": "64"
+    },
+    "dmg": {
+        "type": "integer",
+        "name": "Damage on crush",
+        "description": "",
+        "value": "0"
+    },
+    "volume": {
+        "type": "integer",
+        "name": "Volume (10 = loudest)",
+        "description": "",
+        "value": "10"
+    },
+    "bank": {
+        "type": "string",
+        "name": "Bank angle on turns",
+        "description": "",
+        "value": "0"
+    }
+}

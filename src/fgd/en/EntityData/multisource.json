@@ -1,0 +1,19 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "color": [
+            "128",
+            "255",
+            "128"
+        ],
+        "sprite": "sprites/multisource.spr",
+        "base": [
+            "Mandatory",
+            "Target",
+            "Appearflags"
+        ],
+        "classname": "multisource",
+        "name": "Multisource",
+        "description": ""
+    }
+}

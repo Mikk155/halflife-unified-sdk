@@ -1,0 +1,21 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "studio": "models/blkop_apache.mdl",
+        "base": [
+            "Mandatory",
+            "Monster",
+            "Sequence",
+            "Appearflags"
+        ],
+        "classname": "monster_blkop_apache",
+        "name": "Black Ops Apache",
+        "description": ""
+    },
+    "spawnflags": {
+        "64": {
+            "name": "Start Inactive",
+            "description": ""
+        }
+    }
+}

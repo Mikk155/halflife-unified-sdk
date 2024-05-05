@@ -1,0 +1,21 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "Breakable",
+            "RenderFields",
+            "Angles",
+            "ZHLT",
+            "Appearflags"
+        ],
+        "classname": "func_breakable",
+        "name": "Breakable Object",
+        "description": ""
+    },
+    "spawnflags": {
+        "256": {
+            "name": "Instant Crowbar",
+            "description": ""
+        }
+    }
+}

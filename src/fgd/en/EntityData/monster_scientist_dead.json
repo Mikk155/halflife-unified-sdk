@@ -1,0 +1,92 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-16",
+                "-16",
+                "0"
+            ],
+            [
+                "16",
+                "16",
+                "72"
+            ]
+        ],
+        "studio": "models/scientist.mdl",
+        "base": [
+            "Mandatory",
+            "RenderFields",
+            "Angles",
+            "Sequence",
+            "Appearflags"
+        ],
+        "classname": "monster_scientist_dead",
+        "name": "Dead Scientist",
+        "description": ""
+    },
+    "body": {
+        "type": "choices",
+        "name": "Body",
+        "description": "",
+        "value": "-1",
+        "choices": {
+            "-1": {
+                "name": "Random",
+                "description": ""
+            },
+            "0": {
+                "name": "Glasses",
+                "description": ""
+            },
+            "1": {
+                "name": "Einstein",
+                "description": ""
+            },
+            "2": {
+                "name": "Luther",
+                "description": ""
+            },
+            "3": {
+                "name": "Slick",
+                "description": ""
+            }
+        }
+    },
+    "pose": {
+        "type": "choices",
+        "name": "Pose",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "On back",
+                "description": ""
+            },
+            "1": {
+                "name": "On Stomach",
+                "description": ""
+            },
+            "2": {
+                "name": "Sitting",
+                "description": ""
+            },
+            "3": {
+                "name": "Hanging",
+                "description": ""
+            },
+            "4": {
+                "name": "Table1",
+                "description": ""
+            },
+            "5": {
+                "name": "Table2",
+                "description": ""
+            },
+            "6": {
+                "name": "Table3",
+                "description": ""
+            }
+        }
+    }
+}

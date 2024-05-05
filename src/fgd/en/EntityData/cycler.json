@@ -1,0 +1,32 @@
+{
+    "ClassData":
+    {
+        "type": "Point",
+        "studio": true,
+        "size": [ [ -16, -16, 0 ], [ 16, 16, 72 ] ],
+        "classname": "cycler",
+        "name": "Monster Cycler",
+        "description": "",
+        "BaseClass":
+        [
+            "Mandatory",
+            "Angles",
+            "RenderFields",
+            "Appearflags"
+        ]
+    },
+    "model":
+    {
+        "type": "studio",
+        "name": "Custom Model",
+        "description": "",
+        "value": ""
+    },
+    "bodygroup":
+    {
+        "type": "integer",
+        "name": "Body Group",
+        "description": "",
+        "value": "0"
+    }
+}

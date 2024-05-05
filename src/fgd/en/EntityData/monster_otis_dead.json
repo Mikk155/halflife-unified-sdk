@@ -1,0 +1,102 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "studio": "models/otis.mdl",
+        "base": [
+            "Mandatory",
+            "Sequence",
+            "Appearflags"
+        ],
+        "classname": "monster_otis_dead",
+        "name": "Dead Otis",
+        "description": ""
+    },
+    "pose": {
+        "type": "choices",
+        "name": "Pose",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "On back",
+                "description": ""
+            },
+            "1": {
+                "name": "On side",
+                "description": ""
+            },
+            "2": {
+                "name": "On stomach",
+                "description": ""
+            },
+            "3": {
+                "name": "Stuffed in Vent",
+                "description": ""
+            },
+            "4": {
+                "name": "Dead Sitting",
+                "description": ""
+            }
+        }
+    },
+    "bodystate": {
+        "type": "choices",
+        "name": "bodystate",
+        "description": "",
+        "value": "1",
+        "choices": {
+            "0": {
+                "name": "Blank",
+                "description": ""
+            },
+            "1": {
+                "name": "Gun Holstered",
+                "description": ""
+            },
+            "2": {
+                "name": "Gun Drawn",
+                "description": ""
+            }
+        }
+    },
+    "sleeves": {
+        "type": "choices",
+        "name": "sleeves",
+        "description": "",
+        "value": "-1",
+        "choices": {
+            "-1": {
+                "name": "Random",
+                "description": ""
+            },
+            "0": {
+                "name": "Long",
+                "description": ""
+            },
+            "1": {
+                "name": "Short",
+                "description": ""
+            }
+        }
+    },
+    "item": {
+        "type": "choices",
+        "name": "item",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "None",
+                "description": ""
+            },
+            "1": {
+                "name": "Clipboard",
+                "description": ""
+            },
+            "2": {
+                "name": "Donut",
+                "description": ""
+            }
+        }
+    }
+}

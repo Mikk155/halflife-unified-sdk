@@ -1,0 +1,13 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "Trackchange",
+            "ZHLT",
+            "Appearflags"
+        ],
+        "classname": "func_trackautochange",
+        "name": "Automatic track changing platform",
+        "description": ""
+    }
+}

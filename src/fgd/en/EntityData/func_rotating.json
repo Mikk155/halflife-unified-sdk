@@ -1,0 +1,52 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "Global",
+            "RenderFields",
+            "Angles",
+            "ZHLT",
+            "ReplacementFiles",
+            "Appearflags"
+        ],
+        "classname": "func_rotating",
+        "name": "Rotating Object",
+        "description": ""
+    },
+    "speed": {
+        "type": "integer",
+        "name": "Rotation Speed",
+        "description": "",
+        "value": "0"
+    },
+    "volume": {
+        "type": "integer",
+        "name": "Volume (10 = loudest)",
+        "description": "",
+        "value": "10"
+    },
+    "fanfriction": {
+        "type": "integer",
+        "name": "Friction (0 - 100%)",
+        "description": "",
+        "value": "20"
+    },
+    "spawnflags": {
+        "512": {
+            "name": "Large Radius",
+            "description": ""
+        }
+    },
+    "spawnorigin": {
+        "type": "string",
+        "name": "X Y Z - Move here after lighting",
+        "description": "",
+        "value": "0 0 0"
+    },
+    "dmg": {
+        "type": "integer",
+        "name": "Damage inflicted when blocked",
+        "description": "",
+        "value": "0"
+    }
+}

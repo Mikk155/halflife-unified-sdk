@@ -1,0 +1,44 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "studio": "models/cleansuit_scientist.mdl",
+        "base": [
+            "Mandatory",
+            "Monster",
+            "TalkMonster",
+            "Sequence",
+            "Appearflags"
+        ],
+        "classname": "monster_cleansuit_scientist",
+        "name": "Cleansuit Scientist",
+        "description": ""
+    },
+    "body": {
+        "type": "choices",
+        "name": "Body",
+        "description": "",
+        "value": "-1",
+        "choices": {
+            "-1": {
+                "name": "Random",
+                "description": ""
+            },
+            "0": {
+                "name": "Glasses",
+                "description": ""
+            },
+            "1": {
+                "name": "Einstein",
+                "description": ""
+            },
+            "2": {
+                "name": "Luther",
+                "description": ""
+            },
+            "3": {
+                "name": "Slick",
+                "description": ""
+            }
+        }
+    }
+}

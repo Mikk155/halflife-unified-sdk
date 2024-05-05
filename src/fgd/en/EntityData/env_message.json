@@ -1,0 +1,49 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "base": [
+            "Mandatory",
+            "Target",
+            "Appearflags"
+        ],
+        "classname": "env_message",
+        "name": "HUD Text Message",
+        "description": ""
+    },
+    "spawnflags": {
+        "2": {
+            "name": "All Clients",
+            "description": ""
+        }
+    },
+    "messagevolume": {
+        "type": "string",
+        "name": "Volume 0-10",
+        "description": "",
+        "value": "10"
+    },
+    "messageattenuation": {
+        "type": "choices",
+        "name": "Sound Radius",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "Small Radius",
+                "description": ""
+            },
+            "1": {
+                "name": "Medium Radius",
+                "description": ""
+            },
+            "2": {
+                "name": "Large  Radius",
+                "description": ""
+            },
+            "3": {
+                "name": "Play Everywhere",
+                "description": ""
+            }
+        }
+    }
+}

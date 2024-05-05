@@ -1,0 +1,28 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-480",
+                "-480",
+                "-112"
+            ],
+            [
+                "480",
+                "480",
+                "24"
+            ]
+        ],
+        "studio": "models/osprey.mdl",
+        "base": [
+            "Mandatory",
+            "Monster",
+            "Sequence",
+            "BaseOsprey",
+            "Appearflags"
+        ],
+        "classname": "monster_osprey",
+        "name": "Osprey",
+        "description": ""
+    }
+}

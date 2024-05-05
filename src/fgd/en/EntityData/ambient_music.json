@@ -1,0 +1,86 @@
+{
+    "ClassData":
+    {
+        "type": "Point",
+        "iconsprite": "sprites/speaker.spr",
+        "classname": "ambient_music",
+        "name": "Plays music",
+        "description": "",
+        "BaseClass":
+        [
+            "Mandatory",
+            "Appearflags"
+        ]
+    },
+    "filename":
+    {
+        "type": "string",
+        "name": "Filename of music file",
+        "description": "",
+        "value": ""
+    },
+    "command":
+    {
+        "type": "choices",
+        "name": "Command",
+        "choices": {
+            "0": { "name": "Play",
+                "description": ""
+            },
+            "1": { "name": "Play looping",
+                "description": ""
+            },
+            "2": { "name": "Fadeout",
+                "description": ""
+            },
+            "3": { "name": "Stop",
+                "description": ""
+            }
+        },
+        "description": "",
+        "value": "0"
+    },
+    "target_selector":
+    {
+        "type": "choices",
+        "name": "Target selector",
+        "choices": {
+            "0": { "name": "All Players",
+                "description": ""
+            },
+            "1": { "name": "Activator",
+                "description": ""
+            },
+            "2": { "name": "Radius",
+                "description": ""
+            }
+        },
+        "description": "",
+        "value": "0"
+    },
+    "radius":
+    {
+        "type": "integer",
+        "name": "Player radius (for Radius target selector)",
+        "description": "",
+        "value": ""
+    },
+    "remove_on_fire":
+    {
+        "type": "choices",
+        "name": "Remove on fire",
+        "choices": {
+            "0": { "name": "All Players",
+                "description": ""
+            },
+            "1": { "name": "No",
+                "description": ""
+            },
+            "2": { "name": "Yes",
+                "description": ""
+            }
+        },
+        "description": "",
+        "value": "0"
+    }
+}

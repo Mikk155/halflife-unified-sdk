@@ -1,0 +1,26 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-16",
+                "-16",
+                "0"
+            ],
+            [
+                "16",
+                "16",
+                "72"
+            ]
+        ],
+        "base": [
+            "Mandatory",
+            "Monster",
+            "Sequence",
+            "Appearflags"
+        ],
+        "classname": "monster_furniture",
+        "name": "Monster Furniture",
+        "description": ""
+    }
+}

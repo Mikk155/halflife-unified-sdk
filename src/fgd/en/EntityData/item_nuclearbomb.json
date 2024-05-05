@@ -1,0 +1,38 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-16",
+                "-16",
+                "0"
+            ],
+            [
+                "16",
+                "16",
+                "36"
+            ]
+        ],
+        "base": [
+            "Mandatory",
+            "Targetx",
+            "OtherItem",
+            "Appearflags"
+        ],
+        "classname": "item_nuclearbomb",
+        "name": "Nuclear Bomb",
+        "description": ""
+    },
+    "initialstate": {
+        "type": "integer",
+        "name": "Initial State",
+        "description": "",
+        "value": "0"
+    },
+    "wait": {
+        "type": "integer",
+        "name": "Wait",
+        "description": "",
+        "value": "1"
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "studio": "models/loader.mdl",
+        "base": [
+            "Mandatory",
+            "Monster",
+            "RenderFields",
+            "Sequence",
+            "Appearflags"
+        ],
+        "classname": "monster_op4loader",
+        "name": "Loader machine",
+        "description": ""
+    },
+    "spawnflags": {
+        "4": {
+            "name": "Not solid",
+            "description": ""
+        }
+    }
+}

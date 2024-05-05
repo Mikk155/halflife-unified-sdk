@@ -1,0 +1,123 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "Target",
+            "Master",
+            "Appearflags"
+        ],
+        "classname": "trigger_hurt",
+        "name": "Trigger player hurt",
+        "description": ""
+    },
+    "spawnflags": {
+        "32": {
+            "name": "TouchClientOnly",
+            "description": ""
+        }
+    },
+    "dmg": {
+        "type": "integer",
+        "name": "Damage",
+        "description": "",
+        "value": "10"
+    },
+    "delay": {
+        "type": "string",
+        "name": "Delay before trigger",
+        "description": "",
+        "value": "0"
+    },
+    "damagetype": {
+        "type": "choices",
+        "name": "Damage Type",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "GENERIC",
+                "description": ""
+            },
+            "1": {
+                "name": "CRUSH",
+                "description": ""
+            },
+            "2": {
+                "name": "BULLET",
+                "description": ""
+            },
+            "4": {
+                "name": "SLASH",
+                "description": ""
+            },
+            "8": {
+                "name": "BURN",
+                "description": ""
+            },
+            "16": {
+                "name": "FREEZE",
+                "description": ""
+            },
+            "32": {
+                "name": "FALL",
+                "description": ""
+            },
+            "64": {
+                "name": "BLAST",
+                "description": ""
+            },
+            "128": {
+                "name": "CLUB",
+                "description": ""
+            },
+            "256": {
+                "name": "SHOCK",
+                "description": ""
+            },
+            "512": {
+                "name": "SONIC",
+                "description": ""
+            },
+            "1024": {
+                "name": "ENERGYBEAM",
+                "description": ""
+            },
+            "16384": {
+                "name": "DROWN",
+                "description": ""
+            },
+            "32768": {
+                "name": "PARALYSE",
+                "description": ""
+            },
+            "65536": {
+                "name": "NERVEGAS",
+                "description": ""
+            },
+            "131072": {
+                "name": "POISON",
+                "description": ""
+            },
+            "262144": {
+                "name": "RADIATION",
+                "description": ""
+            },
+            "524288": {
+                "name": "DROWNRECOVER",
+                "description": ""
+            },
+            "1048576": {
+                "name": "CHEMICAL",
+                "description": ""
+            },
+            "2097152": {
+                "name": "SLOWBURN",
+                "description": ""
+            },
+            "4194304": {
+                "name": "SLOWFREEZE",
+                "description": ""
+            }
+        }
+    }
+}

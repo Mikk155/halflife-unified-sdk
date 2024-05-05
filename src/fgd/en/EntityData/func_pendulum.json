@@ -1,0 +1,45 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "Global",
+            "RenderFields",
+            "Angles",
+            "ZHLT",
+            "Appearflags"
+        ],
+        "classname": "func_pendulum",
+        "name": "Swings back and forth",
+        "description": ""
+    },
+    "speed": {
+        "type": "integer",
+        "name": "Speed",
+        "description": "",
+        "value": "100"
+    },
+    "distance": {
+        "type": "integer",
+        "name": "Distance (deg)",
+        "description": "",
+        "value": "90"
+    },
+    "damp": {
+        "type": "integer",
+        "name": "Damping (0-1000)",
+        "description": "",
+        "value": "0"
+    },
+    "dmg": {
+        "type": "integer",
+        "name": "Damage inflicted when blocked",
+        "description": "",
+        "value": "0"
+    },
+    "spawnflags": {
+        "128": {
+            "name": "Y Axis",
+            "description": ""
+        }
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-8",
+                "-8",
+                "-8"
+            ],
+            [
+                "8",
+                "8",
+                "8"
+            ]
+        ],
+        "color": [
+            "200",
+            "100",
+            "50"
+        ],
+        "base": [
+            "Mandatory",
+            "Master",
+            "Appearflags"
+        ],
+        "classname": "logic_setcvar",
+        "name": "Set cvar on trigger",
+        "description": ""
+    }
+}

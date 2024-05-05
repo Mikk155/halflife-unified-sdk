@@ -1,0 +1,25 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "Door",
+            "ZHLT",
+            "Appearflags"
+        ],
+        "classname": "func_door_rotating",
+        "name": "Rotating door",
+        "description": ""
+    },
+    "spawnflags": {
+        "128": {
+            "name": "Y Axis",
+            "description": ""
+        }
+    },
+    "distance": {
+        "type": "integer",
+        "name": "Distance (deg)",
+        "description": "",
+        "value": "90"
+    }
+}

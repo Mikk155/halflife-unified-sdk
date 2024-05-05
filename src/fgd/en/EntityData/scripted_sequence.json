@@ -1,0 +1,47 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-16",
+                "-16",
+                "0"
+            ],
+            [
+                "16",
+                "16",
+                "72"
+            ]
+        ],
+        "color": [
+            "255",
+            "0",
+            "255"
+        ],
+        "flags": [
+            "Angle"
+        ],
+        "base": [
+            "Mandatory",
+            "Targetx",
+            "Angles",
+            "BaseScriptedSequence",
+            "Appearflags"
+        ],
+        "classname": "scripted_sequence",
+        "name": "Scripted Sequence",
+        "description": ""
+    },
+    "m_iszIdle": {
+        "type": "string",
+        "name": "Idle Animation",
+        "description": "",
+        "value": ""
+    },
+    "spawnflags": {
+        "256": {
+            "name": "No Reset Entity",
+            "description": ""
+        }
+    }
+}

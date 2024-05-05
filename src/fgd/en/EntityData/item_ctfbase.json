@@ -1,0 +1,43 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-16",
+                "-16",
+                "0"
+            ],
+            [
+                "16",
+                "16",
+                "72"
+            ]
+        ],
+        "base": [
+            "Mandatory",
+            "CTFAttributes",
+            "Appearflags"
+        ],
+        "classname": "item_ctfbase",
+        "name": "CTF Goal",
+        "description": ""
+    },
+    "skin": {
+        "type": "choices",
+        "name": "Skin",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "Default",
+                "description": ""
+            }
+        }
+    },
+    "model": {
+        "type": "studio",
+        "name": "Model",
+        "description": "",
+        "value": "models/civ_stand.mdl"
+    }
+}

@@ -1,0 +1,33 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "base": [
+            "Mandatory",
+            "PlayerClass",
+            "Appearflags"
+        ],
+        "classname": "info_ctfspawn",
+        "name": "Player CTF Start",
+        "description": ""
+    },
+    "team_no": {
+        "type": "choices",
+        "name": "Team",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "Random",
+                "description": ""
+            },
+            "1": {
+                "name": "Black Mesa",
+                "description": ""
+            },
+            "2": {
+                "name": "Opposing Force",
+                "description": ""
+            }
+        }
+    }
+}

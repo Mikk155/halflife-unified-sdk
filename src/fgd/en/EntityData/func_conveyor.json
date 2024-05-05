@@ -1,0 +1,27 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "Global",
+            "RenderFields",
+            "Angles",
+            "ZHLT",
+            "Appearflags"
+        ],
+        "classname": "func_conveyor",
+        "name": "Conveyor Belt",
+        "description": ""
+    },
+    "spawnflags": {
+        "2": {
+            "name": "Not Solid",
+            "description": ""
+        }
+    },
+    "speed": {
+        "type": "string",
+        "name": "Conveyor Speed",
+        "description": "",
+        "value": "100"
+    }
+}

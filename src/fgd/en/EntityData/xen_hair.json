@@ -1,0 +1,24 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "studio": "models/hair.mdl",
+        "flags": [
+            "Angle"
+        ],
+        "base": [
+            "Mandatory",
+            "RenderFields",
+            "Angles",
+            "Appearflags"
+        ],
+        "classname": "xen_hair",
+        "name": "Xen Hair",
+        "description": ""
+    },
+    "spawnflags": {
+        "1": {
+            "name": "Sync Movement",
+            "description": ""
+        }
+    }
+}

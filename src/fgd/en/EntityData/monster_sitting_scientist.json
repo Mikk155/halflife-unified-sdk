@@ -1,0 +1,71 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-14",
+                "-14",
+                "22"
+            ],
+            [
+                "14",
+                "14",
+                "72"
+            ]
+        ],
+        "studio": "models/scientist.mdl",
+        "base": [
+            "Mandatory",
+            "Monster",
+            "Sequence",
+            "Appearflags"
+        ],
+        "classname": "monster_sitting_scientist",
+        "name": "Sitting Scientist",
+        "description": ""
+    },
+    "body": {
+        "type": "choices",
+        "name": "Body",
+        "description": "",
+        "value": "-1",
+        "choices": {
+            "-1": {
+                "name": "Random",
+                "description": ""
+            },
+            "0": {
+                "name": "Glasses",
+                "description": ""
+            },
+            "1": {
+                "name": "Einstein",
+                "description": ""
+            },
+            "2": {
+                "name": "Luther",
+                "description": ""
+            },
+            "3": {
+                "name": "Slick",
+                "description": ""
+            }
+        }
+    },
+    "suspicious": {
+        "type": "choices",
+        "name": "Suspicious",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "No",
+                "description": ""
+            },
+            "1": {
+                "name": "Yes",
+                "description": ""
+            }
+        }
+    }
+}

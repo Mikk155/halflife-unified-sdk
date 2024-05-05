@@ -1,0 +1,12 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "Master",
+            "Appearflags"
+        ],
+        "classname": "game_zone_player",
+        "name": "Player Zone brush",
+        "description": ""
+    }
+}

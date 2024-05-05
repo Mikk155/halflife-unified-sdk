@@ -1,0 +1,76 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-16",
+                "-16",
+                "-16"
+            ],
+            [
+                "16",
+                "16",
+                "16"
+            ]
+        ],
+        "base": [
+            "Mandatory",
+            "gibshooterbase",
+            "RenderFields",
+            "Appearflags"
+        ],
+        "classname": "env_shooter",
+        "name": "Model Shooter",
+        "description": ""
+    },
+    "shootmodel": {
+        "type": "studio",
+        "name": "Model or Sprite name",
+        "description": "",
+        "value": ""
+    },
+    "shootsounds": {
+        "type": "choices",
+        "name": "Material Sound",
+        "description": "",
+        "value": "-1",
+        "choices": {
+            "-1": {
+                "name": "None",
+                "description": ""
+            },
+            "0": {
+                "name": "Glass",
+                "description": ""
+            },
+            "1": {
+                "name": "Wood",
+                "description": ""
+            },
+            "2": {
+                "name": "Metal",
+                "description": ""
+            },
+            "3": {
+                "name": "Flesh",
+                "description": ""
+            },
+            "4": {
+                "name": "Concrete",
+                "description": ""
+            }
+        }
+    },
+    "scale": {
+        "type": "string",
+        "name": "Gib Sprite Scale",
+        "description": "",
+        "value": ""
+    },
+    "skin": {
+        "type": "integer",
+        "name": "Gib Skin",
+        "description": "",
+        "value": "0"
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "Target",
+            "Appearflags"
+        ],
+        "classname": "func_op4mortarcontroller",
+        "name": "Op4 Mortar Controller",
+        "description": ""
+    },
+    "mortar_axis": {
+        "type": "choices",
+        "name": "Axis",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "Vertical",
+                "description": ""
+            },
+            "1": {
+                "name": "Horizontal",
+                "description": ""
+            }
+        }
+    }
+}

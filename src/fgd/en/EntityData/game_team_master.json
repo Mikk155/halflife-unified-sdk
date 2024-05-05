@@ -1,0 +1,46 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "base": [
+            "Mandatory",
+            "Targetx",
+            "Master",
+            "Appearflags"
+        ],
+        "classname": "game_team_master",
+        "name": "Team based master/relay",
+        "description": ""
+    },
+    "spawnflags": {
+        "1": {
+            "name": "Remove On fire",
+            "description": ""
+        }
+    },
+    "triggerstate": {
+        "type": "choices",
+        "name": "Trigger State",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "Off",
+                "description": ""
+            },
+            "1": {
+                "name": "On",
+                "description": ""
+            },
+            "2": {
+                "name": "Toggle",
+                "description": ""
+            }
+        }
+    },
+    "teamindex": {
+        "type": "integer",
+        "name": "Team Index (-1 = no team)",
+        "description": "",
+        "value": "-1"
+    }
+}

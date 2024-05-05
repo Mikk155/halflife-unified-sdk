@@ -1,0 +1,12 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "Master",
+            "Appearflags"
+        ],
+        "classname": "trigger_autosave",
+        "name": "AutoSave Trigger",
+        "description": ""
+    }
+}

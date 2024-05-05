@@ -1,0 +1,25 @@
+{
+    "ClassData":
+    {
+        "type": "Point",
+        "studio": true,
+        "classname": "ammo_buckshot",
+        "name": "Shotgun Ammo",
+        "description": "",
+        "BaseClass":
+        [
+            "Mandatory",
+            "Targetx",
+            "RenderFields",
+            "Ammo",
+            "Appearflags"
+        ]
+    },
+    "model":
+    {
+        "type": "studio",
+        "name": "Custom Model",
+        "description": "",
+        "value": "models/w_shotbox.mdl"
+    }
+}

@@ -1,0 +1,33 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-32",
+                "-32",
+                "0"
+            ],
+            [
+                "32",
+                "32",
+                "64"
+            ]
+        ],
+        "studio": "models/agrunt.mdl",
+        "base": [
+            "Mandatory",
+            "Monster",
+            "Sequence",
+            "Appearflags"
+        ],
+        "classname": "monster_alien_grunt",
+        "name": "Alien Grunt",
+        "description": ""
+    },
+    "spawnflags": {
+        "32": {
+            "name": "SquadLeader",
+            "description": ""
+        }
+    }
+}

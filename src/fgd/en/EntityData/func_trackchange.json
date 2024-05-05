@@ -1,0 +1,13 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "Trackchange",
+            "ZHLT",
+            "Appearflags"
+        ],
+        "classname": "func_trackchange",
+        "name": "Train track changing platform",
+        "description": ""
+    }
+}

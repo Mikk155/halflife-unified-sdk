@@ -1,0 +1,34 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-95",
+                "-95",
+                "0"
+            ],
+            [
+                "95",
+                "95",
+                "190"
+            ]
+        ],
+        "studio": "models/big_mom.mdl",
+        "base": [
+            "Mandatory",
+            "Monster",
+            "Sequence",
+            "MonsterWithChildren",
+            "Appearflags"
+        ],
+        "classname": "monster_bigmomma",
+        "name": "Big Mamma",
+        "description": ""
+    },
+    "netname": {
+        "type": "string",
+        "name": "First node",
+        "description": "",
+        "value": ""
+    }
+}

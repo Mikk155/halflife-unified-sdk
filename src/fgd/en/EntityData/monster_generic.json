@@ -1,0 +1,39 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-16",
+                "-16",
+                "-36"
+            ],
+            [
+                "16",
+                "16",
+                "36"
+            ]
+        ],
+        "base": [
+            "Mandatory",
+            "Monster",
+            "RenderFields",
+            "Sequence",
+            "Appearflags"
+        ],
+        "classname": "monster_generic",
+        "name": "Generic Script Monster",
+        "description": ""
+    },
+    "spawnflags": {
+        "8": {
+            "name": "Head Controller",
+            "description": ""
+        }
+    },
+    "body": {
+        "type": "integer",
+        "name": "Body",
+        "description": "",
+        "value": "0"
+    }
+}

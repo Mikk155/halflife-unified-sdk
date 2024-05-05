@@ -1,0 +1,14 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "sprite": "sprites/trigger_changetarget.spr",
+        "base": [
+            "Mandatory",
+            "Targetx",
+            "Appearflags"
+        ],
+        "classname": "trigger_changetarget",
+        "name": "Trigger Change Target",
+        "description": ""
+    }
+}

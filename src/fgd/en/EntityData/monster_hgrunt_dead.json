@@ -1,0 +1,72 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-16",
+                "-16",
+                "0"
+            ],
+            [
+                "16",
+                "16",
+                "72"
+            ]
+        ],
+        "studio": "models/hgrunt.mdl",
+        "base": [
+            "Mandatory",
+            "RenderFields",
+            "Angles",
+            "Sequence",
+            "Appearflags"
+        ],
+        "classname": "monster_hgrunt_dead",
+        "name": "Dead Human Grunt",
+        "description": ""
+    },
+    "pose": {
+        "type": "choices",
+        "name": "Pose",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "On stomach",
+                "description": ""
+            },
+            "1": {
+                "name": "On side",
+                "description": ""
+            },
+            "2": {
+                "name": "Seated",
+                "description": ""
+            }
+        }
+    },
+    "body": {
+        "type": "choices",
+        "name": "Body",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "Grunt with Gun",
+                "description": ""
+            },
+            "1": {
+                "name": "Commander with Gun",
+                "description": ""
+            },
+            "2": {
+                "name": "Grunt no Gun",
+                "description": ""
+            },
+            "3": {
+                "name": "Commander no Gun",
+                "description": ""
+            }
+        }
+    }
+}

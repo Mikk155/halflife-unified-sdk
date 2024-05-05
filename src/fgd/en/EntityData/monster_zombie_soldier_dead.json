@@ -1,0 +1,31 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "studio": "models/zombie_soldier.mdl",
+        "base": [
+            "Mandatory",
+            "Monster",
+            "Sequence",
+            "Appearflags"
+        ],
+        "classname": "monster_zombie_soldier_dead",
+        "name": "Dead Soldier Zombie",
+        "description": ""
+    },
+    "pose": {
+        "type": "choices",
+        "name": "Pose",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "On back",
+                "description": ""
+            },
+            "1": {
+                "name": "On stomach",
+                "description": ""
+            }
+        }
+    }
+}

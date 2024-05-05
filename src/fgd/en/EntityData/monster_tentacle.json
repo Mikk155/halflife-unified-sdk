@@ -1,0 +1,87 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-32",
+                "-32",
+                "0"
+            ],
+            [
+                "32",
+                "32",
+                "64"
+            ]
+        ],
+        "studio": "models/tentacle2.mdl",
+        "base": [
+            "Mandatory",
+            "Monster",
+            "Sequence",
+            "Appearflags"
+        ],
+        "classname": "monster_tentacle",
+        "name": "Tentacle Arm",
+        "description": ""
+    },
+    "spawnflags": {
+        "64": {
+            "name": "Tentacle3",
+            "description": ""
+        }
+    },
+    "sweeparc": {
+        "type": "integer",
+        "name": "Sweep Arc",
+        "description": "",
+        "value": "130"
+    },
+    "sound": {
+        "type": "choices",
+        "name": "Tap Sound",
+        "description": "",
+        "value": "-1",
+        "choices": {
+            "-1": {
+                "name": "None",
+                "description": ""
+            },
+            "0": {
+                "name": "Silo",
+                "description": ""
+            },
+            "1": {
+                "name": "Dirt",
+                "description": ""
+            },
+            "2": {
+                "name": "Water",
+                "description": ""
+            }
+        }
+    },
+    "height0": {
+        "type": "integer",
+        "name": "Height for floor level",
+        "description": "",
+        "value": "0"
+    },
+    "height1": {
+        "type": "integer",
+        "name": "Height for level 1",
+        "description": "",
+        "value": "256"
+    },
+    "height2": {
+        "type": "integer",
+        "name": "Height for level 1",
+        "description": "",
+        "value": "448"
+    },
+    "height3": {
+        "type": "integer",
+        "name": "Height for level 3",
+        "description": "",
+        "value": "640"
+    }
+}

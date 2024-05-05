@@ -1,0 +1,31 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-8",
+                "-8",
+                "-8"
+            ],
+            [
+                "8",
+                "8",
+                "8"
+            ]
+        ],
+        "color": [
+            "200",
+            "100",
+            "50"
+        ],
+        "base": [
+            "Mandatory",
+            "Target",
+            "Master",
+            "Appearflags"
+        ],
+        "classname": "logic_setskillvar",
+        "name": "Set skill variables to a provided value",
+        "description": ""
+    }
+}

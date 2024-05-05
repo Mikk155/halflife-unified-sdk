@@ -1,0 +1,43 @@
+{
+    "ClassData":
+    {
+        "type": "Point",
+        "size": [ [ -16, -16, -16 ], [ 16, 16, 16 ] ],
+        "classname": "env_explosion",
+        "name": "Explosion",
+        "description": "",
+        "BaseClass":
+        [
+            "Mandatory",
+            "Appearflags"
+        ]
+    },
+    "iMagnitude":
+    {
+        "type": "Integer",
+        "name": "Magnitude",
+        "description": "",
+        "value": "100"
+    },
+    "spawnflags":
+    {
+        "1": { "name": "No Damage",
+            "description": ""
+        },
+        "2": { "name": "Repeatable",
+            "description": ""
+        },
+        "4": { "name": "No Fireball",
+            "description": ""
+        },
+        "8": { "name": "No Smoke",
+            "description": ""
+        },
+        "16": { "name": "No Decal",
+            "description": ""
+        },
+        "32": { "name": "No Sparks",
+            "description": ""
+        }
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "base": [
+            "Mandatory",
+            "Master",
+            "Appearflags"
+        ],
+        "classname": "game_player_hurt",
+        "name": "Hurts player who fires",
+        "description": ""
+    },
+    "dmg": {
+        "type": "string",
+        "name": "Damage To Apply",
+        "description": "",
+        "value": "999"
+    },
+    "spawnflags": {
+        "1": {
+            "name": "Remove On fire",
+            "description": ""
+        }
+    }
+}

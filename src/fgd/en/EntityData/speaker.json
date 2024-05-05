@@ -1,0 +1,85 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "sprite": "sprites/speaker.spr",
+        "base": [
+            "Mandatory",
+            "Appearflags"
+        ],
+        "classname": "speaker",
+        "name": "Announcement Speaker",
+        "description": ""
+    },
+    "preset": {
+        "type": "choices",
+        "name": "Announcement Presets",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "None",
+                "description": ""
+            },
+            "1": {
+                "name": "C1A0 Announcer",
+                "description": ""
+            },
+            "2": {
+                "name": "C1A1 Announcer",
+                "description": ""
+            },
+            "3": {
+                "name": "C1A2 Announcer",
+                "description": ""
+            },
+            "4": {
+                "name": "C1A3 Announcer",
+                "description": ""
+            },
+            "5": {
+                "name": "C1A4 Announcer",
+                "description": ""
+            },
+            "6": {
+                "name": "C2A1 Announcer",
+                "description": ""
+            },
+            "7": {
+                "name": "C2A2 Announcer",
+                "description": ""
+            },
+            "// 8": {
+                "name": "C2A3 Announcer",
+                "description": ""
+            },
+            "9": {
+                "name": "C2A4 Announcer",
+                "description": ""
+            },
+            "// 10": {
+                "name": "C2A5 Announcer",
+                "description": ""
+            },
+            "11": {
+                "name": "C3A1 Announcer",
+                "description": ""
+            },
+            "12": {
+                "name": "C3A2 Announcer",
+                "description": ""
+            }
+        }
+    },
+    "health": {
+        "type": "integer",
+        "name": "Volume (10 = loudest)",
+        "description": "",
+        "value": "5"
+    },
+    "spawnflags": {
+        "1": {
+            "name": "Start Silent",
+            "description": ""
+        }
+    }
+}

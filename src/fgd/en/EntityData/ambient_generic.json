@@ -1,0 +1,228 @@
+{
+    "ClassData":
+    {
+        "type": "Point",
+        "studio": true,
+        "iconsprite": "sprites/speaker.spr",
+        "classname": "ambient_generic",
+        "name": "Universal Ambient",
+        "description": "",
+        "BaseClass":
+        [
+            "Mandatory",
+            "Appearflags"
+        ]
+    },
+    "message":
+    {
+        "type": "sound",
+        "name": "Path/filename.wav of WAV",
+        "description": "",
+        "value": ""
+    },
+    "health":
+    {
+        "type": "integer",
+        "name": "Volume (10 = loudest)",
+        "description": "",
+        "value": "10"
+    },
+    "preset":
+    {
+        "type": "choices",
+        "name": "Dynamic Presets",
+        "choices": {
+            "0": { "name": "None",
+                "description": ""
+            },
+            "1": { "name": "Huge Machine",
+                "description": ""
+            },
+            "2": { "name": "Big Machine",
+                "description": ""
+            },
+            "3": { "name": "Machine",
+                "description": ""
+            },
+            "4": { "name": "Slow Fade in",
+                "description": ""
+            },
+            "5": { "name": "Fade in",
+                "description": ""
+            },
+            "6": { "name": "Quick Fade in",
+                "description": ""
+            },
+            "7": { "name": "Slow Pulse",
+                "description": ""
+            },
+            "8": { "name": "Pulse",
+                "description": ""
+            },
+            "9": { "name": "Quick pulse",
+                "description": ""
+            },
+            "10": { "name": "Slow Oscillator",
+                "description": ""
+            },
+            "11": { "name": "Oscillator",
+                "description": ""
+            },
+            "12": { "name": "Quick Oscillator",
+                "description": ""
+            },
+            "13": { "name": "Grunge pitch",
+                "description": ""
+            },
+            "14": { "name": "Very low pitch",
+                "description": ""
+            },
+            "15": { "name": "Low pitch",
+                "description": ""
+            },
+            "16": { "name": "High pitch",
+                "description": ""
+            },
+            "17": { "name": "Very high pitch",
+                "description": ""
+            },
+            "18": { "name": "Screaming pitch",
+                "description": ""
+            },
+            "19": { "name": "Oscillate spinup/down",
+                "description": ""
+            },
+            "20": { "name": "Pulse spinup/down",
+                "description": ""
+            },
+            "21": { "name": "Random pitch",
+                "description": ""
+            },
+            "22": { "name": "Random pitch fast",
+                "description": ""
+            },
+            "23": { "name": "Incremental Spinup",
+                "description": ""
+            },
+            "24": { "name": "Alien",
+                "description": ""
+            },
+            "25": { "name": "Bizzare",
+                "description": ""
+            },
+            "26": { "name": "Planet X",
+                "description": ""
+            },
+            "27": { "name": "Haunted",
+                "description": ""
+            }
+        },
+        "description": "",
+        "value": "0"
+    },
+    "volstart":
+    {
+        "type": "integer",
+        "name": "Start Volume",
+        "description": "",
+        "value": "0"
+    },
+    "fadein":
+    {
+        "type": "integer",
+        "name": "Fade in time (0-100)",
+        "description": "",
+        "value": "0"
+    },
+    "fadeout":
+    {
+        "type": "integer",
+        "name": "Fade out time (0-100)",
+        "description": "",
+        "value": "0"
+    },
+    "pitch":
+    {
+        "type": "integer",
+        "name": "Pitch (> 100 = higher)",
+        "description": "",
+        "value": "100"
+    },
+    "pitchstart":
+    {
+        "type": "integer",
+        "name": "Start Pitch",
+        "description": "",
+        "value": "100"
+    },
+    "spinup":
+    {
+        "type": "integer",
+        "name": "Spin up time (0-100)",
+        "description": "",
+        "value": "0"
+    },
+    "spindown":
+    {
+        "type": "integer",
+        "name": "Spin down time (0-100)",
+        "description": "",
+        "value": "0"
+    },
+    "lfotype":
+    {
+        "type": "integer",
+        "name": "LFO type 0)off 1)sqr 2)tri 3)rnd",
+        "description": "",
+        "value": "0"
+    },
+    "lforate":
+    {
+        "type": "integer",
+        "name": "LFO rate (0-1000)",
+        "description": "",
+        "value": "0"
+    },
+    "lfomodpitch":
+    {
+        "type": "integer",
+        "name": "LFO mod pitch (0-100)",
+        "description": "",
+        "value": "0"
+    },
+    "lfomodvol":
+    {
+        "type": "integer",
+        "name": "LFO mod vol (0-100)",
+        "description": "",
+        "value": "0"
+    },
+    "cspinup":
+    {
+        "type": "integer",
+        "name": "Incremental spinup count",
+        "description": "",
+        "value": "0"
+    },
+    "spawnflags":
+    {
+        "1":{ "name": "Play Everywhere",
+            "description": ""
+        },
+        "2":{ "name": "Small Radius",
+            "description": ""
+        },
+        "4":{ "name": "Medium Radius",
+            "description": ""
+        },
+        "8":{ "name": "Large Radius",
+            "description": ""
+        },
+        "16":{ "name": "Start Silent",
+            "description": ""
+        },
+        "32":{ "name": "Is NOT Looped",
+            "description": ""
+        }
+    }
+}

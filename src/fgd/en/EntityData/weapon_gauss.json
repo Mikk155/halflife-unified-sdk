@@ -1,0 +1,32 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "studio": "models/w_gauss.mdl",
+        "base": [
+            "Mandatory",
+            "Targetx",
+            "RenderFields",
+            "Weapon",
+            "Appearflags"
+        ],
+        "classname": "weapon_gauss",
+        "name": "Gauss Gun",
+        "description": ""
+    },
+    "sequence": {
+        "type": "choices",
+        "name": "Placement",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "Normal (flat)",
+                "description": ""
+            },
+            "1": {
+                "name": "Realistic (tilted)",
+                "description": ""
+            }
+        }
+    }
+}

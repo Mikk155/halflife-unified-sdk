@@ -1,0 +1,18 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "func_wall",
+            "Appearflags"
+        ],
+        "classname": "func_wall_toggle",
+        "name": "Toggleable geometry",
+        "description": ""
+    },
+    "spawnflags": {
+        "1": {
+            "name": "Starts Invisible",
+            "description": ""
+        }
+    }
+}

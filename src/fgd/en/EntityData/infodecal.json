@@ -1,0 +1,9 @@
+{
+    "ClassData":
+    {
+        "type": "Point",
+        "classname": "infodecal",
+        "name": "Decal",
+        "description": ""
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "base": [
+            "Mandatory",
+            "Target",
+            "Master",
+            "Appearflags"
+        ],
+        "classname": "game_counter_set",
+        "name": "Sets a game_counter",
+        "description": ""
+    },
+    "spawnflags": {
+        "1": {
+            "name": "Remove On fire",
+            "description": ""
+        }
+    },
+    "frags": {
+        "type": "integer",
+        "name": "New Value",
+        "description": "",
+        "value": "10"
+    }
+}

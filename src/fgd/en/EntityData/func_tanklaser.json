@@ -1,0 +1,13 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "BaseTank",
+            "ZHLT",
+            "Appearflags"
+        ],
+        "classname": "func_tanklaser",
+        "name": "Brush Laser Turret",
+        "description": ""
+    }
+}

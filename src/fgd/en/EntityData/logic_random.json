@@ -1,0 +1,12 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "base": [
+            "Mandatory",
+            "Appearflags"
+        ],
+        "classname": "logic_random",
+        "name": "Random Trigger",
+        "description": ""
+    }
+}

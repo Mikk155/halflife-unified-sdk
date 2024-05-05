@@ -1,0 +1,45 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "Door",
+            "ZHLT",
+            "Appearflags"
+        ],
+        "classname": "func_water",
+        "name": "Liquid",
+        "description": ""
+    },
+    "spawnflags": {
+        "256": {
+            "name": "Use Only",
+            "description": ""
+        }
+    },
+    "skin": {
+        "type": "choices",
+        "name": "Contents",
+        "description": "",
+        "value": "-3",
+        "choices": {
+            "-3": {
+                "name": "Water",
+                "description": ""
+            },
+            "-4": {
+                "name": "Slime",
+                "description": ""
+            },
+            "-5": {
+                "name": "Lava",
+                "description": ""
+            }
+        }
+    },
+    "WaveHeight": {
+        "type": "string",
+        "name": "Wave Height",
+        "description": "",
+        "value": "3.2"
+    }
+}

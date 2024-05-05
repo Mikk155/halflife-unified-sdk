@@ -1,0 +1,100 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "studio": "models/otis.mdl",
+        "base": [
+            "Mandatory",
+            "Monster",
+            "TalkMonster",
+            "Sequence",
+            "Appearflags"
+        ],
+        "classname": "monster_otis",
+        "name": "Otis",
+        "description": ""
+    },
+    "bodystate": {
+        "type": "choices",
+        "name": "bodystate",
+        "description": "",
+        "value": "1",
+        "choices": {
+            "0": {
+                "name": "Blank",
+                "description": ""
+            },
+            "1": {
+                "name": "Gun Holstered",
+                "description": ""
+            },
+            "2": {
+                "name": "Gun Drawn",
+                "description": ""
+            }
+        }
+    },
+    "skin": {
+        "type": "choices",
+        "name": "head",
+        "description": "",
+        "value": "-1",
+        "choices": {
+            "-1": {
+                "name": "Random",
+                "description": ""
+            },
+            "0": {
+                "name": "Head with hair",
+                "description": ""
+            },
+            "1": {
+                "name": "Bald Head",
+                "description": ""
+            },
+            "2": {
+                "name": "Black head with hair",
+                "description": ""
+            }
+        }
+    },
+    "sleeves": {
+        "type": "choices",
+        "name": "sleeves",
+        "description": "",
+        "value": "-1",
+        "choices": {
+            "-1": {
+                "name": "Random",
+                "description": ""
+            },
+            "0": {
+                "name": "Long",
+                "description": ""
+            },
+            "1": {
+                "name": "Short",
+                "description": ""
+            }
+        }
+    },
+    "item": {
+        "type": "choices",
+        "name": "item",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "None",
+                "description": ""
+            },
+            "1": {
+                "name": "Clipboard",
+                "description": ""
+            },
+            "2": {
+                "name": "Donut",
+                "description": ""
+            }
+        }
+    }
+}

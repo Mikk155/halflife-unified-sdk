@@ -1,0 +1,60 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "base": [
+            "Mandatory",
+            "Appearflags"
+        ],
+        "classname": "info_ctfdetect",
+        "name": "CTF Detect",
+        "description": ""
+    },
+    "flagreturntime": {
+        "type": "string",
+        "name": "Flag Return Time",
+        "description": "",
+        "value": "30.0"
+    },
+    "basedefenddist": {
+        "type": "string",
+        "name": "Base Defend Distance",
+        "description": "",
+        "value": "192.0"
+    },
+    "defendcarriertime": {
+        "type": "string",
+        "name": "Defend Carrier Time",
+        "description": "",
+        "value": "10.0"
+    },
+    "captureassisttime": {
+        "type": "string",
+        "name": "Capture Assist Time",
+        "description": "",
+        "value": "10.0"
+    },
+    "poweruprespawntime": {
+        "type": "string",
+        "name": "Powerup Respawn Time",
+        "description": "",
+        "value": "30.0"
+    },
+    "score_icon_namebm": {
+        "type": "string",
+        "name": "Non-Flag Black Mesa icon",
+        "description": "",
+        "value": "item_ctfscorebm"
+    },
+    "score_icon_nameof": {
+        "type": "string",
+        "name": "Non-Flag Opposing Force icon",
+        "description": "",
+        "value": "item_ctfscoreof"
+    },
+    "map_score_max": {
+        "type": "string",
+        "name": "Maximum Map Team Score",
+        "description": "",
+        "value": "0"
+    }
+}

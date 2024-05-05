@@ -1,0 +1,25 @@
+{
+    "ClassData":
+    {
+        "type": "Point",
+        "studio": true,
+        "classname": "ammo_9mmbox",
+        "name": "box of 200 9mm shells",
+        "description": "",
+        "BaseClass":
+        [
+            "Mandatory",
+            "Targetx",
+            "RenderFields",
+            "Ammo",
+            "Appearflags"
+        ]
+    },
+    "model":
+    {
+        "type": "studio",
+        "name": "Custom Model",
+        "description": "",
+        "value": "models/w_chainammo.mdl"
+    }
+}

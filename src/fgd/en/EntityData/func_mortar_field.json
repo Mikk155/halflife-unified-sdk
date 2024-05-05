@@ -1,0 +1,43 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "Appearflags"
+        ],
+        "classname": "func_mortar_field",
+        "name": "Mortar Field",
+        "description": ""
+    },
+    "m_flSpread": {
+        "type": "integer",
+        "name": "Spread Radius",
+        "description": "",
+        "value": "64"
+    },
+    "m_iCount": {
+        "type": "integer",
+        "name": "Repeat Count",
+        "description": "",
+        "value": "1"
+    },
+    "m_fControl": {
+        "type": "choices",
+        "name": "Targeting",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "Random",
+                "description": ""
+            },
+            "1": {
+                "name": "Activator",
+                "description": ""
+            },
+            "2": {
+                "name": "Table",
+                "description": ""
+            }
+        }
+    }
+}

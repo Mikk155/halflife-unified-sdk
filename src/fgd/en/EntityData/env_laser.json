@@ -1,0 +1,86 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-16",
+                "-16",
+                "-16"
+            ],
+            [
+                "16",
+                "16",
+                "16"
+            ]
+        ],
+        "base": [
+            "Mandatory",
+            "RenderFxChoices",
+            "Angles",
+            "Appearflags"
+        ],
+        "classname": "env_laser",
+        "name": "Laser Beam Effect",
+        "description": ""
+    },
+    "renderamt": {
+        "type": "integer",
+        "name": "Brightness (1 - 255)",
+        "description": "",
+        "value": "100"
+    },
+    "rendercolor": {
+        "type": "color255",
+        "name": "Beam Color (R G B)",
+        "description": "",
+        "value": "0 0 0"
+    },
+    "width": {
+        "type": "integer",
+        "name": "Width of beam (pixels*0.1 0-255)",
+        "description": "",
+        "value": "20"
+    },
+    "NoiseAmplitude": {
+        "type": "integer",
+        "name": "Amount of noise (0-255)",
+        "description": "",
+        "value": "0"
+    },
+    "texture": {
+        "type": "sprite",
+        "name": "Sprite Name",
+        "description": "",
+        "value": "sprites/laserbeam.spr"
+    },
+    "EndSprite": {
+        "type": "sprite",
+        "name": "End Sprite",
+        "description": "",
+        "value": ""
+    },
+    "TextureScroll": {
+        "type": "integer",
+        "name": "Texture Scroll Rate (0-100)",
+        "description": "",
+        "value": "35"
+    },
+    "framestart": {
+        "type": "integer",
+        "name": "Starting Frame",
+        "description": "",
+        "value": "0"
+    },
+    "damage": {
+        "type": "string",
+        "name": "Damage / second",
+        "description": "",
+        "value": "100"
+    },
+    "spawnflags": {
+        "64": {
+            "name": "Decal End",
+            "description": ""
+        }
+    }
+}

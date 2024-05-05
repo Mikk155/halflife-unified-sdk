@@ -1,0 +1,33 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "Global",
+            "RenderFields",
+            "PlatSounds",
+            "ZHLT",
+            "Appearflags"
+        ],
+        "classname": "func_plat",
+        "name": "Elevator",
+        "description": ""
+    },
+    "spawnflags": {
+        "1": {
+            "name": "Toggle",
+            "description": ""
+        }
+    },
+    "speed": {
+        "type": "integer",
+        "name": "Speed",
+        "description": "",
+        "value": "50"
+    },
+    "height": {
+        "type": "integer",
+        "name": "Travel altitude (can be negative)",
+        "description": "",
+        "value": "0"
+    }
+}

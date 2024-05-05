@@ -1,0 +1,32 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "studio": "models/w_satchel.mdl",
+        "base": [
+            "Mandatory",
+            "Targetx",
+            "RenderFields",
+            "Weapon",
+            "Appearflags"
+        ],
+        "classname": "weapon_satchel",
+        "name": "Satchel Charge Ammo",
+        "description": ""
+    },
+    "sequence": {
+        "type": "choices",
+        "name": "Placement",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "Normal (flat)",
+                "description": ""
+            },
+            "1": {
+                "name": "On back",
+                "description": ""
+            }
+        }
+    }
+}

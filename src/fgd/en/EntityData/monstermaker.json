@@ -1,0 +1,49 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-16",
+                "-16",
+                "-16"
+            ],
+            [
+                "16",
+                "16",
+                "16"
+            ]
+        ],
+        "base": [
+            "Mandatory",
+            "Angles",
+            "Appearflags"
+        ],
+        "classname": "monstermaker",
+        "name": "Monster Maker",
+        "description": ""
+    },
+    "spawnflags": {
+        "8": {
+            "name": "MonsterClip",
+            "description": ""
+        }
+    },
+    "monstercount": {
+        "type": "integer",
+        "name": "Number of Monsters",
+        "description": "",
+        "value": "-1"
+    },
+    "delay": {
+        "type": "string",
+        "name": "Frequency",
+        "description": "",
+        "value": "5"
+    },
+    "m_imaxlivechildren": {
+        "type": "integer",
+        "name": "Max live children",
+        "description": "",
+        "value": "5"
+    }
+}

@@ -1,0 +1,44 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "sprite": "sprites/trigger_camera.spr",
+        "base": [
+            "Mandatory",
+            "Targetx",
+            "Appearflags"
+        ],
+        "classname": "trigger_camera",
+        "name": "Trigger Camera",
+        "description": ""
+    },
+    "wait": {
+        "type": "integer",
+        "name": "Hold time",
+        "description": "",
+        "value": "10"
+    },
+    "spawnflags": {
+        "4": {
+            "name": "Freeze Player",
+            "description": ""
+        }
+    },
+    "speed": {
+        "type": "string",
+        "name": "Initial Speed",
+        "description": "",
+        "value": "0"
+    },
+    "acceleration": {
+        "type": "string",
+        "name": "Acceleration units/sec^2",
+        "description": "",
+        "value": "500"
+    },
+    "deceleration": {
+        "type": "string",
+        "name": "Stop Deceleration units/sec^2",
+        "description": "",
+        "value": "500"
+    }
+}

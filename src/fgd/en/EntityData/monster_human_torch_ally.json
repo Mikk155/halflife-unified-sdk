@@ -1,0 +1,45 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "studio": "models/hgrunt_torch.mdl",
+        "base": [
+            "Mandatory",
+            "Monster",
+            "Sequence",
+            "Appearflags"
+        ],
+        "classname": "monster_human_torch_ally",
+        "name": "Torch",
+        "description": ""
+    },
+    "spawnflags": {
+        "32": {
+            "name": "SquadLeader",
+            "description": ""
+        }
+    },
+    "weapons": {
+        "type": "choices",
+        "name": "Weapons",
+        "description": "",
+        "value": "1",
+        "choices": {
+            "1": {
+                "name": "Desert Eagle",
+                "description": ""
+            },
+            "2": {
+                "name": "Blow Torch",
+                "description": ""
+            },
+            "5": {
+                "name": "Desert Eagle + HG",
+                "description": ""
+            },
+            "6": {
+                "name": "Blow Torch + HG",
+                "description": ""
+            }
+        }
+    }
+}

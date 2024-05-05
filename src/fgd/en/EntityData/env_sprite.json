@@ -1,0 +1,51 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-4",
+                "-4",
+                "-4"
+            ],
+            [
+                "4",
+                "4",
+                "4"
+            ]
+        ],
+        "sprite": "",
+        "base": [
+            "Mandatory",
+            "RenderFields",
+            "Angles",
+            "Appearflags"
+        ],
+        "classname": "env_sprite",
+        "name": "Sprite Effect",
+        "description": ""
+    },
+    "framerate": {
+        "type": "string",
+        "name": "Framerate",
+        "description": "",
+        "value": "10.0"
+    },
+    "model": {
+        "type": "sprite",
+        "name": "Sprite Name",
+        "description": "",
+        "value": "sprites/glow01.spr"
+    },
+    "scale": {
+        "type": "string",
+        "name": "Scale",
+        "description": "",
+        "value": ""
+    },
+    "spawnflags": {
+        "2": {
+            "name": "Play Once",
+            "description": ""
+        }
+    }
+}

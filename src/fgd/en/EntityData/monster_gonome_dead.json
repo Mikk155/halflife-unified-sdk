@@ -1,0 +1,35 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "studio": "models/gonome.mdl",
+        "base": [
+            "Mandatory",
+            "RenderFields",
+            "Sequence",
+            "Appearflags"
+        ],
+        "classname": "monster_gonome_dead",
+        "name": "Dead Gonome",
+        "description": ""
+    },
+    "pose": {
+        "type": "choices",
+        "name": "Pose",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "On Stomach",
+                "description": ""
+            },
+            "1": {
+                "name": "On Back",
+                "description": ""
+            },
+            "2": {
+                "name": "On Side",
+                "description": ""
+            }
+        }
+    }
+}

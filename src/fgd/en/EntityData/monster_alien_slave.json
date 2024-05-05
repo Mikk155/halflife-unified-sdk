@@ -1,0 +1,33 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-16",
+                "-16",
+                "0"
+            ],
+            [
+                "16",
+                "16",
+                "72"
+            ]
+        ],
+        "studio": "models/islave.mdl",
+        "base": [
+            "Mandatory",
+            "Monster",
+            "Sequence",
+            "Appearflags"
+        ],
+        "classname": "monster_alien_slave",
+        "name": "Vortigaunt",
+        "description": ""
+    },
+    "spawnflags": {
+        "64": {
+            "name": "IgnorePlayer",
+            "description": ""
+        }
+    }
+}

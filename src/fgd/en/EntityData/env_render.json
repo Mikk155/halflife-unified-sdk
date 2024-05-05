@@ -1,0 +1,37 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-16",
+                "-16",
+                "-16"
+            ],
+            [
+                "16",
+                "16",
+                "16"
+            ]
+        ],
+        "color": [
+            "100",
+            "100",
+            "0"
+        ],
+        "base": [
+            "Mandatory",
+            "Target",
+            "RenderFields",
+            "Appearflags"
+        ],
+        "classname": "env_render",
+        "name": "Render Controls",
+        "description": ""
+    },
+    "spawnflags": {
+        "8": {
+            "name": "No Rendercolor",
+            "description": ""
+        }
+    }
+}

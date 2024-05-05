@@ -1,0 +1,60 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "Target",
+            "Global",
+            "RenderFields",
+            "Angles",
+            "ZHLT",
+            "Master",
+            "ReplacementFiles",
+            "Appearflags"
+        ],
+        "classname": "func_rot_button",
+        "name": "RotatingButton",
+        "description": ""
+    },
+    "speed": {
+        "type": "integer",
+        "name": "Speed",
+        "description": "",
+        "value": "50"
+    },
+    "sounds": {
+        "type": "sound",
+        "name": "Sounds",
+        "description": "",
+        "value": "buttons/level1.wav"
+    },
+    "wait": {
+        "type": "choices",
+        "name": "Delay before reset",
+        "description": "",
+        "value": "3",
+        "choices": {
+            "-1": {
+                "name": "Stays pressed",
+                "description": ""
+            }
+        }
+    },
+    "delay": {
+        "type": "string",
+        "name": "Delay before trigger",
+        "description": "",
+        "value": "0"
+    },
+    "distance": {
+        "type": "integer",
+        "name": "Distance (deg)",
+        "description": "",
+        "value": "90"
+    },
+    "spawnflags": {
+        "256": {
+            "name": "Touch Activates",
+            "description": ""
+        }
+    }
+}

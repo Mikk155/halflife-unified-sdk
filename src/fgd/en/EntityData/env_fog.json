@@ -1,0 +1,41 @@
+{
+    "ClassData":
+    {
+        "type": "Point",
+        "classname": "env_fog",
+        "name": "Global Fog Controller",
+        "description": "",
+        "BaseClass":
+        [
+            "Mandatory",
+            "Rendercolor",
+            "Appearflags"
+        ]
+    },
+    "spawnflags": {
+        "1": { "name": "Fog Affects Skybox",
+            "description": ""
+        }
+    },
+    "density":
+    {
+        "type": "float",
+        "name": "Density (0.0-1.0)",
+        "description": "",
+        "value": "0.5"
+    },
+    "fogStartDistance":
+    {
+        "type": "integer",
+        "name": "Start Distance",
+        "description": "",
+        "value": "1500"
+    },
+    "fogStopDistance":
+    {
+        "type": "integer",
+        "name": "Stop Distance",
+        "description": "",
+        "value": "2000"
+    }
+}

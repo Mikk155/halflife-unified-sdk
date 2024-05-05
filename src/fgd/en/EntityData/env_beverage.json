@@ -1,0 +1,53 @@
+{
+    "ClassData":
+    {
+        "type": "Point",
+        "size": [ [ -4, -4, -4 ], [ 4, 4, 4 ] ],
+        "classname": "env_beverage",
+        "name": "Beverage Dispenser",
+        "description": "",
+        "BaseClass":
+        [
+            "Mandatory",
+            "Angles",
+            "Appearflags"
+        ]
+    },
+    "health":
+    {
+        "type": "integer",
+        "name": "Capacity",
+        "description": "",
+        "value": "10"
+    },
+    "skin":
+    {
+        "type": "choices",
+        "name": "Beverage Type",
+        "choices": {
+            "0": { "name": "Coca-Cola",
+                "description": ""
+            },
+            "1": { "name": "Sprite",
+                "description": ""
+            },
+            "2": { "name": "Diet Coke",
+                "description": ""
+            },
+            "3": { "name": "Orange",
+                "description": ""
+            },
+            "4": { "name": "Surge",
+                "description": ""
+            },
+            "5": { "name": "Moxie",
+                "description": ""
+            },
+            "6": { "name": "Random",
+                "description": ""
+            }
+        },
+        "description": "",
+        "value": "0"
+    }
+}

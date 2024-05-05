@@ -1,0 +1,23 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "color": [
+            "0",
+            "255",
+            "0"
+        ],
+        "flags": [
+            "Angle"
+        ],
+        "base": [
+            "Mandatory",
+            "Master",
+            "Angles",
+            "TeleportBase",
+            "Appearflags"
+        ],
+        "classname": "point_teleport",
+        "name": "Teleport target to this entity on trigger",
+        "description": ""
+    }
+}

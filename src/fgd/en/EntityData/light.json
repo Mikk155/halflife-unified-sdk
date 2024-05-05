@@ -1,0 +1,20 @@
+{
+    "ClassData":
+    {
+        "classname": "light",
+        "name": "Invisible lightsource",
+        "description": "",
+        "type": "Point",
+        "flags": [
+            "Light"
+        ],
+        "BaseClass":
+        [
+            "Mandatory",
+            "Target",
+            "Light",
+            "ZHLT_point",
+            "Appearflags"
+        ]
+    }
+}

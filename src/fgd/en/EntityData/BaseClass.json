@@ -1,0 +1,1755 @@
+{
+    "Mandatory":
+    {
+        "targetname": {
+            "type": "target_source",
+            "name": "Name",
+            "description": "",
+            "value": ""
+        },
+        "spawnflags":
+        {
+            "2048":
+            {
+                "name": "Not in Deathmatch",
+                "description": "Only exists on a SinglePlayer game.",
+                "active": false
+            }
+        }
+    },
+    "Angles":
+    {
+        "angles":
+        {
+            "type": "vector",
+            "name": "Pitch Yaw Roll (Y Z X)",
+            "description": "",
+            "value": "0 0 0"
+        }
+    },
+    "Target":
+    {
+        "target":
+        {
+            "type": "target_destination",
+            "name": "Target",
+            "description": "",
+            "value": ""
+        }
+    },
+    "Global":
+    {
+        "globalname":
+        {
+            "type": "string",
+            "name": "Global Entity Name",
+            "description": "",
+            "value": ""
+        }
+    },
+    "Targetx":
+    {
+        "ClassData":
+        {
+            "BaseClass":
+            [
+                "Target"
+            ]
+        },
+        "killtarget":
+        {
+            "type": "target_destination",
+            "name": "KillTarget",
+            "description": "",
+            "value": ""
+        },
+        "delay":
+        {
+            "type": "float",
+            "name": "Delay before trigger",
+            "description": "",
+            "value": ""
+        }
+    },
+    "Master":
+    {
+        "master":
+        {
+            "type": "target_destination",
+            "name": "Master",
+            "description": "",
+            "value": ""
+        }
+    },
+    "Sequence":
+    {
+        "sequence": {
+            "type": "integer",
+            "name": "Animation Sequence (editor)",
+            "description": "Sequence to display in Jackhammer. This does not affect gameplay.",
+            "value": "0"
+        }
+    },
+    "ZHLT":
+    {
+        "zhlt_lightflags": {
+            "type": "choices",
+            "name": "ZHLT Lightflags",
+            "choices":
+            {
+                "0": { "name": "Default",
+                    "description": ""
+                },
+                "1": { "name": "Embedded Fix",
+                    "description": ""
+                },
+                "2": { "name": "Opaque (blocks light)",
+                    "description": ""
+                },
+                "3": { "name": "Opaque + Embedded fix",
+                    "description": ""
+                },
+                "4": { "name": "Opaque + Concave Fix",
+                    "description": ""
+                }
+            }
+        },
+        "light_origin": {
+            "type": "string",
+            "name": "Light Origin Target",
+            "description": "",
+            "value": ""
+        }
+    },
+    "ZHLT_point":
+    {
+        "_fade": {
+            "type": "float",
+            "name": "ZHLT Fade",
+            "description": "",
+            "value": "1.0"
+        },
+        "_falloff": {
+            "type": "choices",
+            "name": "ZHLT Falloff",
+            "choices":
+            {
+                "0": { "name": "Default",
+                    "description": ""
+                },
+                "1": { "name": "Inverse Linear",
+                    "description": ""
+                },
+                "2": { "name": "Inverse Square",
+                    "description": ""
+                }
+            }
+        }
+    },
+    "hullsizes":
+    {
+        "minhullsize": {
+            "type": "vector",
+            "name": "Custom Minimum Hull Size",
+            "description": "",
+            "value": ""
+        },
+        "maxhullsize": {
+            "type": "vector",
+            "name": "Custom Maximum Hull Size",
+            "description": "",
+            "value": ""
+        }
+    },
+    "RenderFxChoices":
+    {
+        "renderfx":
+        {
+            "type": "choices",
+            "name": "Render FX",
+            "choices":
+            {
+                "0": { "name": "Normal",
+                    "description": ""
+                },
+                "1": { "name": "Slow Pulse",
+                    "description": ""
+                },
+                "2": { "name": "Fast Pulse",
+                    "description": ""
+                },
+                "3": { "name": "Slow Wide Pulse",
+                    "description": ""
+                },
+                "4": { "name": "Fast Wide Pulse",
+                    "description": ""
+                },
+                "9": { "name": "Slow Strobe",
+                    "description": ""
+                },
+                "10": { "name": "Fast Strobe",
+                    "description": ""
+                },
+                "11": { "name": "Faster Strobe",
+                    "description": ""
+                },
+                "12": { "name": "Slow Flicker",
+                    "description": ""
+                },
+                "13": { "name": "Fast Flicker",
+                    "description": ""
+                },
+                "5": { "name": "Slow Fade Away",
+                    "description": ""
+                },
+                "6": { "name": "Fast Fade Away",
+                    "description": ""
+                },
+                "7": { "name": "Slow Become Solid",
+                    "description": ""
+                },
+                "8": { "name": "Fast Become Solid",
+                    "description": ""
+                },
+                "14": { "name": "Constant Glow",
+                    "description": ""
+                },
+                "15": { "name": "Distort",
+                    "description": ""
+                },
+                "16": { "name": "Hologram (Distort + fade)",
+                    "description": ""
+                }
+            },
+            "description": "",
+            "value": "0"
+        }
+    },
+    "Renderamt":
+    {
+        "renderamt": {
+            "type": "integer",
+            "name": "FX Amount (1 - 255)",
+            "description": "",
+            "value": "255"
+        }
+    },
+    "Rendercolor":
+    {
+        "rendercolor":
+        {
+            "type": "color255",
+            "name": "FX Color (R G B)",
+            "description": "",
+            "value": "0 0 0"
+        }
+    },
+    "RenderMode":
+    {
+        "rendermode":
+        {
+            "type": "choices",
+            "name": "Render Mode",
+            "choices":
+            {
+                "0": { "name": "Normal",
+                    "description": ""
+                },
+                "1": { "name": "Color",
+                    "description": ""
+                },
+                "2": { "name": "Texture",
+                    "description": ""
+                },
+                "3": { "name": "Glow",
+                    "description": ""
+                },
+                "4": { "name": "Solid",
+                    "description": ""
+                },
+                "5": { "name": "Additive",
+                    "description": ""
+                }
+            },
+            "description": "",
+            "value": "0"
+        }
+    },
+    "RenderFields":
+    {
+        "ClassData":
+        {
+            "BaseClass":
+            [
+                "RenderMode",
+                "Renderamt",
+                "Rendercolor",
+                "RenderFxChoices"
+            ]
+        }
+    },
+    "ReplacementModel":
+    {
+        "model_replacement_filename":
+        {
+            "type": "string",
+            "name": "Model replacement file",
+            "description": "",
+            "value": ""
+        }
+    },
+    "ReplacementSound":
+    {
+        "sound_replacement_filename":
+        {
+            "type": "string",
+            "name": "Sound replacement file",
+            "description": "",
+            "value": ""
+        }
+    },
+    "ReplacementSentences":
+    {
+        "sentence_replacement_filename":
+        {
+            "type": "string",
+            "name": "Sentences replacement file",
+            "description": "",
+            "value": ""
+        }
+    },
+    "ReplacementFiles":
+    {
+        "ClassData":
+        {
+            "BaseClass":
+            [
+                "ReplacementModel",
+                "ReplacementSound",
+                "ReplacementSentences"
+            ]
+        }
+    },
+    "BaseItem":
+    {
+        "ClassData":
+        {
+            "size": [ [-16, -16, 0 ], [ 16, 16, 32 ] ],
+            "color": [ 0, 0, 200 ],
+            "BaseClass":
+            [
+                "Angles",
+                "hullsizes"
+            ]
+        },
+        "respawn_delay":
+        {
+            "type": "float",
+            "name": "Respawn delay (-1 == Never)",
+            "description": "",
+            "value": ""
+        },
+        "stay_visible_during_respawn":
+        {
+            "type": "choices",
+            "name": "Stay Visible During Respawn",
+            "choices":
+            {
+                "0": { "name": "No",
+                    "description": ""
+                },
+                "1": { "name": "Yes",
+                    "description": ""
+                }
+            },
+            "description": "",
+            "value": ""
+        },
+        "flash_on_respawn":
+        {
+            "type": "choices",
+            "name": "Flash On Respawn",
+            "choices":
+            {
+                "0": { "name": "No",
+                    "description": ""
+                },
+                "1": { "name": "Yes",
+                    "description": ""
+                }
+            },
+            "description": "",
+            "value": ""
+        },
+        "play_pickup_sound":
+        {
+            "type": "choices",
+            "name": "Play Pickup Sound",
+            "choices":
+            {
+                "0": { "name": "No",
+                    "description": ""
+                },
+                "1": { "name": "Yes",
+                    "description": ""
+                }
+            },
+            "description": "",
+            "value": ""
+        },
+        "fall_mode":
+        {
+            "type": "choices",
+            "name": "Fall Mode",
+            "choices":
+            {
+                "0": { "name": "Fall",
+                    "description": ""
+                },
+                "1": { "name": "Float",
+                    "description": ""
+                }
+            },
+            "description": "",
+            "value": ""
+        },
+        "trigger_on_spawn":
+        {
+            "type": "target_destination",
+            "name": "Trigger On Spawn",
+            "description": "",
+            "value": ""
+        },
+        "trigger_on_despawn":
+        {
+            "type": "target_destination",
+            "name": "Trigger On Despawn",
+            "description": "",
+            "value": ""
+        }
+    },
+    "Ammo":
+    {
+        "ClassData":
+        {
+            "color": [ 80, 0, 200 ],
+            "BaseClass":
+            [
+                "BaseItem"
+            ]
+        },
+        "ammo_amount":
+        {
+            "type": "integer",
+            "name": "Ammo Amount To Give (-1 == Maximum)",
+            "description": "",
+            "value": ""
+        }
+    },
+    "Item":
+    {
+        "ClassData":
+        {
+            "color": [ 0, 0, 200 ],
+            "BaseClass":
+            [
+                "BaseItem"
+            ]
+        }
+    },
+    "Weapon":
+    {
+        "ClassData":
+        {
+            "color": [ 0, 0, 200 ],
+            "BaseClass":
+            [
+                "BaseItem"
+            ]
+        },
+        "default_ammo":
+        {
+            "type": "integer",
+            "name": "Default Ammo In Weapon (-1 == Maximum)",
+            "description": "",
+            "value": ""
+        }
+    },
+    "CustomModel":
+    {
+        "ClassData":
+        {
+            "BaseClass":
+            [
+                "ReplacementFiles",
+                "hullsizes"
+            ]
+        },
+        "model":
+        {
+            "type": "studio",
+            "name": "Model",
+            "description": "",
+            "value": ""
+        }
+    },
+    "OtherItem":
+    {
+        "ClassData":
+        {
+            "color": [ 0, 0, 200 ],
+            "size": [ [ -16, -16, 0 ], [ 16, 16, 32 ] ],
+            "BaseClass":
+            [
+                "Angles",
+                "CustomModel"
+            ]
+        },
+        "model":
+        {
+            "type": "studio",
+            "name": "Model",
+            "description": "",
+            "value": ""
+        }
+    },
+    "SF1Repeatable":
+    {
+        "spawnflags": {
+            "1": { "name": "Repeatable",
+                "description": ""
+            }
+        }
+    },
+    "SF1StartOff":
+    {
+        "spawnflags": {
+            "1": { "name": "Start Off",
+                "description": ""
+            }
+        }
+    },
+    "BaseCharger":
+    {
+        "ClassData":
+        {
+            "BaseClass":
+            [
+                "Master",
+                "Global",
+                "RenderFields",
+                "ZHLT",
+                "ReplacementFiles"
+            ]
+        },
+        "fire_on_recharge":
+        {
+            "type": "target_destination",
+            "name": "Target To Fire On Recharge",
+            "description": "",
+            "value": ""
+        },
+        "fire_on_empty":
+        {
+            "type": "target_destination",
+            "name": "Target To Fire On Empty",
+            "description": "",
+            "value": ""
+        },
+        "fire_on_spawn":
+        {
+            "type": "choices",
+            "choices":{
+                "0": { "name": "No",
+                    "description": ""
+                },
+                "1": { "name": "Yes",
+                    "description": ""
+                }
+            },
+            "name": "Fire Targets On Map Spawn",
+            "description": "",
+            "value": "1"
+        },
+        "total_juice":
+        {
+            "type": "integer",
+            "name": "Total Juice In Charger (-1 == Unlimited)",
+            "description": "",
+            "value": ""
+        },
+        "recharge_delay":
+        {
+            "type": "integer",
+            "name": "Recharge Delay",
+            "description": "",
+            "value": ""
+        },
+        "charge_per_use":
+        {
+            "type": "integer",
+            "name": "Charge Per Use",
+            "description": "",
+            "value": ""
+        },
+        "_minlight":
+        {
+            "type": "integer",
+            "name": "Minimum light level",
+            "description": "",
+            "value": ""
+        }
+    },
+    "PlayerClass":
+    {
+        "ClassData":
+        {
+            "color": [ 0, 255, 0 ],
+            "size": [ [ -16, -16, -36 ], [ 16, 16, 36 ] ],
+            "flags": [ "Angle" ],
+            "offset": [ 0, 0, 36 ],
+            "BaseClass":
+            [
+                "Angles"
+            ]
+        }
+    },
+    "Unkillable":
+    {
+        "unkillable":
+        {
+            "type": "choices",
+            "choices":{
+                "0": { "name": "No",
+                    "description": ""
+                },
+                "1": { "name": "Yes",
+                    "description": ""
+                }
+            },
+            "name": "Is Unkillable",
+            "description": "",
+            "value": "0"
+        }
+    },
+    "Monster":
+    {
+        "ClassData":
+        {
+            "color": [ 0, 200, 200 ],
+            "flags": [ "Angle" ],
+            "offset": [ 0, 0, 36 ],
+            "BaseClass":
+            [
+                "Target",
+                "RenderFields",
+                "Angles",
+                "CustomModel",
+                "Unkillable"
+            ]
+        },
+        "health":
+        {
+            "type": "integer",
+            "name": "Custom health (leave undefined to use default)",
+            "description": "",
+            "value": ""
+        },
+        "classification":
+        {
+            "type": "string",
+            "name": "Classification Override",
+            "description": "",
+            "value": ""
+        },
+        "is_player_ally":
+        {
+            "type": "choices",
+            "name": "Is Player Ally",
+            "choices":{
+                "0": { "name": "Default",
+                    "description": ""
+                },
+                "1": { "name": "No",
+                    "description": ""
+                },
+                "2": { "name": "Yes",
+                    "description": ""
+                }
+            },
+            "description": "",
+            "value": ""
+        },
+        "TriggerTarget":
+        {
+            "type": "target_destination",
+            "name": "TriggerTarget",
+            "description": "",
+            "value": ""
+        },
+        "TriggerCondition":
+        {
+            "type": "choices",
+            "name": "Trigger Condition",
+            "choices":{
+                "0": { "name": "No Trigger",
+                    "description": ""
+                },
+                "1": { "name": "See Player, Mad at Player",
+                    "description": ""
+                },
+                "2": {
+                    "name": "Take Damage",
+                    "description": ""
+                },
+                "3": {
+                    "name": "50% Health Remaining",
+                    "description": ""
+                },
+                "4": {
+                    "name": "Death",
+                    "description": ""
+                },
+                "7": {
+                    "name": "Hear World",
+                    "description": ""
+                },
+                "8": {
+                    "name": "Hear Player",
+                    "description": ""
+                },
+                "9": {
+                    "name": "Hear Combat",
+                    "description": ""
+                },
+                "10": {
+                    "name": "See Player Unconditional",
+                    "description": ""
+                },
+                "11": {
+                    "name": "See Player, Not In Combat",
+                    "description": ""
+                }
+            },
+            "description": "",
+            "value": ""
+        },
+        "spawnflags":{
+            "1":{
+                "name": "WaitTillSeen",
+                "description": ""
+            },
+            "2":{
+                "name": "Gag",
+                "description": ""
+            },
+            "4":{
+                "name": "MonsterClip",
+                "description": ""
+            },
+            "16":{
+                "name": "Prisoner",
+                "description": ""
+            },
+            "128":{
+                "name": "WaitForScript",
+                "description": ""
+            },
+            "256":{
+                "name": "Pre-Disaster",
+                "description": ""
+            },
+            "512":{
+                "name": "Fade Corpse",
+                "description": "",
+                "active": true
+            }
+        },
+        "allow_item_dropping":
+        {
+            "type": "choices",
+            "name": "Allow Item Dropping",
+            "choices":{
+                "0": { "name": "No",
+                    "description": ""
+                },
+                "1": { "name": "Yes",
+                    "description": ""
+                }
+            },
+            "description": "",
+            "value": "1"
+        },
+        "allow_follow":
+        {
+            "type": "choices",
+            "name": "Allow NPC to follow players",
+            "choices":{
+                "0": { "name": "No",
+                    "description": ""
+                },
+                "1": { "name": "Yes",
+                    "description": ""
+                }
+            },
+            "description": "",
+            "value": "1"
+        },
+        "UseSentence":
+        {
+            "type": "string",
+            "name": "Use Sentence",
+            "description": "",
+            "value": ""
+        },
+        "UnUseSentence":
+        {
+            "type": "string",
+            "name": "Un-Use Sentence",
+            "description": "",
+            "value": ""
+        }
+    },
+    "MonsterWithChildren":
+    {
+        "child_classification":
+        {
+            "type": "string",
+            "name": "Child classification",
+            "description": "",
+            "value": ""
+        }
+    },
+    "TalkMonster":
+    {
+        "suspicious":
+        {
+            "type": "choices",
+            "choices":{
+                "0":{ "name": "No",
+                    "description": ""
+                },
+                "1":{ "name": "Yes",
+                    "description": ""
+                }
+            },
+            "name": "Suspicious",
+            "description": "",
+            "value": ""
+        }
+    },
+    "gibshooterbase":
+    {
+        "ClassData":
+        {
+            "size": [ [ -16, -16, -16 ], [ 16, 16, 16 ] ],
+            "BaseClass":
+            [
+                "Angles",
+                "SF1Repeatable"
+            ]
+        },
+        "m_iGibs":
+        {
+            "type": "integer",
+            "name": "Number of Gibs",
+            "description": "",
+            "value": "3"
+        },
+        "delay":
+        {
+            "type": "float",
+            "name": "Delay between shots",
+            "description": "",
+            "value": "0.0"
+        },
+        "m_flVelocity":
+        {
+            "type": "integer",
+            "name": "Gib Velocity",
+            "description": "",
+            "value": "200"
+        },
+        "m_flVariance":
+        {
+            "type": "float",
+            "name": "Course Variance",
+            "description": "",
+            "value": "0.15"
+        },
+        "m_flGibLife":
+        {
+            "type": "float",
+            "name": "Gib Life",
+            "description": "",
+            "value": "4"
+        }
+    },
+    "Light":
+    {
+        "_light":
+        {
+            "type": "color255",
+            "name": "Brightness",
+            "description": "",
+            "value": "255 255 128 200"
+        },
+        "style":
+        {
+            "type": "choices",
+            "choices":{
+                "0":{ "name": "Normal",
+                    "description": ""
+                },
+                "10":{ "name": "Fluorescent flicker",
+                    "description": ""
+                },
+                "2":{
+                    "name": "Slow, strong pulse",
+                    "description": ""
+                },
+                "11":{ "name": "Slow pulse, noblack",
+                    "description": ""
+                },
+                "5":{ "name": "Gentle pulse",
+                    "description": ""
+                },
+                "1":{ "name": "Flicker A",
+                    "description": ""
+                },
+                "6":{ "name": "Flicker B",
+                    "description": ""
+                },
+                "3":{
+                    "name": "Candle A",
+                    "description": ""
+                },
+                "7":{ "name": "Candle B",
+                    "description": ""
+                },
+                "8":{ "name": "Candle C",
+                    "description": ""
+                },
+                "4":{ "name": "Fast strobe",
+                    "description": ""
+                },
+                "9":{ "name": "Slow strobe",
+                    "description": ""
+                }
+            },
+            "name": "Appearance",
+            "description": "",
+            "value": "0"
+        },
+        "pattern":
+        {
+            "type": "string",
+            "name": "Custom Appearance",
+            "description": "",
+            "value": ""
+        }
+    },
+    "Breakable":
+    {
+        "ClassData":
+        {
+            "BaseClass":
+            [
+                "Global",
+                "ReplacementFiles"
+            ]
+        },
+        "health":
+        {
+            "type": "integer",
+            "name": "Strength",
+            "description": "",
+            "value": "1"
+        },
+        "material":
+        {
+            "type": "choices",
+            "name": "Material type",
+            "choices":{
+                "0":{ "name": "Glass",
+                    "description": ""
+                },
+                "1":{ "name": "Wood",
+                    "description": ""
+                },
+                "2":{ "name": "Metal",
+                    "description": ""
+                },
+                "3":{ "name": "Flesh",
+                    "description": ""
+                },
+                "4":{ "name": "Cinder Block",
+                    "description": ""
+                },
+                "5":{ "name": "Ceiling Tile",
+                    "description": ""
+                },
+                "6":{ "name": "Computer",
+                    "description": ""
+                },
+                "7":{ "name": "Unbreakable Glass",
+                    "description": ""
+                },
+                "8":{ "name": "Rocks",
+                    "description": ""
+                }
+            },
+            "description": "",
+            "value": "0"
+        },
+        "explosion":
+        {
+            "type": "choices",
+            "name": "Gibs Direction",
+            "choices":{
+                "0":{ "name": "Random",
+                    "description": ""
+                },
+                "1":{ "name": "Relative to Attack",
+                    "description": ""
+                }
+            },
+            "description": "",
+            "value": "0"
+        },
+        "delay":
+        {
+            "type": "float",
+            "name": "Delay before fire",
+            "description": "",
+            "value": "0"
+        },
+        "gibmodel":
+        {
+            "type": "studio",
+            "name": "Gib Model",
+            "description": "",
+            "value": ""
+        },
+        "spawnobject":
+        {
+            "type": "string",
+            "name": "Item To Spawn On Break",
+            "description": "",
+            "value": ""
+        },
+        "explodemagnitude":
+        {
+            "type": "integer",
+            "name": "Explode Magnitude (0=none)",
+            "description": "",
+            "value": "0"
+        }
+    },
+    "Door":
+    {
+        "ClassData":
+        {
+            "BaseClass":
+            [
+                "Targetx",
+                "RenderFields",
+                "Global",
+                "Angles",
+                "Master",
+                "ReplacementFiles"
+            ]
+        },
+        "movesnd":
+        {
+            "type": "sound",
+            "name": "Move Sound",
+            "description": "",
+            "value": ""
+        },
+        "stopsnd":
+        {
+            "type": "sound",
+            "name": "Stop Sound",
+            "description": "",
+            "value": ""
+        },
+        "wait":
+        {
+            "type": "float",
+            "name": "Delay before close",
+            "description": "",
+            "value": "-1"
+        },
+        "lip":
+        {
+            "type": "integer",
+            "name": "Lip",
+            "description": "",
+            "value": ""
+        },
+        "dmg":
+        {
+            "type": "integer",
+            "name": "Damage inflicted when blocked",
+            "description": "",
+            "value": "0"
+        },
+        "message":
+        {
+            "type": "string",
+            "name": "Message if triggered",
+            "description": "",
+            "value": ""
+        },
+        "netname":
+        {
+            "type": "string",
+            "name": "Fire on Close",
+            "description": "",
+            "value": ""
+        },
+        "health":
+        {
+            "type": "integer",
+            "name": "Health (shoot open)",
+            "description": "",
+            "value": "0"
+        },
+        "locked_sound":
+        {
+            "type": "sound",
+            "name": "Locked Sound",
+            "description": "",
+            "value": ""
+        },
+        "unlocked_sound":
+        {
+            "type": "sound",
+            "name": "Unlocked Sound",
+            "description": "",
+            "value": ""
+        },
+        "locked_sentence":
+        {
+            "type": "string",
+            "name": "Locked Sentence",
+            "description": "",
+            "value": ""
+        },
+        "unlocked_sentence":
+        {
+            "type": "string",
+            "name": "Unlocked Sentence",
+            "description": "",
+            "value": ""
+        },
+        "_minlight":
+        {
+            "type": "string",
+            "name": "Minimum light level",
+            "description": "",
+            "value": ""
+        },
+        "spawnflags":
+        {
+            "1": { "name": "Starts Open",
+                "description": "",
+                "active": false
+            },
+            "4": { "name": "Don't link",
+                "description": "",
+                "active": false
+            },
+            "8": { "name": "Passable",
+                "description": "",
+                "active": false
+            },
+            "32": { "name": "Toggle",
+                "description": "",
+                "active": false
+            },
+            "256": { "name": "Use Only",
+                "description": "",
+                "active": false
+            },
+            "512": { "name": "Monsters Can't",
+                "description": "",
+                "active": false
+            }
+        }
+    },
+    "BaseTank":
+    {
+        "ClassData":
+        {
+            "BaseClass":
+            [
+                "RenderFields",
+                "Global",
+                "Angles",
+                "Master",
+                "ReplacementFiles"
+            ]
+        },
+        "spawnflags":
+        {
+            "1": { "name": "Active",
+                "description": "",
+                "active": false
+            },
+            "16": { "name": "Only Direct",
+                "description": "",
+                "active": false
+            },
+            "32": { "name": "Controllable",
+                "description": "",
+                "active": false
+            }
+        },
+        "yawrate":
+        {
+            "type": "float",
+            "name": "Yaw rate",
+            "description": "",
+            "value": "30"
+        },
+        "yawrange":
+        {
+            "type": "float",
+            "name": "Yaw range",
+            "description": "",
+            "value": "180"
+        },
+        "yawtolerance":
+        {
+            "type": "float",
+            "name": "Yaw tolerance",
+            "description": "",
+            "value": "15"
+        },
+        "pitchrate":
+        {
+            "type": "float",
+            "name": "Pitch rate",
+            "description": "",
+            "value": "0"
+        },
+        "pitchrange":
+        {
+            "type": "float",
+            "name": "Pitch range",
+            "description": "",
+            "value": "0"
+        },
+        "pitchtolerance":
+        {
+            "type": "float",
+            "name": "Pitch tolerance",
+            "description": "",
+            "value": "5"
+        },
+        "barrel":
+        {
+            "type": "float",
+            "name": "Barrel Length",
+            "description": "",
+            "value": "0"
+        },
+        "barrely":
+        {
+            "type": "float",
+            "name": "Barrel Horizontal",
+            "description": "",
+            "value": "0"
+        },
+        "barrelz":
+        {
+            "type": "float",
+            "name": "Barrel Vertical",
+            "description": "",
+            "value": "0"
+        },
+        "spritesmoke":
+        {
+            "type": "string",
+            "name": "Smoke Sprite",
+            "description": "",
+            "value": ""
+        },
+        "spriteflash":
+        {
+            "type": "string",
+            "name": "Flash Sprite",
+            "description": "",
+            "value": ""
+        },
+        "spritescale":
+        {
+            "type": "float",
+            "name": "Sprite scale",
+            "description": "",
+            "value": "1"
+        },
+        "rotatesound":
+        {
+            "type": "sound",
+            "name": "Rotate Sound",
+            "description": "",
+            "value": ""
+        },
+        "firerate":
+        {
+            "type": "string",
+            "name": "Rate of Fire",
+            "description": "",
+            "value": "1"
+        },
+        "bullet_damage":
+        {
+            "type": "integer",
+            "name": "Damage Per Bullet",
+            "description": "",
+            "value": "0"
+        },
+        "persistence":
+        {
+            "type": "string",
+            "name": "Firing persistence",
+            "description": "",
+            "value": "1"
+        },
+        "firespread":
+        {
+            "type": "choices",
+            "name": "Bullet accuracy",
+            "choices":{
+                "0":{ "name": "Perfect Shot",
+                    "description": ""
+                },
+                "1":{ "name": "Small cone",
+                    "description": ""
+                },
+                "2":{ "name": "Medium cone",
+                    "description": ""
+                },
+                "3":{ "name": "Large cone",
+                    "description": ""
+                },
+                "4":{ "name": "Extra-large cone",
+                    "description": ""
+                }
+            },
+            "description": "",
+            "value": "0"
+        },
+        "minRange":
+        {
+            "type": "string",
+            "name": "Minmum target range",
+            "description": "",
+            "value": "0"
+        },
+        "maxRange":
+        {
+            "type": "string",
+            "name": "Maximum target range",
+            "description": "",
+            "value": "0"
+        },
+        "_minlight":
+        {
+            "type": "integer",
+            "name": "Minimum light level",
+            "description": "",
+            "value": ""
+        },
+        "enemytype":
+        {
+            "type": "choices",
+            "name": "Enemy Type",
+            "choices":{
+                "0":{ "name": "Player",
+                    "description": ""
+                },
+                "1":{ "name": "Ally",
+                    "description": ""
+                },
+                "2":{ "name": "Random",
+                    "description": ""
+                }
+            },
+            "description": "",
+            "value": "1"
+        },
+        "enable_target_laser":
+        {
+            "type": "choices",
+            "name": "Enable Target Laser",
+            "choices":{
+                "0":{ "name": "No",
+                    "description": ""
+                },
+                "1":{ "name": "Yes",
+                    "description": ""
+                }
+            },
+            "description": "",
+            "value": "1"
+        },
+        "target_laser_sprite":
+        {
+            "type": "sprite",
+            "name": "Target Laser Beam Sprite",
+            "description": "",
+            "value": "sprites/laserbeam.spr"
+        },
+        "target_laser_width":
+        {
+            "type": "integer",
+            "name": "Target Laser Beam Width",
+            "description": "",
+            "value": "1"
+        },
+        "target_laser_color":
+        {
+            "type": "color255",
+            "name": "Target Laser Beam Color",
+            "description": "",
+            "value": "255 0 0"
+        }
+    },
+    "PlatSounds":
+    {
+        "ClassData":
+        {
+            "BaseClass":
+            [
+                "ReplacementFiles"
+            ]
+        },
+        "movesnd":
+        {
+            "type": "sound",
+            "name": "Move Sound",
+            "description": "",
+            "value": ""
+        },
+        "stopsnd":
+        {
+            "type": "sound",
+            "name": "Stop Sound",
+            "description": "",
+            "value": ""
+        },
+        "volume":
+        {
+            "type": "float",
+            "name": "Sound Volume 0.0 - 1.0",
+            "description": "",
+            "value": "0.85"
+        }
+    },
+    "Trackchange":
+    {
+        "ClassData":
+        {
+            "BaseClass":
+            [
+                "RenderFields",
+                "Global",
+                "PlatSounds"
+            ]
+        },
+        "height":
+        {
+            "type": "integer",
+            "name": "Travel altitude",
+            "description": "",
+            "value": "0"
+        },
+        "rotation": {
+            "type": "integer",
+            "name": "Spin amount",
+            "description": "",
+            "value": "0"
+        },
+        "train": {
+            "type": "target_destination",
+            "name": "Train to switch",
+            "description": "",
+            "value": ""
+        },
+        "toptrack": {
+            "type": "target_destination",
+            "name": "Top track",
+            "description": "",
+            "value": ""
+        },
+        "bottomtrack": {
+            "type": "target_destination",
+            "name": "Bottom track",
+            "description": "",
+            "value": ""
+        },
+        "speed": {
+            "type": "integer",
+            "name": "Move/Rotate speed",
+            "description": "",
+            "value": "0"
+        },
+        "spawnflags":
+        {
+            "1": { "name": "Auto Activate train",
+                "description": ""
+            },
+            "2": { "name": "Relink track",
+                "description": ""
+            },
+            "8": { "name": "Start at Bottom",
+                "description": ""
+            },
+            "16": { "name": "Rotate Only",
+                "description": ""
+            },
+            "64": { "name": "X Axis",
+                "description": ""
+            },
+            "128": { "name": "Y Axis",
+                "description": ""
+            }
+        }
+    },
+    "Trigger":
+    {
+        "ClassData":
+        {
+            "BaseClass":
+            [
+                "Targetx",
+                "Master"
+            ]
+        },
+        "spawnflags":
+        {
+            "1": { "name": "Monsters",
+                "description": ""
+            },
+            "2": { "name": "No Clients",
+                "description": ""
+            },
+            "4": { "name": "Pushables",
+                "description": ""
+            }
+        },
+        "netname":
+        {
+            "type": "target_destination",
+            "name": "Target Path",
+            "description": "",
+            "value": ""
+        },
+        "message":
+        {
+            "type": "string",
+            "name": "Message",
+            "description": "",
+            "value": ""
+        }
+    },
+    "BaseScriptedSequence":
+    {
+        "spawnflags":
+        {
+            "4": { "name": "Repeatable",
+                "description": ""
+            },
+            "8": { "name": "Leave Corpse",
+                "description": ""
+            }
+        },
+        "m_iszEntity":
+        {
+            "type": "target_destination",
+            "name": "Target Monster",
+            "description": "",
+            "value": ""
+        },
+        "m_iszPlay":
+        {
+            "type": "string",
+            "name": "Action Animation",
+            "description": "",
+            "value": ""
+        },
+        "m_flRadius": {
+            "type": "integer",
+            "name": "Search Radius",
+            "description": "",
+            "value": "512"
+        },
+        "m_flRepeat": {
+            "type": "integer",
+            "name": "Repeat Rate ms",
+            "description": "",
+            "value": "0"
+        },
+        "m_fMoveTo": {
+            "type": "choices",
+            "name": "Move to Position",
+            "choices":
+            {
+                "0": { "name": "No",
+                    "description": ""
+                },
+                "1": { "name": "Walk",
+                    "description": ""
+                },
+                "2": { "name": "Run",
+                    "description": ""
+                },
+                "4": { "name": "Instantaneous",
+                    "description": ""
+                },
+                "5": { "name": "No - Turn to Face",
+                    "description": ""
+                }
+            },
+            "description": "",
+            "value": "0"
+        },
+        "m_iFinishSchedule": {
+            "type": "choices",
+            "name": "AI Schedule when done",
+            "choices":
+            {
+                "0": { "name": "Default AI",
+                    "description": ""
+                },
+                "1": { "name": "Ambush",
+                    "description": ""
+                }
+            },
+            "description": "",
+            "value": "0"
+        }
+    },
+    "BeamStartEnd":
+    {
+        "LightningStart":
+        {
+            "type": "target_destination",
+            "name": "Start Entity",
+            "description": "",
+            "value": ""
+        },
+        "LightningEnd":
+        {
+            "type": "target_destination",
+            "name": "Ending Entity",
+            "description": "",
+            "value": ""
+        }
+    },
+    "TeleportBase":
+    {
+        "fire_on_teleport":
+        {
+            "type": "target_destination",
+            "name": "Target To Fire On Teleport",
+            "description": "",
+            "value": ""
+        }
+    },
+    "BaseOsprey":
+    {
+        "ClassData":
+        {
+            "BaseClass":
+            [
+                "MonsterWithChildren"
+            ]
+        },
+        "spawnflags":
+        {
+            "64": { "name": "Start Inactive",
+                "description": ""
+            }
+        },
+        "initial_capacity":
+        {
+            "type": "integer",
+            "name": "Initial NPC Capacity (0 == autodetect)",
+            "description": "",
+            "value": "0"
+        }
+    },
+    "CTFItem":
+    {
+        "spawnflags":
+        {
+            "4": { "name": "Random Spawn",
+                "description": "",
+                "active": true
+            },
+            "8": { "name": "Ignore Spawn Team Setting",
+                "description": ""
+            }
+        },
+        "team_no":
+        {
+            "type": "choices",
+            "name": "Team",
+            "choices":
+            {
+                "0": { "name": "Random",
+                    "description": ""
+                },
+                "1": { "name": "Black Mesa",
+                    "description": ""
+                },
+                "2": { "name": "Opposing Force",
+                    "description": ""
+                }
+            },
+            "description": "",
+            "value": "0"
+        }
+    },
+    "CTFAttributes":
+    {
+        "goal_no":
+        {
+            "type": "choices",
+            "name": "Team",
+            "choices":
+            {
+                "1": { "name": "Black Mesa",
+                    "description": ""
+                },
+                "2": { "name": "Opposing Force",
+                    "description": ""
+                }
+            },
+            "description": "",
+            "value": "1"
+        },
+        "goal_min":
+        {
+            "type": "vector",
+            "name": "Min Bounds",
+            "description": "",
+            "value": "-16 -16 0"
+        },
+        "goal_max":
+        {
+            "type": "vector",
+            "name": "Max Bounds",
+            "description": "",
+            "value": "16 16 72"
+        }
+    },
+    "Appearflags":
+    {
+    }
+}

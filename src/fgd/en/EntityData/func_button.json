@@ -1,0 +1,42 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "Targetx",
+            "Global",
+            "RenderFields",
+            "Angles",
+            "ZHLT",
+            "Master",
+            "ReplacementFiles",
+            "Appearflags"
+        ],
+        "classname": "func_button",
+        "name": "Button",
+        "description": ""
+    },
+    "speed": {
+        "type": "integer",
+        "name": "Speed",
+        "description": "",
+        "value": "5"
+    },
+    "wait": {
+        "type": "choices",
+        "name": "Delay before reset",
+        "description": "",
+        "value": "3",
+        "choices": {
+            "-1": {
+                "name": "Stays pressed",
+                "description": ""
+            }
+        }
+    },
+    "spawnflags": {
+        "256": {
+            "name": "Touch Activates",
+            "description": ""
+        }
+    }
+}

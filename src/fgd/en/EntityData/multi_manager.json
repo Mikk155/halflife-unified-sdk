@@ -1,0 +1,23 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "color": [
+            "255",
+            "128",
+            "0"
+        ],
+        "base": [
+            "Mandatory",
+            "Appearflags"
+        ],
+        "classname": "multi_manager",
+        "name": "MultiTarget Manager",
+        "description": ""
+    },
+    "spawnflags": {
+        "1": {
+            "name": "multithreaded",
+            "description": ""
+        }
+    }
+}

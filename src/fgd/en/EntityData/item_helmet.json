@@ -1,0 +1,46 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-16",
+                "-16",
+                "0"
+            ],
+            [
+                "16",
+                "16",
+                "36"
+            ]
+        ],
+        "studio": "models/barney_helmet.mdl",
+        "base": [
+            "Mandatory",
+            "item_battery",
+            "Appearflags"
+        ],
+        "classname": "item_helmet",
+        "name": "Barney Helmet",
+        "description": ""
+    },
+    "sequence": {
+        "type": "choices",
+        "name": "Orientation",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "Vertical",
+                "description": ""
+            },
+            "1": {
+                "name": "Horizontal",
+                "description": ""
+            },
+            "2": {
+                "name": "Horizontal (Upside Down)",
+                "description": ""
+            }
+        }
+    }
+}

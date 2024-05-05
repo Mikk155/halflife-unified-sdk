@@ -1,0 +1,49 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-16",
+                "-16",
+                "-32"
+            ],
+            [
+                "16",
+                "16",
+                "32"
+            ]
+        ],
+        "studio": "models/miniturret.mdl",
+        "base": [
+            "Mandatory",
+            "Monster",
+            "Sequence",
+            "Appearflags"
+        ],
+        "classname": "monster_miniturret",
+        "name": "Mini Auto Turret",
+        "description": ""
+    },
+    "orientation": {
+        "type": "choices",
+        "name": "Orientation",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "Floor Mount",
+                "description": ""
+            },
+            "1": {
+                "name": "Ceiling Mount",
+                "description": ""
+            }
+        }
+    },
+    "spawnflags": {
+        "64": {
+            "name": "Start Inactive",
+            "description": ""
+        }
+    }
+}

@@ -1,0 +1,98 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "studio": "models/hgrunt_opfor.mdl",
+        "base": [
+            "Mandatory",
+            "Monster",
+            "Sequence",
+            "TalkMonster",
+            "Appearflags"
+        ],
+        "classname": "monster_grunt_ally_repel",
+        "name": "Human Grunt Ally (Repel)",
+        "description": ""
+    },
+    "spawnflags": {
+        "32": {
+            "name": "SquadLeader",
+            "description": ""
+        }
+    },
+    "weapons": {
+        "type": "choices",
+        "name": "Weapons",
+        "description": "",
+        "value": "3",
+        "choices": {
+            "1": {
+                "name": "9mmAR",
+                "description": ""
+            },
+            "3": {
+                "name": "9mmAR + HG",
+                "description": ""
+            },
+            "5": {
+                "name": "9mmAR + GL",
+                "description": ""
+            },
+            "8": {
+                "name": "Shotgun",
+                "description": ""
+            },
+            "10": {
+                "name": "Shotgun + HG",
+                "description": ""
+            },
+            "16": {
+                "name": "Saw",
+                "description": ""
+            }
+        }
+    },
+    "head": {
+        "type": "choices",
+        "name": "Heads",
+        "description": "",
+        "value": "-1",
+        "choices": {
+            "-1": {
+                "name": "Default",
+                "description": ""
+            },
+            "0": {
+                "name": "Gas Mask",
+                "description": ""
+            },
+            "1": {
+                "name": "Beret",
+                "description": ""
+            },
+            "2": {
+                "name": "Ops Mask",
+                "description": ""
+            },
+            "3": {
+                "name": "Bandana White",
+                "description": ""
+            },
+            "4": {
+                "name": "Bandana Black",
+                "description": ""
+            },
+            "5": {
+                "name": "MP",
+                "description": ""
+            },
+            "6": {
+                "name": "Major",
+                "description": ""
+            },
+            "7": {
+                "name": "Beret (Black)",
+                "description": ""
+            }
+        }
+    }
+}

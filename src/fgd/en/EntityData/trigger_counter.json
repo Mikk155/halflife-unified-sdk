@@ -1,0 +1,25 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "Trigger",
+            "Master",
+            "Appearflags"
+        ],
+        "classname": "trigger_counter",
+        "name": "Trigger counter",
+        "description": ""
+    },
+    "spawnflags": {
+        "1": {
+            "name": "No Message",
+            "description": ""
+        }
+    },
+    "count": {
+        "type": "integer",
+        "name": "Count before activation",
+        "description": "",
+        "value": "2"
+    }
+}

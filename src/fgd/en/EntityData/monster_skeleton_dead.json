@@ -1,0 +1,51 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-16",
+                "-16",
+                "0"
+            ],
+            [
+                "16",
+                "16",
+                "72"
+            ]
+        ],
+        "studio": "models/skeleton.mdl",
+        "base": [
+            "Mandatory",
+            "RenderFields",
+            "Sequence",
+            "Appearflags"
+        ],
+        "classname": "monster_skeleton_dead",
+        "name": "Dead Skeleton",
+        "description": ""
+    },
+    "pose": {
+        "type": "choices",
+        "name": "Pose",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "On back",
+                "description": ""
+            },
+            "1": {
+                "name": "Seated",
+                "description": ""
+            },
+            "2": {
+                "name": "Against Wall",
+                "description": ""
+            },
+            "3": {
+                "name": "On Stomach",
+                "description": ""
+            }
+        }
+    }
+}

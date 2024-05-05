@@ -1,0 +1,32 @@
+{
+    "ClassData":
+    {
+        "type": "Point",
+        "sprite": true,
+        "color": [ 30, 100, 0 ],
+        "size": [ [ -4, -4, -4 ], [ 4, 4, 4 ] ],
+        "classname": "env_glow",
+        "name": "Light Glow/Haze",
+        "description": "",
+        "BaseClass":
+        [
+            "Mandatory",
+            "RenderFields",
+            "Appearflags"
+        ]
+    },
+    "model":
+    {
+        "type": "sprite",
+        "name": "Sprite Name",
+        "description": "",
+        "value": "sprites/glow01.spr"
+    },
+    "scale":
+    {
+        "type": "integer",
+        "name": "Scale",
+        "description": "",
+        "value": "1"
+    }
+}

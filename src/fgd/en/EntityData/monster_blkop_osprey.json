@@ -1,0 +1,16 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "studio": "models/blkop_osprey.mdl",
+        "base": [
+            "Mandatory",
+            "Monster",
+            "Sequence",
+            "BaseOsprey",
+            "Appearflags"
+        ],
+        "classname": "monster_blkop_osprey",
+        "name": "Black Ops Osprey",
+        "description": ""
+    }
+}

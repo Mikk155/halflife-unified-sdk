@@ -1,0 +1,45 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "studio": "",
+        "base": [
+            "Mandatory",
+            "Targetx",
+            "OtherItem",
+            "Appearflags"
+        ],
+        "classname": "item_generic",
+        "name": "Generic scenery item",
+        "description": ""
+    },
+    "model": {
+        "type": "studio",
+        "name": "Model",
+        "description": "",
+        "value": "models/egg.mdl"
+    },
+    "sequencename": {
+        "type": "string",
+        "name": "Sequence Name",
+        "description": "",
+        "value": "idle"
+    },
+    "skin": {
+        "type": "integer",
+        "name": "Skin",
+        "description": "",
+        "value": "0"
+    },
+    "body": {
+        "type": "integer",
+        "name": "Body",
+        "description": "",
+        "value": "0"
+    },
+    "spawnflags": {
+        "2": {
+            "name": "Solid",
+            "description": ""
+        }
+    }
+}

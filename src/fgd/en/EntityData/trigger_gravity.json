@@ -1,0 +1,18 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "Trigger",
+            "Appearflags"
+        ],
+        "classname": "trigger_gravity",
+        "name": "Trigger Gravity",
+        "description": ""
+    },
+    "gravity": {
+        "type": "integer",
+        "name": "Gravity (0-1)",
+        "description": "",
+        "value": "1"
+    }
+}

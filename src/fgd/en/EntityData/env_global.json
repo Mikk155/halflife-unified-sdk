@@ -1,0 +1,77 @@
+{
+    "ClassData":
+    {
+        "type": "Point",
+        "color": [ 255, 255, 128 ],
+        "classname": "env_global",
+        "name": "Global State",
+        "description": "",
+        "BaseClass":
+        [
+            "Mandatory",
+            "Appearflags"
+        ]
+    },
+    "globalstate":
+    {
+        "type": "string",
+        "name": "Global State to Set",
+        "description": "",
+        "value": ""
+    },
+    "triggermode":
+    {
+        "type": "choices",
+        "choices":
+        {
+            "0":{
+                "name": "Off",
+                "description": ""
+            },
+            "1":{
+                "name": "On",
+                "description": ""
+            },
+            "2":{
+                "name": "Dead",
+                "description": ""
+            },
+            "3":{
+                "name": "Toggle",
+                "description": ""
+            }
+        },
+        "name": "Trigger Mode",
+        "description": "",
+        "value": "0"
+    },
+    "initialstate":
+    {
+        "type": "choices",
+        "choices":
+        {
+            "0":{
+                "name": "Off",
+                "description": ""
+            },
+            "1":{
+                "name": "On",
+                "description": ""
+            },
+            "2":{
+                "name": "Dead",
+                "description": ""
+            }
+        },
+        "name": "Initial State",
+        "description": "",
+        "value": "0"
+    },
+    "spawnflags":
+    {
+        "1":{
+            "name": "Set Initial State",
+            "description": ""
+        }
+    }
+}

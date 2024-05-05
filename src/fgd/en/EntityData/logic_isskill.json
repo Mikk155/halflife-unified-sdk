@@ -1,0 +1,30 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-8",
+                "-8",
+                "-8"
+            ],
+            [
+                "8",
+                "8",
+                "8"
+            ]
+        ],
+        "color": [
+            "200",
+            "100",
+            "50"
+        ],
+        "base": [
+            "Mandatory",
+            "Master",
+            "Appearflags"
+        ],
+        "classname": "logic_isskill",
+        "name": "Fires a target based on the current skill level",
+        "description": ""
+    }
+}

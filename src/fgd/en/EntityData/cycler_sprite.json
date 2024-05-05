@@ -1,0 +1,32 @@
+{
+    "ClassData":
+    {
+        "type": "Point",
+        "sprite": true,
+        "size": [ [ -16, -16, 0 ], [ 16, 16, 72 ] ],
+        "classname": "cycler_sprite",
+        "name": "Sprite Cycler",
+        "description": "",
+        "BaseClass":
+        [
+            "Mandatory",
+            "Angles",
+            "RenderFields",
+            "Appearflags"
+        ]
+    },
+    "model":
+    {
+        "type": "sprite",
+        "name": "Custom Sprite",
+        "description": "",
+        "value": ""
+    },
+    "framerate":
+    {
+        "type": "integer",
+        "name": "Frames per second",
+        "description": "",
+        "value": "10"
+    }
+}

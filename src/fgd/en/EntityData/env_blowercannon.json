@@ -1,0 +1,77 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-16",
+                "-16",
+                "-16"
+            ],
+            [
+                "16",
+                "16",
+                "16"
+            ]
+        ],
+        "base": [
+            "Mandatory",
+            "Target",
+            "Appearflags"
+        ],
+        "classname": "env_blowercannon",
+        "name": "Blower Cannon",
+        "description": ""
+    },
+    "delay": {
+        "type": "string",
+        "name": "Delay",
+        "description": "",
+        "value": "0"
+    },
+    "zoffset": {
+        "type": "integer",
+        "name": "Z Offset",
+        "description": "",
+        "value": "0"
+    },
+    "weaptype": {
+        "type": "choices",
+        "name": "Weapon Type",
+        "description": "",
+        "value": "1",
+        "choices": {
+            "1": {
+                "name": "Spore (Rocket)",
+                "description": ""
+            },
+            "2": {
+                "name": "Spore (Grenade)",
+                "description": ""
+            },
+            "3": {
+                "name": "Shock Beam",
+                "description": ""
+            },
+            "4": {
+                "name": "Displacer Ball",
+                "description": ""
+            }
+        }
+    },
+    "firetype": {
+        "type": "choices",
+        "name": "Fire Type",
+        "description": "",
+        "value": "1",
+        "choices": {
+            "1": {
+                "name": "Toggle On/Off",
+                "description": ""
+            },
+            "2": {
+                "name": "Fire When Triggered",
+                "description": ""
+            }
+        }
+    }
+}

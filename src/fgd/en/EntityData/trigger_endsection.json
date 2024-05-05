@@ -1,0 +1,17 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "Appearflags"
+        ],
+        "classname": "trigger_endsection",
+        "name": "EndSection Trigger",
+        "description": ""
+    },
+    "spawnflags": {
+        "1": {
+            "name": "USE Only",
+            "description": ""
+        }
+    }
+}

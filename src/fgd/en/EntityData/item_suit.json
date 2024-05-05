@@ -1,0 +1,49 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-16",
+                "-16",
+                "0"
+            ],
+            [
+                "16",
+                "16",
+                "36"
+            ]
+        ],
+        "studio": "models/w_suit.mdl",
+        "base": [
+            "Mandatory",
+            "Targetx",
+            "Item",
+            "Appearflags"
+        ],
+        "classname": "item_suit",
+        "name": "HEV Suit",
+        "description": ""
+    },
+    "body": {
+        "type": "choices",
+        "name": "Body",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "Standing",
+                "description": ""
+            },
+            "1": {
+                "name": "Laying Flat",
+                "description": ""
+            }
+        }
+    },
+    "spawnflags": {
+        "1": {
+            "name": "Short Logon",
+            "description": ""
+        }
+    }
+}

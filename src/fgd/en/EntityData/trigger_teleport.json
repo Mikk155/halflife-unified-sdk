@@ -1,0 +1,13 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "Trigger",
+            "TeleportBase",
+            "Appearflags"
+        ],
+        "classname": "trigger_teleport",
+        "name": "Trigger teleport",
+        "description": ""
+    }
+}

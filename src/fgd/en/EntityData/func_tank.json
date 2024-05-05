@@ -1,0 +1,37 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "BaseTank",
+            "ZHLT",
+            "Appearflags"
+        ],
+        "classname": "func_tank",
+        "name": "Brush Gun Turret",
+        "description": ""
+    },
+    "bullet": {
+        "type": "choices",
+        "name": "Bullets",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "None",
+                "description": ""
+            },
+            "1": {
+                "name": "9mm",
+                "description": ""
+            },
+            "2": {
+                "name": "MP5",
+                "description": ""
+            },
+            "3": {
+                "name": "12mm",
+                "description": ""
+            }
+        }
+    }
+}

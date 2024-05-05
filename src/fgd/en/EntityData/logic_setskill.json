@@ -1,0 +1,51 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                -8,
+                -8,
+                -8
+            ],
+            [
+                8,
+                8,
+                8
+            ]
+        ],
+        "color": [
+            200,
+            100,
+            50
+        ],
+        "base": [
+            "Mandatory",
+            "Target",
+            "Master",
+            "Appearflags"
+        ],
+        "classname": "logic_setskill",
+        "name": "Set skill level to specified value\\nSome variables require a map change to take effect",
+        "description": ""
+    },
+    "skill_level": {
+        "type": "choices",
+        "name": "Skill level to set",
+        "description": "",
+        "value": "1",
+        "choices": {
+            "1": {
+                "name": "Easy",
+                "description": ""
+            },
+            "2": {
+                "name": "Medium",
+                "description": ""
+            },
+            "3": {
+                "name": "Hard",
+                "description": ""
+            }
+        }
+    }
+}

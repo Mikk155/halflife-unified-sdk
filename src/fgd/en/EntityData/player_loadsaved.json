@@ -1,0 +1,66 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-16",
+                "-16",
+                "-16"
+            ],
+            [
+                "16",
+                "16",
+                "16"
+            ]
+        ],
+        "base": [
+            "Mandatory",
+            "Appearflags"
+        ],
+        "classname": "player_loadsaved",
+        "name": "Load Auto-Saved game",
+        "description": ""
+    },
+    "duration": {
+        "type": "string",
+        "name": "Fade Duration (seconds)",
+        "description": "",
+        "value": "2"
+    },
+    "holdtime": {
+        "type": "string",
+        "name": "Hold Fade (seconds)",
+        "description": "",
+        "value": "0"
+    },
+    "renderamt": {
+        "type": "integer",
+        "name": "Fade Alpha",
+        "description": "",
+        "value": "255"
+    },
+    "rendercolor": {
+        "type": "color255",
+        "name": "Fade Color (R G B)",
+        "description": "",
+        "value": "0 0 0"
+    },
+    "messagetime": {
+        "type": "string",
+        "name": "Show Message delay",
+        "description": "",
+        "value": "0"
+    },
+    "message": {
+        "type": "string",
+        "name": "Message To Display",
+        "description": "",
+        "value": ""
+    },
+    "loadtime": {
+        "type": "string",
+        "name": "Reload delay",
+        "description": "",
+        "value": "0"
+    }
+}

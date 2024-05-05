@@ -1,0 +1,19 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "base": [
+            "Mandatory",
+            "Master",
+            "Appearflags"
+        ],
+        "classname": "game_player_team",
+        "name": "Allows player to change teams",
+        "description": ""
+    },
+    "spawnflags": {
+        "4": {
+            "name": "Gib Player",
+            "description": ""
+        }
+    }
+}

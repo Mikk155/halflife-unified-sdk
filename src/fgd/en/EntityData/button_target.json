@@ -1,0 +1,29 @@
+{
+    "ClassData":
+    {
+        "classname": "button_target",
+        "name": "Target Button",
+        "description": "",
+        "BaseClass":
+        [
+            "Mandatory",
+            "Target",
+            "Angles",
+            "Master",
+            "RenderFields",
+            "Appearflags"
+        ]
+    },
+    "spawnflags":
+    {
+        "1":{
+            "name": "Use Activates",
+            "description": "",
+            "active": true
+        },
+        "2":{
+            "name": "Start On",
+            "description": ""
+        }
+    }
+}

@@ -1,0 +1,72 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-8",
+                "-8",
+                "-8"
+            ],
+            [
+                "8",
+                "8",
+                "8"
+            ]
+        ],
+        "base": [
+            "Mandatory",
+            "Appearflags"
+        ],
+        "classname": "player_sethealth",
+        "name": "Set player's health and/or armor",
+        "description": ""
+    },
+    "all_players": {
+        "type": "choices",
+        "name": "Affect All Players",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "No",
+                "description": ""
+            },
+            "1": {
+                "name": "Yes",
+                "description": ""
+            }
+        }
+    },
+    "set_health": {
+        "type": "choices",
+        "name": "Set Player's Health",
+        "description": "",
+        "value": "1",
+        "choices": {
+            "0": {
+                "name": "No",
+                "description": ""
+            },
+            "1": {
+                "name": "Yes",
+                "description": ""
+            }
+        }
+    },
+    "set_armor": {
+        "type": "choices",
+        "name": "Set Player's Armor",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "No",
+                "description": ""
+            },
+            "1": {
+                "name": "Yes",
+                "description": ""
+            }
+        }
+    }
+}

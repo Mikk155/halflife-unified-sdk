@@ -1,0 +1,21 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "studio": "models/w_tripmine.mdl",
+        "base": [
+            "Mandatory",
+            "Monster",
+            "Sequence",
+            "Appearflags"
+        ],
+        "classname": "monster_tripmine",
+        "name": "Active Tripmine",
+        "description": ""
+    },
+    "spawnflags": {
+        "1": {
+            "name": "Instant On",
+            "description": ""
+        }
+    }
+}

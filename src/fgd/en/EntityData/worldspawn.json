@@ -1,0 +1,125 @@
+{
+    "ClassData":
+    {
+        "type": "Solid",
+        "classname": "worldspawn",
+        "name": "World Entity",
+        "description": ""
+    },
+    "message":
+    {
+        "type": "string",
+        "name": "Map Description / Title",
+        "description": "Used to show the map's title/description in the old WON interface.",
+        "value": ""
+    },
+    "skyname":
+    {
+        "type": "string",
+        "name": "environment map (cl_skyname)",
+        "description": " Lets you choose what sky image you want.",
+        "value": ""
+    },
+    "light":
+    {
+        "type": "integer",
+        "name": "Default light level",
+        "description": "",
+        "value": ""
+    },
+    "WaveHeight":
+    {
+        "type": "float",
+        "name": "Default Wave Height",
+        "description": "Set the default wave height here (can be overridden by the properties in func_water).",
+        "value": ""
+    },
+    "MaxRange":
+    {
+        "type": "integer",
+        "name": "Max viewable distance",
+        "description": "Maximum distance the player can see in Hammer grid units; same as sv_zmax.",
+        "value": "4096"
+    },
+    "chaptertitle":
+    {
+        "type": "string",
+        "name": "Chapter Title Message",
+        "description": "Text displayed when entering the level.",
+        "value": "The game logo will be displayed after the map loads."
+    },
+    "startdark":
+    {
+        "type": "choices",
+        "choices":
+        {
+            "0":
+            {
+                "name": "No",
+                "description": ""
+            },
+            "1":
+            {
+                "name": "Yes",
+                "description": "The level will start black and fade into normal light."
+            }
+        },
+        "name": "Level Fade In",
+        "description": "",
+        "value": "0"
+    },
+    "gametitle":
+    {
+        "type": "string",
+        "name": "Game whose title to display",
+        "description": "",
+        "value": ""
+    },
+    "newunit":
+    {
+        "type": "choices",
+        "choices":
+        {
+            "0":
+            {
+                "name": "No, keep current",
+                "description": ""
+            },
+            "1":
+            {
+                "name": "Yes, clear previous levels",
+                "description": "All previous global triggers will be removed."
+            }
+        },
+        "name": "New Level Unit",
+        "description": "",
+        "value": "0"
+    },
+    "mapteams":
+    {
+        "type": "string",
+        "name": "Map Team List",
+        "description": "This will be copied into the mp_teamlist while your map is running if the server allows maps to override the team list.",
+        "value": "grunt;scientist"
+    },
+    "defaultteam":
+    {
+        "type": "choices",
+        "choices":
+        {
+            "0":
+            {
+                "name": "Fewest Players",
+                "description": ""
+            },
+            "1":
+            {
+                "name": "First Team",
+                "description": ""
+            }
+        },
+        "name": "Default Team",
+        "description": "",
+        "value": "0"
+    }
+}

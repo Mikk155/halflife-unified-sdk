@@ -1,0 +1,42 @@
+{
+    "ClassData":
+    {
+        "type": "Point",
+        "size": [ [ -16, -16, 0 ], [ 16, 16, 72 ] ],
+        "classname": "env_fade",
+        "name": "Screen Fade",
+        "description": "",
+        "BaseClass":
+        [
+            "Mandatory",
+            "Renderamt",
+            "Rendercolor",
+            "Appearflags"
+        ]
+    },
+    "duration":
+    {
+        "type": "float",
+        "name": "Duration (seconds)",
+        "description": "",
+        "value": "2"
+    },
+    "holdtime":
+    {
+        "type": "float",
+        "name": "Hold Fade (seconds)",
+        "description": "",
+        "value": "0"
+    },
+    "spawnflags": {
+        "1": { "name": "Fade From",
+            "description": ""
+        },
+        "2": { "name": "Modulate",
+            "description": ""
+        },
+        "4": { "name": "Activator Only",
+            "description": ""
+        }
+    }
+}

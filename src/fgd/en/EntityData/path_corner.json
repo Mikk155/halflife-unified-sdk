@@ -1,0 +1,57 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-8",
+                "-8",
+                "-8"
+            ],
+            [
+                "8",
+                "8",
+                "8"
+            ]
+        ],
+        "color": [
+            "247",
+            "181",
+            "82"
+        ],
+        "flags": [
+            "Path"
+        ],
+        "base": [
+            "Mandatory",
+            "Angles",
+            "Appearflags"
+        ],
+        "classname": "path_corner",
+        "name": "Moving platform stop",
+        "description": ""
+    },
+    "spawnflags": {
+        "4": {
+            "name": "Fire once",
+            "description": ""
+        }
+    },
+    "wait": {
+        "type": "integer",
+        "name": "Wait here (secs)",
+        "description": "",
+        "value": "0"
+    },
+    "speed": {
+        "type": "integer",
+        "name": "New Train Speed",
+        "description": "",
+        "value": "0"
+    },
+    "yaw_speed": {
+        "type": "integer",
+        "name": "New Train rot. Speed",
+        "description": "",
+        "value": "0"
+    }
+}

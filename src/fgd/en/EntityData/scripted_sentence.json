@@ -1,0 +1,90 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-16",
+                "-16",
+                "0"
+            ],
+            [
+                "16",
+                "16",
+                "72"
+            ]
+        ],
+        "color": [
+            "255",
+            "0",
+            "255"
+        ],
+        "base": [
+            "Mandatory",
+            "Targetx",
+            "Appearflags"
+        ],
+        "classname": "scripted_sentence",
+        "name": "Scripted Sentence",
+        "description": ""
+    },
+    "spawnflags": {
+        "8": {
+            "name": "Concurrent",
+            "description": ""
+        }
+    },
+    "sentence": {
+        "type": "string",
+        "name": "Sentence Name",
+        "description": "",
+        "value": ""
+    },
+    "duration": {
+        "type": "string",
+        "name": "Sentence Time",
+        "description": "",
+        "value": "3"
+    },
+    "radius": {
+        "type": "integer",
+        "name": "Search Radius",
+        "description": "",
+        "value": "512"
+    },
+    "refire": {
+        "type": "string",
+        "name": "Delay Before Refire",
+        "description": "",
+        "value": "3"
+    },
+    "volume": {
+        "type": "string",
+        "name": "Volume 0-10",
+        "description": "",
+        "value": "10"
+    },
+    "attenuation": {
+        "type": "choices",
+        "name": "Sound Radius",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "Small Radius",
+                "description": ""
+            },
+            "1": {
+                "name": "Medium Radius",
+                "description": ""
+            },
+            "2": {
+                "name": "Large  Radius",
+                "description": ""
+            },
+            "3": {
+                "name": "Play Everywhere",
+                "description": ""
+            }
+        }
+    }
+}

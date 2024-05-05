@@ -1,0 +1,47 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-16",
+                "-16",
+                "0"
+            ],
+            [
+                "16",
+                "16",
+                "72"
+            ]
+        ],
+        "base": [
+            "Mandatory",
+            "CTFAttributes",
+            "Appearflags"
+        ],
+        "classname": "item_ctfflag",
+        "name": "CTF Flag",
+        "description": ""
+    },
+    "skin": {
+        "type": "choices",
+        "name": "Skin",
+        "description": "",
+        "value": "1",
+        "choices": {
+            "1": {
+                "name": "Black Mesa",
+                "description": ""
+            },
+            "2": {
+                "name": "Opposing Force",
+                "description": ""
+            }
+        }
+    },
+    "model": {
+        "type": "studio",
+        "name": "Model",
+        "description": "",
+        "value": "models/flag.mdl"
+    }
+}

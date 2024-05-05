@@ -1,0 +1,22 @@
+{
+    "ClassData":
+    {
+        "type": "Point",
+        "size": [ [ -16, -16, -16 ], [ 16, 16, 16 ] ],
+        "classname": "env_funnel",
+        "name": "Large Portal Funnel",
+        "description": "",
+        "BaseClass":
+        [
+            "Mandatory",
+            "Appearflags"
+        ]
+    },
+    "spawnflags":
+    {
+        "1": {
+            "name": "Reverse",
+            "description": ""
+        }
+    }
+}

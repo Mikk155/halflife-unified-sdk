@@ -1,0 +1,19 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "Door",
+            "ZHLT",
+            "Appearflags"
+        ],
+        "classname": "momentary_door",
+        "name": "Momentary/Continuous door",
+        "description": ""
+    },
+    "spawnflags": {
+        "1": {
+            "name": "Starts Open",
+            "description": ""
+        }
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-16",
+                "-16",
+                "-16"
+            ],
+            [
+                "16",
+                "16",
+                "16"
+            ]
+        ],
+        "base": [
+            "Mandatory",
+            "Appearflags"
+        ],
+        "classname": "player_hasweapon",
+        "name": "Fires a target based on whether the activating player has the given weapon or not",
+        "description": ""
+    }
+}

@@ -1,0 +1,58 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-16",
+                "-16",
+                "-16"
+            ],
+            [
+                "16",
+                "16",
+                "16"
+            ]
+        ],
+        "base": [
+            "Mandatory",
+            "Appearflags"
+        ],
+        "classname": "env_rope",
+        "name": "Rope",
+        "description": ""
+    },
+    "segments": {
+        "type": "integer",
+        "name": "Segments",
+        "description": "",
+        "value": "16"
+    },
+    "disable": {
+        "type": "choices",
+        "name": "Disable Use",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "Not Disabled",
+                "description": ""
+            },
+            "1": {
+                "name": "Disabled",
+                "description": ""
+            }
+        }
+    },
+    "endingmodel": {
+        "type": "studio",
+        "name": "Ending Model",
+        "description": "",
+        "value": "models/rope16.mdl"
+    },
+    "bodymodel": {
+        "type": "studio",
+        "name": "Body Model",
+        "description": "",
+        "value": "models/rope16.mdl"
+    }
+}

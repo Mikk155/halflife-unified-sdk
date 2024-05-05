@@ -1,0 +1,20 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "base": [
+            "Mandatory",
+            "Targetx",
+            "Master",
+            "Appearflags"
+        ],
+        "classname": "game_team_set",
+        "name": "Sets team of team_master",
+        "description": ""
+    },
+    "spawnflags": {
+        "1": {
+            "name": "Remove On fire",
+            "description": ""
+        }
+    }
+}

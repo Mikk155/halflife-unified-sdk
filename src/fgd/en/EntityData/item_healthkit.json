@@ -1,0 +1,27 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-16",
+                "-16",
+                "0"
+            ],
+            [
+                "16",
+                "16",
+                "36"
+            ]
+        ],
+        "studio": "models/w_medkit.mdl",
+        "base": [
+            "Mandatory",
+            "Targetx",
+            "Item",
+            "Appearflags"
+        ],
+        "classname": "item_healthkit",
+        "name": "Small Health Kit",
+        "description": ""
+    }
+}

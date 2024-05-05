@@ -1,0 +1,53 @@
+{
+    "ClassData": {
+        "classname": "light_spot",
+        "name": "Spotlight",
+        "description": "",
+        "type": "Point",
+        "flags": [
+            "Light"
+        ],
+        "BaseClass": [
+            "Mandatory",
+            "Target",
+            "Angles",
+            "Light",
+            "ZHLT_point",
+            "Appearflags"
+        ]
+    },
+    "_cone": {
+        "type": "integer",
+        "name": "Inner (bright) angle",
+        "description": "",
+        "value": "30"
+    },
+    "_cone2": {
+        "type": "integer",
+        "name": "Outer (fading) angle",
+        "description": "",
+        "value": "45"
+    },
+    "pitch": {
+        "type": "integer",
+        "name": "Pitch",
+        "description": "",
+        "value": "-90"
+    },
+    "_sky": {
+        "type": "choices",
+        "name": "Is Sky",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "No",
+                "description": ""
+            },
+            "1": {
+                "name": "Yes",
+                "description": ""
+            }
+        }
+    }
+}

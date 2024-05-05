@@ -1,0 +1,50 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-16",
+                "-16",
+                "0"
+            ],
+            [
+                "16",
+                "16",
+                "36"
+            ]
+        ],
+        "studio": "models/barney_vest.mdl",
+        "base": [
+            "Mandatory",
+            "item_battery",
+            "Appearflags"
+        ],
+        "classname": "item_armorvest",
+        "name": "Barney Vest",
+        "description": ""
+    },
+    "sequence": {
+        "type": "choices",
+        "name": "Orientation",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "Upright",
+                "description": ""
+            },
+            "1": {
+                "name": "Laying On Back",
+                "description": ""
+            },
+            "2": {
+                "name": "Laying On Front",
+                "description": ""
+            },
+            "3": {
+                "name": "Upright Leaning",
+                "description": ""
+            }
+        }
+    }
+}

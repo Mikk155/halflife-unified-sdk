@@ -1,0 +1,25 @@
+{
+    "ClassData":
+    {
+        "type": "Point",
+        "studio": true,
+        "classname": "ammo_357",
+        "name": "357 Ammo",
+        "description": "",
+        "BaseClass":
+        [
+            "Mandatory",
+            "Targetx",
+            "RenderFields",
+            "Ammo",
+            "Appearflags"
+        ]
+    },
+    "model":
+    {
+        "type": "studio",
+        "name": "Custom Model",
+        "description": "",
+        "value": "models/w_357ammobox.mdl"
+    }
+}

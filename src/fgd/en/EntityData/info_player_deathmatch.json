@@ -1,0 +1,15 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "studio": "models/player.mdl",
+        "base": [
+            "Mandatory",
+            "PlayerClass",
+            "Master",
+            "Appearflags"
+        ],
+        "classname": "info_player_deathmatch",
+        "name": "Player deathmatch start",
+        "description": ""
+    }
+}

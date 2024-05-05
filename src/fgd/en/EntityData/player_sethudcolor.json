@@ -1,0 +1,46 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-16",
+                "-16",
+                "-16"
+            ],
+            [
+                "16",
+                "16",
+                "16"
+            ]
+        ],
+        "base": [
+            "Mandatory",
+            "Appearflags"
+        ],
+        "classname": "player_sethudcolor",
+        "name": "Set or reset player hud color",
+        "description": ""
+    },
+    "hud_color": {
+        "type": "color255",
+        "name": "Hud Color (R G B)",
+        "description": "",
+        "value": "0 0 0"
+    },
+    "action": {
+        "type": "choices",
+        "name": "Action To Take",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "Set color",
+                "description": ""
+            },
+            "1": {
+                "name": "Reset color",
+                "description": ""
+            }
+        }
+    }
+}

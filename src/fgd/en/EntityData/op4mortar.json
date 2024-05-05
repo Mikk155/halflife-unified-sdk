@@ -1,0 +1,74 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "base": [
+            "Mandatory",
+            "Appearflags"
+        ],
+        "classname": "op4mortar",
+        "name": "Op4 Mortar",
+        "description": ""
+    },
+    "spawnflags": {
+        "32": {
+            "name": "Can Control",
+            "description": ""
+        }
+    },
+    "mortar_velocity": {
+        "type": "integer",
+        "name": "Velocity",
+        "description": "",
+        "value": "800"
+    },
+    "h_min": {
+        "type": "integer",
+        "name": "Horiz MIN",
+        "description": "",
+        "value": "-90"
+    },
+    "h_max": {
+        "type": "integer",
+        "name": "Horiz MAX",
+        "description": "",
+        "value": "90"
+    },
+    "mindist": {
+        "type": "integer",
+        "name": "Min Target Dist",
+        "description": "",
+        "value": "256"
+    },
+    "maxdist": {
+        "type": "integer",
+        "name": "Max Target Dist",
+        "description": "",
+        "value": "2048"
+    },
+    "enemytype": {
+        "type": "choices",
+        "name": "Enemy Type",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "Player",
+                "description": ""
+            },
+            "1": {
+                "name": "Ally",
+                "description": ""
+            },
+            "2": {
+                "name": "Random",
+                "description": ""
+            }
+        }
+    },
+    "firedelay": {
+        "type": "integer",
+        "name": "Fire Rate",
+        "description": "",
+        "value": "5"
+    }
+}

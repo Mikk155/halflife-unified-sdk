@@ -1,0 +1,55 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "Appearflags"
+        ],
+        "classname": "trigger_changelevel",
+        "name": "Trigger: Change level",
+        "description": ""
+    },
+    "changedelay": {
+        "type": "string",
+        "name": "Delay before change target",
+        "description": "",
+        "value": "0"
+    },
+    "use_persistent_level_change": {
+        "type": "choices",
+        "name": "Use Persistent Level Change",
+        "description": "",
+        "value": "1",
+        "choices": {
+            "0": {
+                "name": "No",
+                "description": ""
+            },
+            "1": {
+                "name": "Yes",
+                "description": ""
+            }
+        }
+    },
+    "use_persistent_inventory": {
+        "type": "choices",
+        "name": "Use Persistent Inventory (Co-op only)",
+        "description": "",
+        "value": "1",
+        "choices": {
+            "0": {
+                "name": "No",
+                "description": ""
+            },
+            "1": {
+                "name": "Yes",
+                "description": ""
+            }
+        }
+    },
+    "spawnflags": {
+        "2": {
+            "name": "USE Only",
+            "description": ""
+        }
+    }
+}

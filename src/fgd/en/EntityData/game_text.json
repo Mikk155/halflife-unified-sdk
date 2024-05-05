@@ -1,0 +1,112 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "base": [
+            "Mandatory",
+            "Target",
+            "Master",
+            "Appearflags"
+        ],
+        "classname": "game_text",
+        "name": "HUD Text Message",
+        "description": ""
+    },
+    "spawnflags": {
+        "1": {
+            "name": "All Players",
+            "description": ""
+        }
+    },
+    "x": {
+        "type": "string",
+        "name": "X (0 - 1.0 = left to right) (-1 centers)",
+        "description": "",
+        "value": "-1"
+    },
+    "y": {
+        "type": "string",
+        "name": "Y (0 - 1.0 = top to bottom) (-1 centers)",
+        "description": "",
+        "value": "-1"
+    },
+    "effect": {
+        "type": "choices",
+        "name": "Text Effect",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "Fade In/Out",
+                "description": ""
+            },
+            "1": {
+                "name": "Credits",
+                "description": ""
+            },
+            "2": {
+                "name": "Scan Out",
+                "description": ""
+            }
+        }
+    },
+    "color": {
+        "type": "color255",
+        "name": "Color1",
+        "description": "",
+        "value": "100 100 100"
+    },
+    "color2": {
+        "type": "color255",
+        "name": "Color2",
+        "description": "",
+        "value": "240 110 0"
+    },
+    "fadein": {
+        "type": "string",
+        "name": "Fade in Time (or character scan time)",
+        "description": "",
+        "value": "1.5"
+    },
+    "fadeout": {
+        "type": "string",
+        "name": "Fade Out Time",
+        "description": "",
+        "value": "0.5"
+    },
+    "holdtime": {
+        "type": "string",
+        "name": "Hold Time",
+        "description": "",
+        "value": "1.2"
+    },
+    "fxtime": {
+        "type": "string",
+        "name": "Scan time (scan effect only)",
+        "description": "",
+        "value": "0.25"
+    },
+    "channel": {
+        "type": "choices",
+        "name": "Text Channel",
+        "description": "",
+        "value": "1",
+        "choices": {
+            "1": {
+                "name": "Channel 1",
+                "description": ""
+            },
+            "2": {
+                "name": "Channel 2",
+                "description": ""
+            },
+            "3": {
+                "name": "Channel 3",
+                "description": ""
+            },
+            "4": {
+                "name": "Channel 4",
+                "description": ""
+            }
+        }
+    }
+}

@@ -1,0 +1,65 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-24",
+                "-24",
+                "0"
+            ],
+            [
+                "24",
+                "24",
+                "16"
+            ]
+        ],
+        "color": [
+            "20",
+            "190",
+            "60"
+        ],
+        "base": [
+            "Mandatory",
+            "Appearflags"
+        ],
+        "classname": "info_bigmomma",
+        "name": "Big Mamma Node",
+        "description": ""
+    },
+    "spawnflags": {
+        "2": {
+            "name": "Wait Indefinitely",
+            "description": ""
+        }
+    },
+    "radius": {
+        "type": "string",
+        "name": "Radius",
+        "description": "",
+        "value": "0"
+    },
+    "reachdelay": {
+        "type": "string",
+        "name": "Wait after approach",
+        "description": "",
+        "value": "0"
+    },
+    "reachsequence": {
+        "type": "string",
+        "name": "Sequence on approach",
+        "description": "",
+        "value": ""
+    },
+    "health": {
+        "type": "string",
+        "name": "Health on approach",
+        "description": "",
+        "value": ""
+    },
+    "presequence": {
+        "type": "string",
+        "name": "Sequence before approach",
+        "description": "",
+        "value": ""
+    }
+}

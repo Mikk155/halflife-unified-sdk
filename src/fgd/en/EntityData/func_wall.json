@@ -1,0 +1,15 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "Global",
+            "Appearflags",
+            "RenderFields",
+            "ZHLT",
+            "Appearflags"
+        ],
+        "classname": "func_wall",
+        "name": "Wall",
+        "description": ""
+    }
+}

@@ -1,0 +1,54 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-32",
+                "-32",
+                "-32"
+            ],
+            [
+                "32",
+                "32",
+                "32"
+            ]
+        ],
+        "color": [
+            "0",
+            "255",
+            "0"
+        ],
+        "base": [
+            "Mandatory",
+            "Target",
+            "Appearflags"
+        ],
+        "classname": "env_warpball",
+        "name": "Warp In Ball",
+        "description": ""
+    },
+    "spawnflags": {
+        "2": {
+            "name": "Kill Center",
+            "description": ""
+        }
+    },
+    "radius": {
+        "type": "string",
+        "name": "Beam Radius",
+        "description": "",
+        "value": "256"
+    },
+    "warp_target": {
+        "type": "string",
+        "name": "Warp Target",
+        "description": "",
+        "value": ""
+    },
+    "damage_delay": {
+        "type": "string",
+        "name": "Damage delay",
+        "description": "",
+        "value": "0"
+    }
+}

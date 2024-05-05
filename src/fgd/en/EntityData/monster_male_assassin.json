@@ -1,0 +1,79 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "studio": "models/massn.mdl",
+        "base": [
+            "Mandatory",
+            "Monster",
+            "Sequence",
+            "Appearflags"
+        ],
+        "classname": "monster_male_assassin",
+        "name": "Male Assassin",
+        "description": ""
+    },
+    "spawnflags": {
+        "32": {
+            "name": "SquadLeader",
+            "description": ""
+        }
+    },
+    "head": {
+        "type": "choices",
+        "name": "Heads",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "-1": {
+                "name": "Random",
+                "description": ""
+            },
+            "0": {
+                "name": "Ski Mask White",
+                "description": ""
+            },
+            "1": {
+                "name": "Ski Mask Black",
+                "description": ""
+            },
+            "2": {
+                "name": "Night Goggles",
+                "description": ""
+            }
+        }
+    },
+    "weapons": {
+        "type": "choices",
+        "name": "Weapons",
+        "description": "",
+        "value": "3",
+        "choices": {
+            "0": {
+                "name": "None",
+                "description": ""
+            },
+            "1": {
+                "name": "9mmAR",
+                "description": ""
+            },
+            "3": {
+                "name": "9mmAR + HG",
+                "description": ""
+            },
+            "5": {
+                "name": "9mmAR + GL",
+                "description": ""
+            },
+            "8": {
+                "name": "Sniper Rifle",
+                "description": ""
+            }
+        }
+    },
+    "standgroundrange": {
+        "type": "string",
+        "name": "Stand Ground Range",
+        "description": "",
+        "value": "0.0"
+    }
+}

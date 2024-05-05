@@ -1,0 +1,65 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "studio": "models/hgrunt_medic.mdl",
+        "base": [
+            "Mandatory",
+            "Monster",
+            "Sequence",
+            "Appearflags"
+        ],
+        "classname": "monster_human_medic_ally",
+        "name": "Medic",
+        "description": ""
+    },
+    "spawnflags": {
+        "32": {
+            "name": "SquadLeader",
+            "description": ""
+        }
+    },
+    "head": {
+        "type": "choices",
+        "name": "Heads",
+        "description": "",
+        "value": "-1",
+        "choices": {
+            "-1": {
+                "name": "Random",
+                "description": ""
+            },
+            "0": {
+                "name": "White",
+                "description": ""
+            },
+            "1": {
+                "name": "Black",
+                "description": ""
+            }
+        }
+    },
+    "weapons": {
+        "type": "choices",
+        "name": "Weapons",
+        "description": "",
+        "value": "2",
+        "choices": {
+            "0": {
+                "name": "None",
+                "description": ""
+            },
+            "1": {
+                "name": "Desert Eagle",
+                "description": ""
+            },
+            "2": {
+                "name": "9mm Handgun",
+                "description": ""
+            },
+            "4": {
+                "name": "Hypodermic Needle",
+                "description": ""
+            }
+        }
+    }
+}

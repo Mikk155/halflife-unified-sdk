@@ -1,0 +1,35 @@
+{
+    "ClassData":
+    {
+        "type": "Point",
+        "color": [ 255, 0, 255 ],
+        "size": [ [ -16, -16, 0 ], [ 16, 16, 72 ] ],
+        "flags": [ "Angle" ],
+        "classname": "aiscripted_sequence",
+        "name": "AI Scripted Sequence",
+        "description": "",
+        "BaseClass":
+        [
+            "Mandatory",
+            "Targetx",
+            "Angles",
+            "BaseScriptedSequence",
+            "Appearflags"
+        ]
+    },
+    "m_iFinishSchedule":
+    {
+        "type": "choices",
+        "name": "AI Schedule when done",
+        "description": "",
+        "choices":{
+            "0": { "name": "Default AI",
+                "description": ""
+            },
+            "1": { "name": "Ambush",
+                "description": ""
+            }
+        },
+        "value": "0"
+    }
+}

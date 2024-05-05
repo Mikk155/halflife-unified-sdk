@@ -1,0 +1,41 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "RenderFields",
+            "Target",
+            "Angles",
+            "ZHLT",
+            "Master",
+            "ReplacementFiles",
+            "Appearflags"
+        ],
+        "classname": "momentary_rot_button",
+        "name": "Direct wheel control",
+        "description": ""
+    },
+    "speed": {
+        "type": "integer",
+        "name": "Speed",
+        "description": "",
+        "value": "50"
+    },
+    "distance": {
+        "type": "integer",
+        "name": "Distance (deg)",
+        "description": "",
+        "value": "90"
+    },
+    "returnspeed": {
+        "type": "integer",
+        "name": "Auto-return speed",
+        "description": "",
+        "value": "0"
+    },
+    "spawnflags": {
+        "128": {
+            "name": "Y Axis",
+            "description": ""
+        }
+    }
+}

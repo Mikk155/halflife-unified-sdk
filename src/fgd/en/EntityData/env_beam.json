@@ -1,0 +1,110 @@
+{
+    "ClassData":
+    {
+        "type": "Point",
+        "size": [ [ -16, -16, -16 ], [ 16, 16, 16 ] ],
+        "classname": "env_beam",
+        "name": "Energy Beam Effect",
+        "description": "",
+        "BaseClass":
+        [
+            "Mandatory",
+            "BeamStartEnd",
+            "Renderamt",
+            "Rendercolor",
+            "RenderFxChoices",
+            "Appearflags"
+        ]
+    },
+    "Radius":
+    {
+        "type": "integer",
+        "name": "Radius",
+        "description": "",
+        "value": "256"
+    },
+    "life":
+    {
+        "type": "float",
+        "name": "Life (seconds 0 = infinite)",
+        "description": "",
+        "value": "1"
+    },
+    "BoltWidth": {
+        "type": "integer",
+        "name": "Width of beam (pixels*0.1 0-255)",
+        "description": "",
+        "value": "0"
+    },
+    "NoiseAmplitude": {
+        "type": "integer",
+        "name": "Amount of noise (0-255)",
+        "description": "",
+        "value": "0"
+    },
+    "texture": {
+        "type": "sprite",
+        "name": "Sprite Name",
+        "description": "",
+        "value": "sprites/laserbeam.spr"
+    },
+    "TextureScroll": {
+        "type": "integer",
+        "name": "Texture Scroll Rate (0-100)",
+        "description": "",
+        "value": "35"
+    },
+    "framerate": {
+        "type": "integer",
+        "name": "Frames per 10 seconds",
+        "description": "",
+        "value": "0"
+    },
+    "framestart": {
+        "type": "integer",
+        "name": "Starting Frame",
+        "description": "",
+        "value": "0"
+    },
+    "StrikeTime": {
+        "type": "float",
+        "name": "Strike again time (secs)",
+        "description": "",
+        "value": "1.0"
+    },
+    "damage": {
+        "type": "float",
+        "name": "Damage / second",
+        "description": "",
+        "value": "0"
+    },
+    "spawnflags": {
+        "1":{ "name": "Start On",
+            "description": ""
+        },
+        "2":{ "name": "Toggle",
+            "description": ""
+        },
+        "4":{ "name": "Random Strike",
+            "description": ""
+        },
+        "8":{ "name": "Ring",
+            "description": ""
+        },
+        "16":{ "name": "StartSparks",
+            "description": ""
+        },
+        "32":{ "name": "EndSparks",
+            "description": ""
+        },
+        "64":{ "name": "Decal End",
+            "description": ""
+        },
+        "128":{ "name": "Shade Start",
+            "description": ""
+        },
+        "256":{ "name": "Shade End",
+            "description": ""
+        }
+    }
+}

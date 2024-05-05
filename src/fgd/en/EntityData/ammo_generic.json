@@ -1,0 +1,25 @@
+{
+    "ClassData":
+    {
+        "type": "Point",
+        "studio": true,
+        "classname": "ammo_generic",
+        "name": "Generic Ammo Item",
+        "description": "",
+        "BaseClass":
+        [
+            "Mandatory",
+            "Targetx",
+            "RenderFields",
+            "Ammo",
+            "Appearflags"
+        ]
+    },
+    "ammo_name":
+    {
+        "type": "string",
+        "name": "Ammo Name (Required)",
+        "description": "",
+        "value": ""
+    }
+}

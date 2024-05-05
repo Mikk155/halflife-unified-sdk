@@ -1,0 +1,32 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "base": [
+            "Mandatory",
+            "Targetx",
+            "Master",
+            "Appearflags"
+        ],
+        "classname": "game_counter",
+        "name": "Fires when it hits limit",
+        "description": ""
+    },
+    "spawnflags": {
+        "2": {
+            "name": "Reset On fire",
+            "description": ""
+        }
+    },
+    "frags": {
+        "type": "integer",
+        "name": "Initial Value",
+        "description": "",
+        "value": "0"
+    },
+    "health": {
+        "type": "integer",
+        "name": "Limit Value",
+        "description": "",
+        "value": "10"
+    }
+}

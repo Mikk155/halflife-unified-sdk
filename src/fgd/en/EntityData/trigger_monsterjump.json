@@ -1,0 +1,25 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "Angles",
+            "Master",
+            "Appearflags"
+        ],
+        "classname": "trigger_monsterjump",
+        "name": "Trigger monster jump",
+        "description": ""
+    },
+    "speed": {
+        "type": "integer",
+        "name": "Jump Speed",
+        "description": "",
+        "value": "40"
+    },
+    "height": {
+        "type": "integer",
+        "name": "Jump Height",
+        "description": "",
+        "value": "128"
+    }
+}

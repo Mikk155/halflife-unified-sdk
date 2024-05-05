@@ -1,0 +1,33 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-16",
+                "-16",
+                "0"
+            ],
+            [
+                "16",
+                "16",
+                "72"
+            ]
+        ],
+        "studio": "models/sentry.mdl",
+        "base": [
+            "Mandatory",
+            "Monster",
+            "Sequence",
+            "Appearflags"
+        ],
+        "classname": "monster_sentry",
+        "name": "Sentry Turret Gun",
+        "description": ""
+    },
+    "spawnflags": {
+        "64": {
+            "name": "Start Inactive",
+            "description": ""
+        }
+    }
+}

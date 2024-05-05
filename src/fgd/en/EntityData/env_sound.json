@@ -1,0 +1,143 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "sprite": "sprites/speaker.spr",
+        "base": [
+            "Mandatory",
+            "Appearflags"
+        ],
+        "classname": "env_sound",
+        "name": "DSP Sound",
+        "description": ""
+    },
+    "radius": {
+        "type": "integer",
+        "name": "Radius",
+        "description": "",
+        "value": "128"
+    },
+    "roomtype": {
+        "type": "choices",
+        "name": "Room Type",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "Normal (off)",
+                "description": ""
+            },
+            "1": {
+                "name": "Generic",
+                "description": ""
+            },
+            "2": {
+                "name": "Metal Small",
+                "description": ""
+            },
+            "3": {
+                "name": "Metal Medium",
+                "description": ""
+            },
+            "4": {
+                "name": "Metal Large",
+                "description": ""
+            },
+            "5": {
+                "name": "Tunnel Small",
+                "description": ""
+            },
+            "6": {
+                "name": "Tunnel Medium",
+                "description": ""
+            },
+            "7": {
+                "name": "Tunnel Large",
+                "description": ""
+            },
+            "8": {
+                "name": "Chamber Small",
+                "description": ""
+            },
+            "9": {
+                "name": "Chamber Medium",
+                "description": ""
+            },
+            "10": {
+                "name": "Chamber Large",
+                "description": ""
+            },
+            "11": {
+                "name": "Bright Small",
+                "description": ""
+            },
+            "12": {
+                "name": "Bright Medium",
+                "description": ""
+            },
+            "13": {
+                "name": "Bright Large",
+                "description": ""
+            },
+            "14": {
+                "name": "Water 1",
+                "description": ""
+            },
+            "15": {
+                "name": "Water 2",
+                "description": ""
+            },
+            "16": {
+                "name": "Water 3",
+                "description": ""
+            },
+            "17": {
+                "name": "Concrete Small",
+                "description": ""
+            },
+            "18": {
+                "name": "Concrete Medium",
+                "description": ""
+            },
+            "19": {
+                "name": "Concrete Large",
+                "description": ""
+            },
+            "20": {
+                "name": "Big 1",
+                "description": ""
+            },
+            "21": {
+                "name": "Big 2",
+                "description": ""
+            },
+            "22": {
+                "name": "Big 3",
+                "description": ""
+            },
+            "23": {
+                "name": "Cavern Small",
+                "description": ""
+            },
+            "24": {
+                "name": "Cavern Medium",
+                "description": ""
+            },
+            "25": {
+                "name": "Cavern Large",
+                "description": ""
+            },
+            "26": {
+                "name": "Weirdo 1",
+                "description": ""
+            },
+            "27": {
+                "name": "Weirdo 2",
+                "description": ""
+            },
+            "28": {
+                "name": "Weirdo 3",
+                "description": ""
+            }
+        }
+    }
+}

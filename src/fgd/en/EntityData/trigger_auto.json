@@ -1,0 +1,40 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "sprite": "sprites/trigger_auto.spr",
+        "base": [
+            "Mandatory",
+            "Targetx",
+            "Appearflags"
+        ],
+        "classname": "trigger_auto",
+        "name": "AutoTrigger",
+        "description": ""
+    },
+    "spawnflags": {
+        "1": {
+            "name": "Remove On fire",
+            "description": ""
+        }
+    },
+    "triggerstate": {
+        "type": "choices",
+        "name": "Trigger State",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "Off",
+                "description": ""
+            },
+            "1": {
+                "name": "On",
+                "description": ""
+            },
+            "2": {
+                "name": "Toggle",
+                "description": ""
+            }
+        }
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-8",
+                "-8",
+                "-8"
+            ],
+            [
+                "8",
+                "8",
+                "8"
+            ]
+        ],
+        "color": [
+            "255",
+            "255",
+            "0"
+        ],
+        "base": [
+            "Mandatory",
+            "Appearflags"
+        ],
+        "classname": "logic_campaignselect",
+        "name": "Shows the campaign select menu on trigger (hlu_campaignselect map only)",
+        "description": ""
+    }
+}

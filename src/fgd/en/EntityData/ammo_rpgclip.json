@@ -1,0 +1,45 @@
+{
+    "ClassData":
+    {
+        "type": "Point",
+        "studio": true,
+        "classname": "ammo_rpgclip",
+        "name": "RPG Ammo",
+        "description": "",
+        "BaseClass":
+        [
+            "Mandatory",
+            "Targetx",
+            "RenderFields",
+            "Ammo",
+            "Appearflags"
+        ]
+    },
+    "model":
+    {
+        "type": "studio",
+        "name": "Custom Model",
+        "description": "",
+        "value": "models/w_rpgammo.mdl"
+    },
+    "sequence":
+    {
+        "type": "choices",
+        "name": "Placement",
+        "choices":
+        {
+            "0":
+            {
+                "name": "Normal (flat)",
+                "description": ""
+            },
+            "1":
+            {
+                "name": "Capped",
+                "description": ""
+            }
+        },
+        "description": "",
+        "value": ""
+    }
+}

@@ -1,0 +1,56 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-8",
+                "-8",
+                "-8"
+            ],
+            [
+                "8",
+                "8",
+                "8"
+            ]
+        ],
+        "base": [
+            "Mandatory",
+            "Appearflags"
+        ],
+        "classname": "player_setsuitlighttype",
+        "name": "Set player's suit light type",
+        "description": ""
+    },
+    "all_players": {
+        "type": "choices",
+        "name": "Affect All Players",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "No",
+                "description": ""
+            },
+            "1": {
+                "name": "Yes",
+                "description": ""
+            }
+        }
+    },
+    "light_type": {
+        "type": "choices",
+        "name": "Light Type",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "Flashlight",
+                "description": ""
+            },
+            "1": {
+                "name": "Night Vision",
+                "description": ""
+            }
+        }
+    }
+}

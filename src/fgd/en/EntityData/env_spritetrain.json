@@ -1,0 +1,42 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-16",
+                "-16",
+                "-16"
+            ],
+            [
+                "16",
+                "16",
+                "16"
+            ]
+        ],
+        "color": [
+            "0",
+            "128",
+            "255"
+        ],
+        "base": [
+            "Mandatory",
+            "PlatSounds",
+            "Appearflags"
+        ],
+        "classname": "env_spritetrain",
+        "name": "Sprite Train",
+        "description": ""
+    },
+    "model": {
+        "type": "sprite",
+        "name": "Sprite Name",
+        "description": "",
+        "value": "sprites/glow01.spr"
+    },
+    "speed": {
+        "type": "integer",
+        "name": "Speed (units per second)",
+        "description": "",
+        "value": "64"
+    }
+}

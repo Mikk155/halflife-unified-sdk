@@ -1,0 +1,115 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "studio": "models/hgrunt_opfor.mdl",
+        "base": [
+            "Mandatory",
+            "RenderFields",
+            "Sequence",
+            "Appearflags"
+        ],
+        "classname": "monster_human_grunt_ally_dead",
+        "name": "Dead Human Grunt Ally",
+        "description": ""
+    },
+    "pose": {
+        "type": "choices",
+        "name": "Pose",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "On stomach",
+                "description": ""
+            },
+            "1": {
+                "name": "On side",
+                "description": ""
+            },
+            "2": {
+                "name": "Seated",
+                "description": ""
+            },
+            "3": {
+                "name": "Dead On Back",
+                "description": ""
+            },
+            "4": {
+                "name": "Dead On Stomach",
+                "description": ""
+            },
+            "5": {
+                "name": "Head Crabbed",
+                "description": ""
+            },
+            "6": {
+                "name": "Dead Canyon",
+                "description": ""
+            }
+        }
+    },
+    "weapons": {
+        "type": "choices",
+        "name": "Weapons",
+        "description": "",
+        "value": "1",
+        "choices": {
+            "0": {
+                "name": "None",
+                "description": ""
+            },
+            "1": {
+                "name": "9mmAR",
+                "description": ""
+            },
+            "8": {
+                "name": "Shotgun",
+                "description": ""
+            },
+            "16": {
+                "name": "Saw",
+                "description": ""
+            }
+        }
+    },
+    "head": {
+        "type": "choices",
+        "name": "Heads",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "Gas Mask",
+                "description": ""
+            },
+            "1": {
+                "name": "Beret",
+                "description": ""
+            },
+            "2": {
+                "name": "Ops Mask",
+                "description": ""
+            },
+            "3": {
+                "name": "Bandana White",
+                "description": ""
+            },
+            "4": {
+                "name": "Bandana Black",
+                "description": ""
+            },
+            "5": {
+                "name": "MP",
+                "description": ""
+            },
+            "6": {
+                "name": "Major",
+                "description": ""
+            },
+            "7": {
+                "name": "Beret (Black)",
+                "description": ""
+            }
+        }
+    }
+}

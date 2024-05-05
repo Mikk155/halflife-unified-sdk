@@ -1,0 +1,68 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-16",
+                "-16",
+                "0"
+            ],
+            [
+                "16",
+                "16",
+                "72"
+            ]
+        ],
+        "studio": "models/barney.mdl",
+        "base": [
+            "Mandatory",
+            "RenderFields",
+            "Angles",
+            "Sequence",
+            "Appearflags"
+        ],
+        "classname": "monster_barney_dead",
+        "name": "Dead Barney",
+        "description": ""
+    },
+    "bodystate": {
+        "type": "choices",
+        "name": "bodystate",
+        "description": "",
+        "value": "1",
+        "choices": {
+            "0": {
+                "name": "Blank",
+                "description": ""
+            },
+            "1": {
+                "name": "Gun Holstered",
+                "description": ""
+            },
+            "2": {
+                "name": "Gun Drawn",
+                "description": ""
+            }
+        }
+    },
+    "pose": {
+        "type": "choices",
+        "name": "Pose",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "On back",
+                "description": ""
+            },
+            "1": {
+                "name": "On side",
+                "description": ""
+            },
+            "2": {
+                "name": "On stomach",
+                "description": ""
+            }
+        }
+    }
+}

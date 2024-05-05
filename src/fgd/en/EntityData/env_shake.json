@@ -1,0 +1,42 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "base": [
+            "Mandatory",
+            "Appearflags"
+        ],
+        "classname": "env_shake",
+        "name": "Screen Shake",
+        "description": ""
+    },
+    "spawnflags": {
+        "1": {
+            "name": "GlobalShake",
+            "description": ""
+        }
+    },
+    "amplitude": {
+        "type": "string",
+        "name": "Amplitude 0-16",
+        "description": "",
+        "value": "4"
+    },
+    "radius": {
+        "type": "string",
+        "name": "Effect radius",
+        "description": "",
+        "value": "500"
+    },
+    "duration": {
+        "type": "string",
+        "name": "Duration (seconds)",
+        "description": "",
+        "value": "1"
+    },
+    "frequency": {
+        "type": "string",
+        "name": "0.1 = jerk, 255.0 = rumble",
+        "description": "",
+        "value": "2.5"
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "RenderFields",
+            "ZHLT",
+            "Appearflags"
+        ],
+        "classname": "func_illusionary",
+        "name": "Fake Wall/Light",
+        "description": ""
+    },
+    "skin": {
+        "type": "choices",
+        "name": "Contents",
+        "description": "",
+        "value": "-1",
+        "choices": {
+            "-1": {
+                "name": "Empty",
+                "description": ""
+            },
+            "-7": {
+                "name": "Volumetric Light",
+                "description": ""
+            }
+        }
+    }
+}

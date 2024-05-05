@@ -1,0 +1,40 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "Global",
+            "RenderFields",
+            "PlatSounds",
+            "Angles",
+            "ZHLT",
+            "Appearflags"
+        ],
+        "classname": "func_platrot",
+        "name": "Moving Rotating platform",
+        "description": ""
+    },
+    "spawnflags": {
+        "128": {
+            "name": "Y Axis",
+            "description": ""
+        }
+    },
+    "speed": {
+        "type": "integer",
+        "name": "Speed of rotation",
+        "description": "",
+        "value": "50"
+    },
+    "height": {
+        "type": "integer",
+        "name": "Travel altitude (can be negative)",
+        "description": "",
+        "value": "0"
+    },
+    "rotation": {
+        "type": "integer",
+        "name": "Spin amount",
+        "description": "",
+        "value": "0"
+    }
+}

@@ -1,0 +1,44 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-16",
+                "-16",
+                "0"
+            ],
+            [
+                "16",
+                "16",
+                "36"
+            ]
+        ],
+        "base": [
+            "Mandatory",
+            "Appearflags"
+        ],
+        "classname": "info_ctfspawn_powerup",
+        "name": "CTF Powerup Spawn Spot",
+        "description": ""
+    },
+    "team_no": {
+        "type": "choices",
+        "name": "Team",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "Random",
+                "description": ""
+            },
+            "1": {
+                "name": "Black Mesa",
+                "description": ""
+            },
+            "2": {
+                "name": "Opposing Force",
+                "description": ""
+            }
+        }
+    }
+}

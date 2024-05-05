@@ -1,0 +1,30 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-8",
+                "-8",
+                "-8"
+            ],
+            [
+                "8",
+                "8",
+                "8"
+            ]
+        ],
+        "color": [
+            "255",
+            "0",
+            "255"
+        ],
+        "base": [
+            "Mandatory",
+            "Target",
+            "Appearflags"
+        ],
+        "classname": "trigger_changekeyvalue",
+        "name": "Trigger Change Key Value",
+        "description": ""
+    }
+}
