@@ -352,7 +352,7 @@ float SkillSystem::GetValue(std::string_view name, float defaultValue) const
 		return it->CurrentValue;
 	}
 
-	m_Logger->debug("Undefined variable {}{}", name, m_SkillLevel);
+	m_Logger->debug("Undefined variable {}{}, using default value {}", name, m_SkillLevel, defaultValue);
 
 	return defaultValue;
 }

@@ -439,7 +439,7 @@ public:
 	void OnCreate() override;
 	void Spawn() override;
 	void SetYawSpeed() override;
-	float GetDamageAmount() override { return GetSkillFloat("headcrab_dmg_bite"sv) * 0.3; }
+	float GetDamageAmount() override { return GetSkillFloat("babycrab_dmg_bite"sv, GetSkillFloat("headcrab_dmg_bite"sv, 10) * 0.3); }
 	bool CheckRangeAttack1(float flDot, float flDist) override;
 	const Schedule_t* GetScheduleOfType(int Type) override;
 	int GetVoicePitch() override { return PITCH_NORM + RANDOM_LONG(40, 50); }
@@ -452,7 +452,7 @@ void CBabyCrab::OnCreate()
 {
 	CHeadCrab::OnCreate();
 
-	pev->health = GetSkillFloat("headcrab_health"sv) * 0.25; // less health than full grown
+	pev->health = GetSkillFloat("babycrab_health"sv, GetSkillFloat("headcrab_dmg_bite"sv, 10) * 0.25 ); // less health than full grown
 	pev->model = MAKE_STRING("models/baby_headcrab.mdl");
 }
 

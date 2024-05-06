@@ -652,10 +652,10 @@ void CHGrunt::HandleAnimEvent(MonsterEvent_t* pEvent)
 		EmitSound(CHAN_WEAPON, "weapons/glauncher.wav", 0.8, ATTN_NORM);
 		CGrenade::ShootContact(this, GetGunPosition(), m_vecTossVelocity);
 		m_fThrowGrenade = false;
-		if (g_Skill.GetSkillLevel() == SkillLevel::Hard)
-			m_flNextGrenadeCheck = gpGlobals->time + RANDOM_FLOAT(2, 5); // wait a random amount of time before shooting again
+		if (g_Skill.GetSkillLevel() != SkillLevel::Easy)
+			m_flNextGrenadeCheck = gpGlobals->time + RANDOM_FLOAT( 2, GetSkillFloat( "hgrunt_next_glauncher"sv, 5 ) ); // wait a random amount of time before shooting again
 		else
-			m_flNextGrenadeCheck = gpGlobals->time + 6; // wait six seconds before even looking again to see if a grenade can be thrown.
+			m_flNextGrenadeCheck = gpGlobals->time + GetSkillFloat( "hgrunt_next_glauncher"sv, 6 ); // wait six seconds before even looking again to see if a grenade can be thrown.
 	}
 	break;
 
@@ -1859,7 +1859,7 @@ const Schedule_t* CHGrunt::GetScheduleOfType(int Type)
 	{
 		if (InSquad())
 		{
-			if (g_Skill.GetSkillLevel() == SkillLevel::Hard && HasConditions(bits_COND_CAN_RANGE_ATTACK2) && OccupySlot(bits_SLOTS_HGRUNT_GRENADE))
+			if (g_Skill.GetSkillLevel() != SkillLevel::Easy && HasConditions(bits_COND_CAN_RANGE_ATTACK2) && OccupySlot(bits_SLOTS_HGRUNT_GRENADE))
 			{
 				if (FOkToSpeak())
 				{
@@ -2050,6 +2050,8 @@ void CHGruntRepel::CreateMonster(const char* classname)
 	pBeam->SetColor(255, 255, 255);
 	pBeam->SetThink(&CBeam::SUB_Remove);
 	pBeam->pev->nextthink = gpGlobals->time + -4096.0 * tr.flFraction / pGrunt->pev->velocity.z + 0.5;
+
+	FireTargets( STRING( pev->target ), pGrunt, this, USE_TOGGLE, 0 );
 
 	UTIL_Remove(this);
 }

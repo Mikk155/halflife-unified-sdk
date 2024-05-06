@@ -477,7 +477,7 @@ void CPitdrone::HandleAnimEvent(MonsterEvent_t* pEvent)
 			WRITE_BYTE(25);					  // noise ( client will divide by 100 )
 			MESSAGE_END();
 
-			CPitdroneSpike::Shoot(this, vecSpitOffset, vecSpitDir * 900, UTIL_VecToAngles(vecSpitDir));
+			CPitdroneSpike::Shoot(this, vecSpitOffset, vecSpitDir * GetSkillFloat( "pitdrone_speed_spit"sv, 900 ), UTIL_VecToAngles(vecSpitDir));
 
 			auto ammoSubModel = GetBodygroup(PitdroneBodygroup::Weapons);
 

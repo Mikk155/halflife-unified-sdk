@@ -16,10 +16,7 @@
 #include "cbase.h"
 
 #define TURRET_SHOTS 2
-#define TURRET_RANGE (100 * 12)
 #define TURRET_SPREAD Vector(0, 0, 0)
-#define TURRET_TURNRATE 30 //!< angles per 0.1 second
-#define TURRET_MAXWAIT 15  //!< seconds turret will stay active w/o a target
 #define TURRET_MAXSPIN 5   //!< seconds turret barrel will spin w/o a target
 #define TURRET_MACHINE_VOLUME 0.5
 
@@ -270,7 +267,7 @@ void CBaseTurret::Spawn()
 	SetBoneController(0, 0);
 	SetBoneController(1, 0);
 	m_flFieldOfView = VIEW_FIELD_FULL;
-	// m_flSightRange = TURRET_RANGE;
+	// m_flSightRange = GetSkillFloat( "turret_max_range"sv, 1200 );
 }
 
 void CBaseTurret::Precache()
@@ -375,15 +372,15 @@ void CBaseTurret::Initialize()
 	SetBoneController(1, 0);
 
 	if (m_iBaseTurnRate == 0)
-		m_iBaseTurnRate = TURRET_TURNRATE;
+		m_iBaseTurnRate = GetSkillFloat( "turret_turn_rate"sv, 30 );
 	// Make sure the turn rate is non-zero so a turret killed immediately after deploying
 	// will rotate its pitch to its ideal angle.
 	if (m_fTurnRate == 0)
 	{
-		m_fTurnRate = TURRET_TURNRATE;
+		m_fTurnRate = GetSkillFloat( "turret_turn_rate"sv, 30 );
 	}
 	if (m_flMaxWait == 0)
-		m_flMaxWait = TURRET_MAXWAIT;
+		m_flMaxWait = GetSkillFloat( "turret_active_time"sv, 15 );
 	m_flStartYaw = pev->angles.y;
 	if (m_iOrientation == 1)
 	{
@@ -525,7 +522,7 @@ void CBaseTurret::ActiveThink()
 	Vector vec = UTIL_VecToAngles(vecMidEnemy - vecMid);
 
 	// Current enmey is not visible.
-	if (!fEnemyVisible || (flDistToEnemy > TURRET_RANGE))
+	if (!fEnemyVisible || (flDistToEnemy > GetSkillFloat( "turret_max_range"sv, 1200 ) ))
 	{
 		if (0 == m_flLastSight)
 			m_flLastSight = gpGlobals->time + 0.5;
@@ -630,14 +627,14 @@ void CBaseTurret::ActiveThink()
 
 void CTurret::Shoot(Vector& vecSrc, Vector& vecDirToEnemy)
 {
-	FireBullets(1, vecSrc, vecDirToEnemy, TURRET_SPREAD, TURRET_RANGE, BULLET_MONSTER_12MM, 1);
+	FireBullets(1, vecSrc, vecDirToEnemy, TURRET_SPREAD, GetSkillFloat( "turret_max_range"sv, 1200 ), BULLET_MONSTER_12MM, 1);
 	EmitSound(CHAN_WEAPON, "turret/tu_fire1.wav", 1, 0.6);
 	pev->effects = pev->effects | EF_MUZZLEFLASH;
 }
 
 void CMiniTurret::Shoot(Vector& vecSrc, Vector& vecDirToEnemy)
 {
-	FireBullets(1, vecSrc, vecDirToEnemy, TURRET_SPREAD, TURRET_RANGE, BULLET_MONSTER_9MM, 1);
+	FireBullets(1, vecSrc, vecDirToEnemy, TURRET_SPREAD, GetSkillFloat( "turret_max_range"sv, 1200 ), BULLET_MONSTER_9MM, 1);
 
 	switch (RANDOM_LONG(0, 2))
 	{
@@ -856,7 +853,7 @@ void CBaseTurret::SearchThink()
 	// Acquire Target
 	if (m_hEnemy == nullptr)
 	{
-		Look(TURRET_RANGE);
+		Look(GetSkillFloat( "turret_max_range"sv, 1200 ));
 		m_hEnemy = BestVisibleEnemy();
 	}
 
@@ -911,7 +908,7 @@ void CBaseTurret::AutoSearchThink()
 
 	if (m_hEnemy == nullptr)
 	{
-		Look(TURRET_RANGE);
+		Look(GetSkillFloat( "turret_max_range"sv, 1200 ));
 		m_hEnemy = BestVisibleEnemy();
 	}
 
@@ -1009,7 +1006,7 @@ void CBaseTurret::TraceAttack(CBaseEntity* attacker, float flDamage, Vector vecD
 
 bool CBaseTurret::TakeDamage(CBaseEntity* inflictor, CBaseEntity* attacker, float flDamage, int bitsDamageType)
 {
-	if (0 == pev->takedamage)
+	if (0 == pev->takedamage || ( GetSkillFloat( "turret_takedamage_off"sv, 1 ) && !m_iOn ) )
 		return false;
 
 	if (!m_iOn)
@@ -1202,7 +1199,7 @@ void CSentry::Spawn()
 
 void CSentry::Shoot(Vector& vecSrc, Vector& vecDirToEnemy)
 {
-	FireBullets(1, vecSrc, vecDirToEnemy, TURRET_SPREAD, TURRET_RANGE, BULLET_MONSTER_MP5, 1);
+	FireBullets(1, vecSrc, vecDirToEnemy, TURRET_SPREAD, GetSkillFloat( "turret_max_range"sv, 1200 ), BULLET_MONSTER_MP5, 1);
 
 	switch (RANDOM_LONG(0, 2))
 	{
@@ -1221,7 +1218,7 @@ void CSentry::Shoot(Vector& vecSrc, Vector& vecDirToEnemy)
 
 bool CSentry::TakeDamage(CBaseEntity* inflictor, CBaseEntity* attacker, float flDamage, int bitsDamageType)
 {
-	if (0 == pev->takedamage)
+	if (0 == pev->takedamage || ( GetSkillFloat( "sentry_takedamage_off"sv, 1 ) && !m_iOn ) )
 		return false;
 
 	if (!m_iOn)

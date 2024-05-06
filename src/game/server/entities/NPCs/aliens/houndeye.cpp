@@ -21,7 +21,6 @@
 // squad member increases the BASE damage by 110%, per the spec.
 #define HOUNDEYE_MAX_SQUAD_SIZE 4
 #define HOUNDEYE_MAX_ATTACK_RADIUS 384
-#define HOUNDEYE_SQUAD_BONUS (float)1.1
 
 // Marphy Fact Files Fix - Fix various instances of Houndeye not correctly blinking/closing eyes
 #define HOUNDEYE_EYE_FRAMES 3 // how many different switchable maps for the eye
@@ -571,7 +570,7 @@ void CHoundeye::SonicAttack()
 				if (SquadCount() > 1)
 				{
 					// squad gets attack bonus.
-					flAdjustedDamage = GetSkillFloat("houndeye_dmg_blast"sv) + GetSkillFloat("houndeye_dmg_blast"sv) * (HOUNDEYE_SQUAD_BONUS * (SquadCount() - 1));
+					flAdjustedDamage = GetSkillFloat("houndeye_dmg_blast"sv) + GetSkillFloat("houndeye_dmg_blast"sv) * ( GetSkillFloat("houndeye_squad_bonus"sv, 1.1 ) * (SquadCount() - 1));
 				}
 				else
 				{

@@ -446,14 +446,14 @@ void CBarney::TraceAttack(CBaseEntity* attacker, float flDamage, Vector vecDir, 
 	case HITGROUP_STOMACH:
 		if ((bitsDamageType & (DMG_BULLET | DMG_SLASH | DMG_BLAST)) != 0)
 		{
-			flDamage = flDamage / 2;
+			flDamage = flDamage / GetSkillFloat( "barney_armor_chest"sv, 0.5 );
 		}
 		break;
 		// TODO: Otis doesn't have a helmet, probably don't want his dome being bulletproof
 	case 10:
 		if ((bitsDamageType & (DMG_BULLET | DMG_SLASH | DMG_CLUB)) != 0)
 		{
-			flDamage -= 20;
+			flDamage -= GetSkillFloat( "barney_armor_helmet"sv, 20 );
 			if (flDamage <= 0)
 			{
 				UTIL_Ricochet(ptr->vecEndPos, 1.0);

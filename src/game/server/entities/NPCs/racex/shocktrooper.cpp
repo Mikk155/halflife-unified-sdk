@@ -2168,6 +2168,8 @@ void CShockTrooperRepel::RepelUse(CBaseEntity* pActivator, CBaseEntity* pCaller,
 	pBeam->SetThink(&CBeam::SUB_Remove);
 	pBeam->pev->nextthink = gpGlobals->time + -4096.0 * tr.flFraction / pGrunt->pev->velocity.z + 0.5;
 
+	FireTargets( STRING( pev->target ), pGrunt, this, USE_TOGGLE, 0 );
+
 	UTIL_Remove(this);
 }
 
