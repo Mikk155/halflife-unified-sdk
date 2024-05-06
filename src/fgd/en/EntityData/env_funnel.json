@@ -9,8 +9,15 @@
         "BaseClass":
         [
             "Mandatory",
+            "SF2Repeatable",
             "Appearflags"
         ]
+    },
+    "model": {
+        "type": "sprite",
+        "name": "Sprite Name",
+        "description": "",
+        "value": "sprites/flare6.spr"
     },
     "spawnflags":
     {

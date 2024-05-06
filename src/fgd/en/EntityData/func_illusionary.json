@@ -2,6 +2,7 @@
     "ClassData": {
         "base": [
             "Mandatory",
+            "SF2UseAngles",
             "RenderFields",
             "ZHLT",
             "Appearflags"

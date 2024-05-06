@@ -15,6 +15,10 @@
         "1": {
             "name": "Remove On fire",
             "description": ""
+        },
+        "2": {
+            "name": "Wait for clients",
+            "description": ""
         }
     },
     "triggerstate": {

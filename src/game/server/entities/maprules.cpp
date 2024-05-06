@@ -170,6 +170,7 @@ void CGameEnd::Use(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useTy
 
 #define SF_ENVTEXT_ALLPLAYERS 0x0001
 #define SF_ENVTEXT_NOCONSOLE_ECHO ( 1 << 1 )
+#define SF_ENVTEXT_FIRE_FOR_PLAYERS ( 2 << 1 )
 
 enum CGameTextEffect : int
 {

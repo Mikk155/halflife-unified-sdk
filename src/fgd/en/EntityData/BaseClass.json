@@ -579,6 +579,22 @@
             }
         }
     },
+    "SF2UseAngles":
+    {
+        "spawnflags": {
+            "1": { "name": "Start Off",
+                "description": ""
+            }
+        }
+    },
+    "SF2Repeatable":
+    {
+        "spawnflags": {
+            "1": { "name": "Repeatable",
+                "description": ""
+            }
+        }
+    },
     "BaseCharger":
     {
         "ClassData":

@@ -596,17 +596,23 @@ void CHAssassin::RunAI()
 {
 	CBaseMonster::RunAI();
 
-	if (g_Skill.GetSkillLevel() != SkillLevel::Hard || m_hEnemy == nullptr || pev->deadflag != DEAD_NO || m_Activity == ACT_RUN || m_Activity == ACT_WALK || (pev->flags & FL_ONGROUND) == 0)
+	if ( GetSkillFloat( "hassassin_invisibility"sv, 1 ) == 0 || m_hEnemy == nullptr || pev->deadflag != DEAD_NO || m_Activity == ACT_RUN || m_Activity == ACT_WALK || (pev->flags & FL_ONGROUND) == 0)
 	{
 		m_iTargetRanderamt = 255;
-
-		if( GetSkillFloat( "hassassin_invisibility"sv, 1 ) == 2 )
-		{
-			m_iTargetRanderamt = RANDOM_LONG( 20, 255 );
-		}
+	}
+	else if( GetSkillFloat( "hassassin_invisibility"sv, 1 ) == 1 )
+	{
+		m_iTargetRanderamt = RANDOM_LONG( 20, 255 );
 	}
 	else
+	{
 		m_iTargetRanderamt = 20;
+
+		if( GetSkillFloat( "hassassin_invisibility"sv, 1 ) == 3 )
+		{
+			m_iTargetRanderamt = RANDOM_LONG( 50, 255 );
+		}
+	}
 
 	if (pev->renderamt > m_iTargetRanderamt)
 	{

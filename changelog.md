@@ -19,6 +19,95 @@ This file will be updated from above to bellow, meaning besides from this text, 
 
 <details><summary>05</summary><p>
 
+- Add bool CBaseEntity::IsMonster() function that will return true for classes that inherits from CBaseMonster that are not:
+    - monstermaker
+    - scripted_sentence
+    - env_explosion
+    - cycler
+    - op4mortar
+    - func_guntarget
+    - player
+    - nodes
+
+- trigger_endsection will now finish a multiplayer game as a game_end it was
+
+- CBaseTrigger now forces retouch for stationary monsters
+
+- Show chapter title for all players upon spawning, only apply to multiplayer
+
+- Remove game censure on German language
+
+- "Use Angles" for func_wall/wall_toggle/illusionary
+
+- Allow FL_GODMODE on monsters. it is written on TakeDamage so TraceAttack effects will still apply (throw blood, sparks etc)
+
+- Add a bunch of new skill variables:
+    - barnacle_health
+    - barnacle_speed
+        - controlls the speed at wich a barnacle can lift monsters
+    - player_health
+    - player_armor
+    - babycrab_dmg_bite
+    - babycrab_health
+    - houndeye_squad_bonus
+        - multiplier bonus for squad, originally at 1.1
+    - islave_speed_zap
+        - pev->framerate, 1.0 is normal speed
+    - barney_armor_chest
+        - divide the damage get on chest for this value, originaly 2
+    - barney_armor_helmet
+        - reduce the damage get on the helmet for this value, originaly 20
+    - hassassin_invisibility
+        - 0 = never invisible
+        - 1 = semi visible
+        - 2 = invisible when out of combat
+        - 3 = always semi visible between 50 and 255 amt
+    - apache_rockets
+        - 0 disable rockets
+    - hgrunt_next_glauncher
+        - on non-easy, this is the max time interval at wich the grunts will launch another grenade
+        - on easy this is a fixed interval
+    - turret_max_range
+    - turret_turn_rate
+    - turret_active_time
+    - turret_takedamage_off
+        - 1 = the turret won't get damage while it's inactive
+    - sentry_takedamage_off
+        - 1 = the sentry won't get damage while it's inactive
+    - pitdrone_speed_spit
+    - shocktrooper_spore_dmg
+    - op4mortar_damage
+    - plr_hornet_regen
+        - rate of regen for hornet gun
+        - -1 = never regen
+
+- now grunt and shoocktrooper repel will fire it's target after spawning the child, pActivator will be the child spawned
+
+- monster_barnacle won't die by a single hit of a crowbar
+
+- game_text will now print the messages on the console
+    - added spawnflag "No echo console" for preventing this
+
+- trigger_auto now has a spawnflag "Wait for clients" that will prevent the entity from triggering it's target until at least one player is connected
+
+- trigger_relay now has a spawnflag for "Keep activator" forwarding it's activator instead of overriding with the trigger_relay entity
+
+- env_render now supports !activator and !caller for target
+
+- defined ``SND_PRIVATE`` on ServerSoundSystem for sending the audio to only one target. meant for HEV sentences in a future
+
+- added two experimental entities player_command and player_percent, these may change in the future.
+
+- game_text now can print all the supported message types
+
+- game_text new spawnflag "Fire Per Player" that will fire it's target for every player that sees the message
+
+- env_funnel new spawnflag "Repeatable" and "model" keyvalue for custom sprite
+
+- trigger_hurt now doesn't reproduce geiger noises when it is off
+
+- Added std::string Vector::ToString()
+
 - Merged branch [FireTargets-features](https://github.com/Mikk155/halflife-unified-sdk/tree/FireTargets-features)
 
 - Merged branch [monster-free-roaming](https://github.com/Mikk155/halflife-unified-sdk/tree/monster-free-roaming)

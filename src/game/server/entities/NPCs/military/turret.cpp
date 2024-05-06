@@ -1006,7 +1006,7 @@ void CBaseTurret::TraceAttack(CBaseEntity* attacker, float flDamage, Vector vecD
 
 bool CBaseTurret::TakeDamage(CBaseEntity* inflictor, CBaseEntity* attacker, float flDamage, int bitsDamageType)
 {
-	if (0 == pev->takedamage || ( GetSkillFloat( "turret_takedamage_off"sv, 1 ) && !m_iOn ) )
+	if (0 == pev->takedamage || ( GetSkillFloat( "turret_takedamage_off"sv, 1 ) == 1 && !m_iOn ) )
 		return false;
 
 	if (!m_iOn)
@@ -1218,7 +1218,7 @@ void CSentry::Shoot(Vector& vecSrc, Vector& vecDirToEnemy)
 
 bool CSentry::TakeDamage(CBaseEntity* inflictor, CBaseEntity* attacker, float flDamage, int bitsDamageType)
 {
-	if (0 == pev->takedamage || ( GetSkillFloat( "sentry_takedamage_off"sv, 1 ) && !m_iOn ) )
+	if (0 == pev->takedamage || ( GetSkillFloat( "sentry_takedamage_off"sv, 1 ) == 1 && !m_iOn ) )
 		return false;
 
 	if (!m_iOn)

@@ -326,7 +326,7 @@ void CISlave::HandleAnimEvent(MonsterEvent_t* pEvent)
 
 	case ISLAVE_AE_ZAP_POWERUP:
 	{
-		pev->framerate = GetSkillFloat( "sk_islave_speed_zap2"sv, 1 );
+		pev->framerate = GetSkillFloat( "islave_speed_zap"sv, 1 );
 
 		UTIL_MakeAimVectors(pev->angles);
 

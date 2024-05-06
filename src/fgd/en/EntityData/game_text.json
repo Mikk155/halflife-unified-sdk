@@ -15,6 +15,14 @@
         "1": {
             "name": "All Players",
             "description": ""
+        },
+        "2": {
+            "name": "No echo console",
+            "description": ""
+        },
+        "4": {
+            "name": "Fire Per Player",
+            "description": ""
         }
     },
     "x": {

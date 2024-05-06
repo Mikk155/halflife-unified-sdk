@@ -452,7 +452,7 @@ void CBabyCrab::OnCreate()
 {
 	CHeadCrab::OnCreate();
 
-	pev->health = GetSkillFloat("babycrab_health"sv, GetSkillFloat("headcrab_dmg_bite"sv, 10) * 0.25 ); // less health than full grown
+	pev->health = GetSkillFloat("babycrab_health"sv, GetSkillFloat("babycrab_health"sv, 10) * 0.25 ); // less health than full grown
 	pev->model = MAKE_STRING("models/baby_headcrab.mdl");
 }
 

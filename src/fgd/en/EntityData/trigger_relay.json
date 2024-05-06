@@ -16,6 +16,10 @@
         "1": {
             "name": "Remove On fire",
             "description": ""
+        },
+        "64": {
+            "name": "Keep activator",
+            "description": ""
         }
     },
     "triggerstate": {
