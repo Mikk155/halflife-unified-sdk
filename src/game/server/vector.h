@@ -13,6 +13,8 @@
  *
  ****/
 
+#include <fmt/core.h>
+
 #pragma once
 
 //=========================================================
@@ -51,6 +53,11 @@ public:
 			flLen = 1 / flLen;
 			return Vector2D(x * flLen, y * flLen);
 		}
+	}
+
+	[[nodiscard]] std::string ToString() const
+	{
+		return fmt::format("{} {}", x, y );
 	}
 
 	vec_t x = 0, y = 0;
@@ -108,6 +115,11 @@ public:
 			return Vector(0, 0, 1); // ????
 		flLen = 1 / flLen;
 		return Vector(x * flLen, y * flLen, z * flLen);
+	}
+
+	[[nodiscard]] std::string ToString() const
+	{
+		return fmt::format("{} {} {}", x, y, z);
 	}
 
 	[[nodiscard]] constexpr Vector2D Make2D() const
