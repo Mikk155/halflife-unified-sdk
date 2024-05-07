@@ -256,6 +256,11 @@ void CCampaignSelectPanel::Update()
 	m_pScrollPanel->validate();
 }
 
+void CCampaignSelectPanel::Reset()
+{
+	m_CampaignList->Term();
+}
+
 void CCampaignSelectPanel::Open()
 {
 	bool needsInit = false;

@@ -61,10 +61,7 @@ public:
 	virtual void Open();
 	virtual void Update();
 	virtual void Initialize();
-
-	virtual void Reset()
-	{
-	}
+	virtual void Reset();
 
 	void CampaignChanged();
 	void StartCurrentCampaign();

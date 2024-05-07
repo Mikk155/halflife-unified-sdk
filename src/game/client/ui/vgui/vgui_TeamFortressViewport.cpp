@@ -1819,16 +1819,8 @@ void TeamFortressViewport::CreateCampaignSelectMenu()
 void TeamFortressViewport::ShowCampaignSelectMenu()
 {
 	// Don't open menus in demo playback
-	if (0 != gEngfuncs.pDemoAPI->IsPlayingback())
+	if( 0 != gEngfuncs.pDemoAPI->IsPlayingback() || !gEngfuncs.pfnGetLevelName() )
 		return;
-
-	auto levelName = gEngfuncs.pfnGetLevelName();
-
-	// Only allow this menu to open on the campaign selection map.
-	if (!levelName || 0 != strcmp(levelName, "maps/hlu_campaignselect.bsp"))
-	{
-		return;
-	}
 
 	// Pause game but don't show the paused text.
 	gEngfuncs.Cvar_SetValue("showpause", 0);
