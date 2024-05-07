@@ -111,7 +111,7 @@ void CBaseEntity::SUB_UseTargets(CBaseEntity* pActivator, USE_TYPE useType, floa
 
 namespace subs
 {
-	const char* UseType( USE_TYPE UseType )
+	std::string UseType( USE_TYPE UseType )
 	{
 		switch( UseType )
 		{
@@ -131,28 +131,28 @@ namespace subs
 
 	const char* UseName( CBaseEntity* pEnt )
 	{
-		return ( pEnt->IsPlayer() ? STRING( pEnt->pev->netname ) :
+		return pEnt ? ( pEnt->IsPlayer() ? STRING( pEnt->pev->netname ) :
 					!FStringNull( pEnt->pev->targetname ) ? STRING( pEnt->pev->targetname ) :
-						pEnt ? STRING( pEnt->pev->classname ) : "NULL" );
+						STRING( pEnt->pev->classname ) ) : "NULL";
 	}
 
-	const char* UseLock( int value )
+	std::string UseLock( int value )
 	{
-		std::string UseValue = "(";
+		std::string UseValue = "( ";
 
 		if( value == 0 )
-			UseValue = "USE_VALUE_UNKNOWN";
+			return "USE_VALUE_UNKNOWN )";
 		if( ( value & USE_VALUE_MASTER ) != 0 )
-			UseValue += " Master ";
+			UseValue += "Master ";
 		if( ( value & USE_VALUE_TOUCH ) != 0 )
-			UseValue += " Touch ";
+			UseValue += "Touch ";
 		if( ( value & USE_VALUE_USE ) != 0 )
-			UseValue += " Use ";
+			UseValue += "Use ";
 		if( ( value & USE_VALUE_THINK ) != 0 )
-			UseValue += " Think ";
+			UseValue += "Think ";
 		UseValue += ")";
 
-		return UseValue.c_str();
+		return UseValue;
 	}
 }
 
@@ -190,8 +190,8 @@ void FireTargets(const char* targetName, CBaseEntity* pActivator, CBaseEntity* p
 		CBaseEntity::IOLogger->debug("Firing: ({})", m_szTarget );
 
 		const char* s2 = m_szTarget;
-		const char* s3 = subs::UseName( pActivator );
-		const char* s4 = subs::UseName( pCaller );
+		std::string s3 = subs::UseName( pActivator );
+		std::string s4 = subs::UseName( pCaller );
 
 		CBaseEntity* target = nullptr;
 
