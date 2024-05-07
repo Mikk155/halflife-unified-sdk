@@ -1,3 +1,5 @@
+# Script for creating a release by repacking the branch "game-assets" and zip the binaries within it
+
 import os, requests, shutil, sys, zipfile
 from github import Github, GithubException
 
@@ -51,6 +53,7 @@ try:
 
     new_body = ""
 
+    # were there a limit size for this? i hope this doesn't get that big :<
     changelog = os.path.join( os.path.dirname(__file__), f'../changelog.md' )
 
     with open( changelog, 'r') as cl:
