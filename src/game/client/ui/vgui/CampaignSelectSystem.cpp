@@ -72,7 +72,6 @@ std::vector<CampaignInfo> CampaignSelectSystem::LoadCampaigns()
 	std::string szMapName = std::string( gEngfuncs.pfnGetLevelName() );
 	szMapName = szMapName.substr( 5, szMapName.length() - 9 );
 
-	m_Logger->error( "{}", szMapName.c_str() );
 	if (auto fileName = g_pFileSystem->FindFirst( fmt::format( "campaigns/{}/*.json", szMapName ).c_str(), &handle); fileName)
 	{
 		do
