@@ -447,12 +447,16 @@ public:
 	int XPosition(float x, int width, int lineWidth);
 	int YPosition(float y, int height);
 
+	client_textmessage_t* MessageAddJson(const char* pName);
 	void MessageAdd(const char* pName, float time);
 	void MessageAdd(client_textmessage_t* newMessage);
 	void MessageDrawScan(client_textmessage_t* pMessage, float time);
 	void MessageScanStart();
 	void MessageScanNextChar();
 	void Reset() override;
+
+	JSONSystem* jsTitles;
+	const char* szMapName;
 
 private:
 	cvar_t* m_CustomMessageText{};
@@ -464,6 +468,7 @@ private:
 	message_parms_t m_parms;
 	float m_gameTitleTime;
 	client_textmessage_t* m_pGameTitle;
+
 
 	struct GameTitle
 	{

@@ -438,6 +438,94 @@ bool CHudMessage::Draw(float fTime)
 	return true;
 }
 
+client_textmessage_t* CHudMessage :: MessageAddJson( const char* pName )
+{
+	if( gEngfuncs.pfnGetLevelName != nullptr )
+	{
+		if( jsTitles == nullptr || !FStrEq( szMapName, (const char*)gEngfuncs.pfnGetLevelName ) )
+		{
+			std::string szMapName = std::string( gEngfuncs.pfnGetLevelName() );
+			szMapName = szMapName.substr( 5, szMapName.length() - 9 );
+			std::string szJsonFile = fmt::format( "cfg/titles/{}.json", szMapName );
+
+			//jsTitles = new JSONSystem();
+			//jsTitles->LoadJSONFile( szJsonFile );
+
+			//jsTitles =
+
+			auto pJson = g_JSON.ParseJSON( szJsonFile.c_str(), [=](const auto& input)
+			{
+				std::string str = Trim(input.value("test", "message"));
+
+			});
+
+			if( pJson != nullptr )
+			{
+				m_Logger->debug( "DEBUG AHORA MISMO \"Json NO es nulo\"" );
+			}
+
+			szMapName = gEngfuncs.pfnGetLevelName;
+		}
+
+		// if (jsTitles != nullptr)
+		// {
+		// 	auto pLabel = /* tomar dict pName del json*/;
+
+		// 	if (pLabel == nullptr)
+		// 	{
+		// 		pLabel = /*cargar json por defecto cfg/titles/titles.json*/;
+		// 	}
+
+		// 	auto pMessage = /* tomar "message" de pLabel*/;
+
+		// 	client_textmessage_t* pNewMessage;
+
+			// XD
+	// //		pNewMessage->effect = /* tomar "effect" de pLabel*/;
+	// 	//	pNewMessage->r1 = /* tomar "color"[0] de pLabel*/;
+	// 		//pNewMessage->g1 = /* tomar "color"[1] de pLabel*/;
+	// pNewMessage->b1 = /* tomar "color"[2] de pLabel*/;
+	// //		pNewMessage->a1 = /* tomar "color"[3] de pLabel*/;
+	// //		pNewMessage->r2 = /* tomar "color2"[0] de pLabel*/;
+	// //		pNewMessage->g2 = /* tomar "color2"[1] de pLabel*/;
+	// 		pNewMessage->b2 = /* tomar "color2"[2] de pLabel*/;
+	// 		pNewMessage->a2 = /* tomar "color2"[3] de pLabel*/;
+	// 		pNewMessage->x = /* tomar "x" de pLabel*/;
+	// 		pNewMessage->y = /* tomar "y" de pLabel*/;
+	// 		pNewMessage->fadein = /* tomar "fadein" de pLabel*/;
+	// 		pNewMessage->fadeout = /* tomar "fadeout" de pLabel*/;
+	// 		pNewMessage->holdtime = /* tomar "holdtime" de pLabel*/;
+	// 		pNewMessage->fxtime = /* tomar "fxtime" de pLabel*/;
+	// 		pNewMessage->pName = /*esto que es como un store? */pName;
+	// 		pNewMessage->pMessage = /* tomar "message" de pLabel*/;
+
+	/*
+			Ejemplo completo de json
+
+	{
+		"test (pName)":
+		{
+			"x": 1.0,
+			"y": 1.0,
+			"effect": 1,
+			"color": [ 255, 0, 255, 255 ],
+			"color2": [ 255, 0, 255, 255 ],
+			"fadein": 1.0,
+			"fadeout": 1.0,
+			"holdtime": 1.0,
+			"fxtime": 1.0,
+			"message": "mensaje"
+		}
+	}
+
+
+	*/
+		//	return pNewMessage;
+	//	}
+	}
+
+	return gEngfuncs.pfnTextMessageGet(pName);
+}
 
 void CHudMessage::MessageAdd(const char* pName, float time)
 {
@@ -445,7 +533,7 @@ void CHudMessage::MessageAdd(const char* pName, float time)
 
 	// Trim off a leading # if it's there
 	if (pName[0] == '#')
-		tempMessage = TextMessageGet(pName + 1);
+		tempMessage = MessageAddJson(pName + 1 );
 	else
 		tempMessage = TextMessageGet(pName);
 
