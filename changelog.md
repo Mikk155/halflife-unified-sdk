@@ -18,6 +18,9 @@ This file will be updated from above to bellow, meaning besides from this text, 
 <details><summary>5 (May)</summary><p>
 
 <details><summary>10</summary><p>
+- New events on trigger_eventhandler
+    - 100 MonsterKilled
+    - 101 MonsterTakeDamage
 
 - Fixed some definitions on the FGD
 

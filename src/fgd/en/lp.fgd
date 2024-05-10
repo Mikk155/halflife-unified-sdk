@@ -14,7 +14,22 @@
 
 @BaseClass = Target
 [
-	target(target_destination) : "Target" : "" : ""
+	target(target_destination) : "Target" : "" : "Trigger multiple targets at once by using a semicolon to separate them, example 'This;That;Other' up to 8 targets"
+	m_UseType(choices) : "Use Type" : "-1" : "Anything else will be count as USE_UNKNOWN and in fact, work the same as USE_UNSET" =
+	[
+		"-1" : "" : "This is the value by default and will have no effect at all in how entities normaly behave."
+		"0" : "" : ""
+		"1" : "" : ""
+		"2" : "" : "Does use of m_UseValue, See how it affects each entity."
+		"3" : "" : ""
+		"4" : "" : "Remove the entity from the world."
+		"5" : "" : "Sends the same USE_TYPE that this entity receive."
+		"6" : "" : "Sends the opposite USE_TYPE that this entity receive, Swaps USE_ON <-> USE_OFF, If anything else then USE_TOGGLE is sent"
+		"7" : "" : "Calls the Touch function, the activator will be passed as the toucher."
+		"8" : "" : "Locks the entity. Does use of m_UseValue"
+		"9" : "" : "Un-Locks the entity. Does use of m_UseValue"
+	]
+	m_UseValue(float) : "" : "" : ""
 ]
 
 @BaseClass = Global
@@ -205,6 +220,22 @@
 	]
 ]
 
+@BaseClass = SF2UseAngles
+[
+	spawnflags(Flags) =
+	[
+		1 : "Start Off" : 0 : ""
+	]
+]
+
+@BaseClass = SF2Repeatable
+[
+	spawnflags(Flags) =
+	[
+		1 : "Repeatable" : 0 : ""
+	]
+]
+
 @BaseClass base( Master, Global, RenderFields, ZHLT, ReplacementFiles ) = BaseCharger
 [
 	fire_on_recharge(target_destination) : "Target To Fire On Recharge" : "" : ""
@@ -279,6 +310,12 @@
 	]
 	UseSentence(string) : "Use Sentence" : "" : ""
 	UnUseSentence(string) : "Un-Use Sentence" : "" : ""
+	freeroam(choices) : "Monster Roaming (nodes)" : "0" : "" =
+	[
+		"0" : "Map Default" : ""
+		"1" : "Never" : ""
+		"2" : "Always" : ""
+	]
 ]
 
 @BaseClass = MonsterWithChildren
@@ -828,7 +865,7 @@
 	]
 ]
 
-@PointClass base( Cenv_blowercannon )  = env_blowercannon : "Blower Cannon" : "" []
+@PointClass base( Cenv_blowercannon, Mandatory, Target, Appearflags )  = env_blowercannon : "Blower Cannon" : "" []
 
 @BaseClass = Cenv_bubbles : "Bubble Volume" : ""
 [
@@ -859,7 +896,7 @@
 	bodymodel(studio) : "Body Model" : "models/wire_black16.mdl" : ""
 ]
 
-@PointClass base( Cenv_electrified_wire )  = env_electrified_wire : "Electrified Wire" : "" []
+@PointClass base( Cenv_electrified_wire, Mandatory, Appearflags )  = env_electrified_wire : "Electrified Wire" : "" []
 
 @BaseClass size( -16 -16 -16, 16 16 16 ) = Cenv_explosion : "Explosion" : ""
 [
@@ -910,9 +947,10 @@
 	[
 		1 : "Reverse" : 0 : ""
 	]
+	model(sprite) : "Sprite Name" : "sprites/flare6.spr" : ""
 ]
 
-@PointClass base( Cenv_funnel, Mandatory, Appearflags )  = env_funnel : "Large Portal Funnel" : "" []
+@PointClass base( Cenv_funnel, Mandatory, SF2Repeatable, Appearflags )  = env_funnel : "Large Portal Funnel" : "" []
 
 @BaseClass color( 255 255 128 ) = Cenv_global : "Global State" : ""
 [
@@ -963,7 +1001,7 @@
 	damage(string) : "Damage / second" : "100" : ""
 ]
 
-@PointClass base( Cenv_laser )  = env_laser : "Laser Beam Effect" : "" []
+@PointClass base( Cenv_laser, Mandatory, RenderFxChoices, Angles, Appearflags )  = env_laser : "Laser Beam Effect" : "" []
 
 @BaseClass = Cenv_message : "HUD Text Message" : ""
 [
@@ -981,7 +1019,7 @@
 	]
 ]
 
-@PointClass base( Cenv_message )  = env_message : "HUD Text Message" : "" []
+@PointClass base( Cenv_message, Mandatory, Target, Appearflags )  = env_message : "HUD Text Message" : "" []
 
 @BaseClass color( 100 100 0 ) size( -16 -16 -16, 16 16 16 ) = Cenv_render : "Render Controls" : ""
 [
@@ -991,7 +1029,7 @@
 	]
 ]
 
-@PointClass base( Cenv_render )  = env_render : "Render Controls" : "" []
+@PointClass base( Cenv_render, Mandatory, Target, RenderFields, Appearflags )  = env_render : "Render Controls" : "" []
 
 @BaseClass size( -16 -16 -16, 16 16 16 ) = Cenv_rope : "Rope" : ""
 [
@@ -1005,7 +1043,7 @@
 	bodymodel(studio) : "Body Model" : "models/rope16.mdl" : ""
 ]
 
-@PointClass base( Cenv_rope )  = env_rope : "Rope" : "" []
+@PointClass base( Cenv_rope, Mandatory, Appearflags )  = env_rope : "Rope" : "" []
 
 @BaseClass = Cenv_shake : "Screen Shake" : ""
 [
@@ -1019,7 +1057,7 @@
 	frequency(string) : "0.1 = jerk, 255.0 = rumble" : "2.5" : ""
 ]
 
-@PointClass base( Cenv_shake )  = env_shake : "Screen Shake" : "" []
+@PointClass base( Cenv_shake, Mandatory, Appearflags )  = env_shake : "Screen Shake" : "" []
 
 @BaseClass size( -16 -16 -16, 16 16 16 ) = Cenv_shooter : "Model Shooter" : ""
 [
@@ -1037,7 +1075,7 @@
 	skin(integer) : "Gib Skin" : "0" : ""
 ]
 
-@PointClass base( Cenv_shooter )  = env_shooter : "Model Shooter" : "" []
+@PointClass base( Cenv_shooter, Mandatory, gibshooterbase, RenderFields, Appearflags )  = env_shooter : "Model Shooter" : "" []
 
 @BaseClass sprite( "sprites/speaker.spr" ) = Cenv_sound : "DSP Sound" : ""
 [
@@ -1076,7 +1114,7 @@
 	]
 ]
 
-@PointClass base( Cenv_sound )  = env_sound : "DSP Sound" : "" []
+@PointClass base( Cenv_sound, Mandatory, Appearflags )  = env_sound : "DSP Sound" : "" []
 
 @BaseClass size( -16 -16 -16, 16 16 16 ) = Cenv_spark : "Spark" : ""
 [
@@ -1087,7 +1125,7 @@
 	MaxDelay(string) : "Max Delay" : "0" : ""
 ]
 
-@PointClass base( Cenv_spark )  = env_spark : "Spark" : "" []
+@PointClass base( Cenv_spark, Mandatory, Angles, Appearflags )  = env_spark : "Spark" : "" []
 
 @BaseClass size( -4 -4 -4, 4 4 4 ) sprite( "" ) = Cenv_sprite : "Sprite Effect" : ""
 [
@@ -1100,7 +1138,7 @@
 	scale(string) : "Scale" : "" : ""
 ]
 
-@PointClass base( Cenv_sprite )  = env_sprite : "Sprite Effect" : "" []
+@PointClass base( Cenv_sprite, Mandatory, RenderFields, Angles, Appearflags )  = env_sprite : "Sprite Effect" : "" []
 
 @BaseClass color( 0 128 255 ) size( -16 -16 -16, 16 16 16 ) = Cenv_spritetrain : "Sprite Train" : ""
 [
@@ -1108,7 +1146,7 @@
 	speed(integer) : "Speed (units per second)" : "64" : ""
 ]
 
-@PointClass base( Cenv_spritetrain )  = env_spritetrain : "Sprite Train" : "" []
+@PointClass base( Cenv_spritetrain, Mandatory, PlatSounds, Appearflags )  = env_spritetrain : "Sprite Train" : "" []
 
 @BaseClass color( 0 255 0 ) size( -32 -32 -32, 32 32 32 ) = Cenv_warpball : "Warp In Ball" : ""
 [
@@ -1121,7 +1159,7 @@
 	damage_delay(string) : "Damage delay" : "0" : ""
 ]
 
-@PointClass base( Cenv_warpball )  = env_warpball : "Warp In Ball" : "" []
+@PointClass base( Cenv_warpball, Mandatory, Target, Appearflags )  = env_warpball : "Warp In Ball" : "" []
 
 @BaseClass = Cfunc_breakable : "Breakable Object" : ""
 [
@@ -1131,9 +1169,9 @@
 	]
 ]
 
-@SolidClass base( Cfunc_breakable )  = func_breakable : "Breakable Object" : "" []
+@SolidClass base( Cfunc_breakable, Mandatory, Breakable, RenderFields, Angles, ZHLT, Appearflags )  = func_breakable : "Breakable Object" : "" []
 
-@PointClass base( Cfunc_breakable, hullsizes )  = func_breakable : "Breakable Object" : "" []
+@PointClass base( Cfunc_breakable, hullsizes, Mandatory, Breakable, RenderFields, Angles, ZHLT, Appearflags )  = func_breakable : "Breakable Object" : "" []
 
 @BaseClass = Cfunc_button : "Button" : ""
 [
@@ -1148,9 +1186,9 @@
 	]
 ]
 
-@SolidClass base( Cfunc_button )  = func_button : "Button" : "" []
+@SolidClass base( Cfunc_button, Mandatory, Targetx, Global, RenderFields, Angles, ZHLT, Master, ReplacementFiles, Appearflags )  = func_button : "Button" : "" []
 
-@PointClass base( Cfunc_button, hullsizes )  = func_button : "Button" : "" []
+@PointClass base( Cfunc_button, hullsizes, Mandatory, Targetx, Global, RenderFields, Angles, ZHLT, Master, ReplacementFiles, Appearflags )  = func_button : "Button" : "" []
 
 @BaseClass = Cfunc_conveyor : "Conveyor Belt" : ""
 [
@@ -1161,9 +1199,9 @@
 	speed(string) : "Conveyor Speed" : "100" : ""
 ]
 
-@SolidClass base( Cfunc_conveyor )  = func_conveyor : "Conveyor Belt" : "" []
+@SolidClass base( Cfunc_conveyor, Mandatory, Global, RenderFields, Angles, ZHLT, Appearflags )  = func_conveyor : "Conveyor Belt" : "" []
 
-@PointClass base( Cfunc_conveyor, hullsizes )  = func_conveyor : "Conveyor Belt" : "" []
+@PointClass base( Cfunc_conveyor, hullsizes, Mandatory, Global, RenderFields, Angles, ZHLT, Appearflags )  = func_conveyor : "Conveyor Belt" : "" []
 
 @BaseClass = Cfunc_door_rotating : "Rotating door" : ""
 [
@@ -1174,13 +1212,13 @@
 	distance(integer) : "Distance (deg)" : "90" : ""
 ]
 
-@SolidClass base( Cfunc_door_rotating )  = func_door_rotating : "Rotating door" : "" []
+@SolidClass base( Cfunc_door_rotating, Mandatory, Door, ZHLT, Appearflags )  = func_door_rotating : "Rotating door" : "" []
 
-@PointClass base( Cfunc_door_rotating, hullsizes )  = func_door_rotating : "Rotating door" : "" []
+@PointClass base( Cfunc_door_rotating, hullsizes, Mandatory, Door, ZHLT, Appearflags )  = func_door_rotating : "Rotating door" : "" []
 
-@SolidClass  = func_friction : "Surface with a change in friction" : "" []
+@SolidClass base( Mandatory, RenderFields, ZHLT, Appearflags )  = func_friction : "Surface with a change in friction" : "" []
 
-@PointClass  = func_friction : "Surface with a change in friction" : "" []
+@PointClass base( Mandatory, RenderFields, ZHLT, Appearflags )  = func_friction : "Surface with a change in friction" : "" []
 
 @BaseClass = Cfunc_guntarget : "Moving platform" : ""
 [
@@ -1192,9 +1230,9 @@
 	health(integer) : "Damage to Take" : "0" : ""
 ]
 
-@SolidClass base( Cfunc_guntarget )  = func_guntarget : "Moving platform" : "" []
+@SolidClass base( Cfunc_guntarget, Mandatory, Global, RenderFields, Angles, ZHLT, Appearflags )  = func_guntarget : "Moving platform" : "" []
 
-@PointClass base( Cfunc_guntarget, hullsizes )  = func_guntarget : "Moving platform" : "" []
+@PointClass base( Cfunc_guntarget, hullsizes, Mandatory, Global, RenderFields, Angles, ZHLT, Appearflags )  = func_guntarget : "Moving platform" : "" []
 
 @BaseClass = Cfunc_illusionary : "Fake Wall/Light" : ""
 [
@@ -1205,9 +1243,9 @@
 	]
 ]
 
-@SolidClass base( Cfunc_illusionary )  = func_illusionary : "Fake Wall/Light" : "" []
+@SolidClass base( Cfunc_illusionary, Mandatory, SF2UseAngles, RenderFields, ZHLT, Appearflags )  = func_illusionary : "Fake Wall/Light" : "" []
 
-@PointClass base( Cfunc_illusionary, hullsizes )  = func_illusionary : "Fake Wall/Light" : "" []
+@PointClass base( Cfunc_illusionary, hullsizes, Mandatory, SF2UseAngles, RenderFields, ZHLT, Appearflags )  = func_illusionary : "Fake Wall/Light" : "" []
 
 @BaseClass = Cfunc_mortar_field : "Mortar Field" : ""
 [
@@ -1221,9 +1259,9 @@
 	]
 ]
 
-@SolidClass base( Cfunc_mortar_field )  = func_mortar_field : "Mortar Field" : "" []
+@SolidClass base( Cfunc_mortar_field, Mandatory, Appearflags )  = func_mortar_field : "Mortar Field" : "" []
 
-@PointClass base( Cfunc_mortar_field, hullsizes )  = func_mortar_field : "Mortar Field" : "" []
+@PointClass base( Cfunc_mortar_field, hullsizes, Mandatory, Appearflags )  = func_mortar_field : "Mortar Field" : "" []
 
 @BaseClass = Cfunc_op4mortarcontroller : "Op4 Mortar Controller" : ""
 [
@@ -1234,9 +1272,9 @@
 	]
 ]
 
-@SolidClass base( Cfunc_op4mortarcontroller )  = func_op4mortarcontroller : "Op4 Mortar Controller" : "" []
+@SolidClass base( Cfunc_op4mortarcontroller, Mandatory, Target, Appearflags )  = func_op4mortarcontroller : "Op4 Mortar Controller" : "" []
 
-@PointClass base( Cfunc_op4mortarcontroller, hullsizes )  = func_op4mortarcontroller : "Op4 Mortar Controller" : "" []
+@PointClass base( Cfunc_op4mortarcontroller, hullsizes, Mandatory, Target, Appearflags )  = func_op4mortarcontroller : "Op4 Mortar Controller" : "" []
 
 @BaseClass = Cfunc_pendulum : "Swings back and forth" : ""
 [
@@ -1250,9 +1288,9 @@
 	dmg(integer) : "Damage inflicted when blocked" : "0" : ""
 ]
 
-@SolidClass base( Cfunc_pendulum )  = func_pendulum : "Swings back and forth" : "" []
+@SolidClass base( Cfunc_pendulum, Mandatory, Global, RenderFields, Angles, ZHLT, Appearflags )  = func_pendulum : "Swings back and forth" : "" []
 
-@PointClass base( Cfunc_pendulum, hullsizes )  = func_pendulum : "Swings back and forth" : "" []
+@PointClass base( Cfunc_pendulum, hullsizes, Mandatory, Global, RenderFields, Angles, ZHLT, Appearflags )  = func_pendulum : "Swings back and forth" : "" []
 
 @BaseClass = Cfunc_plat : "Elevator" : ""
 [
@@ -1264,9 +1302,9 @@
 	height(integer) : "Travel altitude (can be negative)" : "0" : ""
 ]
 
-@SolidClass base( Cfunc_plat )  = func_plat : "Elevator" : "" []
+@SolidClass base( Cfunc_plat, Mandatory, Global, RenderFields, PlatSounds, ZHLT, Appearflags )  = func_plat : "Elevator" : "" []
 
-@PointClass base( Cfunc_plat, hullsizes )  = func_plat : "Elevator" : "" []
+@PointClass base( Cfunc_plat, hullsizes, Mandatory, Global, RenderFields, PlatSounds, ZHLT, Appearflags )  = func_plat : "Elevator" : "" []
 
 @BaseClass = Cfunc_platrot : "Moving Rotating platform" : ""
 [
@@ -1279,9 +1317,9 @@
 	rotation(integer) : "Spin amount" : "0" : ""
 ]
 
-@SolidClass base( Cfunc_platrot )  = func_platrot : "Moving Rotating platform" : "" []
+@SolidClass base( Cfunc_platrot, Mandatory, Global, RenderFields, PlatSounds, Angles, ZHLT, Appearflags )  = func_platrot : "Moving Rotating platform" : "" []
 
-@PointClass base( Cfunc_platrot, hullsizes )  = func_platrot : "Moving Rotating platform" : "" []
+@PointClass base( Cfunc_platrot, hullsizes, Mandatory, Global, RenderFields, PlatSounds, Angles, ZHLT, Appearflags )  = func_platrot : "Moving Rotating platform" : "" []
 
 @BaseClass = Cfunc_pushable : "Pushable object" : ""
 [
@@ -1300,9 +1338,9 @@
 	buoyancy(integer) : "Buoyancy" : "20" : ""
 ]
 
-@SolidClass base( Cfunc_pushable )  = func_pushable : "Pushable object" : "" []
+@SolidClass base( Cfunc_pushable, Mandatory, Breakable, RenderFields, ZHLT, Appearflags )  = func_pushable : "Pushable object" : "" []
 
-@PointClass base( Cfunc_pushable, hullsizes )  = func_pushable : "Pushable object" : "" []
+@PointClass base( Cfunc_pushable, hullsizes, Mandatory, Breakable, RenderFields, ZHLT, Appearflags )  = func_pushable : "Pushable object" : "" []
 
 @BaseClass = Cfunc_rotating : "Rotating Object" : ""
 [
@@ -1317,9 +1355,9 @@
 	dmg(integer) : "Damage inflicted when blocked" : "0" : ""
 ]
 
-@SolidClass base( Cfunc_rotating )  = func_rotating : "Rotating Object" : "" []
+@SolidClass base( Cfunc_rotating, Mandatory, Global, RenderFields, Angles, ZHLT, ReplacementFiles, Appearflags )  = func_rotating : "Rotating Object" : "" []
 
-@PointClass base( Cfunc_rotating, hullsizes )  = func_rotating : "Rotating Object" : "" []
+@PointClass base( Cfunc_rotating, hullsizes, Mandatory, Global, RenderFields, Angles, ZHLT, ReplacementFiles, Appearflags )  = func_rotating : "Rotating Object" : "" []
 
 @BaseClass = Cfunc_rot_button : "RotatingButton" : ""
 [
@@ -1337,9 +1375,9 @@
 	distance(integer) : "Distance (deg)" : "90" : ""
 ]
 
-@SolidClass base( Cfunc_rot_button )  = func_rot_button : "RotatingButton" : "" []
+@SolidClass base( Cfunc_rot_button, Mandatory, Target, Global, RenderFields, Angles, ZHLT, Master, ReplacementFiles, Appearflags )  = func_rot_button : "RotatingButton" : "" []
 
-@PointClass base( Cfunc_rot_button, hullsizes )  = func_rot_button : "RotatingButton" : "" []
+@PointClass base( Cfunc_rot_button, hullsizes, Mandatory, Target, Global, RenderFields, Angles, ZHLT, Master, ReplacementFiles, Appearflags )  = func_rot_button : "RotatingButton" : "" []
 
 @BaseClass = Cfunc_tank : "Brush Gun Turret" : ""
 [
@@ -1352,34 +1390,34 @@
 	]
 ]
 
-@SolidClass base( Cfunc_tank )  = func_tank : "Brush Gun Turret" : "" []
+@SolidClass base( Cfunc_tank, Mandatory, BaseTank, ZHLT, Appearflags )  = func_tank : "Brush Gun Turret" : "" []
 
-@PointClass base( Cfunc_tank, hullsizes )  = func_tank : "Brush Gun Turret" : "" []
+@PointClass base( Cfunc_tank, hullsizes, Mandatory, BaseTank, ZHLT, Appearflags )  = func_tank : "Brush Gun Turret" : "" []
 
-@SolidClass  = func_tankcontrols : "Tank controls" : "" []
+@SolidClass base( Mandatory, Appearflags )  = func_tankcontrols : "Tank controls" : "" []
 
-@PointClass  = func_tankcontrols : "Tank controls" : "" []
+@PointClass base( Mandatory, Appearflags )  = func_tankcontrols : "Tank controls" : "" []
 
-@SolidClass  = func_tanklaser : "Brush Laser Turret" : "" []
+@SolidClass base( Mandatory, BaseTank, ZHLT, Appearflags )  = func_tanklaser : "Brush Laser Turret" : "" []
 
-@PointClass  = func_tanklaser : "Brush Laser Turret" : "" []
+@PointClass base( Mandatory, BaseTank, ZHLT, Appearflags )  = func_tanklaser : "Brush Laser Turret" : "" []
 
 @BaseClass = Cfunc_tankmortar : "Brush Mortar Turret" : ""
 [
 	iMagnitude(integer) : "Explosion Magnitude" : "100" : ""
 ]
 
-@SolidClass base( Cfunc_tankmortar )  = func_tankmortar : "Brush Mortar Turret" : "" []
+@SolidClass base( Cfunc_tankmortar, Mandatory, BaseTank, ZHLT, Appearflags )  = func_tankmortar : "Brush Mortar Turret" : "" []
 
-@PointClass base( Cfunc_tankmortar, hullsizes )  = func_tankmortar : "Brush Mortar Turret" : "" []
+@PointClass base( Cfunc_tankmortar, hullsizes, Mandatory, BaseTank, ZHLT, Appearflags )  = func_tankmortar : "Brush Mortar Turret" : "" []
 
-@SolidClass  = func_trackautochange : "Automatic track changing platform" : "" []
+@SolidClass base( Mandatory, Trackchange, ZHLT, Appearflags )  = func_trackautochange : "Automatic track changing platform" : "" []
 
-@PointClass  = func_trackautochange : "Automatic track changing platform" : "" []
+@PointClass base( Mandatory, Trackchange, ZHLT, Appearflags )  = func_trackautochange : "Automatic track changing platform" : "" []
 
-@SolidClass  = func_trackchange : "Train track changing platform" : "" []
+@SolidClass base( Mandatory, Trackchange, ZHLT, Appearflags )  = func_trackchange : "Train track changing platform" : "" []
 
-@PointClass  = func_trackchange : "Train track changing platform" : "" []
+@PointClass base( Mandatory, Trackchange, ZHLT, Appearflags )  = func_trackchange : "Train track changing platform" : "" []
 
 @BaseClass = Cfunc_tracktrain : "Track Train" : ""
 [
@@ -1396,9 +1434,9 @@
 	bank(string) : "Bank angle on turns" : "0" : ""
 ]
 
-@SolidClass base( Cfunc_tracktrain )  = func_tracktrain : "Track Train" : "" []
+@SolidClass base( Cfunc_tracktrain, Mandatory, Global, RenderFields, Angles, ZHLT, ReplacementFiles, Appearflags )  = func_tracktrain : "Track Train" : "" []
 
-@PointClass base( Cfunc_tracktrain, hullsizes )  = func_tracktrain : "Track Train" : "" []
+@PointClass base( Cfunc_tracktrain, hullsizes, Mandatory, Global, RenderFields, Angles, ZHLT, ReplacementFiles, Appearflags )  = func_tracktrain : "Track Train" : "" []
 
 @BaseClass = Cfunc_train : "Moving platform" : ""
 [
@@ -1418,17 +1456,17 @@
 	]
 ]
 
-@SolidClass base( Cfunc_train )  = func_train : "Moving platform" : "" []
+@SolidClass base( Cfunc_train, Mandatory, Global, RenderFields, ZHLT, PlatSounds, Appearflags )  = func_train : "Moving platform" : "" []
 
-@PointClass base( Cfunc_train, hullsizes )  = func_train : "Moving platform" : "" []
+@PointClass base( Cfunc_train, hullsizes, Mandatory, Global, RenderFields, ZHLT, PlatSounds, Appearflags )  = func_train : "Moving platform" : "" []
 
-@SolidClass  = func_traincontrols : "Train Controls" : "" []
+@SolidClass base( Mandatory, Appearflags )  = func_traincontrols : "Train Controls" : "" []
 
-@PointClass  = func_traincontrols : "Train Controls" : "" []
+@PointClass base( Mandatory, Appearflags )  = func_traincontrols : "Train Controls" : "" []
 
-@SolidClass  = func_wall : "Wall" : "" []
+@SolidClass base( Mandatory, SF2UseAngles, Global, Appearflags, RenderFields, ZHLT, Appearflags )  = func_wall : "Wall" : "" []
 
-@PointClass  = func_wall : "Wall" : "" []
+@PointClass base( Mandatory, SF2UseAngles, Global, Appearflags, RenderFields, ZHLT, Appearflags )  = func_wall : "Wall" : "" []
 
 @BaseClass = Cfunc_wall_toggle : "Toggleable geometry" : ""
 [
@@ -1438,9 +1476,9 @@
 	]
 ]
 
-@SolidClass base( Cfunc_wall_toggle )  = func_wall_toggle : "Toggleable geometry" : "" []
+@SolidClass base( Cfunc_wall_toggle, Mandatory, func_wall, Appearflags )  = func_wall_toggle : "Toggleable geometry" : "" []
 
-@PointClass base( Cfunc_wall_toggle, hullsizes )  = func_wall_toggle : "Toggleable geometry" : "" []
+@PointClass base( Cfunc_wall_toggle, hullsizes, Mandatory, func_wall, Appearflags )  = func_wall_toggle : "Toggleable geometry" : "" []
 
 @BaseClass = Cfunc_water : "Liquid" : ""
 [
@@ -1457,9 +1495,9 @@
 	WaveHeight(string) : "Wave Height" : "3.2" : ""
 ]
 
-@SolidClass base( Cfunc_water )  = func_water : "Liquid" : "" []
+@SolidClass base( Cfunc_water, Mandatory, Door, ZHLT, Appearflags )  = func_water : "Liquid" : "" []
 
-@PointClass base( Cfunc_water, hullsizes )  = func_water : "Liquid" : "" []
+@PointClass base( Cfunc_water, hullsizes, Mandatory, Door, ZHLT, Appearflags )  = func_water : "Liquid" : "" []
 
 @BaseClass = Cgame_counter : "Fires when it hits limit" : ""
 [
@@ -1471,7 +1509,7 @@
 	health(integer) : "Limit Value" : "10" : ""
 ]
 
-@PointClass base( Cgame_counter )  = game_counter : "Fires when it hits limit" : "" []
+@PointClass base( Cgame_counter, Mandatory, Targetx, Master, Appearflags )  = game_counter : "Fires when it hits limit" : "" []
 
 @BaseClass = Cgame_counter_set : "Sets a game_counter" : ""
 [
@@ -1482,9 +1520,9 @@
 	frags(integer) : "New Value" : "10" : ""
 ]
 
-@PointClass base( Cgame_counter_set )  = game_counter_set : "Sets a game_counter" : "" []
+@PointClass base( Cgame_counter_set, Mandatory, Target, Master, Appearflags )  = game_counter_set : "Sets a game_counter" : "" []
 
-@PointClass  = game_end : "End this multiplayer game" : "" []
+@PointClass base( Mandatory, Master, Appearflags )  = game_end : "End this multiplayer game" : "" []
 
 @BaseClass = Cgame_player_equip : "Initial player equipment" : ""
 [
@@ -1494,7 +1532,7 @@
 	]
 ]
 
-@PointClass base( Cgame_player_equip )  = game_player_equip : "Initial player equipment" : "" []
+@PointClass base( Cgame_player_equip, Mandatory, Master, Appearflags )  = game_player_equip : "Initial player equipment" : "" []
 
 @BaseClass = Cgame_player_hurt : "Hurts player who fires" : ""
 [
@@ -1505,7 +1543,7 @@
 	dmg(string) : "Damage To Apply" : "999" : ""
 ]
 
-@PointClass base( Cgame_player_hurt )  = game_player_hurt : "Hurts player who fires" : "" []
+@PointClass base( Cgame_player_hurt, Mandatory, Master, Appearflags )  = game_player_hurt : "Hurts player who fires" : "" []
 
 @BaseClass = Cgame_player_team : "Allows player to change teams" : ""
 [
@@ -1515,7 +1553,7 @@
 	]
 ]
 
-@PointClass base( Cgame_player_team )  = game_player_team : "Allows player to change teams" : "" []
+@PointClass base( Cgame_player_team, Mandatory, Master, Appearflags )  = game_player_team : "Allows player to change teams" : "" []
 
 @BaseClass = Cgame_score : "Award/Deduct Points" : ""
 [
@@ -1526,7 +1564,7 @@
 	points(integer) : "Points to add (+/-)" : "1" : ""
 ]
 
-@PointClass base( Cgame_score )  = game_score : "Award/Deduct Points" : "" []
+@PointClass base( Cgame_score, Mandatory, Master, Appearflags )  = game_score : "Award/Deduct Points" : "" []
 
 @BaseClass = Cgame_team_master : "Team based master/relay" : ""
 [
@@ -1543,7 +1581,7 @@
 	teamindex(integer) : "Team Index (-1 = no team)" : "-1" : ""
 ]
 
-@PointClass base( Cgame_team_master )  = game_team_master : "Team based master/relay" : "" []
+@PointClass base( Cgame_team_master, Mandatory, Targetx, Master, Appearflags )  = game_team_master : "Team based master/relay" : "" []
 
 @BaseClass = Cgame_team_set : "Sets team of team_master" : ""
 [
@@ -1553,13 +1591,15 @@
 	]
 ]
 
-@PointClass base( Cgame_team_set )  = game_team_set : "Sets team of team_master" : "" []
+@PointClass base( Cgame_team_set, Mandatory, Targetx, Master, Appearflags )  = game_team_set : "Sets team of team_master" : "" []
 
 @BaseClass = Cgame_text : "HUD Text Message" : ""
 [
 	spawnflags(Flags) =
 	[
 		1 : "All Players" : 0 : ""
+		2 : "No echo console" : 0 : ""
+		4 : "Fire Per Player" : 0 : ""
 	]
 	x(string) : "X (0 - 1.0 = left to right) (-1 centers)" : "-1" : ""
 	y(string) : "Y (0 - 1.0 = top to bottom) (-1 centers)" : "-1" : ""
@@ -1584,11 +1624,11 @@
 	]
 ]
 
-@PointClass base( Cgame_text )  = game_text : "HUD Text Message" : "" []
+@PointClass base( Cgame_text, Mandatory, Target, Master, Appearflags )  = game_text : "HUD Text Message" : "" []
 
-@SolidClass  = game_zone_player : "Player Zone brush" : "" []
+@SolidClass base( Mandatory, Master, Appearflags )  = game_zone_player : "Player Zone brush" : "" []
 
-@PointClass  = game_zone_player : "Player Zone brush" : "" []
+@PointClass base( Mandatory, Master, Appearflags )  = game_zone_player : "Player Zone brush" : "" []
 
 @PointClass decal() = infodecal : "Decal" : ""
 [
@@ -1608,7 +1648,7 @@
 	presequence(string) : "Sequence before approach" : "" : ""
 ]
 
-@PointClass base( Cinfo_bigmomma )  = info_bigmomma : "Big Mamma Node" : "" []
+@PointClass base( Cinfo_bigmomma, Mandatory, Appearflags )  = info_bigmomma : "Big Mamma Node" : "" []
 
 @BaseClass = Cinfo_ctfdetect : "CTF Detect" : ""
 [
@@ -1622,7 +1662,7 @@
 	map_score_max(string) : "Maximum Map Team Score" : "0" : ""
 ]
 
-@PointClass base( Cinfo_ctfdetect )  = info_ctfdetect : "CTF Detect" : "" []
+@PointClass base( Cinfo_ctfdetect, Mandatory, Appearflags )  = info_ctfdetect : "CTF Detect" : "" []
 
 @BaseClass = Cinfo_ctfspawn : "Player CTF Start" : ""
 [
@@ -1634,7 +1674,7 @@
 	]
 ]
 
-@PointClass base( Cinfo_ctfspawn )  = info_ctfspawn : "Player CTF Start" : "" []
+@PointClass base( Cinfo_ctfspawn, Mandatory, PlayerClass, Appearflags )  = info_ctfspawn : "Player CTF Start" : "" []
 
 @BaseClass size( -16 -16 0, 16 16 36 ) = Cinfo_ctfspawn_powerup : "CTF Powerup Spawn Spot" : ""
 [
@@ -1646,9 +1686,9 @@
 	]
 ]
 
-@PointClass base( Cinfo_ctfspawn_powerup )  = info_ctfspawn_powerup : "CTF Powerup Spawn Spot" : "" []
+@PointClass base( Cinfo_ctfspawn_powerup, Mandatory, Appearflags )  = info_ctfspawn_powerup : "CTF Powerup Spawn Spot" : "" []
 
-@PointClass  = info_player_deathmatch : "Player deathmatch start" : "" []
+@PointClass base( Mandatory, PlayerClass, Master, Appearflags )  = info_player_deathmatch : "Player deathmatch start" : "" []
 
 @BaseClass size( -16 -16 0, 16 16 36 ) studio( "models/barney_vest.mdl" ) = Citem_armorvest : "Barney Vest" : ""
 [
@@ -1661,9 +1701,9 @@
 	]
 ]
 
-@PointClass base( Citem_armorvest )  = item_armorvest : "Barney Vest" : "" []
+@PointClass base( Citem_armorvest, Mandatory, item_battery, Appearflags )  = item_armorvest : "Barney Vest" : "" []
 
-@PointClass  = item_battery : "HEV battery" : "" []
+@PointClass base( Mandatory, Targetx, Item, Appearflags )  = item_battery : "HEV battery" : "" []
 
 @BaseClass size( -16 -16 0, 16 16 72 ) = Citem_ctfbase : "CTF Goal" : ""
 [
@@ -1674,7 +1714,7 @@
 	model(studio) : "Model" : "models/civ_stand.mdl" : ""
 ]
 
-@PointClass base( Citem_ctfbase )  = item_ctfbase : "CTF Goal" : "" []
+@PointClass base( Citem_ctfbase, Mandatory, CTFAttributes, Appearflags )  = item_ctfbase : "CTF Goal" : "" []
 
 @BaseClass size( -16 -16 0, 16 16 72 ) = Citem_ctfflag : "CTF Flag" : ""
 [
@@ -1686,7 +1726,7 @@
 	model(studio) : "Model" : "models/flag.mdl" : ""
 ]
 
-@PointClass base( Citem_ctfflag )  = item_ctfflag : "CTF Flag" : "" []
+@PointClass base( Citem_ctfflag, Mandatory, CTFAttributes, Appearflags )  = item_ctfflag : "CTF Flag" : "" []
 
 @BaseClass studio( "" ) = Citem_generic : "Generic scenery item" : ""
 [
@@ -1700,9 +1740,9 @@
 	body(integer) : "Body" : "0" : ""
 ]
 
-@PointClass base( Citem_generic )  = item_generic : "Generic scenery item" : "" []
+@PointClass base( Citem_generic, Mandatory, Targetx, OtherItem, Appearflags )  = item_generic : "Generic scenery item" : "" []
 
-@PointClass  = item_healthkit : "Small Health Kit" : "" []
+@PointClass base( Mandatory, Targetx, Item, Appearflags )  = item_healthkit : "Small Health Kit" : "" []
 
 @BaseClass size( -16 -16 0, 16 16 36 ) studio( "models/barney_helmet.mdl" ) = Citem_helmet : "Barney Helmet" : ""
 [
@@ -1714,7 +1754,7 @@
 	]
 ]
 
-@PointClass base( Citem_helmet )  = item_helmet : "Barney Helmet" : "" []
+@PointClass base( Citem_helmet, Mandatory, item_battery, Appearflags )  = item_helmet : "Barney Helmet" : "" []
 
 @BaseClass size( -16 -16 0, 16 16 36 ) = Citem_nuclearbomb : "Nuclear Bomb" : ""
 [
@@ -1722,7 +1762,7 @@
 	wait(integer) : "Wait" : "1" : ""
 ]
 
-@PointClass base( Citem_nuclearbomb )  = item_nuclearbomb : "Nuclear Bomb" : "" []
+@PointClass base( Citem_nuclearbomb, Mandatory, Targetx, OtherItem, Appearflags )  = item_nuclearbomb : "Nuclear Bomb" : "" []
 
 @BaseClass size( -16 -16 0, 16 16 36 ) studio( "models/w_suit.mdl" ) = Citem_suit : "HEV Suit" : ""
 [
@@ -1737,7 +1777,7 @@
 	]
 ]
 
-@PointClass base( Citem_suit )  = item_suit : "HEV Suit" : "" []
+@PointClass base( Citem_suit, Mandatory, Targetx, Item, Appearflags )  = item_suit : "HEV Suit" : "" []
 
 @PointClass base( Mandatory, Target, Light, ZHLT_point, Appearflags )  = light : "Invisible lightsource" : "" []
 
@@ -1757,7 +1797,7 @@
 	_light(color255) : "Brightness" : "255 255 128 200" : ""
 ]
 
-@PointClass base( Clight_environment )  = light_environment : "Environment" : "" []
+@PointClass base( Clight_environment, Mandatory, Angles, ZHLT_point, Appearflags )  = light_environment : "Environment" : "" []
 
 @BaseClass flags( Light ) = Clight_spot : "Spotlight" : ""
 [
@@ -1773,13 +1813,13 @@
 
 @PointClass base( Clight_spot, Mandatory, Target, Angles, Light, ZHLT_point, Appearflags )  = light_spot : "Spotlight" : "" []
 
-@PointClass  = logic_campaignselect : "Shows the campaign select menu on trigger (hlu_campaignselect map only)" : "" []
+@PointClass base( Mandatory, Appearflags )  = logic_campaignselect : "Shows the campaign select menu on trigger (hlu_campaignselect map only)" : "" []
 
-@PointClass  = logic_isskill : "Fires a target based on the current skill level" : "" []
+@PointClass base( Mandatory, Master, Appearflags )  = logic_isskill : "Fires a target based on the current skill level" : "" []
 
-@PointClass  = logic_random : "Random Trigger" : "" []
+@PointClass base( Mandatory, Appearflags )  = logic_random : "Random Trigger" : "" []
 
-@PointClass  = logic_setcvar : "Set cvar on trigger" : "" []
+@PointClass base( Mandatory, Master, Appearflags )  = logic_setcvar : "Set cvar on trigger" : "" []
 
 @BaseClass color( 200 100 50 ) size( -8 -8 -8, 8 8 8 ) = Clogic_setskill : "Set skill level to specified value\nSome variables require a map change to take effect" : ""
 [
@@ -1791,9 +1831,9 @@
 	]
 ]
 
-@PointClass base( Clogic_setskill )  = logic_setskill : "Set skill level to specified value\nSome variables require a map change to take effect" : "" []
+@PointClass base( Clogic_setskill, Mandatory, Target, Master, Appearflags )  = logic_setskill : "Set skill level to specified value\nSome variables require a map change to take effect" : "" []
 
-@PointClass  = logic_setskillvar : "Set skill variables to a provided value" : "" []
+@PointClass base( Mandatory, Target, Master, Appearflags )  = logic_setskillvar : "Set skill variables to a provided value" : "" []
 
 @BaseClass = Cmomentary_door : "Momentary/Continuous door" : ""
 [
@@ -1803,9 +1843,9 @@
 	]
 ]
 
-@SolidClass base( Cmomentary_door )  = momentary_door : "Momentary/Continuous door" : "" []
+@SolidClass base( Cmomentary_door, Mandatory, Door, ZHLT, Appearflags )  = momentary_door : "Momentary/Continuous door" : "" []
 
-@PointClass base( Cmomentary_door, hullsizes )  = momentary_door : "Momentary/Continuous door" : "" []
+@PointClass base( Cmomentary_door, hullsizes, Mandatory, Door, ZHLT, Appearflags )  = momentary_door : "Momentary/Continuous door" : "" []
 
 @BaseClass = Cmomentary_rot_button : "Direct wheel control" : ""
 [
@@ -1818,9 +1858,9 @@
 	returnspeed(integer) : "Auto-return speed" : "0" : ""
 ]
 
-@SolidClass base( Cmomentary_rot_button )  = momentary_rot_button : "Direct wheel control" : "" []
+@SolidClass base( Cmomentary_rot_button, Mandatory, RenderFields, Target, Angles, ZHLT, Master, ReplacementFiles, Appearflags )  = momentary_rot_button : "Direct wheel control" : "" []
 
-@PointClass base( Cmomentary_rot_button, hullsizes )  = momentary_rot_button : "Direct wheel control" : "" []
+@PointClass base( Cmomentary_rot_button, hullsizes, Mandatory, RenderFields, Target, Angles, ZHLT, Master, ReplacementFiles, Appearflags )  = momentary_rot_button : "Direct wheel control" : "" []
 
 @BaseClass size( -16 -16 -16, 16 16 16 ) = Cmonstermaker : "Monster Maker" : ""
 [
@@ -1833,7 +1873,7 @@
 	m_imaxlivechildren(integer) : "Max live children" : "5" : ""
 ]
 
-@PointClass base( Cmonstermaker )  = monstermaker : "Monster Maker" : "" []
+@PointClass base( Cmonstermaker, Mandatory, Angles, Appearflags )  = monstermaker : "Monster Maker" : "" []
 
 @BaseClass studio( "models/baby_voltigore.mdl" ) = Cmonster_alien_babyvoltigore : "Baby Voltigore" : ""
 [
@@ -1843,7 +1883,7 @@
 	]
 ]
 
-@PointClass base( Cmonster_alien_babyvoltigore )  = monster_alien_babyvoltigore : "Baby Voltigore" : "" []
+@PointClass base( Cmonster_alien_babyvoltigore, Mandatory, Monster, Sequence, Appearflags )  = monster_alien_babyvoltigore : "Baby Voltigore" : "" []
 
 @BaseClass size( -32 -32 0, 32 32 64 ) studio( "models/agrunt.mdl" ) = Cmonster_alien_grunt : "Alien Grunt" : ""
 [
@@ -1853,7 +1893,7 @@
 	]
 ]
 
-@PointClass base( Cmonster_alien_grunt )  = monster_alien_grunt : "Alien Grunt" : "" []
+@PointClass base( Cmonster_alien_grunt, Mandatory, Monster, Sequence, Appearflags )  = monster_alien_grunt : "Alien Grunt" : "" []
 
 @BaseClass size( -16 -16 0, 16 16 72 ) studio( "models/islave.mdl" ) = Cmonster_alien_slave : "Vortigaunt" : ""
 [
@@ -1863,7 +1903,7 @@
 	]
 ]
 
-@PointClass base( Cmonster_alien_slave )  = monster_alien_slave : "Vortigaunt" : "" []
+@PointClass base( Cmonster_alien_slave, Mandatory, Monster, Sequence, Appearflags )  = monster_alien_slave : "Vortigaunt" : "" []
 
 @BaseClass studio( "models/islave.mdl" ) = Cmonster_alien_slave_dead : "Dead Vortigaunt" : ""
 [
@@ -1873,7 +1913,7 @@
 	]
 ]
 
-@PointClass base( Cmonster_alien_slave_dead )  = monster_alien_slave_dead : "Dead Vortigaunt" : "" []
+@PointClass base( Cmonster_alien_slave_dead, Mandatory, Monster, Sequence, Appearflags )  = monster_alien_slave_dead : "Dead Vortigaunt" : "" []
 
 @BaseClass studio( "models/voltigore.mdl" ) = Cmonster_alien_voltigore : "Voltigore" : ""
 [
@@ -1883,7 +1923,7 @@
 	]
 ]
 
-@PointClass base( Cmonster_alien_voltigore )  = monster_alien_voltigore : "Voltigore" : "" []
+@PointClass base( Cmonster_alien_voltigore, Mandatory, Monster, Sequence, Appearflags )  = monster_alien_voltigore : "Voltigore" : "" []
 
 @BaseClass size( -360 -360 -172, 360 360 8 ) studio( "models/apache.mdl" ) = Cmonster_apache : "Apache" : ""
 [
@@ -1893,7 +1933,7 @@
 	]
 ]
 
-@PointClass base( Cmonster_apache )  = monster_apache : "Apache" : "" []
+@PointClass base( Cmonster_apache, Mandatory, Monster, Sequence, Appearflags )  = monster_apache : "Apache" : "" []
 
 @BaseClass size( -16 -16 0, 16 16 72 ) studio( "models/barney.mdl" ) = Cmonster_barney : "Barney" : ""
 [
@@ -1905,7 +1945,7 @@
 	]
 ]
 
-@PointClass base( Cmonster_barney )  = monster_barney : "Barney" : "" []
+@PointClass base( Cmonster_barney, Mandatory, Monster, TalkMonster, Sequence, Appearflags )  = monster_barney : "Barney" : "" []
 
 @BaseClass size( -16 -16 0, 16 16 72 ) studio( "models/barney.mdl" ) = Cmonster_barney_dead : "Dead Barney" : ""
 [
@@ -1923,14 +1963,14 @@
 	]
 ]
 
-@PointClass base( Cmonster_barney_dead )  = monster_barney_dead : "Dead Barney" : "" []
+@PointClass base( Cmonster_barney_dead, Mandatory, RenderFields, Angles, Sequence, Appearflags )  = monster_barney_dead : "Dead Barney" : "" []
 
 @BaseClass size( -95 -95 0, 95 95 190 ) studio( "models/big_mom.mdl" ) = Cmonster_bigmomma : "Big Mamma" : ""
 [
 	netname(string) : "First node" : "" : ""
 ]
 
-@PointClass base( Cmonster_bigmomma )  = monster_bigmomma : "Big Mamma" : "" []
+@PointClass base( Cmonster_bigmomma, Mandatory, Monster, Sequence, MonsterWithChildren, Appearflags )  = monster_bigmomma : "Big Mamma" : "" []
 
 @BaseClass studio( "models/blkop_apache.mdl" ) = Cmonster_blkop_apache : "Black Ops Apache" : ""
 [
@@ -1940,9 +1980,9 @@
 	]
 ]
 
-@PointClass base( Cmonster_blkop_apache )  = monster_blkop_apache : "Black Ops Apache" : "" []
+@PointClass base( Cmonster_blkop_apache, Mandatory, Monster, Sequence, Appearflags )  = monster_blkop_apache : "Black Ops Apache" : "" []
 
-@PointClass  = monster_blkop_osprey : "Black Ops Osprey" : "" []
+@PointClass base( Mandatory, Monster, Sequence, BaseOsprey, Appearflags )  = monster_blkop_osprey : "Black Ops Osprey" : "" []
 
 @BaseClass studio( "models/cleansuit_scientist.mdl" ) = Cmonster_cleansuit_scientist : "Cleansuit Scientist" : ""
 [
@@ -1956,7 +1996,7 @@
 	]
 ]
 
-@PointClass base( Cmonster_cleansuit_scientist )  = monster_cleansuit_scientist : "Cleansuit Scientist" : "" []
+@PointClass base( Cmonster_cleansuit_scientist, Mandatory, Monster, TalkMonster, Sequence, Appearflags )  = monster_cleansuit_scientist : "Cleansuit Scientist" : "" []
 
 @BaseClass studio( "models/cleansuit_scientist.mdl" ) = Cmonster_cleansuit_scientist_dead : "Dead Cleansuit Scientist" : ""
 [
@@ -1982,7 +2022,7 @@
 	]
 ]
 
-@PointClass base( Cmonster_cleansuit_scientist_dead )  = monster_cleansuit_scientist_dead : "Dead Cleansuit Scientist" : "" []
+@PointClass base( Cmonster_cleansuit_scientist_dead, Mandatory, RenderFields, Sequence, Appearflags )  = monster_cleansuit_scientist_dead : "Dead Cleansuit Scientist" : "" []
 
 @BaseClass size( -16 -16 0, 16 16 16 ) studio( "models/aflock.mdl" ) = Cmonster_flyer_flock : "Flock of Flyers" : ""
 [
@@ -1990,9 +2030,9 @@
 	flFlockRadius(integer) : "Flock Radius" : "128" : ""
 ]
 
-@PointClass base( Cmonster_flyer_flock )  = monster_flyer_flock : "Flock of Flyers" : "" []
+@PointClass base( Cmonster_flyer_flock, Mandatory, Monster, Sequence, Appearflags )  = monster_flyer_flock : "Flock of Flyers" : "" []
 
-@PointClass  = monster_furniture : "Monster Furniture" : "" []
+@PointClass base( Mandatory, Monster, Sequence, Appearflags )  = monster_furniture : "Monster Furniture" : "" []
 
 @BaseClass size( -16 -16 -36, 16 16 36 ) = Cmonster_generic : "Generic Script Monster" : ""
 [
@@ -2003,7 +2043,7 @@
 	body(integer) : "Body" : "0" : ""
 ]
 
-@PointClass base( Cmonster_generic )  = monster_generic : "Generic Script Monster" : "" []
+@PointClass base( Cmonster_generic, Mandatory, Monster, RenderFields, Sequence, Appearflags )  = monster_generic : "Generic Script Monster" : "" []
 
 @BaseClass studio( "models/gonome.mdl" ) = Cmonster_gonome_dead : "Dead Gonome" : ""
 [
@@ -2015,7 +2055,7 @@
 	]
 ]
 
-@PointClass base( Cmonster_gonome_dead )  = monster_gonome_dead : "Dead Gonome" : "" []
+@PointClass base( Cmonster_gonome_dead, Mandatory, RenderFields, Sequence, Appearflags )  = monster_gonome_dead : "Dead Gonome" : "" []
 
 @BaseClass studio( "models/hgrunt_opfor.mdl" ) = Cmonster_grunt_ally_repel : "Human Grunt Ally (Repel)" : ""
 [
@@ -2046,7 +2086,7 @@
 	]
 ]
 
-@PointClass base( Cmonster_grunt_ally_repel )  = monster_grunt_ally_repel : "Human Grunt Ally (Repel)" : "" []
+@PointClass base( Cmonster_grunt_ally_repel, Mandatory, Monster, Sequence, TalkMonster, Appearflags )  = monster_grunt_ally_repel : "Human Grunt Ally (Repel)" : "" []
 
 @BaseClass size( -16 -16 0, 16 16 72 ) studio( "models/deadhaz.mdl" ) = Cmonster_hevsuit_dead : "Dead HEV Suit" : ""
 [
@@ -2059,7 +2099,7 @@
 	]
 ]
 
-@PointClass base( Cmonster_hevsuit_dead )  = monster_hevsuit_dead : "Dead HEV Suit" : "" []
+@PointClass base( Cmonster_hevsuit_dead, Mandatory, RenderFields, Angles, Sequence, Appearflags )  = monster_hevsuit_dead : "Dead HEV Suit" : "" []
 
 @BaseClass size( -16 -16 0, 16 16 72 ) studio( "models/hgrunt.mdl" ) = Cmonster_hgrunt_dead : "Dead Human Grunt" : ""
 [
@@ -2078,7 +2118,7 @@
 	]
 ]
 
-@PointClass base( Cmonster_hgrunt_dead )  = monster_hgrunt_dead : "Dead Human Grunt" : "" []
+@PointClass base( Cmonster_hgrunt_dead, Mandatory, RenderFields, Angles, Sequence, Appearflags )  = monster_hgrunt_dead : "Dead Human Grunt" : "" []
 
 @BaseClass size( -16 -16 0, 16 16 36 ) studio( "models/houndeye.mdl" ) = Cmonster_houndeye : "Houndeye" : ""
 [
@@ -2088,7 +2128,7 @@
 	]
 ]
 
-@PointClass base( Cmonster_houndeye )  = monster_houndeye : "Houndeye" : "" []
+@PointClass base( Cmonster_houndeye, Mandatory, Monster, Sequence, Appearflags )  = monster_houndeye : "Houndeye" : "" []
 
 @BaseClass studio( "models/houndeye_dead.mdl" ) = Cmonster_houndeye_dead : "Dead Houndeye" : ""
 [
@@ -2098,7 +2138,7 @@
 	]
 ]
 
-@PointClass base( Cmonster_houndeye_dead )  = monster_houndeye_dead : "Dead Houndeye" : "" []
+@PointClass base( Cmonster_houndeye_dead, Mandatory, Monster, Sequence, Appearflags )  = monster_houndeye_dead : "Dead Houndeye" : "" []
 
 @BaseClass size( -16 -16 0, 16 16 72 ) studio( "models/hgrunt.mdl" ) = Cmonster_human_grunt : "Human Grunt (camo)" : ""
 [
@@ -2116,7 +2156,7 @@
 	]
 ]
 
-@PointClass base( Cmonster_human_grunt )  = monster_human_grunt : "Human Grunt (camo)" : "" []
+@PointClass base( Cmonster_human_grunt, Mandatory, Monster, Sequence, Appearflags )  = monster_human_grunt : "Human Grunt (camo)" : "" []
 
 @BaseClass studio( "models/hgrunt_opfor.mdl" ) = Cmonster_human_grunt_ally : "Human Grunt Ally (camo)" : ""
 [
@@ -2148,7 +2188,7 @@
 	]
 ]
 
-@PointClass base( Cmonster_human_grunt_ally )  = monster_human_grunt_ally : "Human Grunt Ally (camo)" : "" []
+@PointClass base( Cmonster_human_grunt_ally, Mandatory, Monster, Sequence, TalkMonster, Appearflags )  = monster_human_grunt_ally : "Human Grunt Ally (camo)" : "" []
 
 @BaseClass studio( "models/hgrunt_opfor.mdl" ) = Cmonster_human_grunt_ally_dead : "Dead Human Grunt Ally" : ""
 [
@@ -2182,7 +2222,7 @@
 	]
 ]
 
-@PointClass base( Cmonster_human_grunt_ally_dead )  = monster_human_grunt_ally_dead : "Dead Human Grunt Ally" : "" []
+@PointClass base( Cmonster_human_grunt_ally_dead, Mandatory, RenderFields, Sequence, Appearflags )  = monster_human_grunt_ally_dead : "Dead Human Grunt Ally" : "" []
 
 @BaseClass studio( "models/hgrunt_medic.mdl" ) = Cmonster_human_medic_ally : "Medic" : ""
 [
@@ -2205,7 +2245,7 @@
 	]
 ]
 
-@PointClass base( Cmonster_human_medic_ally )  = monster_human_medic_ally : "Medic" : "" []
+@PointClass base( Cmonster_human_medic_ally, Mandatory, Monster, Sequence, Appearflags )  = monster_human_medic_ally : "Medic" : "" []
 
 @BaseClass studio( "models/hgrunt_torch.mdl" ) = Cmonster_human_torch_ally : "Torch" : ""
 [
@@ -2222,7 +2262,7 @@
 	]
 ]
 
-@PointClass base( Cmonster_human_torch_ally )  = monster_human_torch_ally : "Torch" : "" []
+@PointClass base( Cmonster_human_torch_ally, Mandatory, Monster, Sequence, Appearflags )  = monster_human_torch_ally : "Torch" : "" []
 
 @BaseClass studio( "models/massn.mdl" ) = Cmonster_male_assassin : "Male Assassin" : ""
 [
@@ -2248,7 +2288,7 @@
 	standgroundrange(string) : "Stand Ground Range" : "0.0" : ""
 ]
 
-@PointClass base( Cmonster_male_assassin )  = monster_male_assassin : "Male Assassin" : "" []
+@PointClass base( Cmonster_male_assassin, Mandatory, Monster, Sequence, Appearflags )  = monster_male_assassin : "Male Assassin" : "" []
 
 @BaseClass size( -16 -16 -32, 16 16 32 ) studio( "models/miniturret.mdl" ) = Cmonster_miniturret : "Mini Auto Turret" : ""
 [
@@ -2263,7 +2303,7 @@
 	]
 ]
 
-@PointClass base( Cmonster_miniturret )  = monster_miniturret : "Mini Auto Turret" : "" []
+@PointClass base( Cmonster_miniturret, Mandatory, Monster, Sequence, Appearflags )  = monster_miniturret : "Mini Auto Turret" : "" []
 
 @BaseClass studio( "models/loader.mdl" ) = Cmonster_op4loader : "Loader machine" : ""
 [
@@ -2273,9 +2313,9 @@
 	]
 ]
 
-@PointClass base( Cmonster_op4loader )  = monster_op4loader : "Loader machine" : "" []
+@PointClass base( Cmonster_op4loader, Mandatory, Monster, RenderFields, Sequence, Appearflags )  = monster_op4loader : "Loader machine" : "" []
 
-@PointClass  = monster_osprey : "Osprey" : "" []
+@PointClass base( Mandatory, Monster, Sequence, BaseOsprey, Appearflags )  = monster_osprey : "Osprey" : "" []
 
 @BaseClass studio( "models/otis.mdl" ) = Cmonster_otis : "Otis" : ""
 [
@@ -2306,7 +2346,7 @@
 	]
 ]
 
-@PointClass base( Cmonster_otis )  = monster_otis : "Otis" : "" []
+@PointClass base( Cmonster_otis, Mandatory, Monster, TalkMonster, Sequence, Appearflags )  = monster_otis : "Otis" : "" []
 
 @BaseClass studio( "models/otis.mdl" ) = Cmonster_otis_dead : "Dead Otis" : ""
 [
@@ -2338,16 +2378,16 @@
 	]
 ]
 
-@PointClass base( Cmonster_otis_dead )  = monster_otis_dead : "Dead Otis" : "" []
+@PointClass base( Cmonster_otis_dead, Mandatory, Sequence, Appearflags )  = monster_otis_dead : "Dead Otis" : "" []
 
 @BaseClass studio( "models/pit_drone.mdl" ) = Cmonster_pitdrone : "PitDrone" : ""
 [
 	initammo(string) : "Initial Ammo" : "6" : ""
 ]
 
-@PointClass base( Cmonster_pitdrone )  = monster_pitdrone : "PitDrone" : "" []
+@PointClass base( Cmonster_pitdrone, Mandatory, Monster, Sequence, Appearflags )  = monster_pitdrone : "PitDrone" : "" []
 
-@PointClass  = monster_rosenberg : "Dr. Rosenberg" : "" []
+@PointClass base( Mandatory, Monster, TalkMonster, Appearflags )  = monster_rosenberg : "Dr. Rosenberg" : "" []
 
 @BaseClass size( -16 -16 0, 16 16 72 ) studio( "models/scientist.mdl" ) = Cmonster_scientist : "Scared Scientist" : ""
 [
@@ -2367,7 +2407,7 @@
 	]
 ]
 
-@PointClass base( Cmonster_scientist )  = monster_scientist : "Scared Scientist" : "" []
+@PointClass base( Cmonster_scientist, Mandatory, Monster, TalkMonster, Sequence, Appearflags )  = monster_scientist : "Scared Scientist" : "" []
 
 @BaseClass size( -16 -16 0, 16 16 72 ) studio( "models/scientist.mdl" ) = Cmonster_scientist_dead : "Dead Scientist" : ""
 [
@@ -2391,7 +2431,7 @@
 	]
 ]
 
-@PointClass base( Cmonster_scientist_dead )  = monster_scientist_dead : "Dead Scientist" : "" []
+@PointClass base( Cmonster_scientist_dead, Mandatory, RenderFields, Angles, Sequence, Appearflags )  = monster_scientist_dead : "Dead Scientist" : "" []
 
 @BaseClass size( -16 -16 0, 16 16 72 ) studio( "models/sentry.mdl" ) = Cmonster_sentry : "Sentry Turret Gun" : ""
 [
@@ -2401,7 +2441,7 @@
 	]
 ]
 
-@PointClass base( Cmonster_sentry )  = monster_sentry : "Sentry Turret Gun" : "" []
+@PointClass base( Cmonster_sentry, Mandatory, Monster, Sequence, Appearflags )  = monster_sentry : "Sentry Turret Gun" : "" []
 
 @BaseClass studio( "models/strooper.mdl" ) = Cmonster_shocktrooper : "Shock Trooper" : ""
 [
@@ -2419,7 +2459,7 @@
 	]
 ]
 
-@PointClass base( Cmonster_shocktrooper )  = monster_shocktrooper : "Shock Trooper" : "" []
+@PointClass base( Cmonster_shocktrooper, Mandatory, Monster, Sequence, Appearflags )  = monster_shocktrooper : "Shock Trooper" : "" []
 
 @BaseClass studio( "models/cleansuit_scientist.mdl" ) = Cmonster_sitting_cleansuit_scientist : "Sitting Cleansuit Scientist" : ""
 [
@@ -2433,7 +2473,7 @@
 	]
 ]
 
-@PointClass base( Cmonster_sitting_cleansuit_scientist )  = monster_sitting_cleansuit_scientist : "Sitting Cleansuit Scientist" : "" []
+@PointClass base( Cmonster_sitting_cleansuit_scientist, Mandatory, Monster, Sequence, Appearflags )  = monster_sitting_cleansuit_scientist : "Sitting Cleansuit Scientist" : "" []
 
 @BaseClass size( -14 -14 22, 14 14 72 ) studio( "models/scientist.mdl" ) = Cmonster_sitting_scientist : "Sitting Scientist" : ""
 [
@@ -2452,7 +2492,7 @@
 	]
 ]
 
-@PointClass base( Cmonster_sitting_scientist )  = monster_sitting_scientist : "Sitting Scientist" : "" []
+@PointClass base( Cmonster_sitting_scientist, Mandatory, Monster, Sequence, Appearflags )  = monster_sitting_scientist : "Sitting Scientist" : "" []
 
 @BaseClass size( -16 -16 0, 16 16 72 ) studio( "models/skeleton.mdl" ) = Cmonster_skeleton_dead : "Dead Skeleton" : ""
 [
@@ -2465,7 +2505,7 @@
 	]
 ]
 
-@PointClass base( Cmonster_skeleton_dead )  = monster_skeleton_dead : "Dead Skeleton" : "" []
+@PointClass base( Cmonster_skeleton_dead, Mandatory, RenderFields, Sequence, Appearflags )  = monster_skeleton_dead : "Dead Skeleton" : "" []
 
 @BaseClass size( -32 -32 0, 32 32 64 ) studio( "models/tentacle2.mdl" ) = Cmonster_tentacle : "Tentacle Arm" : ""
 [
@@ -2487,7 +2527,7 @@
 	height3(integer) : "Height for level 3" : "640" : ""
 ]
 
-@PointClass base( Cmonster_tentacle )  = monster_tentacle : "Tentacle Arm" : "" []
+@PointClass base( Cmonster_tentacle, Mandatory, Monster, Sequence, Appearflags )  = monster_tentacle : "Tentacle Arm" : "" []
 
 @BaseClass studio( "models/w_tripmine.mdl" ) = Cmonster_tripmine : "Active Tripmine" : ""
 [
@@ -2497,7 +2537,7 @@
 	]
 ]
 
-@PointClass base( Cmonster_tripmine )  = monster_tripmine : "Active Tripmine" : "" []
+@PointClass base( Cmonster_tripmine, Mandatory, Monster, Sequence, Appearflags )  = monster_tripmine : "Active Tripmine" : "" []
 
 @BaseClass size( -32 -32 -32, 32 32 32 ) studio( "models/turret.mdl" ) = Cmonster_turret : "Auto Turret" : ""
 [
@@ -2512,7 +2552,7 @@
 	]
 ]
 
-@PointClass base( Cmonster_turret )  = monster_turret : "Auto Turret" : "" []
+@PointClass base( Cmonster_turret, Mandatory, Monster, Sequence, Appearflags )  = monster_turret : "Auto Turret" : "" []
 
 @BaseClass studio( "models/zombie_soldier.mdl" ) = Cmonster_zombie_soldier_dead : "Dead Soldier Zombie" : ""
 [
@@ -2523,9 +2563,9 @@
 	]
 ]
 
-@PointClass base( Cmonster_zombie_soldier_dead )  = monster_zombie_soldier_dead : "Dead Soldier Zombie" : "" []
+@PointClass base( Cmonster_zombie_soldier_dead, Mandatory, Monster, Sequence, Appearflags )  = monster_zombie_soldier_dead : "Dead Soldier Zombie" : "" []
 
-@PointClass  = multisource : "Multisource" : "" []
+@PointClass base( Mandatory, Target, Appearflags )  = multisource : "Multisource" : "" []
 
 @BaseClass color( 255 128 0 ) = Cmulti_manager : "MultiTarget Manager" : ""
 [
@@ -2535,7 +2575,7 @@
 	]
 ]
 
-@PointClass base( Cmulti_manager )  = multi_manager : "MultiTarget Manager" : "" []
+@PointClass base( Cmulti_manager, Mandatory, Appearflags )  = multi_manager : "MultiTarget Manager" : "" []
 
 @BaseClass = Cop4mortar : "Op4 Mortar" : ""
 [
@@ -2557,7 +2597,7 @@
 	firedelay(integer) : "Fire Rate" : "5" : ""
 ]
 
-@PointClass base( Cop4mortar )  = op4mortar : "Op4 Mortar" : "" []
+@PointClass base( Cop4mortar, Mandatory, Appearflags )  = op4mortar : "Op4 Mortar" : "" []
 
 @BaseClass color( 247 181 82 ) size( -8 -8 -8, 8 8 8 ) flags( Path ) = Cpath_corner : "Moving platform stop" : ""
 [
@@ -2570,7 +2610,7 @@
 	yaw_speed(integer) : "New Train rot. Speed" : "0" : ""
 ]
 
-@PointClass base( Cpath_corner )  = path_corner : "Moving platform stop" : "" []
+@PointClass base( Cpath_corner, Mandatory, Angles, Appearflags )  = path_corner : "Moving platform stop" : "" []
 
 @BaseClass size( -8 -8 -8, 8 8 8 ) flags( Path ) = Cpath_track : "Train Track Path" : ""
 [
@@ -2581,11 +2621,11 @@
 	speed(integer) : "New Train Speed" : "0" : ""
 ]
 
-@PointClass base( Cpath_track )  = path_track : "Train Track Path" : "" []
+@PointClass base( Cpath_track, Mandatory, Appearflags )  = path_track : "Train Track Path" : "" []
 
-@PointClass  = player_hassuit : "Fires a target based on whether the activating player has a suit or not" : "" []
+@PointClass base( Mandatory, Appearflags )  = player_hassuit : "Fires a target based on whether the activating player has a suit or not" : "" []
 
-@PointClass  = player_hasweapon : "Fires a target based on whether the activating player has the given weapon or not" : "" []
+@PointClass base( Mandatory, Appearflags )  = player_hasweapon : "Fires a target based on whether the activating player has the given weapon or not" : "" []
 
 @BaseClass size( -16 -16 -16, 16 16 16 ) = Cplayer_loadsaved : "Load Auto-Saved game" : ""
 [
@@ -2598,7 +2638,7 @@
 	loadtime(string) : "Reload delay" : "0" : ""
 ]
 
-@PointClass base( Cplayer_loadsaved )  = player_loadsaved : "Load Auto-Saved game" : "" []
+@PointClass base( Cplayer_loadsaved, Mandatory, Appearflags )  = player_loadsaved : "Load Auto-Saved game" : "" []
 
 @BaseClass size( -16 -16 -16, 16 16 16 ) = Cplayer_setcrosshaircolor : "Set or reset player crosshair color" : ""
 [
@@ -2610,7 +2650,7 @@
 	]
 ]
 
-@PointClass base( Cplayer_setcrosshaircolor )  = player_setcrosshaircolor : "Set or reset player crosshair color" : "" []
+@PointClass base( Cplayer_setcrosshaircolor, Mandatory, Appearflags )  = player_setcrosshaircolor : "Set or reset player crosshair color" : "" []
 
 @BaseClass size( -8 -8 -8, 8 8 8 ) = Cplayer_sethealth : "Set player's health and/or armor" : ""
 [
@@ -2631,7 +2671,7 @@
 	]
 ]
 
-@PointClass base( Cplayer_sethealth )  = player_sethealth : "Set player's health and/or armor" : "" []
+@PointClass base( Cplayer_sethealth, Mandatory, Appearflags )  = player_sethealth : "Set player's health and/or armor" : "" []
 
 @BaseClass size( -16 -16 -16, 16 16 16 ) = Cplayer_sethudcolor : "Set or reset player hud color" : ""
 [
@@ -2643,7 +2683,7 @@
 	]
 ]
 
-@PointClass base( Cplayer_sethudcolor )  = player_sethudcolor : "Set or reset player hud color" : "" []
+@PointClass base( Cplayer_sethudcolor, Mandatory, Appearflags )  = player_sethudcolor : "Set or reset player hud color" : "" []
 
 @BaseClass size( -8 -8 -8, 8 8 8 ) = Cplayer_setsuitlighttype : "Set player's suit light type" : ""
 [
@@ -2659,7 +2699,7 @@
 	]
 ]
 
-@PointClass base( Cplayer_setsuitlighttype )  = player_setsuitlighttype : "Set player's suit light type" : "" []
+@PointClass base( Cplayer_setsuitlighttype, Mandatory, Appearflags )  = player_setsuitlighttype : "Set player's suit light type" : "" []
 
 @BaseClass size( -16 -16 -16, 16 16 16 ) = Cplayer_weaponstrip : "Strips player's weapons" : ""
 [
@@ -2685,9 +2725,9 @@
 	]
 ]
 
-@PointClass base( Cplayer_weaponstrip )  = player_weaponstrip : "Strips player's weapons" : "" []
+@PointClass base( Cplayer_weaponstrip, Mandatory, Appearflags )  = player_weaponstrip : "Strips player's weapons" : "" []
 
-@PointClass  = point_teleport : "Teleport target to this entity on trigger" : "" []
+@PointClass base( Mandatory, Master, Angles, TeleportBase, Appearflags )  = point_teleport : "Teleport target to this entity on trigger" : "" []
 
 @BaseClass color( 255 0 255 ) size( -16 -16 0, 16 16 72 ) = Cscripted_sentence : "Scripted Sentence" : ""
 [
@@ -2709,7 +2749,7 @@
 	]
 ]
 
-@PointClass base( Cscripted_sentence )  = scripted_sentence : "Scripted Sentence" : "" []
+@PointClass base( Cscripted_sentence, Mandatory, Targetx, Appearflags )  = scripted_sentence : "Scripted Sentence" : "" []
 
 @BaseClass color( 255 0 255 ) size( -16 -16 0, 16 16 72 ) flags( Angle ) = Cscripted_sequence : "Scripted Sequence" : ""
 [
@@ -2720,7 +2760,7 @@
 	m_iszIdle(string) : "Idle Animation" : "" : ""
 ]
 
-@PointClass base( Cscripted_sequence )  = scripted_sequence : "Scripted Sequence" : "" []
+@PointClass base( Cscripted_sequence, Mandatory, Targetx, Angles, BaseScriptedSequence, Appearflags )  = scripted_sequence : "Scripted Sequence" : "" []
 
 @BaseClass sprite( "sprites/speaker.spr" ) = Cspeaker : "Announcement Speaker" : ""
 [
@@ -2747,13 +2787,14 @@
 	health(integer) : "Volume (10 = loudest)" : "5" : ""
 ]
 
-@PointClass base( Cspeaker )  = speaker : "Announcement Speaker" : "" []
+@PointClass base( Cspeaker, Mandatory, Appearflags )  = speaker : "Announcement Speaker" : "" []
 
 @BaseClass sprite( "sprites/trigger_auto.spr" ) = Ctrigger_auto : "AutoTrigger" : ""
 [
 	spawnflags(Flags) =
 	[
 		1 : "Remove On fire" : 0 : ""
+		2 : "Wait for clients" : 0 : ""
 	]
 	triggerstate(choices) : "Trigger State" : "0" : "" =
 	[
@@ -2763,11 +2804,11 @@
 	]
 ]
 
-@PointClass base( Ctrigger_auto )  = trigger_auto : "AutoTrigger" : "" []
+@PointClass base( Ctrigger_auto, Mandatory, Targetx, Appearflags )  = trigger_auto : "AutoTrigger" : "" []
 
-@SolidClass  = trigger_autosave : "AutoSave Trigger" : "" []
+@SolidClass base( Mandatory, Master, Appearflags )  = trigger_autosave : "AutoSave Trigger" : "" []
 
-@PointClass  = trigger_autosave : "AutoSave Trigger" : "" []
+@PointClass base( Mandatory, Master, Appearflags )  = trigger_autosave : "AutoSave Trigger" : "" []
 
 @BaseClass sprite( "sprites/trigger_camera.spr" ) = Ctrigger_camera : "Trigger Camera" : ""
 [
@@ -2781,9 +2822,9 @@
 	deceleration(string) : "Stop Deceleration units/sec^2" : "500" : ""
 ]
 
-@PointClass base( Ctrigger_camera )  = trigger_camera : "Trigger Camera" : "" []
+@PointClass base( Ctrigger_camera, Mandatory, Targetx, Appearflags )  = trigger_camera : "Trigger Camera" : "" []
 
-@PointClass  = trigger_changekeyvalue : "Trigger Change Key Value" : "" []
+@PointClass base( Mandatory, Target, Appearflags )  = trigger_changekeyvalue : "Trigger Change Key Value" : "" []
 
 @BaseClass = Ctrigger_changelevel : "Trigger: Change level" : ""
 [
@@ -2804,11 +2845,11 @@
 	]
 ]
 
-@SolidClass base( Ctrigger_changelevel )  = trigger_changelevel : "Trigger: Change level" : "" []
+@SolidClass base( Ctrigger_changelevel, Mandatory, Appearflags )  = trigger_changelevel : "Trigger: Change level" : "" []
 
-@PointClass base( Ctrigger_changelevel, hullsizes )  = trigger_changelevel : "Trigger: Change level" : "" []
+@PointClass base( Ctrigger_changelevel, hullsizes, Mandatory, Appearflags )  = trigger_changelevel : "Trigger: Change level" : "" []
 
-@PointClass  = trigger_changetarget : "Trigger Change Target" : "" []
+@PointClass base( Mandatory, Targetx, Appearflags )  = trigger_changetarget : "Trigger Change Target" : "" []
 
 @BaseClass = Ctrigger_counter : "Trigger counter" : ""
 [
@@ -2819,9 +2860,9 @@
 	count(integer) : "Count before activation" : "2" : ""
 ]
 
-@SolidClass base( Ctrigger_counter )  = trigger_counter : "Trigger counter" : "" []
+@SolidClass base( Ctrigger_counter, Mandatory, Trigger, Master, Appearflags )  = trigger_counter : "Trigger counter" : "" []
 
-@PointClass base( Ctrigger_counter, hullsizes )  = trigger_counter : "Trigger counter" : "" []
+@PointClass base( Ctrigger_counter, hullsizes, Mandatory, Trigger, Master, Appearflags )  = trigger_counter : "Trigger counter" : "" []
 
 @BaseClass = Ctrigger_ctfgeneric : "Trigger CTF Generic" : ""
 [
@@ -2842,9 +2883,9 @@
 	]
 ]
 
-@SolidClass base( Ctrigger_ctfgeneric )  = trigger_ctfgeneric : "Trigger CTF Generic" : "" []
+@SolidClass base( Ctrigger_ctfgeneric, Mandatory, Target, Appearflags )  = trigger_ctfgeneric : "Trigger CTF Generic" : "" []
 
-@PointClass base( Ctrigger_ctfgeneric, hullsizes )  = trigger_ctfgeneric : "Trigger CTF Generic" : "" []
+@PointClass base( Ctrigger_ctfgeneric, hullsizes, Mandatory, Target, Appearflags )  = trigger_ctfgeneric : "Trigger CTF Generic" : "" []
 
 @BaseClass = Ctrigger_endsection : "EndSection Trigger" : ""
 [
@@ -2854,9 +2895,22 @@
 	]
 ]
 
-@SolidClass base( Ctrigger_endsection )  = trigger_endsection : "EndSection Trigger" : "" []
+@SolidClass base( Ctrigger_endsection, Mandatory, Appearflags )  = trigger_endsection : "EndSection Trigger" : "" []
 
-@PointClass base( Ctrigger_endsection, hullsizes )  = trigger_endsection : "EndSection Trigger" : "" []
+@PointClass base( Ctrigger_endsection, hullsizes, Mandatory, Appearflags )  = trigger_endsection : "EndSection Trigger" : "" []
+
+@BaseClass = Ctrigger_eventhandler : "Trigger on a game event handled" : ""
+[
+	target(target_destination) : "Trigger on event" : "" : ""
+	frags(choices) : "Handle event type" : "0" : "" =
+	[
+		"0" : "None" : ""
+		"100" : "Monster Killed" : "A monster has been killed. !activator killer, !caller monster, value iGib"
+		"101" : "Monster TakeDamage" : "A monster has been hurt. !activator inflictor, !caller monster, value flDamage"
+	]
+]
+
+@PointClass base( Ctrigger_eventhandler, Mandatory, SF1StartOff, Appearflags )  = trigger_eventhandler : "Trigger on a game event handled" : "" []
 
 @BaseClass = Ctrigger_geneworm_hit : "Trigger GeneWorm Hit" : ""
 [
@@ -2867,18 +2921,18 @@
 	delay(string) : "Delay before trigger" : "0" : ""
 ]
 
-@SolidClass base( Ctrigger_geneworm_hit )  = trigger_geneworm_hit : "Trigger GeneWorm Hit" : "" []
+@SolidClass base( Ctrigger_geneworm_hit, Mandatory, Target, Master, Appearflags )  = trigger_geneworm_hit : "Trigger GeneWorm Hit" : "" []
 
-@PointClass base( Ctrigger_geneworm_hit, hullsizes )  = trigger_geneworm_hit : "Trigger GeneWorm Hit" : "" []
+@PointClass base( Ctrigger_geneworm_hit, hullsizes, Mandatory, Target, Master, Appearflags )  = trigger_geneworm_hit : "Trigger GeneWorm Hit" : "" []
 
 @BaseClass = Ctrigger_gravity : "Trigger Gravity" : ""
 [
 	gravity(integer) : "Gravity (0-1)" : "1" : ""
 ]
 
-@SolidClass base( Ctrigger_gravity )  = trigger_gravity : "Trigger Gravity" : "" []
+@SolidClass base( Ctrigger_gravity, Mandatory, Trigger, Appearflags )  = trigger_gravity : "Trigger Gravity" : "" []
 
-@PointClass base( Ctrigger_gravity, hullsizes )  = trigger_gravity : "Trigger Gravity" : "" []
+@PointClass base( Ctrigger_gravity, hullsizes, Mandatory, Trigger, Appearflags )  = trigger_gravity : "Trigger Gravity" : "" []
 
 @BaseClass = Ctrigger_hurt : "Trigger player hurt" : ""
 [
@@ -2914,9 +2968,9 @@
 	]
 ]
 
-@SolidClass base( Ctrigger_hurt )  = trigger_hurt : "Trigger player hurt" : "" []
+@SolidClass base( Ctrigger_hurt, Mandatory, Target, Master, Appearflags )  = trigger_hurt : "Trigger player hurt" : "" []
 
-@PointClass base( Ctrigger_hurt, hullsizes )  = trigger_hurt : "Trigger player hurt" : "" []
+@PointClass base( Ctrigger_hurt, hullsizes, Mandatory, Target, Master, Appearflags )  = trigger_hurt : "Trigger player hurt" : "" []
 
 @BaseClass = Ctrigger_monsterjump : "Trigger monster jump" : ""
 [
@@ -2924,18 +2978,18 @@
 	height(integer) : "Jump Height" : "128" : ""
 ]
 
-@SolidClass base( Ctrigger_monsterjump )  = trigger_monsterjump : "Trigger monster jump" : "" []
+@SolidClass base( Ctrigger_monsterjump, Mandatory, Angles, Master, Appearflags )  = trigger_monsterjump : "Trigger monster jump" : "" []
 
-@PointClass base( Ctrigger_monsterjump, hullsizes )  = trigger_monsterjump : "Trigger monster jump" : "" []
+@PointClass base( Ctrigger_monsterjump, hullsizes, Mandatory, Angles, Master, Appearflags )  = trigger_monsterjump : "Trigger monster jump" : "" []
 
 @BaseClass = Ctrigger_multiple : "Trigger: Activate multiple" : ""
 [
 	wait(integer) : "Delay before reset" : "10" : ""
 ]
 
-@SolidClass base( Ctrigger_multiple )  = trigger_multiple : "Trigger: Activate multiple" : "" []
+@SolidClass base( Ctrigger_multiple, Mandatory, Trigger, Appearflags )  = trigger_multiple : "Trigger: Activate multiple" : "" []
 
-@PointClass base( Ctrigger_multiple, hullsizes )  = trigger_multiple : "Trigger: Activate multiple" : "" []
+@PointClass base( Ctrigger_multiple, hullsizes, Mandatory, Trigger, Appearflags )  = trigger_multiple : "Trigger: Activate multiple" : "" []
 
 @BaseClass = Ctrigger_push : "Trigger player push" : ""
 [
@@ -2946,15 +3000,16 @@
 	speed(integer) : "Speed of push" : "40" : ""
 ]
 
-@SolidClass base( Ctrigger_push )  = trigger_push : "Trigger player push" : "" []
+@SolidClass base( Ctrigger_push, Mandatory, Trigger, Angles, Appearflags )  = trigger_push : "Trigger player push" : "" []
 
-@PointClass base( Ctrigger_push, hullsizes )  = trigger_push : "Trigger player push" : "" []
+@PointClass base( Ctrigger_push, hullsizes, Mandatory, Trigger, Angles, Appearflags )  = trigger_push : "Trigger player push" : "" []
 
 @BaseClass sprite( "sprites/trigger_relay.spr" ) = Ctrigger_relay : "Trigger Relay" : ""
 [
 	spawnflags(Flags) =
 	[
 		1 : "Remove On fire" : 0 : ""
+		64 : "Keep activator" : 0 : ""
 	]
 	triggerstate(choices) : "Trigger State" : "0" : "" =
 	[
@@ -2964,11 +3019,11 @@
 	]
 ]
 
-@PointClass base( Ctrigger_relay )  = trigger_relay : "Trigger Relay" : "" []
+@PointClass base( Ctrigger_relay, Mandatory, Targetx, Master, Appearflags )  = trigger_relay : "Trigger Relay" : "" []
 
-@SolidClass  = trigger_teleport : "Trigger teleport" : "" []
+@SolidClass base( Mandatory, Trigger, TeleportBase, Appearflags )  = trigger_teleport : "Trigger teleport" : "" []
 
-@PointClass  = trigger_teleport : "Trigger teleport" : "" []
+@PointClass base( Mandatory, Trigger, TeleportBase, Appearflags )  = trigger_teleport : "Trigger teleport" : "" []
 
 @BaseClass studio( "models/w_crossbow.mdl" ) = Cweapon_crossbow : "Crossbow" : ""
 [
@@ -2979,7 +3034,7 @@
 	]
 ]
 
-@PointClass base( Cweapon_crossbow )  = weapon_crossbow : "Crossbow" : "" []
+@PointClass base( Cweapon_crossbow, Mandatory, Targetx, RenderFields, Weapon, Appearflags )  = weapon_crossbow : "Crossbow" : "" []
 
 @BaseClass studio( "models/w_gauss.mdl" ) = Cweapon_gauss : "Gauss Gun" : ""
 [
@@ -2990,7 +3045,7 @@
 	]
 ]
 
-@PointClass base( Cweapon_gauss )  = weapon_gauss : "Gauss Gun" : "" []
+@PointClass base( Cweapon_gauss, Mandatory, Targetx, RenderFields, Weapon, Appearflags )  = weapon_gauss : "Gauss Gun" : "" []
 
 @BaseClass studio( "models/w_rpg.mdl" ) = Cweapon_rpg : "RPG" : ""
 [
@@ -3001,7 +3056,7 @@
 	]
 ]
 
-@PointClass base( Cweapon_rpg )  = weapon_rpg : "RPG" : "" []
+@PointClass base( Cweapon_rpg, Mandatory, Targetx, RenderFields, Weapon, Appearflags )  = weapon_rpg : "RPG" : "" []
 
 @BaseClass studio( "models/w_satchel.mdl" ) = Cweapon_satchel : "Satchel Charge Ammo" : ""
 [
@@ -3012,7 +3067,7 @@
 	]
 ]
 
-@PointClass base( Cweapon_satchel )  = weapon_satchel : "Satchel Charge Ammo" : "" []
+@PointClass base( Cweapon_satchel, Mandatory, Targetx, RenderFields, Weapon, Appearflags )  = weapon_satchel : "Satchel Charge Ammo" : "" []
 
 @SolidClass = worldspawn : "World Entity" : ""
 [
@@ -3039,6 +3094,11 @@
 		"0" : "Fewest Players" : ""
 		"1" : "First Team" : ""
 	]
+	freeroam(choices) : "Roaming monsters (node graph)" : "0" : "" =
+	[
+		"0" : "No" : ""
+		"1" : "Yes" : ""
+	]
 ]
 
 @BaseClass flags( Angle ) studio( "models/hair.mdl" ) = Cxen_hair : "Xen Hair" : ""
@@ -3049,5 +3109,5 @@
 	]
 ]
 
-@PointClass base( Cxen_hair )  = xen_hair : "Xen Hair" : "" []
+@PointClass base( Cxen_hair, Mandatory, RenderFields, Angles, Appearflags )  = xen_hair : "Xen Hair" : "" []
 
