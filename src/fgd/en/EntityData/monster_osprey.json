@@ -14,7 +14,7 @@
             ]
         ],
         "studio": "models/osprey.mdl",
-        "base": [
+        "BaseClass": [
             "Mandatory",
             "Monster",
             "Sequence",

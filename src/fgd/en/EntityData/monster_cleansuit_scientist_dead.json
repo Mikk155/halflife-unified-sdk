@@ -2,7 +2,7 @@
     "ClassData": {
         "type": "Point",
         "studio": "models/cleansuit_scientist.mdl",
-        "base": [
+        "BaseClass": [
             "Mandatory",
             "RenderFields",
             "Sequence",

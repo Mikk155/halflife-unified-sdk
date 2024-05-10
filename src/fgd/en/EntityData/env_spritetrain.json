@@ -18,7 +18,7 @@
             "128",
             "255"
         ],
-        "base": [
+        "BaseClass": [
             "Mandatory",
             "PlatSounds",
             "Appearflags"

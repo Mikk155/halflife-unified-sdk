@@ -14,7 +14,7 @@
             ]
         ],
         "studio": "models/sentry.mdl",
-        "base": [
+        "BaseClass": [
             "Mandatory",
             "Monster",
             "Sequence",

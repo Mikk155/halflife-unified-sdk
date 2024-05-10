@@ -21,7 +21,7 @@
         "flags": [
             "Path"
         ],
-        "base": [
+        "BaseClass": [
             "Mandatory",
             "Angles",
             "Appearflags"

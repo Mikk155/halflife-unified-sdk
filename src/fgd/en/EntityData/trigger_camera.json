@@ -2,7 +2,7 @@
     "ClassData": {
         "type": "Point",
         "sprite": "sprites/trigger_camera.spr",
-        "base": [
+        "BaseClass": [
             "Mandatory",
             "Targetx",
             "Appearflags"

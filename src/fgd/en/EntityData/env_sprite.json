@@ -14,7 +14,7 @@
             ]
         ],
         "sprite": "",
-        "base": [
+        "BaseClass": [
             "Mandatory",
             "RenderFields",
             "Angles",

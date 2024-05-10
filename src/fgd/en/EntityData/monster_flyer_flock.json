@@ -14,7 +14,7 @@
             ]
         ],
         "studio": "models/aflock.mdl",
-        "base": [
+        "BaseClass": [
             "Mandatory",
             "Monster",
             "Sequence",

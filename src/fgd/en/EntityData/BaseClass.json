@@ -1,7 +1,8 @@
 {
     "Mandatory":
     {
-        "targetname": {
+        "targetname":
+        {
             "type": "target_source",
             "name": "Name",
             "description": "",

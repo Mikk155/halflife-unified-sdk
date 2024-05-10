@@ -14,7 +14,7 @@
             ]
         ],
         "studio": "models/houndeye.mdl",
-        "base": [
+        "BaseClass": [
             "Mandatory",
             "Monster",
             "Sequence",

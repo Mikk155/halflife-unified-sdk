@@ -1,6 +1,6 @@
 {
     "ClassData": {
-        "base": [
+        "BaseClass": [
             "Mandatory",
             "Breakable",
             "RenderFields",

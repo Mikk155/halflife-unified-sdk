@@ -21,7 +21,7 @@
         "flags": [
             "Angle"
         ],
-        "base": [
+        "BaseClass": [
             "Mandatory",
             "Targetx",
             "Angles",

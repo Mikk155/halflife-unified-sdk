@@ -14,7 +14,7 @@
             ]
         ],
         "studio": "models/w_medkit.mdl",
-        "base": [
+        "BaseClass": [
             "Mandatory",
             "Targetx",
             "Item",

@@ -14,7 +14,7 @@
             ]
         ],
         "studio": "models/agrunt.mdl",
-        "base": [
+        "BaseClass": [
             "Mandatory",
             "Monster",
             "Sequence",

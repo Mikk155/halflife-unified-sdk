@@ -14,7 +14,7 @@
             ]
         ],
         "studio": "models/w_suit.mdl",
-        "base": [
+        "BaseClass": [
             "Mandatory",
             "Targetx",
             "Item",

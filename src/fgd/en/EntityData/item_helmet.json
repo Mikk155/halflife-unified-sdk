@@ -14,7 +14,7 @@
             ]
         ],
         "studio": "models/barney_helmet.mdl",
-        "base": [
+        "BaseClass": [
             "Mandatory",
             "item_battery",
             "Appearflags"

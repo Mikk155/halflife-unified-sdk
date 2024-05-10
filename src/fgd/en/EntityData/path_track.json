@@ -5,7 +5,7 @@
         "flags": [
             "Path"
         ],
-        "base": [
+        "BaseClass": [
             "Mandatory",
             "Appearflags"
         ],

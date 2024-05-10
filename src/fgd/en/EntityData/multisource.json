@@ -7,7 +7,7 @@
             "128"
         ],
         "sprite": "sprites/multisource.spr",
-        "base": [
+        "BaseClass": [
             "Mandatory",
             "Target",
             "Appearflags"

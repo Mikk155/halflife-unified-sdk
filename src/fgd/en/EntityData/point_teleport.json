@@ -9,7 +9,7 @@
         "flags": [
             "Angle"
         ],
-        "base": [
+        "BaseClass": [
             "Mandatory",
             "Master",
             "Angles",
