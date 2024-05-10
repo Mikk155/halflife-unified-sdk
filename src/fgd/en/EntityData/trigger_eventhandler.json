@@ -4,17 +4,12 @@
         "BaseClass": [
             "Mandatory",
             "SF1StartOff",
+            "Target",
             "Appearflags"
         ],
         "classname": "trigger_eventhandler",
         "name": "Trigger on a game event handled",
         "description": ""
-    },
-    "target": {
-        "type": "target_destination",
-        "name": "Trigger on event",
-        "description": "",
-        "value": ""
     },
     "frags": {
         "type": "choices",
