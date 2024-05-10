@@ -19,6 +19,10 @@ This file will be updated from above to bellow, meaning besides from this text, 
 
 <details><summary>10</summary><p>
 
+- Fixed some definitions on the FGD
+
+- Implement new entity trigger_eventhandler. Will fire it's target depending on the catch-type event set
+
 - Implement back and side long jumping inspired by Black Mesa with skills to modify
     - longjump_falldamage
         - 0 do not take fall damage if longjump is equiped
