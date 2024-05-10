@@ -1323,8 +1323,6 @@ void ClientPrecache()
 	UTIL_PrecacheSound("player/geiger2.wav");
 	UTIL_PrecacheSound("player/geiger1.wav");
 
-	UTIL_PrecacheSound("ctf/pow_big_jump.wav");
-
 	// for cheat_givemagazine
 	UTIL_PrecacheSound(DefaultItemPickupSound);
 
