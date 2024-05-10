@@ -1212,6 +1212,7 @@ void ClientPrecache()
 
 	UTIL_PrecacheSound("player/pl_fallpain2.wav");
 	UTIL_PrecacheSound("player/pl_fallpain3.wav");
+	UTIL_PrecacheSound("player/pl_long_jump.wav");
 
 	UTIL_PrecacheSound("player/pl_step1.wav"); // walk on concrete
 	UTIL_PrecacheSound("player/pl_step2.wav");

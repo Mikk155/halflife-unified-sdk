@@ -17,6 +17,22 @@ This file will be updated from above to bellow, meaning besides from this text, 
 <!-- Start of May -->
 <details><summary>5 (May)</summary><p>
 
+<details><summary>10</summary><p>
+
+- Implement back and side long jumping inspired by Black Mesa with skills to modify
+    - longjump_falldamage
+        - 0 do not take fall damage if longjump is equiped
+        - 1 always take fall damage
+    - longjump_fallvelocity
+        - Z velocity to apply to the player when he touch the floor
+    - longjump_sound
+        - 0 do not any noise
+        - 1 do player/pl_long_jump.wav
+
+---
+
+</p></details>
+
 <details><summary>05</summary><p>
 
 - Add bool CBaseEntity::IsMonster() function that will return true for classes that inherits from CBaseMonster that are not:
