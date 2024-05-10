@@ -109,6 +109,14 @@ enum USE_TYPE : int
 #define TRACER_FREQ 4 // Tracers fire every 4 bullets
 
 void FireTargets(const char* targetName, CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
+/**
+*	@brief Handle a game event to a map entity trigger_eventhandler
+*	@param iEventType Index of the event type, only listed on the FGD. to add new events just keep counting from the last added
+*	@param pActivator !activator if nullptr is the trigger_eventhandler entity
+*	@param pCaller !caller if nullptr is the trigger_eventhandler entity
+*	@param value Float Value to send if trigger_eventhandler doesn't override it
+*/
+void HandleEvent( int iEventType, CBaseEntity* pActivator, CBaseEntity* pCaller, float value );
 
 /**
  *	@brief Base Entity. All entity types derive from this
