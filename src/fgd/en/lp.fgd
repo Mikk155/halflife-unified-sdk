@@ -29,7 +29,7 @@
 		"8" : "" : "Locks the entity. Does use of m_UseValue"
 		"9" : "" : "Un-Locks the entity. Does use of m_UseValue"
 	]
-	m_UseValue(float) : "" : "" : ""
+	m_UseValue(float) : "Use Value" : "" : ""
 ]
 
 @BaseClass = Global
@@ -1835,6 +1835,31 @@
 
 @PointClass base( Mandatory, Target, Master, Appearflags )  = logic_setskillvar : "Set skill variables to a provided value" : "" []
 
+@BaseClass = Clogic_usevalue : "Fire true o false whatever the value received is the one specified" : ""
+[
+	health(float) : "Value to read" : "" : ""
+	max_health(choices) : "Value conversion" : "0" : "" =
+	[
+		"1" : "integer" : "Both values are converted into integer before the comparision"
+		"0" : "float" : ""
+	]
+	frags(choices) : "Value comparision" : "0" : "" =
+	[
+		"0" : "Equal ( get == this )" : ""
+		"1" : "Not Equal ( get != this )" : ""
+		"2" : "Greater ( get > this )" : ""
+		"3" : "Greater or Equal ( get >= this )" : ""
+		"4" : "Less ( get < this )" : ""
+		"5" : "Less or Equal ( get <= this )" : ""
+		"6" : "Logical AND ( get & this != 0 )" : ""
+		"7" : "Logical AND inverse ( this & get != 0 )" : ""
+	]
+	target(target_destination) : "Trigger on true" : "" : ""
+	netname(target_destination) : "Trigger on false" : "" : ""
+]
+
+@PointClass base( Clogic_usevalue, Mandatory, Appearflags )  = logic_usevalue : "Fire true o false whatever the value received is the one specified" : "" []
+
 @BaseClass = Cmomentary_door : "Momentary/Continuous door" : ""
 [
 	spawnflags(Flags) =
@@ -2901,7 +2926,6 @@
 
 @BaseClass = Ctrigger_eventhandler : "Trigger on a game event handled" : ""
 [
-	target(target_destination) : "Trigger on event" : "" : ""
 	frags(choices) : "Handle event type" : "0" : "" =
 	[
 		"0" : "None" : ""
@@ -2910,7 +2934,7 @@
 	]
 ]
 
-@PointClass base( Ctrigger_eventhandler, Mandatory, SF1StartOff, Appearflags )  = trigger_eventhandler : "Trigger on a game event handled" : "" []
+@PointClass base( Ctrigger_eventhandler, Mandatory, SF1StartOff, Target, Appearflags )  = trigger_eventhandler : "Trigger on a game event handled" : "" []
 
 @BaseClass = Ctrigger_geneworm_hit : "Trigger GeneWorm Hit" : ""
 [

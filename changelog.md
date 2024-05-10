@@ -18,6 +18,9 @@ This file will be updated from above to bellow, meaning besides from this text, 
 <details><summary>5 (May)</summary><p>
 
 <details><summary>10</summary><p>
+
+- Implement new entity logic_usevalue, Will fire it's target/netname whatever the flValue it received on trigger is the same as the specified. This entity will make more sense and will be used on advanced logics in a future.
+
 - New events on trigger_eventhandler
     - 100 MonsterKilled
     - 101 MonsterTakeDamage

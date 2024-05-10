@@ -1,0 +1,86 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "BaseClass": [
+            "Mandatory",
+            "Appearflags"
+        ],
+        "classname": "logic_usevalue",
+        "name": "Fire true o false whatever the value received is the one specified",
+        "description": ""
+    },
+    "health": {
+        "type": "float",
+        "name": "Value to read",
+        "description": "",
+        "value": ""
+    },
+    "max_health": {
+        "type": "choices",
+        "name": "Value conversion",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "1": {
+                "name": "integer",
+                "description": "Both values are converted into integer before the comparision"
+            },
+            "0": {
+                "name": "float",
+                "description": ""
+            }
+        }
+    },
+    "frags": {
+        "type": "choices",
+        "name": "Value comparision",
+        "description": "",
+        "value": "0",
+        "choices": {
+            "0": {
+                "name": "Equal ( get == this )",
+                "description": ""
+            },
+            "1": {
+                "name": "Not Equal ( get != this )",
+                "description": ""
+            },
+            "2": {
+                "name": "Greater ( get > this )",
+                "description": ""
+            },
+            "3": {
+                "name": "Greater or Equal ( get >= this )",
+                "description": ""
+            },
+            "4": {
+                "name": "Less ( get < this )",
+                "description": ""
+            },
+            "5": {
+                "name": "Less or Equal ( get <= this )",
+                "description": ""
+            },
+            "6": {
+                "name": "Logical AND ( get & this != 0 )",
+                "description": ""
+            },
+            "7": {
+                "name": "Logical AND inverse ( this & get != 0 )",
+                "description": ""
+            }
+        }
+    },
+    "target": {
+        "type": "target_destination",
+        "name": "Trigger on true",
+        "description": "",
+        "value": ""
+    },
+    "netname": {
+        "type": "target_destination",
+        "name": "Trigger on false",
+        "description": "",
+        "value": ""
+    }
+}
