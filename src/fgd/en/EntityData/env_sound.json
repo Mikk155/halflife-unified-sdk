@@ -3,7 +3,6 @@
         "type": "Point",
         "sprite": "sprites/speaker.spr",
         "BaseClass": [
-            "Mandatory",
             "Appearflags"
         ],
         "classname": "env_sound",

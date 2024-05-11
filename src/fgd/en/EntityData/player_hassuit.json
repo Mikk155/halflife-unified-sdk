@@ -14,7 +14,6 @@
             ]
         ],
         "BaseClass": [
-            "Mandatory",
             "Appearflags"
         ],
         "classname": "player_hassuit",

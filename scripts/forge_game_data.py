@@ -175,7 +175,7 @@ def WriteEntity( TypeClass, js, BaseClassName = '' ):
     #WriteIconSprite( ClassData )
 
     if len(js) > 1:
-        FGD.write( f'base( C{classname}' )
+        FGD.write( f'base( Mandatory, C{classname}' )
         if BaseClassName == 'IsCopyPoint':
             FGD.write( f', hullsizes' )
         WriteBase( ClassData, True )

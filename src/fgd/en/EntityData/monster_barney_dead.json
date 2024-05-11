@@ -15,7 +15,6 @@
         ],
         "studio": "models/barney.mdl",
         "BaseClass": [
-            "Mandatory",
             "RenderFields",
             "Angles",
             "Sequence",

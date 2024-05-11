@@ -3,7 +3,6 @@
         "type": "Point",
         "sprite": "sprites/trigger_camera.spr",
         "BaseClass": [
-            "Mandatory",
             "Targetx",
             "Appearflags"
         ],

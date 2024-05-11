@@ -15,7 +15,6 @@
         ],
         "studio": "models/barney_vest.mdl",
         "BaseClass": [
-            "Mandatory",
             "item_battery",
             "Appearflags"
         ],

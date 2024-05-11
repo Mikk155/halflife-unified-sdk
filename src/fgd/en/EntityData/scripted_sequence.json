@@ -22,7 +22,6 @@
             "Angle"
         ],
         "BaseClass": [
-            "Mandatory",
             "Targetx",
             "Angles",
             "BaseScriptedSequence",

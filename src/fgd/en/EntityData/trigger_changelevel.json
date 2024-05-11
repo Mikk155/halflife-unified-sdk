@@ -1,7 +1,6 @@
 {
     "ClassData": {
         "BaseClass": [
-            "Mandatory",
             "Appearflags"
         ],
         "classname": "trigger_changelevel",

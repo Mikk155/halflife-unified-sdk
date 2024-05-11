@@ -8,7 +8,6 @@
         ],
         "sprite": "sprites/multisource.spr",
         "BaseClass": [
-            "Mandatory",
             "Target",
             "Appearflags"
         ],

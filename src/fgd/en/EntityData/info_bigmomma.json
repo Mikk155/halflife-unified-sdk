@@ -19,7 +19,6 @@
             "60"
         ],
         "BaseClass": [
-            "Mandatory",
             "Appearflags"
         ],
         "classname": "info_bigmomma",

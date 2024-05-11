@@ -3,7 +3,6 @@
         "type": "Point",
         "studio": "models/player.mdl",
         "BaseClass": [
-            "Mandatory",
             "PlayerClass",
             "Master",
             "Appearflags"

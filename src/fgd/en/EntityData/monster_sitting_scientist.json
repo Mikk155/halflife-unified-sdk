@@ -15,7 +15,6 @@
         ],
         "studio": "models/scientist.mdl",
         "BaseClass": [
-            "Mandatory",
             "Monster",
             "Sequence",
             "Appearflags"

@@ -1,7 +1,6 @@
 {
     "ClassData": {
         "BaseClass": [
-            "Mandatory",
             "SF2UseAngles",
             "Global",
             "Appearflags",

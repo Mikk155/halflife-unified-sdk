@@ -3,7 +3,6 @@
         "type": "Point",
         "studio": "models/gonome.mdl",
         "BaseClass": [
-            "Mandatory",
             "RenderFields",
             "Sequence",
             "Appearflags"

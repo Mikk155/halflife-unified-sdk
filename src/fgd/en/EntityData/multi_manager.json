@@ -7,7 +7,6 @@
             "0"
         ],
         "BaseClass": [
-            "Mandatory",
             "Appearflags"
         ],
         "classname": "multi_manager",

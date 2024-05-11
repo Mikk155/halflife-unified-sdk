@@ -15,7 +15,6 @@
         ],
         "studio": "models/rosenberg.mdl",
         "BaseClass": [
-            "Mandatory",
             "Monster",
             "TalkMonster",
             "Appearflags"

@@ -15,7 +15,6 @@
         ],
         "studio": "models/w_battery.mdl",
         "BaseClass": [
-            "Mandatory",
             "Targetx",
             "Item",
             "Appearflags"

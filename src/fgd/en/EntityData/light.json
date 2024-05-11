@@ -10,7 +10,6 @@
         ],
         "BaseClass":
         [
-            "Mandatory",
             "Target",
             "Light",
             "ZHLT_point",

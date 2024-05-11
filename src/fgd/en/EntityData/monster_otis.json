@@ -3,7 +3,6 @@
         "type": "Point",
         "studio": "models/otis.mdl",
         "BaseClass": [
-            "Mandatory",
             "Monster",
             "TalkMonster",
             "Sequence",

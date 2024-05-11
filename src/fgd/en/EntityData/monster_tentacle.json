@@ -15,7 +15,6 @@
         ],
         "studio": "models/tentacle2.mdl",
         "BaseClass": [
-            "Mandatory",
             "Monster",
             "Sequence",
             "Appearflags"

@@ -3,7 +3,6 @@
         "type": "Point",
         "studio": "models/cleansuit_scientist.mdl",
         "BaseClass": [
-            "Mandatory",
             "Monster",
             "TalkMonster",
             "Sequence",

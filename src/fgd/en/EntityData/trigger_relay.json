@@ -3,7 +3,6 @@
         "type": "Point",
         "sprite": "sprites/trigger_relay.spr",
         "BaseClass": [
-            "Mandatory",
             "Targetx",
             "Master",
             "Appearflags"

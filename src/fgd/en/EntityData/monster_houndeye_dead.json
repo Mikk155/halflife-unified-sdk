@@ -3,7 +3,6 @@
         "type": "Point",
         "studio": "models/houndeye_dead.mdl",
         "BaseClass": [
-            "Mandatory",
             "Monster",
             "Sequence",
             "Appearflags"

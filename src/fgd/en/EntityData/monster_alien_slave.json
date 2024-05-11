@@ -15,7 +15,6 @@
         ],
         "studio": "models/islave.mdl",
         "BaseClass": [
-            "Mandatory",
             "Monster",
             "Sequence",
             "Appearflags"

@@ -3,7 +3,6 @@
         "type": "Point",
         "sprite": "sprites/trigger_changetarget.spr",
         "BaseClass": [
-            "Mandatory",
             "Targetx",
             "Appearflags"
         ],

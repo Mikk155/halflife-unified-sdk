@@ -3,7 +3,6 @@
         "type": "Point",
         "studio": "models/hgrunt_opfor.mdl",
         "BaseClass": [
-            "Mandatory",
             "Monster",
             "Sequence",
             "TalkMonster",

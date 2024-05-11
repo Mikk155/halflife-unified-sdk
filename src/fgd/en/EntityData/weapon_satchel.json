@@ -3,7 +3,6 @@
         "type": "Point",
         "studio": "models/w_satchel.mdl",
         "BaseClass": [
-            "Mandatory",
             "Targetx",
             "RenderFields",
             "Weapon",

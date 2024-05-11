@@ -15,7 +15,6 @@
         ],
         "studio": "models/w_suit.mdl",
         "BaseClass": [
-            "Mandatory",
             "Targetx",
             "Item",
             "Appearflags"

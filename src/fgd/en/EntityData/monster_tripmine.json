@@ -3,7 +3,6 @@
         "type": "Point",
         "studio": "models/w_tripmine.mdl",
         "BaseClass": [
-            "Mandatory",
             "Monster",
             "Sequence",
             "Appearflags"

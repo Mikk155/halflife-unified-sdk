@@ -15,7 +15,6 @@
         ],
         "studio": "models/big_mom.mdl",
         "BaseClass": [
-            "Mandatory",
             "Monster",
             "Sequence",
             "MonsterWithChildren",

@@ -19,7 +19,6 @@
             "0"
         ],
         "BaseClass": [
-            "Mandatory",
             "Appearflags"
         ],
         "classname": "logic_campaignselect",

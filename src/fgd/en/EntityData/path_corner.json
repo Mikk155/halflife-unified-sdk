@@ -22,7 +22,6 @@
             "Path"
         ],
         "BaseClass": [
-            "Mandatory",
             "Angles",
             "Appearflags"
         ],

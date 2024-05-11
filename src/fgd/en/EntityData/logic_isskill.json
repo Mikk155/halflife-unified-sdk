@@ -19,7 +19,6 @@
             "50"
         ],
         "BaseClass": [
-            "Mandatory",
             "Master",
             "Appearflags"
         ],

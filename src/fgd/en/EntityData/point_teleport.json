@@ -10,7 +10,6 @@
             "Angle"
         ],
         "BaseClass": [
-            "Mandatory",
             "Master",
             "Angles",
             "TeleportBase",

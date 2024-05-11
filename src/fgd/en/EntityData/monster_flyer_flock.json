@@ -15,7 +15,6 @@
         ],
         "studio": "models/aflock.mdl",
         "BaseClass": [
-            "Mandatory",
             "Monster",
             "Sequence",
             "Appearflags"

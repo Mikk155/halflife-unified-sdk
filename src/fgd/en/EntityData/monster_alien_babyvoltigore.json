@@ -3,7 +3,6 @@
         "type": "Point",
         "studio": "models/baby_voltigore.mdl",
         "BaseClass": [
-            "Mandatory",
             "Monster",
             "Sequence",
             "Appearflags"

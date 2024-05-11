@@ -17,6 +17,27 @@ This file will be updated from above to bellow, meaning besides from this text, 
 <!-- Start of May -->
 <details><summary>5 (May)</summary><p>
 
+<details><summary>11</summary><p>
+
+- Implement Appearance Flags
+These are KeyValues supported on all entities that will deny the DispatchSpawn function if appearflag is matched
+
+Appearance flags keys has 3 possible values
+- -1
+    - "Not in" Meaning this entity won't spawn if matched the condition
+- 1
+    - "Only in" Meaning this entity will spawn only if matched the condition
+- 0
+    - "Default" Has no effect at all
+
+i.e a entity with ``appearflag_singleplayer`` > -1 will only appear if this is not a single player match
+
+on the other side a entity with ``appearflag_singleplayer`` > 1 will only appear in a single player match
+
+---
+
+</p></details>
+
 <details><summary>10</summary><p>
 
 - Implement new entity logic_usevalue, Will fire it's target/netname whatever the flValue it received on trigger is the same as the specified. This entity will make more sense and will be used on advanced logics in a future.

@@ -15,7 +15,6 @@
         ],
         "studio": "models/agrunt.mdl",
         "BaseClass": [
-            "Mandatory",
             "Monster",
             "Sequence",
             "Appearflags"

@@ -3,7 +3,6 @@
         "type": "Point",
         "studio": "models/pit_drone.mdl",
         "BaseClass": [
-            "Mandatory",
             "Monster",
             "Sequence",
             "Appearflags"

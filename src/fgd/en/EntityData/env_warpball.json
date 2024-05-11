@@ -19,7 +19,6 @@
             "0"
         ],
         "BaseClass": [
-            "Mandatory",
             "Target",
             "Appearflags"
         ],

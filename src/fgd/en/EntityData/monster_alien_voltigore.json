@@ -3,7 +3,6 @@
         "type": "Point",
         "studio": "models/voltigore.mdl",
         "BaseClass": [
-            "Mandatory",
             "Monster",
             "Sequence",
             "Appearflags"

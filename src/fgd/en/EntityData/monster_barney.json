@@ -15,7 +15,6 @@
         ],
         "studio": "models/barney.mdl",
         "BaseClass": [
-            "Mandatory",
             "Monster",
             "TalkMonster",
             "Sequence",

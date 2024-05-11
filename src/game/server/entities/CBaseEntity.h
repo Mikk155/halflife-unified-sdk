@@ -75,6 +75,23 @@ enum USE_TYPE : int
 	USE_UNKNOWN = 10
 };
 
+enum appearflags : int
+{
+	NOT_IN = -1, // Does not appears when
+	DEFAULT = 0, // Has no effect
+	ONLY_IN = 1, // Only appears when
+	SKILL_EASY = 1,
+	SKILL_MEDIUM,
+	SKILL_HARD,
+	GM_DEATHMATCH,
+	GM_COOPERATIVE,
+	GM_CAPTURETHEFLAG,
+	GM_TEAMPLAY,
+	GM_MULTIPLAYER,
+	GM_SINGLEPLAYER,
+	SV_DEDICATED
+};
+
 // people gib if their health is <= this at the time of death
 #define GIB_HEALTH_VALUE -30
 
@@ -644,6 +661,10 @@ public:
 	USE_TYPE m_UseTypeLast = USE_UNSET;
 	float m_UseValue;
 	int m_UseLocked;
+
+	int m_appearflag_notin = (int)appearflags::DEFAULT;
+	int m_appearflag_onlyin = (int)appearflags::DEFAULT;
+	bool CheckAppearanceFlags();
 };
 
 inline bool FNullEnt(CBaseEntity* ent) { return (ent == nullptr) || FNullEnt(ent->edict()); }

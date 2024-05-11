@@ -3,7 +3,6 @@
         "type": "Point",
         "studio": "models/massn.mdl",
         "BaseClass": [
-            "Mandatory",
             "Monster",
             "Sequence",
             "Appearflags"

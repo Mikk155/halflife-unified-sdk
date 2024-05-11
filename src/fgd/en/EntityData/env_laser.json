@@ -14,7 +14,6 @@
             ]
         ],
         "BaseClass": [
-            "Mandatory",
             "RenderFxChoices",
             "Angles",
             "Appearflags"

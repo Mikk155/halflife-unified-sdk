@@ -1,7 +1,6 @@
 {
     "ClassData": {
         "BaseClass": [
-            "Mandatory",
             "Trigger",
             "Appearflags"
         ],

@@ -1,7 +1,6 @@
 {
     "ClassData": {
         "BaseClass": [
-            "Mandatory",
             "Appearflags"
         ],
         "classname": "func_traincontrols",

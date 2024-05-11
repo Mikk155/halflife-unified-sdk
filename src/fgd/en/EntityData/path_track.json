@@ -6,7 +6,6 @@
             "Path"
         ],
         "BaseClass": [
-            "Mandatory",
             "Appearflags"
         ],
         "classname": "path_track",

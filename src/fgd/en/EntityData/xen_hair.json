@@ -6,7 +6,6 @@
             "Angle"
         ],
         "BaseClass": [
-            "Mandatory",
             "RenderFields",
             "Angles",
             "Appearflags"

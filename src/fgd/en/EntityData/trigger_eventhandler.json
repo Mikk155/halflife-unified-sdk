@@ -2,7 +2,6 @@
     "ClassData": {
         "type": "Point",
         "BaseClass": [
-            "Mandatory",
             "SF1StartOff",
             "Target",
             "Appearflags"

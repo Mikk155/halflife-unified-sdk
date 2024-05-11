@@ -3,7 +3,6 @@
         "type": "Point",
         "studio": "models/loader.mdl",
         "BaseClass": [
-            "Mandatory",
             "Monster",
             "RenderFields",
             "Sequence",

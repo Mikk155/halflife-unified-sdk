@@ -3,7 +3,6 @@
         "type": "Point",
         "studio": "models/strooper.mdl",
         "BaseClass": [
-            "Mandatory",
             "Monster",
             "Sequence",
             "Appearflags"

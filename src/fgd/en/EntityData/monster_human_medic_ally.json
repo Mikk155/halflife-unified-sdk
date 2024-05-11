@@ -3,7 +3,6 @@
         "type": "Point",
         "studio": "models/hgrunt_medic.mdl",
         "BaseClass": [
-            "Mandatory",
             "Monster",
             "Sequence",
             "Appearflags"

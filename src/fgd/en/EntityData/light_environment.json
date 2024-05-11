@@ -5,7 +5,6 @@
             "Light"
         ],
         "BaseClass": [
-            "Mandatory",
             "Angles",
             "ZHLT_point",
             "Appearflags"

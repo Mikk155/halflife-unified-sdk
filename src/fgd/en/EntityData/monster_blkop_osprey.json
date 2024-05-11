@@ -3,7 +3,6 @@
         "type": "Point",
         "studio": "models/blkop_osprey.mdl",
         "BaseClass": [
-            "Mandatory",
             "Monster",
             "Sequence",
             "BaseOsprey",
