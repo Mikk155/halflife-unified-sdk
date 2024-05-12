@@ -703,6 +703,13 @@ void CHGrunt::HandleAnimEvent(MonsterEvent_t* pEvent)
 	}
 }
 
+void CHGrunt::Revive(CBaseEntity* pOther, float flHealth)
+{
+	int skin = pev->skin;
+	BaseClass::Revive( pOther, flHealth );
+	pev->skin = skin;
+}
+
 void CHGrunt::Spawn()
 {
 	Precache();

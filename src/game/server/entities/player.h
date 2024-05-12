@@ -154,6 +154,7 @@ public:
 	int m_iObserverWeapon;	 // weapon of current tracked target
 	int m_iObserverLastMode; // last used observer mode
 	bool IsObserver() { return 0 != pev->iuser1; }
+	bool m_bObserverSurvival = false;
 
 	int random_seed; // See that is shared between client & server for shared weapons code
 
@@ -422,6 +423,7 @@ public:
 	 */
 	void StartDeathCam();
 	void StartObserver(Vector vecPosition, Vector vecViewAngle);
+	void LeaveObserver();
 
 	void AddPoints(int score, bool bAllowNegativeScore);
 	void AddPointsToTeam(int score, bool bAllowNegativeScore);
@@ -646,6 +648,8 @@ public:
 	void SendScoreInfoAll();
 
 	void ToggleCheat(Cheat cheat);
+
+	EHANDLE m_hCorpse;
 };
 
 inline void CBasePlayer::SetWeaponBit(int id)

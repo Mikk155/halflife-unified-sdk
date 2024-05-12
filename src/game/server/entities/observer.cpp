@@ -267,3 +267,35 @@ void CBasePlayer::Observer_SetMode(int iMode)
 
 	m_iObserverLastMode = iMode;
 }
+
+void CBasePlayer::LeaveObserver()
+{
+	if( pev->iuser1 == OBS_NONE )
+		return;
+
+	m_bIsSpawning = true;
+
+	ClearBits( pev->effects, EF_NODRAW );
+	ClearBits( pev->flags, FL_FAKECLIENT );
+	ClearBits( pev->flags, FL_SPECTATOR );
+	ClearBits( m_iHideHUD, HIDEHUD_HEALTH );
+	ClearBits( m_iHideHUD, HIDEHUD_WEAPONS );
+	ClearBits( m_afPhysicsFlags, PFLAG_OBSERVER );
+	FBitSet( pev->flags, FL_CLIENT );
+
+	MESSAGE_BEGIN( MSG_ALL, gmsgSpectator );
+	WRITE_BYTE( entindex() );
+	WRITE_BYTE( 0 );
+	MESSAGE_END();
+
+	pev->iuser1		=	OBS_NONE;
+	pev->deadflag	=	DEAD_NO;
+	pev->solid		=	SOLID_SLIDEBOX;
+	pev->movetype	=	MOVETYPE_WALK;
+	pev->takedamage	=	DAMAGE_YES;
+
+	g_pGameRules->GetPlayerSpawnSpot( this );
+	g_pGameRules->PlayerSpawn( this );
+
+	m_bIsSpawning = false;
+}

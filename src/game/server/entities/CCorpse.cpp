@@ -42,6 +42,15 @@ void CopyToBodyQue(CBaseEntity* entity)
 
 	auto body = g_pBodyQueueHead;
 
+	auto player = ToBasePlayer(entity);
+
+	if( player != nullptr )
+	{
+		body->pev->classname = MAKE_STRING( "deadplayer" ); // Should we change className? i have a feeling that's unsafe
+		player->m_hCorpse = body; // Allow for fast-finding
+		// -Mikk Only allow multiple corpses in deathmatch
+	}
+
 	body->pev->angles = entity->pev->angles;
 	body->pev->model = entity->pev->model;
 	body->pev->modelindex = entity->pev->modelindex;
@@ -64,5 +73,6 @@ void CopyToBodyQue(CBaseEntity* entity)
 
 	body->SetOrigin(entity->pev->origin);
 	body->SetSize(entity->pev->mins, entity->pev->maxs);
+
 	g_pBodyQueueHead = body->GetOwner();
 }

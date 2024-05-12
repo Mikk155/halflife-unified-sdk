@@ -530,10 +530,9 @@ void CScientist::Spawn()
 	// -1 chooses a random head
 	if (pev->body == -1)
 	{
-		// Erase previous value because SetBodygroup won't.
-		pev->body = 0;
 		// pick a head, any head
-		SetBodygroup(ScientistBodygroup::Head, RANDOM_LONG(0, GetBodygroupSubmodelCount(ScientistBodygroup::Head) - 1));
+		pev->body = RANDOM_LONG(0, GetBodygroupSubmodelCount(ScientistBodygroup::Head) - 1);
+		SetBodygroup(ScientistBodygroup::Head, pev->body );
 	}
 
 	SetSize(VEC_HUMAN_HULL_MIN, VEC_HUMAN_HULL_MAX);

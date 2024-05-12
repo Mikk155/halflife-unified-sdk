@@ -15,27 +15,33 @@
 
 #pragma once
 
-#include "CBaseEntity.h"
-
-#define SF_WORLD_DARK 0x0001	  // Fade from black at startup
-#define SF_WORLD_FORCETEAM 0x0004 // Force teams
-
-// this moved here from world.cpp, to allow classes to be derived from it
-/**
- *	@brief This spawns first when each level begins.
- */
-class CWorld : public CBaseEntity
+enum MedkitAnim
 {
+	Idle = 0,
+	LongIdle,
+	LongUse,
+	ShortUse,
+	Holster,
+	Draw,
+};
+
+class CMedkit : public CBasePlayerWeapon
+{
+	DECLARE_CLASS( CMedkit, CBasePlayerWeapon );
+	DECLARE_DATAMAP();
+
 public:
-	CWorld();
-	~CWorld() override;
-
-	void Spawn() override;
+	bool Deploy() override;
+	void Holster() override;
+	void OnCreate() override;
 	void Precache() override;
-	bool KeyValue(KeyValueData* pkvd) override;
+	void WeaponIdle() override;
+	void PrimaryAttack() override;
+	void SecondaryAttack() override;
+	bool GetWeaponInfo(WeaponInfo& info) override;
 
-	std::string m_szSurvivalClients;
+	void SetNextAttack( float flNext = 1.0f );
 
 private:
-	int m_freeRoam;
+	unsigned short m_usMedkit;
 };

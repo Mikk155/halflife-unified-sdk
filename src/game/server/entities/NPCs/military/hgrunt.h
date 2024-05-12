@@ -122,6 +122,8 @@ public:
 
 	bool HasHumanGibs() override { return true; }
 
+	void Revive(CBaseEntity* pOther, float flHealth) override;
+
 	/**
 	 *	@brief Overridden for human grunts because they hear the DANGER sound
 	 *	that is made by hand grenades and other dangerous items.

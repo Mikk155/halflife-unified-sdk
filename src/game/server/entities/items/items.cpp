@@ -158,7 +158,11 @@ public:
 			amount = player->pev->max_health;
 		}
 
-		if (player->GiveHealth(amount, DMG_GENERIC))
+		if( g_Skill.GetValue( "plr_medkit_equip_kit", 0 ) == 1 && !player->HasNamedPlayerWeapon( "weapon_medkit" ) )
+		{
+			player->EquipWeapon( "weapon_medkit" );
+		}
+		else if (player->GiveHealth(amount, DMG_GENERIC))
 		{
 			MESSAGE_BEGIN(MSG_ONE, gmsgItemPickup, nullptr, player);
 			WRITE_STRING(STRING(pev->classname));

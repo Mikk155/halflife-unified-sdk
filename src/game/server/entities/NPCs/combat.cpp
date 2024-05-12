@@ -1673,3 +1673,49 @@ void CBaseMonster::MakeDamageBloodDecal(int cCount, float flNoise, TraceResult* 
 		}
 	}
 }
+
+void CBaseMonster::Revive(CBaseEntity* pOther, float flHealth)
+{
+	Vector VecPos = pev->origin;
+
+	if( pOther != nullptr )
+	{
+		if( pOther->ClassnameIs( "game_checkpoint" ) )
+		{
+			VecPos = pOther->pev->origin;
+		}
+		else if( pOther->IsPlayer() )
+		{
+			CBasePlayer* player = ToBasePlayer( pOther );
+
+			if( player != nullptr )
+			{
+				player->pev->frags = player->pev->frags + 1;
+				player->SendScoreInfoAll();
+			}
+		}
+	}
+
+	if( flHealth > 0 && !IsAlive() && pev->deadflag == DEAD_DEAD )
+	{
+		if( ClassnameIs( "deadplayer" ) || ClassnameIs( "player" ) )
+		{
+			CBasePlayer* player = ( ClassnameIs( "deadplayer" ) ? UTIL_PlayerByIndex( pev->renderamt ) : ToBasePlayer( this ) );
+
+			if( player != nullptr )
+			{
+				player->Spawn();
+				player->pev->health = ( flHealth > player->pev->max_health ? player->pev->max_health : flHealth );
+				player->SetOrigin( VecPos );
+			}
+		}
+		else
+		{
+			Forget( bits_MEMORY_KILLED );
+			m_IdealMonsterState = MONSTERSTATE_NONE;
+			Spawn();
+			pev->health = ( flHealth > pev->max_health ? pev->max_health : flHealth );
+			SetOrigin( VecPos );
+		}
+	}
+}

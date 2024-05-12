@@ -902,6 +902,13 @@ public:
 	void LimitFollowers(CBaseEntity* pPlayer, int maxFollowers);
 
 	void FollowerUse(CBaseEntity* pActivator, CBaseEntity* pCaller, USE_TYPE useType, float value);
+
+	/**
+	 *	@brief Revives a entity
+	 *	@param pOther The entity that called this function
+	 *	@param flHealth How many health this entity will revive with
+	 */
+	void Revive(CBaseEntity* pOther, float flHealth);
 };
 
 template <typename Callback>

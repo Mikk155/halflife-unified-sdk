@@ -120,8 +120,15 @@ void respawn(CBasePlayer* player, bool fCopyCorpse)
 			CopyToBodyQue(player);
 		}
 
-		// respawn player
-		player->Spawn();
+		if( (int)CVAR_GET_FLOAT( "mp_survival_mode" ) == 1 )
+		{
+			player->m_bObserverSurvival = true;
+			player->StartObserver( player->pev->origin, player->pev->angles );
+		}
+		else
+		{
+			player->Spawn();
+		}
 	}
 	else
 	{ // restart the entire server
@@ -165,8 +172,28 @@ void ClientPutInServer(edict_t* pEntity)
 	auto pPlayer = g_EntityDictionary->Create<CBasePlayer>("player", &pEntity->v);
 	pPlayer->SetCustomDecalFrames(-1); // Assume none;
 
-	// Allocate a CBasePlayer for pev, and call spawn
-	pPlayer->Spawn();
+	bool bShouldSpawnPlayer = true;
+
+	pWorldspawn = CBaseEntity::World;
+	if( pWorldspawn != nullptr )
+	{
+		CWorld* pWorld = static_cast<CWorld*>( pWorldspawn );
+
+		if( pWorld != nullptr )
+		{
+			std::string SteamID = g_engfuncs.pfnInfoKeyValue(g_engfuncs.pfnGetInfoKeyBuffer( pEntity ), "*sid");
+			if( SteamID != "" )
+			{
+				if( pWorld->m_szSurvivalClients.find( SteamID ) )
+					bShouldSpawnPlayer = false;
+				else
+					pWorld->m_szSurvivalClients.append( SteamID + "\n" );
+			}
+		}
+	}
+
+	if( bShouldSpawnPlayer )
+		pPlayer->Spawn();
 
 	// Reset interpolation during first frame
 	pPlayer->pev->effects |= EF_NOINTERP;

@@ -4886,33 +4886,7 @@ bool CBasePlayer::Menu_Char_Input(int inp)
 
 	pev->impulse = 0;
 
-	if (0 != pev->iuser1)
-	{
-		m_bIsSpawning = true;
-
-		pev->effects &= ~EF_NODRAW;
-		pev->flags &= FL_FAKECLIENT;
-		pev->flags |= FL_CLIENT;
-		pev->takedamage = DAMAGE_YES;
-		m_iHideHUD &= ~(HIDEHUD_HEALTH | HIDEHUD_WEAPONS);
-		m_afPhysicsFlags &= PFLAG_OBSERVER;
-		pev->flags &= ~FL_SPECTATOR;
-
-		MESSAGE_BEGIN(MSG_ALL, gmsgSpectator);
-		WRITE_BYTE(entindex());
-		WRITE_BYTE(0);
-		MESSAGE_END();
-
-		pev->iuser1 = 0;
-		pev->deadflag = 0;
-		pev->solid = SOLID_SLIDEBOX;
-		pev->movetype = MOVETYPE_WALK;
-
-		g_pGameRules->GetPlayerSpawnSpot(this);
-		g_pGameRules->PlayerSpawn(this);
-
-		m_bIsSpawning = false;
-	}
+	LeaveObserver();
 
 	return true;
 }

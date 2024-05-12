@@ -29,6 +29,7 @@
 #include "CPipewrench.h"
 #include "CPython.h"
 #include "CM249.h"
+#include "CMedkit.h"
 #include "CPenguin.h"
 #include "CRpg.h"
 #include "CShockRifle.h"
