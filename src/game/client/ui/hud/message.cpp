@@ -438,93 +438,37 @@ bool CHudMessage::Draw(float fTime)
 	return true;
 }
 
-client_textmessage_t* CHudMessage :: MessageAddJson( const char* pName )
+void CHudMessage :: MessageAddJson( std::optional<json> pJson )
 {
-	if( gEngfuncs.pfnGetLevelName != nullptr )
+	if( pJson && pJson != nullptr && pJson->is_object() )
 	{
-		if( jsTitles == nullptr || !FStrEq( szMapName, (const char*)gEngfuncs.pfnGetLevelName ) )
+		for( auto& [key, value] : pJson.value().items() )
 		{
-			std::string szMapName = std::string( gEngfuncs.pfnGetLevelName() );
-			szMapName = szMapName.substr( 5, szMapName.length() - 9 );
-			std::string szJsonFile = fmt::format( "cfg/titles/{}.json", szMapName );
-
-			//jsTitles = new JSONSystem();
-			//jsTitles->LoadJSONFile( szJsonFile );
-
-			//jsTitles =
-
-			auto pJson = g_JSON.ParseJSON( szJsonFile.c_str(), [=](const auto& input)
+			if( value.is_object() )
 			{
-				std::string str = Trim(input.value("test", "message"));
-
-			});
-
-			if( pJson != nullptr )
-			{
-				m_Logger->debug( "DEBUG AHORA MISMO \"Json NO es nulo\"" );
+				for( auto& [innerKey, innerValue] : value.items() )
+				{
+					if( innerKey == "x" ) g_pCustomMessage.x = innerValue;
+					if( innerKey == "y" ) g_pCustomMessage.y = innerValue;
+					if( innerKey == "r1" ) g_pCustomMessage.r1 = innerValue;
+					if( innerKey == "r2" ) g_pCustomMessage.r2 = innerValue;
+					if( innerKey == "g1" ) g_pCustomMessage.g1 = innerValue;
+					if( innerKey == "g2" ) g_pCustomMessage.g2 = innerValue;
+					if( innerKey == "b1" ) g_pCustomMessage.b1 = innerValue;
+					if( innerKey == "b2" ) g_pCustomMessage.b2 = innerValue;
+					if( innerKey == "a1" ) g_pCustomMessage.a1 = innerValue;
+					if( innerKey == "a2" ) g_pCustomMessage.a2 = innerValue;
+					if( innerKey == "effect" ) g_pCustomMessage.effect = innerValue;
+					if( innerKey == "fadein" ) g_pCustomMessage.fadein = innerValue;
+					if( innerKey == "fxtime" ) g_pCustomMessage.fxtime = innerValue;
+					if( innerKey == "fadeout" ) g_pCustomMessage.fadeout = innerValue;
+					if( innerKey == "holdtime" ) g_pCustomMessage.holdtime = innerValue;
+					if( innerKey == "message" ) g_pCustomMessage.pMessage = std::string(innerValue).c_str();
+				}
+				szTitles[ key ] = g_pCustomMessage;
 			}
-
-			szMapName = gEngfuncs.pfnGetLevelName;
-		}
-
-		// if (jsTitles != nullptr)
-		// {
-		// 	auto pLabel = /* tomar dict pName del json*/;
-
-		// 	if (pLabel == nullptr)
-		// 	{
-		// 		pLabel = /*cargar json por defecto cfg/titles/titles.json*/;
-		// 	}
-
-		// 	auto pMessage = /* tomar "message" de pLabel*/;
-
-		// 	client_textmessage_t* pNewMessage;
-
-			// XD
-	// //		pNewMessage->effect = /* tomar "effect" de pLabel*/;
-	// 	//	pNewMessage->r1 = /* tomar "color"[0] de pLabel*/;
-	// 		//pNewMessage->g1 = /* tomar "color"[1] de pLabel*/;
-	// pNewMessage->b1 = /* tomar "color"[2] de pLabel*/;
-	// //		pNewMessage->a1 = /* tomar "color"[3] de pLabel*/;
-	// //		pNewMessage->r2 = /* tomar "color2"[0] de pLabel*/;
-	// //		pNewMessage->g2 = /* tomar "color2"[1] de pLabel*/;
-	// 		pNewMessage->b2 = /* tomar "color2"[2] de pLabel*/;
-	// 		pNewMessage->a2 = /* tomar "color2"[3] de pLabel*/;
-	// 		pNewMessage->x = /* tomar "x" de pLabel*/;
-	// 		pNewMessage->y = /* tomar "y" de pLabel*/;
-	// 		pNewMessage->fadein = /* tomar "fadein" de pLabel*/;
-	// 		pNewMessage->fadeout = /* tomar "fadeout" de pLabel*/;
-	// 		pNewMessage->holdtime = /* tomar "holdtime" de pLabel*/;
-	// 		pNewMessage->fxtime = /* tomar "fxtime" de pLabel*/;
-	// 		pNewMessage->pName = /*esto que es como un store? */pName;
-	// 		pNewMessage->pMessage = /* tomar "message" de pLabel*/;
-
-	/*
-			Ejemplo completo de json
-
-	{
-		"test (pName)":
-		{
-			"x": 1.0,
-			"y": 1.0,
-			"effect": 1,
-			"color": [ 255, 0, 255, 255 ],
-			"color2": [ 255, 0, 255, 255 ],
-			"fadein": 1.0,
-			"fadeout": 1.0,
-			"holdtime": 1.0,
-			"fxtime": 1.0,
-			"message": "mensaje"
 		}
 	}
-
-
-	*/
-		//	return pNewMessage;
-	//	}
-	}
-
-	return gEngfuncs.pfnTextMessageGet(pName);
 }
 
 void CHudMessage::MessageAdd(const char* pName, float time)
@@ -533,12 +477,30 @@ void CHudMessage::MessageAdd(const char* pName, float time)
 
 	// Trim off a leading # if it's there
 	if (pName[0] == '#')
-		tempMessage = MessageAddJson(pName + 1 );
+		pName = pName + 1;
+
+	std::string szNewMap = std::string( gEngfuncs.pfnGetLevelName() );
+	szNewMap = szNewMap.substr( 0, szNewMap.length() - 4 ).c_str();
+
+	if( szMapName != szNewMap ) // Map changed, read again
+	{
+		szTitles.clear();
+		MessageAddJson( g_JSON.LoadJSONFile( "cfg/titles/titles.json" ) );
+		MessageAddJson( g_JSON.LoadJSONFile( fmt::format( "cfg/titles/{}.json", szNewMap ).c_str() ) );
+		szMapName = szNewMap;
+	}
+
+	if( szTitles.find( std::string( pName ) ) != szTitles.end() )
+	{
+		tempMessage = &szTitles[ pName ];
+	}
 	else
-		tempMessage = TextMessageGet(pName);
+	{
+		tempMessage = TextMessageGet( pName );
+	}
 
 	// If we couldnt find it in the titles.txt, just create it
-	if (!tempMessage)
+	if( !tempMessage || tempMessage == nullptr )
 	{
 		g_pCustomMessage.effect = 2;
 		g_pCustomMessage.r1 = g_pCustomMessage.g1 = g_pCustomMessage.b1 = g_pCustomMessage.a1 = 100;

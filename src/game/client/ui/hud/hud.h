@@ -25,6 +25,8 @@
 #include <array>
 #include <string>
 #include <vector>
+#include <map>
+#include <iostream>
 
 #include <EASTL/fixed_string.h>
 
@@ -447,7 +449,7 @@ public:
 	int XPosition(float x, int width, int lineWidth);
 	int YPosition(float y, int height);
 
-	client_textmessage_t* MessageAddJson(const char* pName);
+	void MessageAddJson(std::optional<json> pJson);
 	void MessageAdd(const char* pName, float time);
 	void MessageAdd(client_textmessage_t* newMessage);
 	void MessageDrawScan(client_textmessage_t* pMessage, float time);
@@ -455,8 +457,8 @@ public:
 	void MessageScanNextChar();
 	void Reset() override;
 
-	JSONSystem* jsTitles;
-	const char* szMapName;
+    std::map<std::string, client_textmessage_t> szTitles;
+	std::string szMapName;
 
 private:
 	cvar_t* m_CustomMessageText{};
