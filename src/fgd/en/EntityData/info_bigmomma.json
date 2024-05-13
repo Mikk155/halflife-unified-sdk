@@ -18,8 +18,7 @@
             "190",
             "60"
         ],
-        "base": [
-            "Mandatory",
+        "BaseClass": [
             "Appearflags"
         ],
         "classname": "info_bigmomma",

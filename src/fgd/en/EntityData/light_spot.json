@@ -8,7 +8,6 @@
             "Light"
         ],
         "BaseClass": [
-            "Mandatory",
             "Target",
             "Angles",
             "Light",

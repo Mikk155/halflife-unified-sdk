@@ -1,7 +1,8 @@
 {
     "Mandatory":
     {
-        "targetname": {
+        "targetname":
+        {
             "type": "target_source",
             "name": "Name",
             "description": "",
@@ -44,37 +45,37 @@
             "description": "Anything else will be count as USE_UNKNOWN and in fact, work the same as USE_UNSET",
             "choices":
             {
-                "-1": { "title": "USE_UNSET (default)",
+                "-1": { "name": "USE_UNSET (default)",
                     "description": "This is the value by default and will have no effect at all in how entities normaly behave."
                 },
-                "0": { "title": "USE_OFF",
+                "0": { "name": "USE_OFF",
                     "description": ""
                 },
-                "1": { "title": "USE_ON",
+                "1": { "name": "USE_ON",
                     "description": ""
                 },
-                "2": { "title": "USE_SET",
+                "2": { "name": "USE_SET",
                     "description": "Does use of m_UseValue, See how it affects each entity."
                 },
-                "3": { "title": "USE_TOGGLE",
+                "3": { "name": "USE_TOGGLE",
                     "description": ""
                 },
-                "4": { "title": "USE_KILL",
+                "4": { "name": "USE_KILL",
                     "description": "Remove the entity from the world."
                 },
-                "5": { "title": "USE_SAME",
+                "5": { "name": "USE_SAME",
                     "description": "Sends the same USE_TYPE that this entity receive."
                 },
-                "6": { "title": "USE_OPPOSITE",
+                "6": { "name": "USE_OPPOSITE",
                     "description": "Sends the opposite USE_TYPE that this entity receive, Swaps USE_ON <-> USE_OFF, If anything else then USE_TOGGLE is sent"
                 },
-                "7": { "title": "USE_TOUCH",
+                "7": { "name": "USE_TOUCH",
                     "description": "Calls the Touch function, the activator will be passed as the toucher."
                 },
-                "8": { "title": "USE_LOCK",
+                "8": { "name": "USE_LOCK",
                     "description": "Locks the entity. Does use of m_UseValue"
                 },
-                "9": { "title": "USE_UNLOCK",
+                "9": { "name": "USE_UNLOCK",
                     "description": "Un-Locks the entity. Does use of m_UseValue"
                 }
             }
@@ -82,9 +83,9 @@
         "m_UseValue":
         {
             "type": "float",
-            "title": "Use Value",
-            "default": "",
-            "description": ""
+            "name": "Use Value",
+            "description": "",
+            "value": ""
         }
     },
     "Global":
@@ -1835,5 +1836,187 @@
     },
     "Appearflags":
     {
+        "appearflag_singleplayer":
+        {
+            "type": "choices",
+            "name": "#Appearflag Single Player",
+            "value": "0",
+            "description": "",
+            "choices":
+            {
+                "0": { "name": "Default",
+                    "description": ""
+                },
+                "-1": { "name": "Not in",
+                    "description": ""
+                },
+                "1": { "name": "Only in",
+                    "description": ""
+                }
+            }
+        },
+        "appearflag_multiplayer":
+        {
+            "type": "choices",
+            "name": "#Appearflag Multi Player",
+            "value": "0",
+            "description": "",
+            "choices":
+            {
+                "0": { "name": "Default",
+                    "description": ""
+                },
+                "-1": { "name": "Not in",
+                    "description": ""
+                },
+                "1": { "name": "Only in",
+                    "description": ""
+                }
+            }
+        },
+        "appearflag_cooperative":
+        {
+            "type": "choices",
+            "name": "#Appearflag Co-Operative",
+            "value": "0",
+            "description": "",
+            "choices": {
+                "0": { "name": "Default",
+                    "description": ""
+                },
+                "-1": { "name": "Not in",
+                    "description": ""
+                },
+                "1": { "name": "Only in",
+                    "description": ""
+                }
+            }
+        },
+        "appearflag_deathmatch":
+        {
+            "type": "choices",
+            "name": "#Appearflag Death Match",
+            "value": "0",
+            "description": "",
+            "choices": {
+                "0": { "name": "Default",
+                    "description": ""
+                },
+                "-1": { "name": "Not in",
+                    "description": ""
+                },
+                "1": { "name": "Only in",
+                    "description": ""
+                }
+            }
+        },
+        "appearflag_cft":
+        {
+            "type": "choices",
+            "name": "#Appearflag Capture The Flag",
+            "value": "0",
+            "description": "",
+            "choices": {
+                "0": { "name": "Default",
+                    "description": ""
+                },
+                "-1": { "name": "Not in",
+                    "description": ""
+                },
+                "1": { "name": "Only in",
+                    "description": ""
+                }
+            }
+        },
+        "appearflag_teamplay":
+        {
+            "type": "choices",
+            "name": "#Appearflag Team Play",
+            "value": "0",
+            "description": "",
+            "choices": {
+                "0": { "name": "Default",
+                    "description": ""
+                },
+                "-1": { "name": "Not in",
+                    "description": ""
+                },
+                "1": { "name": "Only in",
+                    "description": ""
+                }
+            }
+        },
+        "appearflag_dedicated":
+        {
+            "type": "choices",
+            "name": "#Appearflag Dedicated server",
+            "value": "0",
+            "description": "",
+            "choices": {
+                "0": { "name": "Default",
+                    "description": ""
+                },
+                "-1": { "name": "Not in",
+                    "description": ""
+                },
+                "1": { "name": "Only in",
+                    "description": ""
+                }
+            }
+        },
+        "appearflag_skilleasy":
+        {
+            "type": "choices",
+            "name": "#Appearflag Difficulty Easy",
+            "value": "0",
+            "description": "",
+            "choices": {
+                "0": { "name": "Default",
+                    "description": ""
+                },
+                "-1": { "name": "Not in",
+                    "description": ""
+                },
+                "1": { "name": "Only in",
+                    "description": ""
+                }
+            }
+        },
+        "appearflag_skillmedium":
+        {
+            "type": "choices",
+            "name": "#Appearflag Difficulty Medium",
+            "value": "0",
+            "description": "",
+            "choices": {
+                "0": { "name": "Default",
+                    "description": ""
+                },
+                "-1": { "name": "Not in",
+                    "description": ""
+                },
+                "1": { "name": "Only in",
+                    "description": ""
+                }
+            }
+        },
+        "appearflag_skillhard":
+        {
+            "type": "choices",
+            "name": "#Appearflag Difficulty Hard",
+            "value": "0",
+            "description": "",
+            "choices": {
+                "0": { "name": "Default",
+                    "description": ""
+                },
+                "-1": { "name": "Not in",
+                    "description": ""
+                },
+                "1": { "name": "Only in",
+                    "description": ""
+                }
+            }
+        }
     }
 }

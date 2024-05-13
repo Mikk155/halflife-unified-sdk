@@ -1,7 +1,6 @@
 {
     "ClassData": {
-        "base": [
-            "Mandatory",
+        "BaseClass": [
             "func_wall",
             "Appearflags"
         ],

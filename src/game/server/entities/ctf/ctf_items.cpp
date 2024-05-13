@@ -571,7 +571,6 @@ void CItemLongJumpCTF::OnCreate()
 void CItemLongJumpCTF::Precache()
 {
 	PrecacheModel(STRING(pev->model));
-	PrecacheSound("ctf/pow_big_jump.wav");
 }
 
 void CItemLongJumpCTF::RemoveEffect(CBasePlayer* pPlayer)

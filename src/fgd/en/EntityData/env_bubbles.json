@@ -6,7 +6,6 @@
         "description": "",
         "BaseClass":
         [
-            "Mandatory",
             "SF1StartOff",
             "Appearflags"
         ]

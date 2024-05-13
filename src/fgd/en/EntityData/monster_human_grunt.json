@@ -14,8 +14,7 @@
             ]
         ],
         "studio": "models/hgrunt.mdl",
-        "base": [
-            "Mandatory",
+        "BaseClass": [
             "Monster",
             "Sequence",
             "Appearflags"

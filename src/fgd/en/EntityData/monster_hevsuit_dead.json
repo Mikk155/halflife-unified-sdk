@@ -14,8 +14,7 @@
             ]
         ],
         "studio": "models/deadhaz.mdl",
-        "base": [
-            "Mandatory",
+        "BaseClass": [
             "RenderFields",
             "Angles",
             "Sequence",

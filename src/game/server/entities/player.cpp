@@ -330,6 +330,38 @@ bool CBasePlayer::TakeDamage(CBaseEntity* inflictor, CBaseEntity* attacker, floa
 		return false;
 	// go take the damage first
 
+	if( ( bitsDamageType & DMG_FALL ) != 0 && HasLongJump() && (int)GetSkillFloat( "longjump_falldamage", 0 ) == 0 )
+	{
+		// -Mikk splash effect on fall damage + on using longjump
+		/*
+		if( (int)GetSkillFloat( "longjump_fallsplash", 1 ) == 1 )
+		{
+			MESSAGE_BEGIN( MSG_PAS, SVC_TEMPENTITY, pev->origin );
+				WRITE_BYTE( TE_BEAMDISK );
+				WRITE_COORD( pev->origin.x );
+				WRITE_COORD( pev->origin.y );
+				WRITE_COORD( pev->origin.z + 6 );
+				WRITE_COORD( pev->origin.x );
+				WRITE_COORD( pev->origin.y );
+				WRITE_COORD( pev->origin.z + 100 );
+				WRITE_SHORT( MODEL_INDEX( "sprites/laserbeam.spr" ) );
+				WRITE_BYTE( 0 ); // frame
+				WRITE_BYTE( 36 ); // framerate
+				WRITE_BYTE( 8 ); // life
+				WRITE_BYTE( 1 );
+				WRITE_BYTE( 0 );
+				WRITE_BYTE( 255 ); // R
+				WRITE_BYTE( 255 ); // G
+				WRITE_BYTE( 255 ); // B
+				WRITE_BYTE( 150 ); // A
+				WRITE_BYTE( 0 ); // scrollspeed
+			MESSAGE_END();
+		}*/
+
+		pev->velocity.z = GetSkillFloat( "longjump_fallvelocity", 0 );
+
+		return false;
+	}
 
 	CBaseEntity* pAttacker = CBaseEntity::Instance(attacker);
 
@@ -1520,6 +1552,7 @@ void CBasePlayer::Jump()
 
 	SetAnimation(PLAYER_JUMP);
 
+	// -Mikk splash effect on fall damage + on using longjump
 	if (m_fLongJump &&
 		(pev->button & IN_DUCK) != 0 &&
 		(pev->flDuckTime > 0) &&

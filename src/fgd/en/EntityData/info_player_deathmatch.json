@@ -2,8 +2,7 @@
     "ClassData": {
         "type": "Point",
         "studio": "models/player.mdl",
-        "base": [
-            "Mandatory",
+        "BaseClass": [
             "PlayerClass",
             "Master",
             "Appearflags"

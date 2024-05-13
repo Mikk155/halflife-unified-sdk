@@ -622,6 +622,8 @@ void CBaseMonster::Killed(CBaseEntity* attacker, int iGib)
 		return;
 	}
 
+	HandleEvent( 100, attacker, this, iGib );
+
 	Remember(bits_MEMORY_KILLED);
 
 	// clear the deceased's sound channels.(may have been firing or reloading when killed)
@@ -828,6 +830,8 @@ bool CBaseMonster::TakeDamage(CBaseEntity* inflictor, CBaseEntity* attacker, flo
 	{
 		return DeadTakeDamage(inflictor, attacker, flDamage, bitsDamageType);
 	}
+
+	HandleEvent( 101, inflictor, this, flDamage );
 
 	if (pev->deadflag == DEAD_NO)
 	{

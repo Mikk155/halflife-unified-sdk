@@ -2,8 +2,7 @@
     "ClassData": {
         "type": "Point",
         "studio": "models/islave.mdl",
-        "base": [
-            "Mandatory",
+        "BaseClass": [
             "Monster",
             "Sequence",
             "Appearflags"

@@ -131,7 +131,7 @@ namespace subs
 
 	const char* UseName( CBaseEntity* pEnt )
 	{
-		return pEnt ? ( pEnt->IsPlayer() ? STRING( pEnt->pev->netname ) :
+		return pEnt != nullptr ? ( pEnt->IsPlayer() ? STRING( pEnt->pev->netname ) :
 					!FStringNull( pEnt->pev->targetname ) ? STRING( pEnt->pev->targetname ) :
 						STRING( pEnt->pev->classname ) ) : "NULL";
 	}

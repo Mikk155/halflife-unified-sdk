@@ -14,8 +14,7 @@
             ]
         ],
         "studio": "models/apache.mdl",
-        "base": [
-            "Mandatory",
+        "BaseClass": [
             "Monster",
             "Sequence",
             "Appearflags"

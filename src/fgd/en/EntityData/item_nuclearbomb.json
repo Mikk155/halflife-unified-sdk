@@ -13,8 +13,7 @@
                 "36"
             ]
         ],
-        "base": [
-            "Mandatory",
+        "BaseClass": [
             "Targetx",
             "OtherItem",
             "Appearflags"

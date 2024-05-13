@@ -1,8 +1,7 @@
 {
     "ClassData": {
         "type": "Point",
-        "base": [
-            "Mandatory",
+        "BaseClass": [
             "Target",
             "Appearflags"
         ],

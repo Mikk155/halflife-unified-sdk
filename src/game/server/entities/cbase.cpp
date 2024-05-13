@@ -28,7 +28,7 @@ int DispatchSpawn(edict_t* pent)
 {
 	CBaseEntity* pEntity = (CBaseEntity*)GET_PRIVATE(pent);
 
-	if (pEntity)
+	if (pEntity && pEntity->CheckAppearanceFlags() )
 	{
 		// Initialize these or entities who don't link to the world won't have anything in here
 		pEntity->pev->absmin = pEntity->pev->origin - Vector(1, 1, 1);
@@ -601,6 +601,33 @@ bool CBaseEntity::RequiredKeyValue(KeyValueData* pkvd)
 		m_UseValue = atof( pkvd->szValue );
 		return true;
 	}
+	else if( std::string( pkvd->szKeyName ).find( "appearflag_" ) == 0 )
+	{
+		if( atoi( pkvd->szValue ) != 0 )
+		{
+			int iBits;
+
+			if( FStrEq( pkvd->szKeyName, "appearflag_singleplayer" ) )      iBits = appearflags::GM_SINGLEPLAYER;
+			else if( FStrEq( pkvd->szKeyName, "appearflag_multiplayer" ) )  iBits = appearflags::GM_MULTIPLAYER;
+			else if( FStrEq( pkvd->szKeyName, "appearflag_cooperative" ) )  iBits = appearflags::GM_COOPERATIVE;
+			else if( FStrEq( pkvd->szKeyName, "appearflag_skilleasy" ) )    iBits = appearflags::SKILL_EASY;
+			else if( FStrEq( pkvd->szKeyName, "appearflag_skillmedium" ) )  iBits = appearflags::SKILL_MEDIUM;
+			else if( FStrEq( pkvd->szKeyName, "appearflag_skillhard" ) )    iBits = appearflags::SKILL_HARD;
+			else if( FStrEq( pkvd->szKeyName, "appearflag_deathmatch" ) )   iBits = appearflags::GM_DEATHMATCH;
+			else if( FStrEq( pkvd->szKeyName, "appearflag_cft" ) )          iBits = appearflags::GM_CAPTURETHEFLAG;
+			else if( FStrEq( pkvd->szKeyName, "appearflag_teamplay" ) )     iBits = appearflags::GM_TEAMPLAY;
+			else if( FStrEq( pkvd->szKeyName, "appearflag_dedicated" ) )    iBits = appearflags::SV_DEDICATED;
+
+			if( iBits != 0 )
+			{
+				if( atoi( pkvd->szValue ) == (int)appearflags::NOT_IN )
+					SetBits( m_appearflag_notin, iBits );
+				else if( atoi( pkvd->szValue ) == (int)appearflags::ONLY_IN )
+					SetBits( m_appearflag_onlyin, iBits );
+				return true;
+			}
+		}
+	}
 
 	return false;
 }
@@ -918,4 +945,38 @@ void CBaseEntity::EmitAmbientSound(const Vector& vecOrigin, const char* samp, fl
 void CBaseEntity::StopSound(int channel, const char* sample)
 {
 	sound::g_ServerSound.EmitSound(this, channel, sample, 0, 0, SND_STOP, PITCH_NORM);
+}
+
+bool CBaseEntity :: CheckAppearanceFlags()
+{
+	if( m_appearflag_notin != (int)appearflags::DEFAULT )
+	{
+		if(( ( m_appearflag_notin & appearflags::GM_SINGLEPLAYER )   != 0 &&    !g_pGameRules->IsMultiplayer() )
+		|| ( ( m_appearflag_notin & appearflags::GM_MULTIPLAYER )    != 0 &&     g_pGameRules->IsMultiplayer() )
+		|| ( ( m_appearflag_notin & appearflags::GM_COOPERATIVE )    != 0 &&     g_pGameRules->IsCoOp() )
+		|| ( ( m_appearflag_notin & appearflags::SKILL_EASY )        != 0 &&     g_Skill.GetSkillLevel() == SkillLevel::Easy )
+		|| ( ( m_appearflag_notin & appearflags::SKILL_MEDIUM )      != 0 &&     g_Skill.GetSkillLevel() == SkillLevel::Medium )
+		|| ( ( m_appearflag_notin & appearflags::SKILL_HARD )        != 0 &&     g_Skill.GetSkillLevel() == SkillLevel::Hard )
+		|| ( ( m_appearflag_notin & appearflags::GM_TEAMPLAY )       != 0 &&    !g_pGameRules->IsTeamplay() )
+		|| ( ( m_appearflag_notin & appearflags::GM_DEATHMATCH )     != 0 &&    !g_pGameRules->IsDeathmatch() )
+		|| ( ( m_appearflag_notin & appearflags::GM_CAPTURETHEFLAG ) != 0 &&    !g_pGameRules->IsCTF() )
+		|| ( ( m_appearflag_notin & appearflags::SV_DEDICATED )      != 0 &&    !IS_DEDICATED_SERVER() )
+		){ return false; }
+	}
+
+	if( m_appearflag_onlyin != (int)appearflags::DEFAULT )
+	{
+		if(( ( m_appearflag_onlyin & appearflags::GM_SINGLEPLAYER )  != 0 &&     g_pGameRules->IsMultiplayer() )
+		|| ( ( m_appearflag_onlyin & appearflags::GM_MULTIPLAYER )   != 0 &&    !g_pGameRules->IsMultiplayer() )
+		|| ( ( m_appearflag_onlyin & appearflags::GM_COOPERATIVE )   != 0 &&    !g_pGameRules->IsCoOp() )
+		|| ( ( m_appearflag_onlyin & appearflags::SKILL_EASY )       != 0 &&     g_Skill.GetSkillLevel() != SkillLevel::Easy )
+		|| ( ( m_appearflag_onlyin & appearflags::SKILL_MEDIUM )     != 0 &&     g_Skill.GetSkillLevel() != SkillLevel::Medium )
+		|| ( ( m_appearflag_onlyin & appearflags::SKILL_HARD )       != 0 &&     g_Skill.GetSkillLevel() != SkillLevel::Hard )
+		|| ( ( m_appearflag_onlyin & appearflags::GM_TEAMPLAY )      != 0 &&     g_pGameRules->IsTeamplay() )
+		|| ( ( m_appearflag_onlyin & appearflags::GM_DEATHMATCH )    != 0 &&     g_pGameRules->IsDeathmatch() )
+		|| ( ( m_appearflag_onlyin & appearflags::GM_CAPTURETHEFLAG )!= 0 &&     g_pGameRules->IsCTF() )
+		|| ( ( m_appearflag_onlyin & appearflags::SV_DEDICATED )     != 0 &&     IS_DEDICATED_SERVER() )
+		){ return false; }
+	}
+	return true;
 }

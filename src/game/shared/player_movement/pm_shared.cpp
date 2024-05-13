@@ -2503,6 +2503,8 @@ void PM_Jump()
 		}
 	}
 
+	float JumpHeight = 45.0;
+
 	// See if user can super long jump?
 	const bool cansuperjump = atoi(pmove->PM_Info_ValueForKey(pmove->physinfo, "slj")) == 1;
 	const bool canjumppackjump = atoi(pmove->PM_Info_ValueForKey(pmove->physinfo, "jpj")) == 1;
@@ -2518,6 +2520,17 @@ void PM_Jump()
 			(pmove->flDuckTime > 0) &&
 			pmove->velocity.Length() > 50)
 		{
+			if( cansuperjump && (int)g_Skill.GetValue( "longjump_straight", 0 ) != 1 )
+			{
+				pmove->forward = (
+						( pmove->cmd.buttons & IN_FORWARD ) != 0 ? pmove->forward :
+							( pmove->cmd.buttons & IN_BACK ) != 0 ? -pmove->forward :
+								( pmove->cmd.buttons & IN_MOVERIGHT ) != 0 ? pmove->right :
+									( pmove->cmd.buttons & IN_MOVELEFT ) != 0 ? -pmove->right :
+					pmove->forward
+				);
+			}
+
 			pmove->punchangle[0] = -5;
 
 			for (i = 0; i < 2; i++)
@@ -2525,22 +2538,16 @@ void PM_Jump()
 				pmove->velocity[i] = pmove->forward[i] * PLAYER_LONGJUMP_SPEED * 1.6;
 			}
 
-			pmove->velocity[2] = sqrt(2 * 800 * 56.0);
-
-			if (canjumppackjump)
+			if( canjumppackjump || (int)g_Skill.GetValue( "longjump_sound", 1 ) == 1 )
 			{
-				PM_PlaySound(CHAN_STATIC, "ctf/pow_big_jump.wav", VOL_NORM, ATTN_NORM, 0, PITCH_NORM);
+				PM_PlaySound(CHAN_STATIC, "player/pl_long_jump.wav", VOL_NORM, ATTN_NORM, 0, PITCH_NORM);
 			}
-		}
-		else
-		{
-			pmove->velocity[2] = sqrt(2 * 800 * 45.0);
+
+			JumpHeight = 56.0;
 		}
 	}
-	else
-	{
-		pmove->velocity[2] = sqrt(2 * 800 * 45.0);
-	}
+
+	pmove->velocity[2] = sqrt( 2 * 800 * JumpHeight );
 
 	// Decay it for simulation
 	PM_FixupGravityVelocity();
@@ -2632,17 +2639,30 @@ void PM_CheckFalling()
 		}
 		else if (pmove->flFallVelocity > PLAYER_MAX_SAFE_FALL_SPEED)
 		{
-			// NOTE:  In the original game dll , there were no breaks after these cases, causing the first one to
-			// cascade into the second
-			// switch ( RandomLong(0,1) )
-			//{
-			// case 0:
-			// PM_PlaySound( CHAN_VOICE, "player/pl_fallpain2.wav", 1, ATTN_NORM, 0, PITCH_NORM );
-			// break;
-			// case 1:
-			PM_PlaySound(CHAN_VOICE, "player/pl_fallpain3.wav", 1, ATTN_NORM, 0, PITCH_NORM);
-			//	break;
-			//}
+			bool ctfLongJump = atoi(pmove->PM_Info_ValueForKey(pmove->physinfo, "jpj")) == 1;
+			bool NoFallDamage = (int)g_Skill.GetValue( "longjump_falldamage", 0 ) == 0;
+			bool HasSuperLongJump = atoi(pmove->PM_Info_ValueForKey(pmove->physinfo, "slj")) == 1;
+
+			if( !ctfLongJump && NoFallDamage && HasSuperLongJump )
+			{
+				if( (int)g_Skill.GetValue( "longjump_sound", 1 ) == 1 )
+				{
+					PM_PlaySound(CHAN_VOICE, "player/pl_long_jump.wav", 1, ATTN_NORM, 0, PITCH_NORM);
+				}
+			}
+			else
+			{
+				switch( pmove->RandomLong(0,1) )
+				{
+					// -Mikk reuse pl_fallpain1.wav as well. maybe check for velocity and use 1 -> 2 -> 3 in order
+					case 0:
+						PM_PlaySound(CHAN_VOICE, "player/pl_fallpain2.wav", 1, ATTN_NORM, 0, PITCH_NORM);
+					break;
+					case 1:
+						PM_PlaySound(CHAN_VOICE, "player/pl_fallpain3.wav", 1, ATTN_NORM, 0, PITCH_NORM);
+					break;
+				}
+			}
 			fvol = 1.0;
 		}
 		else if (pmove->flFallVelocity > PLAYER_MAX_SAFE_FALL_SPEED / 2)

@@ -13,8 +13,7 @@
                 "16"
             ]
         ],
-        "base": [
-            "Mandatory",
+        "BaseClass": [
             "Appearflags"
         ],
         "classname": "env_rope",

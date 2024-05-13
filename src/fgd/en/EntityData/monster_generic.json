@@ -13,8 +13,7 @@
                 "36"
             ]
         ],
-        "base": [
-            "Mandatory",
+        "BaseClass": [
             "Monster",
             "RenderFields",
             "Sequence",

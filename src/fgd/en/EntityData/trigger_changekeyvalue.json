@@ -18,8 +18,7 @@
             "0",
             "255"
         ],
-        "base": [
-            "Mandatory",
+        "BaseClass": [
             "Target",
             "Appearflags"
         ],

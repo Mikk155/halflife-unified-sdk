@@ -14,8 +14,7 @@
             ]
         ],
         "studio": "models/houndeye.mdl",
-        "base": [
-            "Mandatory",
+        "BaseClass": [
             "Monster",
             "Sequence",
             "Appearflags"

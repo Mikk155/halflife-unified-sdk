@@ -14,8 +14,7 @@
             ]
         ],
         "studio": "models/skeleton.mdl",
-        "base": [
-            "Mandatory",
+        "BaseClass": [
             "RenderFields",
             "Sequence",
             "Appearflags"

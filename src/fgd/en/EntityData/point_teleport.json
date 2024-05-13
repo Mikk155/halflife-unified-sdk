@@ -9,8 +9,7 @@
         "flags": [
             "Angle"
         ],
-        "base": [
-            "Mandatory",
+        "BaseClass": [
             "Master",
             "Angles",
             "TeleportBase",

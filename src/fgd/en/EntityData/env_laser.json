@@ -13,8 +13,7 @@
                 "16"
             ]
         ],
-        "base": [
-            "Mandatory",
+        "BaseClass": [
             "RenderFxChoices",
             "Angles",
             "Appearflags"

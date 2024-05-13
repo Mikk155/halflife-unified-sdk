@@ -4,8 +4,7 @@
         "flags": [
             "Light"
         ],
-        "base": [
-            "Mandatory",
+        "BaseClass": [
             "Angles",
             "ZHLT_point",
             "Appearflags"

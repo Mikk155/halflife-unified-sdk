@@ -14,8 +14,7 @@
             ]
         ],
         "studio": "models/hgrunt.mdl",
-        "base": [
-            "Mandatory",
+        "BaseClass": [
             "RenderFields",
             "Angles",
             "Sequence",
