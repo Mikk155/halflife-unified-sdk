@@ -1,12 +1,12 @@
 {
     "ClassData": {
         "type": "Point",
-        "sprite": "sprites/trigger_camera.spr",
         "BaseClass": [
             "Targetx",
             "Appearflags"
         ],
         "classname": "trigger_camera",
+        "studio": "models/editor/trigger_camera.mdl",
         "name": "Trigger Camera",
         "description": ""
     },

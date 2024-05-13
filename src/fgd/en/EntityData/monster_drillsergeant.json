@@ -1,0 +1,16 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "studio": "models/drill.mdl",
+        "base": [
+            "Mandatory",
+            "Monster",
+            "TalkMonster",
+            "Sequence",
+            "Appearflags"
+        ],
+        "classname": "monster_drillsergeant",
+        "name": "Drill Sergeant",
+        "description": ""
+    }
+}

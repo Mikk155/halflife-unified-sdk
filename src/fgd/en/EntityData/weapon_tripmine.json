@@ -1,0 +1,28 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-16",
+                "-16",
+                "-5"
+            ],
+            [
+                "16",
+                "16",
+                "27"
+            ]
+        ],
+        "studio": "models/w_tripmine.mdl",
+        "base": [
+            "Mandatory",
+            "Targetx",
+            "RenderFields",
+            "Weapon",
+            "Appearflags"
+        ],
+        "classname": "weapon_tripmine",
+        "name": "Tripmine Ammo",
+        "description": ""
+    }
+}

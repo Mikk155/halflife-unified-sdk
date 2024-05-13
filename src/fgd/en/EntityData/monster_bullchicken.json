@@ -1,0 +1,27 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-32",
+                "-32",
+                "0"
+            ],
+            [
+                "32",
+                "32",
+                "64"
+            ]
+        ],
+        "studio": "models/bullsquid.mdl",
+        "base": [
+            "Mandatory",
+            "Monster",
+            "Sequence",
+            "Appearflags"
+        ],
+        "classname": "monster_bullchicken",
+        "name": "BullChicken",
+        "description": ""
+    }
+}

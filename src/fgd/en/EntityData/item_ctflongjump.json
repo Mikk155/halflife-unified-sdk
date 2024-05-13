@@ -1,0 +1,14 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "studio": "models/w_jumppack.mdl",
+        "base": [
+            "Mandatory",
+            "CTFItem",
+            "Appearflags"
+        ],
+        "classname": "item_ctflongjump",
+        "name": "Longjump Module for CTF",
+        "description": ""
+    }
+}

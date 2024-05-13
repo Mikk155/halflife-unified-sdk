@@ -1,0 +1,12 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "base": [
+            "Mandatory",
+            "Appearflags"
+        ],
+        "classname": "info_null",
+        "name": "info_null (spotlight target)",
+        "description": ""
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-8",
+                "-8",
+                "0"
+            ],
+            [
+                "8",
+                "8",
+                "16"
+            ]
+        ],
+        "base": [
+            "Mandatory",
+            "PlayerClass",
+            "Targetname",
+            "Appearflags"
+        ],
+        "classname": "info_teleport_destination",
+        "name": "Teleport destination",
+        "description": ""
+    }
+}

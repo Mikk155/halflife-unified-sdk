@@ -1,7 +1,7 @@
 {
     "ClassData": {
         "type": "Point",
-        "sprite": "sprites/speaker.spr",
+        "iconsprite": "sprites/speaker.spr",
         "BaseClass": [
             "Appearflags"
         ],

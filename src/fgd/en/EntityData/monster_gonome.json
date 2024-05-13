@@ -1,0 +1,15 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "studio": "models/gonome.mdl",
+        "base": [
+            "Mandatory",
+            "Monster",
+            "Sequence",
+            "Appearflags"
+        ],
+        "classname": "monster_gonome",
+        "name": "Gonome",
+        "description": ""
+    }
+}

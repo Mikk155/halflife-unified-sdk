@@ -1,0 +1,16 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "studio": "models/w_egon.mdl",
+        "base": [
+            "Mandatory",
+            "Targetx",
+            "RenderFields",
+            "Weapon",
+            "Appearflags"
+        ],
+        "classname": "weapon_egon",
+        "name": "Egon Gun",
+        "description": ""
+    }
+}

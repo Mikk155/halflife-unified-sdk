@@ -1,0 +1,13 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "base": [
+            "Mandatory",
+            "gibshooterbase",
+            "Appearflags"
+        ],
+        "classname": "pitworm_gibshooter",
+        "name": "Pitworm Gib Shooter",
+        "description": ""
+    }
+}

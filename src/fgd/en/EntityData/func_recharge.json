@@ -1,0 +1,12 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "BaseCharger",
+            "Appearflags"
+        ],
+        "classname": "func_recharge",
+        "name": "Battery recharger",
+        "description": ""
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "BaseCharger",
+            "Appearflags"
+        ],
+        "classname": "func_healthcharger",
+        "name": "Wall health recharger",
+        "description": ""
+    }
+}

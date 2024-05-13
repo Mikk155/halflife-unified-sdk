@@ -1,0 +1,16 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "studio": "models/w_357.mdl",
+        "base": [
+            "Mandatory",
+            "Targetx",
+            "RenderFields",
+            "Weapon",
+            "Appearflags"
+        ],
+        "classname": "weapon_357",
+        "name": "357 Handgun",
+        "description": ""
+    }
+}

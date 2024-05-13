@@ -1,0 +1,14 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [ [ -24, -24, -4 ], [ 24, 24, 4 ] ],
+        "color": [ 225, 227, 0 ],
+        "studio": "models/editor/info_node.mdl",
+        "BaseClass": [
+            "Appearflags"
+        ],
+        "classname": "info_node",
+        "name": "ai node",
+        "description": ""
+    }
+}

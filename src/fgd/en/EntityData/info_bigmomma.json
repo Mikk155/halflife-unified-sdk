@@ -18,6 +18,7 @@
             "190",
             "60"
         ],
+        "studio": "models/editor/info_bigmomma.mdl",
         "BaseClass": [
             "Appearflags"
         ],

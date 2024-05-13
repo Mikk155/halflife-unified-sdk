@@ -1,0 +1,16 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "studio": "models/w_9mmhandgun.mdl",
+        "base": [
+            "Mandatory",
+            "Targetx",
+            "RenderFields",
+            "Weapon",
+            "Appearflags"
+        ],
+        "classname": "weapon_9mmhandgun",
+        "name": "9mm Handgun",
+        "description": ""
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "studio": "models/w_satchel.mdl",
+        "base": [
+            "Mandatory",
+            "Weapon",
+            "Targetx",
+            "RenderFields",
+            "Sequence",
+            "Appearflags"
+        ],
+        "classname": "monster_satchel",
+        "name": "Live Satchel Charge",
+        "description": ""
+    }
+}

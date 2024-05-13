@@ -1,0 +1,12 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "Trigger",
+            "Appearflags"
+        ],
+        "classname": "trigger_once",
+        "name": "Trigger: Activate once",
+        "description": ""
+    }
+}

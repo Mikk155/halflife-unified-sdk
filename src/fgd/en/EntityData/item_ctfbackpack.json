@@ -1,0 +1,14 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "studio": "models/w_backpack.mdl",
+        "base": [
+            "Mandatory",
+            "CTFItem",
+            "Appearflags"
+        ],
+        "classname": "item_ctfbackpack",
+        "name": "Backpack Powerup for CTF",
+        "description": ""
+    }
+}

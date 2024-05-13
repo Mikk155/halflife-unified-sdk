@@ -1,0 +1,27 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-16",
+                "-16",
+                "-36"
+            ],
+            [
+                "16",
+                "16",
+                "0"
+            ]
+        ],
+        "studio": "models/barnacle.mdl",
+        "base": [
+            "Mandatory",
+            "RenderFields",
+            "Sequence",
+            "Appearflags"
+        ],
+        "classname": "monster_barnacle",
+        "name": "Barnacle Monster",
+        "description": ""
+    }
+}

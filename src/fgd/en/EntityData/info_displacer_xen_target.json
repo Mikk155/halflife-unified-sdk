@@ -1,0 +1,29 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-4",
+                "-4",
+                "-4"
+            ],
+            [
+                "4",
+                "4",
+                "4"
+            ]
+        ],
+        "color": [
+            "200",
+            "100",
+            "50"
+        ],
+        "base": [
+            "Mandatory",
+            "Appearflags"
+        ],
+        "classname": "info_displacer_xen_target",
+        "name": "Displacer XEN Target",
+        "description": ""
+    }
+}

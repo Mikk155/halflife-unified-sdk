@@ -1,0 +1,18 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "studio": "models/fungus(small",
+        "flags": [
+            "Angle"
+        ],
+        "base": [
+            "Mandatory",
+            "RenderFields",
+            "Angles",
+            "Appearflags"
+        ],
+        "classname": "xen_spore_small",
+        "name": "Xen Spore (small)",
+        "description": ""
+    }
+}

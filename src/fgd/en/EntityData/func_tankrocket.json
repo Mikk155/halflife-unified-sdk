@@ -1,0 +1,13 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "BaseTank",
+            "ZHLT",
+            "Appearflags"
+        ],
+        "classname": "func_tankrocket",
+        "name": "Brush Rocket Turret",
+        "description": ""
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "base": [
+            "Mandatory",
+            "Targetx",
+            "Targetname",
+            "Appearflags"
+        ],
+        "classname": "trigger_playerfreeze",
+        "name": "Trigger Player Freeze",
+        "description": ""
+    }
+}

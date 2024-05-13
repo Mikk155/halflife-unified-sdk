@@ -1,7 +1,7 @@
 {
     "ClassData": {
         "type": "Point",
-        "sprite": "sprites/trigger_relay.spr",
+        "iconsprite": "sprites/trigger_relay.spr",
         "BaseClass": [
             "Targetx",
             "Master",

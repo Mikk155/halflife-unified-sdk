@@ -27,6 +27,7 @@
             "BaseScriptedSequence",
             "Appearflags"
         ],
+        "studio": "models/editor/scripted_sequence.mdl",
         "classname": "scripted_sequence",
         "name": "Scripted Sequence",
         "description": ""

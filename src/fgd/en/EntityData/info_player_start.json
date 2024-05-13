@@ -1,0 +1,14 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "studio": "models/player.mdl",
+        "base": [
+            "Mandatory",
+            "PlayerClass",
+            "Appearflags"
+        ],
+        "classname": "info_player_start",
+        "name": "Player 1 start",
+        "description": ""
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "studio": "models/pit_worm_up.mdl",
+        "base": [
+            "Mandatory",
+            "Monster",
+            "Sequence",
+            "Appearflags"
+        ],
+        "classname": "monster_pitworm_up",
+        "name": "Pit Worm Upright",
+        "description": ""
+    }
+}

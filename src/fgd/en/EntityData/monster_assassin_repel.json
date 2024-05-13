@@ -1,0 +1,15 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "studio": "models/massn.mdl",
+        "base": [
+            "Mandatory",
+            "Monster",
+            "Sequence",
+            "Appearflags"
+        ],
+        "classname": "monster_assassin_repel",
+        "name": "Male Assassin (Repel)",
+        "description": ""
+    }
+}

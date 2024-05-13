@@ -19,7 +19,7 @@
         "type": "studio",
         "name": "Custom Model",
         "description": "",
-        "value": ""
+        "value": "models/editor/genericmdl.mdl"
     },
     "bodygroup":
     {

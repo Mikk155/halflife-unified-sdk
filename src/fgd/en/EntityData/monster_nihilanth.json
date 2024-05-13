@@ -1,0 +1,27 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-192",
+                "-192",
+                "0"
+            ],
+            [
+                "192",
+                "192",
+                "384"
+            ]
+        ],
+        "studio": "models/nihilanth.mdl",
+        "base": [
+            "Mandatory",
+            "Monster",
+            "Sequence",
+            "Appearflags"
+        ],
+        "classname": "monster_nihilanth",
+        "name": "Nihilanth",
+        "description": ""
+    }
+}

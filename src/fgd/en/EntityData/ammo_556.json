@@ -1,0 +1,16 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "studio": "models/W_saw_clip.mdl",
+        "base": [
+            "Mandatory",
+            "Targetx",
+            "RenderFields",
+            "Ammo",
+            "Appearflags"
+        ],
+        "classname": "ammo_556",
+        "name": "M249 Ammo",
+        "description": ""
+    }
+}

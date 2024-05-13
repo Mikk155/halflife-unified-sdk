@@ -8,6 +8,7 @@
         "BaseClass": [
             "Appearflags"
         ],
+        "studio": "models/editor/path_track.mdl",
         "classname": "path_track",
         "name": "Train Track Path",
         "description": ""

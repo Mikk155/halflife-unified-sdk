@@ -1,0 +1,20 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "studio": "models/light.mdl",
+        "flags": [
+            "Angle"
+        ],
+        "base": [
+            "Mandatory",
+            "Target",
+            "Targetname",
+            "RenderFields",
+            "Angles",
+            "Appearflags"
+        ],
+        "classname": "xen_plantlight",
+        "name": "Xen Plant Light",
+        "description": ""
+    }
+}

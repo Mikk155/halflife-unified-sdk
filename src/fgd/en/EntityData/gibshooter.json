@@ -1,0 +1,13 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "base": [
+            "Mandatory",
+            "gibshooterbase",
+            "Appearflags"
+        ],
+        "classname": "gibshooter",
+        "name": "Gib Shooter",
+        "description": ""
+    }
+}

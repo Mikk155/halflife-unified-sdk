@@ -1,6 +1,7 @@
 {
     "ClassData": {
         "type": "Point",
+        "studio": "models/editor/monstermaker.mdl",
         "size": [
             [
                 "-16",

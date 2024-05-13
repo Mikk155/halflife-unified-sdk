@@ -1,0 +1,16 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "studio": "models/w_m40a1clip.mdl",
+        "base": [
+            "Mandatory",
+            "Targetx",
+            "RenderFields",
+            "Ammo",
+            "Appearflags"
+        ],
+        "classname": "ammo_762",
+        "name": "Sniper Ammo",
+        "description": ""
+    }
+}

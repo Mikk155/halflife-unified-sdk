@@ -25,6 +25,7 @@
             "Angles",
             "Appearflags"
         ],
+        "studio": "models/editor/path_corner.mdl",
         "classname": "path_corner",
         "name": "Moving platform stop",
         "description": ""

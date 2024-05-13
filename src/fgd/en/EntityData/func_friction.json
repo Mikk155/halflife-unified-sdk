@@ -8,5 +8,11 @@
         "classname": "func_friction",
         "name": "Surface with a change in friction",
         "description": ""
+    },
+    "modifier": {
+        "type": "integer",
+        "name": "Percentage of standard (0 - 100)",
+        "description": "",
+        "value": "15"
     }
 }

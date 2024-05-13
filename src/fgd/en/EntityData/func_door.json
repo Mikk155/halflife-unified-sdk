@@ -1,0 +1,13 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "Door",
+            "ZHLT",
+            "Appearflags"
+        ],
+        "classname": "func_door",
+        "name": "Basic door",
+        "description": ""
+    }
+}

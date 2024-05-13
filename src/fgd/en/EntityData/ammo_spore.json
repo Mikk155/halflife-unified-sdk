@@ -1,0 +1,16 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "studio": "models/spore_ammo.mdl",
+        "base": [
+            "Mandatory",
+            "Targetx",
+            "RenderFields",
+            "Ammo",
+            "Appearflags"
+        ],
+        "classname": "ammo_spore",
+        "name": "Spore",
+        "description": ""
+    }
+}

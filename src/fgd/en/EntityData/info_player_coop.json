@@ -1,0 +1,14 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "studio": "models/player.mdl",
+        "base": [
+            "Mandatory",
+            "PlayerClass",
+            "Appearflags"
+        ],
+        "classname": "info_player_coop",
+        "name": "Player cooperative start",
+        "description": ""
+    }
+}

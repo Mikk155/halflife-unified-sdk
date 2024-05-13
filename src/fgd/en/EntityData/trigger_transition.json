@@ -1,0 +1,11 @@
+{
+    "ClassData": {
+        "base": [
+            "Mandatory",
+            "Appearflags"
+        ],
+        "classname": "trigger_transition",
+        "name": "Trigger: Select Transition Area",
+        "description": ""
+    }
+}

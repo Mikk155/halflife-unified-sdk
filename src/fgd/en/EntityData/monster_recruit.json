@@ -1,0 +1,16 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "studio": "models/recruit.mdl",
+        "base": [
+            "Mandatory",
+            "Monster",
+            "TalkMonster",
+            "Sequence",
+            "Appearflags"
+        ],
+        "classname": "monster_recruit",
+        "name": "Recruit",
+        "description": ""
+    }
+}

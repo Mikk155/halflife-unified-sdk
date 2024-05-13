@@ -1,0 +1,13 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "base": [
+            "Mandatory",
+            "Target",
+            "Appearflags"
+        ],
+        "classname": "info_pitworm_steam_lock",
+        "name": "Pitworm Steam Lock",
+        "description": ""
+    }
+}

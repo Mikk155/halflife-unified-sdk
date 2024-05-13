@@ -1,0 +1,27 @@
+{
+    "ClassData": {
+        "type": "Point",
+        "size": [
+            [
+                "-32",
+                "-32",
+                "0"
+            ],
+            [
+                "32",
+                "32",
+                "128"
+            ]
+        ],
+        "studio": "models/garg.mdl",
+        "base": [
+            "Mandatory",
+            "Monster",
+            "Sequence",
+            "Appearflags"
+        ],
+        "classname": "monster_gargantua",
+        "name": "Gargantua",
+        "description": ""
+    }
+}

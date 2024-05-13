@@ -2,6 +2,7 @@
     "ClassData":
     {
         "type": "Point",
+        "studio": "models/editor/aiscripted_sequence.mdl",
         "color": [ 255, 0, 255 ],
         "size": [ [ -16, -16, 0 ], [ 16, 16, 72 ] ],
         "flags": [ "Angle" ],

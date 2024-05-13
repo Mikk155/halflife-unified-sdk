@@ -2,7 +2,6 @@
     "ClassData":
     {
         "type": "Point",
-        "studio": true,
         "iconsprite": "sprites/speaker.spr",
         "classname": "ambient_generic",
         "name": "Universal Ambient",
