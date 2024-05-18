@@ -2,8 +2,7 @@
     "ClassData": {
         "type": "Point",
         "studio": "models/w_grenade.mdl",
-        "base": [
-            "Mandatory",
+        "BaseClass": [
             "Targetx",
             "RenderFields",
             "Weapon",

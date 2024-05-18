@@ -14,8 +14,7 @@
             ]
         ],
         "studio": "models/headcrab.mdl",
-        "base": [
-            "Mandatory",
+        "BaseClass": [
             "Monster",
             "Sequence",
             "Appearflags"

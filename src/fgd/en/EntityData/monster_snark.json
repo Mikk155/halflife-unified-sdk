@@ -14,8 +14,7 @@
             ]
         ],
         "studio": "models/w_squeak.mdl",
-        "base": [
-            "Mandatory",
+        "BaseClass": [
             "Monster",
             "Sequence",
             "Appearflags"

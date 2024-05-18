@@ -2,8 +2,7 @@
     "ClassData": {
         "type": "Point",
         "studio": "models/w_spore_launcher.mdl",
-        "base": [
-            "Mandatory",
+        "BaseClass": [
             "Targetx",
             "RenderFields",
             "Weapon",

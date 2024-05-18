@@ -138,8 +138,13 @@ def WriteEntity( TypeClass, js, BaseClassName = '' ):
             description = values.get( 'description', '' )
 
             # Hack hack, https://developer.valvesoftware.com/wiki/FGD says Hammer die reading quoted integers
-            #if type != 'integer':
-            value = f'"{value}"'
+            if type != 'integer':
+                value = f'"{value}"'
+            else:
+                v = 0
+                if value and value != '':
+                    v = int(value)
+                value = f'{v}'
             # Undone, -Mikk ask in program wich program will you use the FGD for.
             # Hammer will also die if integer is empty ( "name" : : "description" )
             # Meant intentionaly empty (not 0) for specific keyvalues that shouldn't get handled to KeyValue bool.
@@ -160,7 +165,7 @@ def WriteEntity( TypeClass, js, BaseClassName = '' ):
         FGD.write( f']\n\n' )
         return
 
-    if len(js) > 1:
+    if len(js) > 1 or not BaseClassRead:
         if BaseClassName != 'IsCopyPoint':
             WriteEntity( 'Base', js )
             if DEBUG:
@@ -174,7 +179,7 @@ def WriteEntity( TypeClass, js, BaseClassName = '' ):
     #WriteStudio( ClassData )
     #WriteIconSprite( ClassData )
 
-    if len(js) > 1:
+    if len(js) > 1 or not BaseClassRead:
         FGD.write( f'base( Mandatory, C{classname}' )
         if BaseClassName == 'IsCopyPoint':
             FGD.write( f', hullsizes' )
@@ -201,6 +206,8 @@ def ReadData( path ):
             WriteEntity( 'Point', js, 'IsCopyPoint' )
 
 
+BaseClassRead = True
+
 LangFolders = os.listdir( os.path.abspath( f'{abs}/src/fgd/' ) )
 
 for L in LangFolders:
@@ -213,6 +220,7 @@ for L in LangFolders:
         JsonLists = os.listdir( os.path.abspath( f'{abs}/src/fgd/{L}/EntityData/' ) )
 
         ReadData( os.path.abspath( f'{abs}/src/fgd/{L}/EntityData/BaseClass.json' ) )
+        BaseClassRead = False
 
         for r in JsonLists:
 

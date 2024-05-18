@@ -2,8 +2,7 @@
     "ClassData": {
         "type": "Point",
         "studio": "models/drill.mdl",
-        "base": [
-            "Mandatory",
+        "BaseClass": [
             "Monster",
             "TalkMonster",
             "Sequence",

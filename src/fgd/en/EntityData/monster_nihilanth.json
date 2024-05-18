@@ -1,21 +1,9 @@
 {
     "ClassData": {
         "type": "Point",
-        "size": [
-            [
-                "-192",
-                "-192",
-                "0"
-            ],
-            [
-                "192",
-                "192",
-                "384"
-            ]
-        ],
+        "size": [ [ -192, -192, 0 ], [ 192, 192, 384 ] ],
         "studio": "models/nihilanth.mdl",
-        "base": [
-            "Mandatory",
+        "BaseClass": [
             "Monster",
             "Sequence",
             "Appearflags"

@@ -14,8 +14,7 @@
             ]
         ],
         "studio": "models/bullsquid.mdl",
-        "base": [
-            "Mandatory",
+        "BaseClass": [
             "Monster",
             "Sequence",
             "Appearflags"

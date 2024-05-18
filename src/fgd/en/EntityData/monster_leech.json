@@ -14,8 +14,7 @@
             ]
         ],
         "studio": "models/leech.mdl",
-        "base": [
-            "Mandatory",
+        "BaseClass": [
             "Monster",
             "Sequence",
             "Appearflags"

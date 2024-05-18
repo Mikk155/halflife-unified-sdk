@@ -781,6 +781,8 @@ void CBasePlayer::RemoveAllItems(bool removeSuit)
 
 void CBasePlayer::Killed(CBaseEntity* attacker, int iGib)
 {
+	HandleEvent( 200, attacker, this, iGib );
+
 	CSound* pSound;
 
 	// Holster weapon immediately, to allow it to cleanup

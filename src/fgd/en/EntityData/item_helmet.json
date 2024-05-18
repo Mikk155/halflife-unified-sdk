@@ -1,21 +1,11 @@
 {
     "ClassData": {
         "type": "Point",
-        "size": [
-            [
-                "-16",
-                "-16",
-                "0"
-            ],
-            [
-                "16",
-                "16",
-                "36"
-            ]
-        ],
+        "size": [ [ -16, -16, 0 ], [ 16, 16, 36 ] ],
         "studio": "models/barney_helmet.mdl",
         "BaseClass": [
-            "item_battery",
+            "Targetx",
+            "Item",
             "Appearflags"
         ],
         "classname": "item_helmet",

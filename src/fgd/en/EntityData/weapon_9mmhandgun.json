@@ -2,8 +2,7 @@
     "ClassData": {
         "type": "Point",
         "studio": "models/w_9mmhandgun.mdl",
-        "base": [
-            "Mandatory",
+        "BaseClass": [
             "Targetx",
             "RenderFields",
             "Weapon",

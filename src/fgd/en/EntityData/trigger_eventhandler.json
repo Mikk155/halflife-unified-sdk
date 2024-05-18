@@ -27,6 +27,11 @@
             "101": {
                 "name": "Monster TakeDamage",
                 "description": "A monster has been hurt. !activator inflictor, !caller monster, value flDamage"
+            },
+
+            "200": {
+                "name": "Player Killed",
+                "description": "A Player has been killed. !activator killer, !caller player, value iGib"
             }
         }
     }

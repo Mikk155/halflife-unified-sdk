@@ -15,7 +15,8 @@
         ],
         "studio": "models/barney_vest.mdl",
         "BaseClass": [
-            "item_battery",
+            "Targetx",
+            "Item",
             "Appearflags"
         ],
         "classname": "item_armorvest",

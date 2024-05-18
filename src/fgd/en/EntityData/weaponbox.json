@@ -19,8 +19,7 @@
             "0"
         ],
         "studio": "models/w_chainammo.mdl",
-        "base": [
-            "Mandatory",
+        "BaseClass": [
             "Appearflags"
         ],
         "classname": "weaponbox",

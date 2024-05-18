@@ -14,8 +14,7 @@
             ]
         ],
         "studio": "models/w_antidote.mdl",
-        "base": [
-            "Mandatory",
+        "BaseClass": [
             "Targetx",
             "Item",
             "Appearflags"

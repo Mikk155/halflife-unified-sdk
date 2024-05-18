@@ -14,8 +14,7 @@
             ]
         ],
         "studio": "models/barnacle.mdl",
-        "base": [
-            "Mandatory",
+        "BaseClass": [
             "RenderFields",
             "Sequence",
             "Appearflags"

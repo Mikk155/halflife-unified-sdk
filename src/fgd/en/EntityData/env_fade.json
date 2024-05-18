@@ -2,7 +2,7 @@
     "ClassData":
     {
         "type": "Point",
-        "size": [ [ -16, -16, 0 ], [ 16, 16, 72 ] ],
+        "color": [ 100, 150, 100 ],
         "classname": "env_fade",
         "name": "Screen Fade",
         "description": "",
