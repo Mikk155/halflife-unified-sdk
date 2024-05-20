@@ -2018,5 +2018,42 @@
                 }
             }
         }
+    },
+    "CTempEntity":
+    {
+        "ClassData":
+        {
+            "BaseClass":
+            [
+                "SF1Repeatable"
+            ]
+        },
+        "spawnflags":
+        {
+            "2": {
+                "name": "Clients can see",
+                "description": "Clients that are not the activator can see this effect",
+                "active": true
+            },
+            "4": {
+                "name": "Activator can see",
+                "description": "Client Activator can see this effect",
+                "active": true
+            }
+        },
+        "netname":
+        {
+            "type": "target_generic",
+            "name": "Target destination",
+            "description": "Where to show this FX, if empty = this entity's origin, supports !activator and !caller, can also be a origin vector to explicitlly specify where to use the effect",
+            "value": ""
+        },
+        "m_VecOffSet":
+        {
+            "type": "vector",
+            "name": "OffSet position",
+            "description": "Offset position to asign to the target destination",
+            "value": ""
+        }
     }
 }

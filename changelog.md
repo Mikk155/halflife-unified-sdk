@@ -17,6 +17,16 @@ This file will be updated from above to bellow, meaning besides from this text, 
 <!-- Start of May -->
 <details><summary>5 (May)</summary><p>
 
+<details><summary>20</summary><p>
+
+- Implement BaseClass CTempEntity
+
+- New entity env_effect_tarexplosion wich uses the class CTempEntity to display TE_TAREXPLOSION
+
+---
+
+</p></details>
+
 <details><summary>11</summary><p>
 
 - Implement Appearance Flags

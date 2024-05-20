@@ -1,0 +1,17 @@
+{
+    "ClassData":
+    {
+        "type": "Point",
+        "size": [ [ -8, -8, -8 ], [ 8, 8, 8 ] ],
+        "color": [ 0, 200, 0 ],
+        "classname": "env_effect_tarexplosion",
+        "name": "Quake Tar Explosion",
+        "description": "",
+        "BaseClass":
+        [
+            "CTempEntity",
+            "Target",
+            "Appearflags"
+        ]
+    }
+}

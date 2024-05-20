@@ -639,6 +639,17 @@
 	]
 ]
 
+@BaseClass base( SF1Repeatable ) = CTempEntity
+[
+	spawnflags(Flags) =
+	[
+		2 : "Clients can see" : 1 : "Clients that are not the activator can see this effect"
+		4 : "Activator can see" : 1 : "Client Activator can see this effect"
+	]
+	netname(target_generic) : "Target destination" : "" : "Where to show this FX, if empty = this entity's origin, supports !activator and !caller, can also be a origin vector to explicitlly specify where to use the effect"
+	m_VecOffSet(vector) : "OffSet position" : "" : "Offset position to asign to the target destination"
+]
+
 @BaseClass color( 255 0 255 ) size( -16 -16 0, 16 16 72 ) flags( Angle ) studio( "models/editor/aiscripted_sequence.mdl" ) = Caiscripted_sequence : "AI Scripted Sequence" : ""
 [
 	m_iFinishSchedule(choices) : "AI Schedule when done" : "0" : "" =
@@ -959,6 +970,12 @@
 @SolidClass base( Mandatory, Cenv_bubbles, SF1StartOff, Appearflags )  = env_bubbles : "Bubble Volume" : "" []
 
 @PointClass base( Mandatory, Cenv_bubbles, hullsizes, SF1StartOff, Appearflags )  = env_bubbles : "Bubble Volume" : "" []
+
+@BaseClass color( 0 200 0 ) size( -8 -8 -8, 8 8 8 ) = Cenv_effect_tarexplosion : "Quake Tar Explosion" : ""
+[
+]
+
+@PointClass base( Mandatory, Cenv_effect_tarexplosion, CTempEntity, Target, Appearflags )  = env_effect_tarexplosion : "Quake Tar Explosion" : "" []
 
 @BaseClass size( -16 -16 -16, 16 16 16 ) = Cenv_electrified_wire : "Electrified Wire" : ""
 [
