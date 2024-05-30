@@ -33,8 +33,6 @@ This file will be updated from above to bellow, meaning besides from this text, 
     - env_effect_tarexplosion
     - env_effect_tracer
 
--
-
 - Created a python script for "converting" entities from other mods into my version of them in this SDK
 - Added visual FX as a placeholder for the longjump module
 
