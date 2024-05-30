@@ -53,6 +53,11 @@
 	sequence(integer) : "Animation Sequence (editor)" : 0 : "Sequence to display in Jackhammer. This does not affect gameplay."
 ]
 
+@BaseClass = framerate
+[
+	framerate(integer) : "Framerate" : 10 : ""
+]
+
 @BaseClass = ZHLT
 [
 	zhlt_lightflags(choices) : "ZHLT Lightflags" : "" : "" =
@@ -643,11 +648,17 @@
 [
 	spawnflags(Flags) =
 	[
-		2 : "Clients can see" : 1 : "Clients that are not the activator can see this effect"
-		4 : "Activator can see" : 1 : "Client Activator can see this effect"
+		2 : "Clients can see" : 1 : "Clients that are not the activator can see this effect, This has no effect in SinglePlayer"
+		4 : "Activator can see" : 1 : "Client Activator can see this effect, This has no effect in SinglePlayer"
 	]
 	netname(target_generic) : "Target destination" : "" : "Where to show this FX, if empty = this entity's origin, supports !activator and !caller, can also be a origin vector to explicitlly specify where to use the effect"
-	m_VecOffSet(vector) : "OffSet position" : "" : "Offset position to asign to the target destination"
+	m_VecOffSet(vector) : "OffSet position" : "" : "Offset position to asign to the Target destination"
+]
+
+@BaseClass = CTempEntityVecEnd
+[
+	message(target_generic) : "End Target destination" : "" : "Where to show this FX To, if empty = this entity's origin, supports !activator and !caller, can also be a origin vector to explicitlly specify where to use the effect"
+	m_VecOffSet(vector) : "OffSet position" : "" : "Offset position to asign to the End Target destination"
 ]
 
 @BaseClass color( 255 0 255 ) size( -16 -16 0, 16 16 72 ) flags( Angle ) studio( "models/editor/aiscripted_sequence.mdl" ) = Caiscripted_sequence : "AI Scripted Sequence" : ""
@@ -971,11 +982,59 @@
 
 @PointClass base( Mandatory, Cenv_bubbles, hullsizes, SF1StartOff, Appearflags )  = env_bubbles : "Bubble Volume" : "" []
 
+@BaseClass color( 0 200 0 ) size( -8 -8 -8, 8 8 8 ) = Cenv_effect_funnel : "Tracer" : ""
+[
+	model(sprite) : "Model" : "sprites/flare6.spr" : ""
+	health(choices) : "Directional Mode" : "0" : "mode 1 is the equivalent to the spawnflag 'Reverse' in env_funnel" =
+	[
+		"0" : "In to Out" : ""
+		"1" : "Out to In" : ""
+	]
+]
+
+@PointClass base( Mandatory, Cenv_effect_funnel, CTempEntity, Targetx, Appearflags )  = env_effect_funnel : "Tracer" : "" []
+
+@BaseClass color( 0 200 0 ) size( -8 -8 -8, 8 8 8 ) = Cenv_effect_light : "Light" : ""
+[
+	health(choices) : "Light Type" : "0" : "" =
+	[
+		"0" : "World (DLIGHT)" : ""
+		"1" : "Models (DLIGHT)" : ""
+		"2" : "Both (DLIGHT + ELIGHT)" : ""
+	]
+	m_fRadius(float) : "Radius" : "" : ""
+	m_fDecay(float) : "Decay" : "" : ""
+	m_iLife(float) : "Life" : "" : ""
+	m_Attachment(integer) : "Attachment (ELIGHT Only)" : 0 : ""
+]
+
+@PointClass base( Mandatory, Cenv_effect_light, Rendercolor, Renderamt, CTempEntity, Targetx, Appearflags )  = env_effect_light : "Light" : "" []
+
+@BaseClass color( 0 200 0 ) size( -8 -8 -8, 8 8 8 ) sprite( "" ) = Cenv_effect_smoke : "Smoke" : ""
+[
+	scale(integer) : "Scale" : 25 : ""
+	model(sprite) : "Model" : "sprites/steam1.spr" : ""
+]
+
+@PointClass base( Mandatory, Cenv_effect_smoke, CTempEntity, framerate, Targetx, Appearflags )  = env_effect_smoke : "Smoke" : "" []
+
+@BaseClass color( 0 200 0 ) size( -8 -8 -8, 8 8 8 ) = Cenv_effect_sparks : "random tracers with gravity, ricochet sprite" : ""
+[
+]
+
+@PointClass base( Mandatory, Cenv_effect_sparks, CTempEntity, Targetx, Appearflags )  = env_effect_sparks : "random tracers with gravity, ricochet sprite" : "" []
+
 @BaseClass color( 0 200 0 ) size( -8 -8 -8, 8 8 8 ) = Cenv_effect_tarexplosion : "Quake Tar Explosion" : ""
 [
 ]
 
-@PointClass base( Mandatory, Cenv_effect_tarexplosion, CTempEntity, Target, Appearflags )  = env_effect_tarexplosion : "Quake Tar Explosion" : "" []
+@PointClass base( Mandatory, Cenv_effect_tarexplosion, CTempEntity, Targetx, Appearflags )  = env_effect_tarexplosion : "Quake Tar Explosion" : "" []
+
+@BaseClass color( 0 200 0 ) size( -8 -8 -8, 8 8 8 ) = Cenv_effect_tracer : "Tracer" : ""
+[
+]
+
+@PointClass base( Mandatory, Cenv_effect_tracer, CTempEntity, CTempEntityVecEnd, Targetx, Appearflags )  = env_effect_tracer : "Tracer" : "" []
 
 @BaseClass size( -16 -16 -16, 16 16 16 ) = Cenv_electrified_wire : "Electrified Wire" : ""
 [
@@ -1039,17 +1098,6 @@
 ]
 
 @PointClass base( Mandatory, Cenv_fog, Rendercolor, Appearflags )  = env_fog : "Global Fog Controller" : "" []
-
-@BaseClass size( -16 -16 -16, 16 16 16 ) = Cenv_funnel : "Large Portal Funnel" : ""
-[
-	spawnflags(Flags) =
-	[
-		1 : "Reverse" : 0 : ""
-	]
-	model(sprite) : "Sprite Name" : "sprites/flare6.spr" : ""
-]
-
-@PointClass base( Mandatory, Cenv_funnel, SF2Repeatable, Appearflags )  = env_funnel : "Large Portal Funnel" : "" []
 
 @BaseClass color( 255 255 128 ) = Cenv_global : "Global State" : ""
 [
@@ -3861,6 +3909,16 @@
 		"1" : "Yes" : ""
 	]
 ]
+
+@BaseClass studio( "models/bouncepad.mdl" ) = Cxen_bouncepad : "Xen Bounce Pad" : ""
+[
+	m_szSound(sound) : "Custom Sound" : "doors/aliendoor3.wav" : ""
+	m_fSpeed(float) : "Push Speed" : "1.5" : ""
+	m_szTargetPath(target_generic) : "Target Push (override Angle Push)" : "" : "The name of a path_track to control the entity's destination"
+	m_VecAngles(vector) : "Angle Push" : "0 0 90" : ""
+]
+
+@PointClass base( Mandatory, Cxen_bouncepad, RenderFields, Angles, Appearflags )  = xen_bouncepad : "Xen Bounce Pad" : "" []
 
 @BaseClass flags( Angle ) studio( "models/hair.mdl" ) = Cxen_hair : "Xen Hair" : ""
 [

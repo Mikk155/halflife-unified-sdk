@@ -1,0 +1,69 @@
+{
+    "ClassData":
+    {
+        "type": "Point",
+        "size": [ [ -8, -8, -8 ], [ 8, 8, 8 ] ],
+        "color": [ 0, 200, 0 ],
+        "classname": "env_effect_light",
+        "name": "Light",
+        "description": "",
+        "BaseClass":
+        [
+            "Rendercolor",
+            "Renderamt",
+            "CTempEntity",
+            "Targetx",
+            "Appearflags"
+        ]
+    },
+    "health":
+    {
+        "type": "choices",
+        "name": "Light Type",
+        "description": "",
+        "value": "0",
+        "choices":
+        {
+            "0": {
+                "name": "World (DLIGHT)",
+                "description": ""
+            },
+            "1": {
+                "name": "Models (DLIGHT)",
+                "description": ""
+            },
+            "2": {
+                "name": "Both (DLIGHT + ELIGHT)",
+                "description": ""
+            }
+        }
+    },
+    "m_fRadius":
+    {
+        "type": "float",
+        "name": "Radius",
+        "description": "",
+        "value": ""
+    },
+    "m_fDecay":
+    {
+        "type": "float",
+        "name": "Decay",
+        "description": "",
+        "value": ""
+    },
+    "m_iLife":
+    {
+        "type": "float",
+        "name": "Life",
+        "description": "",
+        "value": ""
+    },
+    "m_Attachment":
+    {
+        "type": "integer",
+        "name": "Attachment (ELIGHT Only)",
+        "description": "",
+        "value": ""
+    }
+}

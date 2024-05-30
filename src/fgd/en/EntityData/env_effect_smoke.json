@@ -1,0 +1,33 @@
+{
+    "ClassData":
+    {
+        "type": "Point",
+        "sprite": "",
+        "size": [ [ -8, -8, -8 ], [ 8, 8, 8 ] ],
+        "color": [ 0, 200, 0 ],
+        "classname": "env_effect_smoke",
+        "name": "Smoke",
+        "description": "",
+        "BaseClass":
+        [
+            "CTempEntity",
+            "framerate",
+            "Targetx",
+            "Appearflags"
+        ]
+    },
+    "scale":
+    {
+        "type": "integer",
+        "name": "Scale",
+        "description": "",
+        "value": "25"
+    },
+    "model":
+    {
+        "type": "sprite",
+        "name": "Model",
+        "description": "",
+        "value": "sprites/steam1.spr"
+    }
+}

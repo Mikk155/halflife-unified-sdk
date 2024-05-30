@@ -141,6 +141,16 @@
             "value": "0"
         }
     },
+    "framerate":
+    {
+        "framerate":
+        {
+            "type": "integer",
+            "name": "Framerate",
+            "description": "",
+            "value": "10"
+        }
+    },
     "ZHLT":
     {
         "zhlt_lightflags": {
@@ -2032,12 +2042,12 @@
         {
             "2": {
                 "name": "Clients can see",
-                "description": "Clients that are not the activator can see this effect",
+                "description": "Clients that are not the activator can see this effect, This has no effect in SinglePlayer",
                 "active": true
             },
             "4": {
                 "name": "Activator can see",
-                "description": "Client Activator can see this effect",
+                "description": "Client Activator can see this effect, This has no effect in SinglePlayer",
                 "active": true
             }
         },
@@ -2052,7 +2062,24 @@
         {
             "type": "vector",
             "name": "OffSet position",
-            "description": "Offset position to asign to the target destination",
+            "description": "Offset position to asign to the Target destination",
+            "value": ""
+        }
+    },
+    "CTempEntityVecEnd":
+    {
+        "message":
+        {
+            "type": "target_generic",
+            "name": "End Target destination",
+            "description": "Where to show this FX To, if empty = this entity's origin, supports !activator and !caller, can also be a origin vector to explicitlly specify where to use the effect",
+            "value": ""
+        },
+        "m_VecOffSet":
+        {
+            "type": "vector",
+            "name": "OffSet position",
+            "description": "Offset position to asign to the End Target destination",
             "value": ""
         }
     }

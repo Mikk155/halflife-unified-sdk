@@ -19,6 +19,22 @@ This file will be updated from above to bellow, meaning besides from this text, 
 
 <details><summary>30</summary><p>
 
+- Split entities based on CTempEntity into env_effect/
+
+- Inherit CTempEntity from CBaseDelay
+
+- Remove env_funnel from the game code
+
+- New CTempEntity based entities
+    - env_effect_funnel
+    - env_effect_light
+    - env_effect_smoke
+    - env_effect_sparks
+    - env_effect_tarexplosion
+    - env_effect_tracer
+
+-
+
 - Created a python script for "converting" entities from other mods into my version of them in this SDK
 - Added visual FX as a placeholder for the longjump module
 

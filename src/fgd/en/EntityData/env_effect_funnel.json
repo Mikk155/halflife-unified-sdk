@@ -1,0 +1,42 @@
+{
+    "ClassData":
+    {
+        "type": "Point",
+        "size": [ [ -8, -8, -8 ], [ 8, 8, 8 ] ],
+        "color": [ 0, 200, 0 ],
+        "classname": "env_effect_funnel",
+        "name": "Tracer",
+        "description": "",
+        "BaseClass":
+        [
+            "CTempEntity",
+            "Targetx",
+            "Appearflags"
+        ]
+    },
+    "model":
+    {
+        "type": "sprite",
+        "name": "Model",
+        "description": "",
+        "value": "sprites/flare6.spr"
+    },
+    "health":
+    {
+        "type": "choices",
+        "name": "Directional Mode",
+        "description": "mode 1 is the equivalent to the spawnflag 'Reverse' in env_funnel",
+        "value": "0",
+        "choices":
+        {
+            "0": {
+                "name": "In to Out",
+                "description": ""
+            },
+            "1": {
+                "name": "Out to In",
+                "description": ""
+            }
+        }
+    }
+}

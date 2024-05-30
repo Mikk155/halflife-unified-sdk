@@ -154,6 +154,15 @@ target_sources(server PRIVATE
 	entities/ctf/CTFSpawn.cpp
 	entities/ctf/CTFSpawn.h
 
+	entities/env_effect/CTempEntity.cpp
+	entities/env_effect/CTempEntity.h
+	entities/env_effect/funnel.cpp
+	entities/env_effect/light.cpp
+	entities/env_effect/smoke.cpp
+	entities/env_effect/sparks.cpp
+	entities/env_effect/tarexplosion.cpp
+	entities/env_effect/tracer.cpp
+
 	entities/items/airtank.cpp
 	entities/items/CAmmoAll.cpp
 	entities/items/CAmmoGeneric.cpp

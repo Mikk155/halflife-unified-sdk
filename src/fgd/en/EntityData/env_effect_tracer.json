@@ -4,12 +4,13 @@
         "type": "Point",
         "size": [ [ -8, -8, -8 ], [ 8, 8, 8 ] ],
         "color": [ 0, 200, 0 ],
-        "classname": "env_effect_tarexplosion",
-        "name": "Quake Tar Explosion",
+        "classname": "env_effect_tracer",
+        "name": "Tracer",
         "description": "",
         "BaseClass":
         [
             "CTempEntity",
+            "CTempEntityVecEnd",
             "Targetx",
             "Appearflags"
         ]
