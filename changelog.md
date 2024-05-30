@@ -17,6 +17,15 @@ This file will be updated from above to bellow, meaning besides from this text, 
 <!-- Start of May -->
 <details><summary>5 (May)</summary><p>
 
+<details><summary>30</summary><p>
+
+- Created a python script for "converting" entities from other mods into my version of them in this SDK
+- Added visual FX as a placeholder for the longjump module
+
+---
+
+</p></details>
+
 <details><summary>20</summary><p>
 
 - Implement BaseClass CTempEntity
