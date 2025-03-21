@@ -27,6 +27,8 @@
 #include "items/CBaseItem.h"
 #include "items/weapons/CSatchelCharge.h"
 
+#include "ui/hud/InformationWindow.h"
+
 CVoiceGameMgr g_VoiceGameMgr;
 
 class CMultiplayGameMgrHelper : public IVoiceGameMgrHelper
@@ -267,7 +269,8 @@ void CHalfLifeMultiplay::InitHUD( CBasePlayer* pl )
     // it is just disabled for single play
     pl->SendScoreInfo( pl );
 
-    SendMOTDToClient( pl );
+    g_InformationWindow.SendInformation(pl, 0, CVAR_GET_STRING( "hostname" ), CVAR_GET_STRING( "motdfile" ) );
+//    SendMOTDToClient( pl ); -TODO Should we reuse it or strip it?
 
     if( IsCTF() )
     {
